@@ -1,0 +1,58 @@
+.navigation, .chat {
+  .ui.floating.dropdown.button {
+    min-width: inherit !important;
+    min-height: inherit !important;
+    padding: 0 15px !important;
+    height: 51px!important;
+    line-height: 2!important;
+    border-radius: 3px!important;
+    margin: 0;
+    background: transparent;
+    border-color: lighten(#555555, 50%);
+    .search.icon, .delete.icon, .dropdown.icon {
+      position: relative !important;
+      float: right !important;
+      right: auto!important;
+      line-height: 2.8;
+      margin-left: 5px;
+      color: #7b7b7b !important;
+    }
+    .default.text, .text {
+      color: rgba(179, 179, 179, 0.7);
+      line-height: initial;
+      height: 50px;
+      display: inline-block;
+      min-width:100px;
+      max-width:200px;
+      color: #7b7b7b !important;
+      img {
+        display: block;
+        width:34px;
+        height:34px;
+        float: left;
+        margin-top: 8px;
+      }
+      .drop-text {
+        padding-top: 15px;
+        display: block;
+        min-width:50px;
+        max-width:150px;
+        overflow: hidden;
+        height:50px;
+        float: right;
+        font-weight: bold;
+        color: #7b7b7b !important;
+        font-size: small;
+      }
+    }
+    .menu {
+      background: #f8f8f8;
+      border-color: lighten(#555555, 50%);
+
+      li {
+      }
+
+    }
+  }
+
+}
