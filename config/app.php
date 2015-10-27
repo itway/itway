@@ -149,7 +149,7 @@ return [
         'Conner\Tagging\TaggingServiceProvider',
         'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
         'nilsenj\Toastr\ToastrServiceProvider',
-        Mpociot\Teamwork\TeamworkServiceProvider::class,
+        Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
 
 
         /*
@@ -165,7 +165,8 @@ return [
         'CodeZero\Mailer\MailerServiceProvider',
         'Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider',
         SourceQuartet\VisitorLog\VisitorLogServiceProvider::class,
-        Cmgmyr\Messenger\MessengerServiceProvider::class,
+        Itway\Components\Messenger\MessengerServiceProvider::class,
+
     ],
 
     /*

@@ -1,38 +1,27 @@
-<?php
+<?php namespace App\Http\Controllers;
 
-namespace itway\Http\Controllers;
-
-use Illuminate\Http\Request;
-use itway\Http\Requests;
-use itway\Http\Controllers\Controller;
-use Itway\Repositories\Users\UserRepository;
-use itway\User;
+use App\User;
 use Carbon\Carbon;
-use Cmgmyr\Messenger\Models\Thread;
-use Cmgmyr\Messenger\Models\Message;
-use Cmgmyr\Messenger\Models\Participant;
+use Itway\Components\Messenger\Models\Thread;
+use Itway\Components\Messenger\Models\Message;
+use Itway\Components\Messenger\Models\Participant;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-use App;
-use itway\Events\UserEnteredChatEvent;
-use itway\Events\ChatRoomCreated;
 
 class MessagesController extends Controller
 {
     /**
-     * @param UserRepository $userRepository
+     * Just for testing - the user should be logged in. In a real
+     * app, please use standard authentication practices
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct()
     {
-        $this->userRepository = $userRepository;
+        $user = User::find(1);
+        Auth::login($user);
     }
 
-    protected function redirectNotFound()
-    {
-        return redirect()->to(App::getLocale()."/")->with(\Flash::error('UPS Error happened!!'));
-    }
     /**
      * Show all of the message threads to the user
      *
@@ -40,32 +29,18 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        try {
-            if (Auth::user()) {
+        $currentUserId = Auth::user()->id;
 
-                $user = Auth::user();
+        // All threads, ignore deleted/archived participants
+        $threads = Thread::getAllLatest()->get();
 
-            // All threads, ignore deleted/archived participants
-//            $threads = Thread::getAllLatest()->get();
+        // All threads that user is participating in
+        // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
 
-            // All threads that user is participating in
+        // All threads that user is participating in, with new messages
+        // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
 
-                $threads = Thread::forUser($user->id)->latest('updated_at')->get();
-
-             $users = User::all();
-//             All threads that user is participating in, with new messages
-//             $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
-
-            return view('messages.index', compact('threads', 'user', 'users'));
-            }
-            else {
-                return redirect()->to("/auth/login");
-            }
-        } catch (ModelNotFoundException $e) {
-
-            return $this->redirectNotFound();
-
-        }
+        return view('messenger.index', compact('threads', 'currentUserId'));
     }
 
     /**
@@ -77,45 +52,23 @@ class MessagesController extends Controller
     public function show($id)
     {
         try {
-            if (Auth::user()) {
-
-                $user = Auth::user();
-
-
-                $thread = Thread::findOrFail($id);
-
-
-                $threads = Thread::forUser($user->id)->latest('updated_at')->get();
-
-            }
-            else
-            {
-                return redirect()->to('auth/login');
-            }
+            $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
-
             Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
 
-            return redirect(App::getLocale().'/messages');
+            return redirect('messages');
         }
 
         // show current user in list if not a current participant
-//         $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
+        // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
 
         // don't show the current user in list
-
         $userId = Auth::user()->id;
-
-
-        $participants_list = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
-
-        $users = User::all();
+        $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
 
         $thread->markAsRead($userId);
 
-        event(new UserEnteredChatEvent($user));
-
-        return view('messages.show', compact('thread','threads', 'participants_list','users', 'user', 'userId'));
+        return view('messenger.show', compact('thread', 'users'));
     }
 
     /**
@@ -127,7 +80,7 @@ class MessagesController extends Controller
     {
         $users = User::where('id', '!=', Auth::id())->get();
 
-        return view('messages.create', compact('users'));
+        return view('messenger.create', compact('users'));
     }
 
     /**
@@ -165,14 +118,10 @@ class MessagesController extends Controller
 
         // Recipients
         if (Input::has('recipients')) {
-
             $thread->addParticipants($input['recipients']);
-
         }
 
-        event(new ChatRoomCreated());
-
-        return redirect(App::getLocale().'/chat');
+        return redirect('messages');
     }
 
     /**
@@ -184,11 +133,8 @@ class MessagesController extends Controller
     public function update($id)
     {
         try {
-
             $thread = Thread::findOrFail($id);
-
         } catch (ModelNotFoundException $e) {
-
             Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
 
             return redirect('messages');
@@ -217,10 +163,9 @@ class MessagesController extends Controller
 
         // Recipients
         if (Input::has('recipients')) {
-
             $thread->addParticipants(Input::get('recipients'));
         }
 
-        return redirect(route('itway::messages.show', $id));
+        return redirect('messages/' . $id);
     }
 }

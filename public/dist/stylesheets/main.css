@@ -1443,7 +1443,7 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .button-notify span.has-notify{background-color:#FF5722;width:8px;height:8px;border-radius:100%;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;float:inherit}
 .button-notify span.no-notify{background-color:#9E9E9E;width:8px;height:8px;border-radius:100%;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;float:inherit}
 .control-sidebar-bg{position:fixed;z-index:1000;bottom:0}
-.control-sidebar,.control-sidebar-bg{top:0;left:-290px;width:280px;-webkit-transition:right .3s ease-in-out;transition:right .3s ease-in-out}
+.control-sidebar,.control-sidebar-bg{top:0;left:-390px;width:380px;-webkit-transition:right .3s ease-in-out;transition:right .3s ease-in-out}
 .control-sidebar{position:absolute;padding-top:0;z-index:1010}
 .control-sidebar .control-sidebar-tabs{display:inline}
 .control-sidebar .notify{display:block;padding:0!important;margin-top:10px;margin-bottom:0}

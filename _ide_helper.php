@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.20 (LTS) on 2015-10-26.
+ * Generated for Laravel 5.1.20 (LTS) on 2015-10-27.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13564,7 +13564,7 @@ namespace {
     }
 
 
-    class Teamwork extends \Mpociot\Teamwork\Facades\Teamwork{
+    class Teamwork extends \Itway\Components\teamwork\Teamwork\Facades\Teamwork{
         
         /**
          * Get the currently authenticated user or null.
@@ -13572,7 +13572,7 @@ namespace {
          * @static 
          */
         public static function user(){
-            return \Mpociot\Teamwork\Teamwork::user();
+            return \Itway\Components\teamwork\Teamwork\Teamwork::user();
         }
         
         /**
@@ -13582,14 +13582,14 @@ namespace {
          * 
          * If no team is given, the current_team_id will be used instead.
          *
-         * @param string|\Mpociot\Teamwork\User $user
-         * @param null|\Mpociot\Teamwork\Team $team
+         * @param string|\Itway\Components\teamwork\Teamwork\User $user
+         * @param null|\Itway\Components\teamwork\Teamwork\Team $team
          * @param callable $success
          * @throws \Exception
          * @static 
          */
         public static function inviteToTeam($user, $team = null, $success = null){
-            return \Mpociot\Teamwork\Teamwork::inviteToTeam($user, $team, $success);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::inviteToTeam($user, $team, $success);
         }
         
         /**
@@ -13597,12 +13597,12 @@ namespace {
          * provided Team
          *
          * @param $email
-         * @param \Mpociot\Teamwork\Team|array|integer $team
+         * @param \Itway\Components\teamwork\Teamwork\Team|array|integer $team
          * @return bool 
          * @static 
          */
         public static function hasPendingInvite($email, $team){
-            return \Mpociot\Teamwork\Teamwork::hasPendingInvite($email, $team);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::hasPendingInvite($email, $team);
         }
         
         /**
@@ -13613,17 +13613,17 @@ namespace {
          * @static 
          */
         public static function getInviteFromAcceptToken($token){
-            return \Mpociot\Teamwork\Teamwork::getInviteFromAcceptToken($token);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::getInviteFromAcceptToken($token);
         }
         
         /**
          * 
          *
-         * @param \Mpociot\Teamwork\TeamInvite $invite
+         * @param \Itway\Components\teamwork\Teamwork\TeamInvite $invite
          * @static 
          */
         public static function acceptInvite($invite){
-            return \Mpociot\Teamwork\Teamwork::acceptInvite($invite);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::acceptInvite($invite);
         }
         
         /**
@@ -13634,17 +13634,17 @@ namespace {
          * @static 
          */
         public static function getInviteFromDenyToken($token){
-            return \Mpociot\Teamwork\Teamwork::getInviteFromDenyToken($token);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::getInviteFromDenyToken($token);
         }
         
         /**
          * 
          *
-         * @param \Mpociot\Teamwork\TeamInvite $invite
+         * @param \Itway\Components\teamwork\Teamwork\TeamInvite $invite
          * @static 
          */
         public static function denyInvite($invite){
-            return \Mpociot\Teamwork\Teamwork::denyInvite($invite);
+            return \Itway\Components\teamwork\Teamwork\Teamwork::denyInvite($invite);
         }
         
     }

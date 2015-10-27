@@ -2,7 +2,7 @@
 
 namespace itway;
 
-use Mpociot\Teamwork\TeamworkTeam;
+use Itway\Components\teamwork\Teamwork\TeamworkTeam;
 
 class Team extends TeamworkTeam
 {

@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-use Mpociot\Teamwork\Traits\UserHasTeams;
+use Itway\Components\teamwork\Teamwork\Traits\UserHasTeams;
 use Carbon\Carbon;
 use File;
 use Illuminate\Support\Facades\Request;
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Auth;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Itway\Traits\Searchable;
-use Cmgmyr\Messenger\Traits\Messagable;
+use Itway\Components\Messenger\Traits\Messagable;
 
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract, SluggableInterface {

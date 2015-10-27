@@ -648,7 +648,7 @@ function _init(o) {
 
             sendMessage: function (body, conversation, user_id) {
                 var jqxhr = $.ajax({
-                    url: '/rooms/messages',
+                    url: '/room/create-message',
                     type: 'POST',
                     data:  { body: body , conversation: conversation, user_id: user_id },
                     dataType: 'json'

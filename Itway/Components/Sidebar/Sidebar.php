@@ -4,37 +4,35 @@ namespace Itway\Components\Sidebar;
 
 use Itway\Components\Sidebar\SidebarInterface;
 
-abstract class Sidebar implements SidebarInterface {
+class Sidebar implements SidebarInterface {
 
 	public function __construct() {
 
 	}
 
 
-	public function getLastPosts($model) {
+	public function getLastPosts() {
 
 	}
 
-	public function getLastQuizzes($model) {
+	public function getLastQuizzes() {
 
 	}
 
-	public function getLastIdeas($model) {
+	public function getLastIdeas() {
 
 
 	}
 
-	public function getLastJobs($model) {
+	public function getLastJobs() {
 
 	}
 
-	public function getLastTeams($model) {
+	public function getLastTeams() {
 
 	}
 
-
-	public function formLastModelsCollection {
-
+	public function formLastModelsCollection (){
 
 	}
 }

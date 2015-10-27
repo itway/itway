@@ -124,13 +124,10 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         Route::get('sales', [
             'uses' => 'AdminController@sales'
         ]);
-        // CHAT ROUTES START
+        // CHAT Localed ROUTES START
         Route::group(['prefix' => 'chat'], function () {
-            Route::get('/', ['as' => 'chat', 'uses' => 'MessagesController@index']);
-            Route::get('create', ['as' => 'chat.create', 'uses' => 'MessagesController@create']);
-            Route::post('/', ['as' => 'chat.store', 'uses' => 'MessagesController@store']);
-            Route::get('{id}', ['as' => 'chat.show', 'uses' => 'MessagesController@show']);
-            Route::put('{id}', ['as' => 'chat.update', 'uses' => 'MessagesController@update']);
+            Route::get('/', ['as' => 'chat', 'uses' => 'ChatController@index']);
+            Route::get('{id}', ['as' => 'chat.show', 'uses' => 'ChatController@show']);
         });
         // CHAT ROUTES END
 
@@ -368,10 +365,12 @@ Route::get('chat/{user_id}/rooms', ['uses' => 'ChatController@getUsersConversati
 Route::get('chat/conversations', ['uses' => 'ChatController@getConversations', 'as' => 'room-get']);
 Route::get('chat/create', ['as' => 'room.create', 'uses' => 'ChatController@createForm']);
 Route::post('chat/store', ['as' => 'room.store', 'uses' => 'ChatController@createRoom']);
+
+Route::put('room/{id}', ['as' => 'chat.update', 'uses' => 'ChatController@update']);
 //Route::post('rooms/{user_id}', ['uses' => 'ChatController@createConversation', 'as' => 'room-create']);
 Route::get('room/{current_thread}/{user_id}', ['uses' => 'ChatController@getMessages', 'as' => 'room-messages-get']);
 Route::get('room/getMessage', ['uses' => 'ChatController@getMessage', 'as' => 'room-message-get']);
-Route::post('rooms/messages', ['uses' => 'ChatController@sendMessage', 'as' => 'room-messages-create']);
+Route::post('room/create-message', ['uses' => 'ChatController@sendMessage', 'as' => 'room-messages-create']);
 
     //Route::group(['prefix' => '/{locale}', 'middleware' => 'locale'], function($locale){
     //

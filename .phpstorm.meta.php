@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-10-26.
+    * Generated on 2015-10-27.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -51,7 +51,7 @@ namespace PHPSTORM_META {
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
-            'teamwork' instanceof \Mpociot\Teamwork\Teamwork,
+            'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
             'Itway\Repositories\Posts\PostsRepository' instanceof \Itway\Repositories\Posts\EloquentPostsRepository,
             'Itway\Repositories\Pins\PinsRepository' instanceof \Itway\Repositories\Pins\EloquentPinsRepository,
@@ -194,7 +194,7 @@ namespace PHPSTORM_META {
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
-            'teamwork' instanceof \Mpociot\Teamwork\Teamwork,
+            'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
             'Itway\Repositories\Posts\PostsRepository' instanceof \Itway\Repositories\Posts\EloquentPostsRepository,
             'Itway\Repositories\Pins\PinsRepository' instanceof \Itway\Repositories\Pins\EloquentPinsRepository,
@@ -337,7 +337,7 @@ namespace PHPSTORM_META {
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
-            'teamwork' instanceof \Mpociot\Teamwork\Teamwork,
+            'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
             'Itway\Repositories\Posts\PostsRepository' instanceof \Itway\Repositories\Posts\EloquentPostsRepository,
             'Itway\Repositories\Pins\PinsRepository' instanceof \Itway\Repositories\Pins\EloquentPinsRepository,
@@ -480,7 +480,7 @@ namespace PHPSTORM_META {
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
-            'teamwork' instanceof \Mpociot\Teamwork\Teamwork,
+            'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
             'Itway\Repositories\Posts\PostsRepository' instanceof \Itway\Repositories\Posts\EloquentPostsRepository,
             'Itway\Repositories\Pins\PinsRepository' instanceof \Itway\Repositories\Pins\EloquentPinsRepository,

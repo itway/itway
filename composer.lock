@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "983109c8250cb0e8228c97ba25a5a540",
-    "content-hash": "b63305c3e0dfe4d88d640dfc235ca085",
+    "hash": "48eef1bf486fbb9ecad2acf66051e036",
+    "content-hash": "8c2fead5572beb9336ff84c914f2bd69",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -123,59 +123,6 @@
                 "preload"
             ],
             "time": "2015-06-28 21:39:13"
-        },
-        {
-            "name": "cmgmyr/messenger",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cmgmyr/laravel-messenger.git",
-                "reference": "39a3a35ecfc60d6430cca3e4af16b938eae5bdb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cmgmyr/laravel-messenger/zipball/39a3a35ecfc60d6430cca3e4af16b938eae5bdb8",
-                "reference": "39a3a35ecfc60d6430cca3e4af16b938eae5bdb8",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "~5.0",
-                "illuminate/database": "~5.0",
-                "illuminate/support": "~5.0",
-                "nesbot/carbon": "~1.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "adamwathan/faktory": "0.3.*",
-                "fabpot/php-cs-fixer": "1.0.*@dev",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Cmgmyr\\Messenger\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Gmyr",
-                    "email": "cmgmyr@gmail.com",
-                    "homepage": "https://github.com/cmgmyr",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple user messaging tool for Laravel",
-            "keywords": [
-                "Messenger",
-                "laravel",
-                "messaging",
-                "user messaging"
-            ],
-            "time": "2015-09-27 11:50:14"
         },
         {
             "name": "cocur/slugify",
@@ -1806,54 +1753,6 @@
                 "psr-3"
             ],
             "time": "2015-10-14 12:51:02"
-        },
-        {
-            "name": "mpociot/teamwork",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mpociot/teamwork.git",
-                "reference": "0d58f21ce6f4ce9cb57f8173236c8adc477c4f1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/teamwork/zipball/0d58f21ce6f4ce9cb57f8173236c8adc477c4f1b",
-                "reference": "0d58f21ce6f4ce9cb57f8173236c8adc477c4f1b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "illuminate/database": "~5.0",
-                "mockery/mockery": "dev-master",
-                "phpunit/phpunit": "~4.1",
-                "sami/sami": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Mpociot\\Teamwork": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcel Pociot",
-                    "email": "m.pociot@gmail.com"
-                }
-            ],
-            "description": "User to Team associations for the Laravel 5 Framework",
-            "homepage": "http://github.com/mpociot/teamwork",
-            "keywords": [
-                "Invite",
-                "Teams"
-            ],
-            "time": "2015-10-26 12:58:37"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -5104,8 +5003,6 @@
     "stability-flags": {
         "landish/pagination": 20,
         "zizaco/entrust": 20,
-        "mpociot/teamwork": 20,
-        "cmgmyr/messenger": 20,
         "doctrine/dbal": 20,
         "nilsenj/toastr-5.1-laravel": 20
     },

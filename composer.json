@@ -20,11 +20,9 @@
         "rtconner/laravel-tagging": "~1.0.7",
         "predis/predis": "^1.0.3",
         "cviebrock/image-validator": "2.0.0",
-        "mpociot/teamwork": "dev-master",
         "codezero/mailer": "^1.0",
         "spatie/laravel-analytics": "^1.2.2",
-        "sourcequartet/visitor-log": "^0.1.2",
-        "cmgmyr/messenger": "dev-develop"
+        "sourcequartet/visitor-log": "^0.1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.5",
@@ -42,7 +40,9 @@
         "psr-4": {
             "itway\\": "app/",
             "Itway\\": "Itway/",
-            "Itway\\Components\\Sidebar\\": "Itway/Components/Sidebar/"
+            "Itway\\Components\\Sidebar\\": "Itway/Components/Sidebar/",
+            "Itway\\Components\\teamwork\\Teamwork\\": "Itway/Components/teamwork/Teamwork/",
+            "Itway\\Components\\Messenger\\": "Itway/Components/Messenger/Messenger/"
         }
     },
     "autoload-dev": {

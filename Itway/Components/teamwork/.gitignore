@@ -1,0 +1,11 @@
+### PHP ###
+
+/bootstrap/compiled.php
+/vendor
+composer.phar
+phpunit.phar
+
+/conf
+/.settings
+.env.*.php
+.env.php
