@@ -2,49 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14562a32-3709-49d9-a41d-f36320795dae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/config/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamInviteTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamworkServiceProviderTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamworkTeamInviteTraitTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamworkTeamTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamworkTeamTraitTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/TeamworkTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/UserHasTeamsTraitTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/tests/UserNotInTeamExceptionTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/composer.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/config/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/phpunit.xml" />
-      <change type="DELETED" beforePath="E:\WampStack\apache2\htdocs\itway.io\Itway\Components\Messenger\Cmgmyr\Messenger\examples\MessagesController.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\WampStack\apache2\htdocs\itway.io\Itway\Components\teamwork\src\config\config.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\WampStack\apache2\htdocs\itway.io\config\messenger.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpstorm.meta.php" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Components/Sidebar/Sidebar.php" afterPath="$PROJECT_DIR$/Itway/Components/Sidebar/Sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Team.php" afterPath="$PROJECT_DIR$/app/Team.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_sidebar.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_sidebar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/app.js" afterPath="$PROJECT_DIR$/public/dist/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/app.js" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/css/main.css" afterPath="$PROJECT_DIR$/public/dist/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/dist/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\WampStack\apache2\htdocs\itway.io\database\migrations\2014_10_28_175635_create_threads_table.php" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/2015_10_27_122804_create_threads_table.php" />
-      <change type="MOVED" beforePath="E:\WampStack\apache2\htdocs\itway.io\database\migrations\2014_10_28_175710_create_messages_table.php" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/2015_10_27_122846_create_messages_table.php" />
-      <change type="MOVED" beforePath="E:\WampStack\apache2\htdocs\itway.io\database\migrations\2014_10_28_180224_create_participants_table.php" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/2015_10_27_122922_create_participants_table.php" />
-      <change type="MOVED" beforePath="E:\WampStack\apache2\htdocs\itway.io\database\migrations\2014_11_10_083449_add_nullable_to_last_read_in_participants_table.php" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/2015_10_27_123052_add_nullable_to_last_read_in_participants_table.php" />
-      <change type="MOVED" beforePath="E:\WampStack\apache2\htdocs\itway.io\database\migrations\2014_11_20_131739_alter_last_read_in_participants_table.php" afterPath="$PROJECT_DIR$/Itway/Components/Messenger/migrations/2015_10_27_123127_alter_last_read_in_participants_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Components/teamwork/README.md" afterPath="$PROJECT_DIR$/Itway/Components/teamwork/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="itway.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,11 +67,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5981839">
+            <state vertical-scroll-proportion="-20.26923">
               <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Components/teamwork/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="142.92592">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52480704">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,6 +186,8 @@
         <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/Itway/Components/teamwork/README.md" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -294,8 +275,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="11" />
+    <option name="x" value="40" />
+    <option name="y" value="195" />
     <option name="width" value="1932" />
     <option name="height" value="1066" />
   </component>
@@ -407,6 +388,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teamwork" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -586,11 +589,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="11" width="1932" height="1066" extended-state="0" />
-    <editor active="false" />
+    <frame x="40" y="195" width="1932" height="1066" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26012793" sideWeight="0.5119617" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29326922" sideWeight="0.48803827" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29326922" sideWeight="0.48803827" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1031,14 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Components/Messenger/Messenger/MessengerServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-24.384615">
@@ -1095,8 +1090,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5981839">
+        <state vertical-scroll-proportion="-20.26923">
           <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Components/Messenger/Messenger/MessengerServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Components/teamwork/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="142.92592">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52480704">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>

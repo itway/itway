@@ -1,13 +1,4 @@
-<img src="http://www.titaniumcontrols.com/git/teamwork.jpg" style="width: 100%" alt="Teamwork" />
-
-# Teamwork (Laravel 5 Package)
-
-[![Latest Version](https://img.shields.io/packagist/v/mpociot/teamwork.svg)](https://github.com/mpociot/teamwork/releases)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://travis-ci.org/mpociot/teamwork.svg)](https://travis-ci.org/mpociot/teamwork)
-[![codecov.io](https://codecov.io/github/mpociot/teamwork/coverage.svg?branch=master)](https://codecov.io/github/mpociot/teamwork?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/a2a26e55-bfc7-49a9-933b-72ca7c245034/mini.png)](https://insight.sensiolabs.com/projects/a2a26e55-bfc7-49a9-933b-72ca7c245034)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpociot/teamwork/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpociot/teamwork/?branch=master)
+## Some Code Forked from Teamwork official package for Laravel and is going to be improved with new features
 
 Teamwork is the fastest and easiest method to add a User / Team association with Invites to your **Laravel 5** project.
 
@@ -32,17 +23,9 @@ Teamwork is the fastest and easiest method to add a User / Team association with
 <a name="installation" />
 ## Installation
 
-In order to install Laravel 5 Teamwork, just add 
-
-    "mpociot/teamwork": "~1.0"
-
-to your composer.json. Then run `composer install` or `composer update`.
-
-(or run `composer require mpociot/teamwork` if you prefere that)
-
 Then in your `config/app.php` add 
 
-    Mpociot\Teamwork\TeamworkServiceProvider::class
+    Itway\Components\Messenger\TeamworkServiceProvider::class
     
 in the `providers` array.
     
@@ -54,7 +37,7 @@ The `Teamwork` Facade will be installed automatically within the Service Provide
 To publish Teamwork's configuration and migration files, run the `vendor:publish` command
 
 ```bash
-php artisan vendor:publish --provider="Mpociot\Teamwork\TeamworkServiceProvider"
+php artisan vendor:publish --provider="Itway\Components\Messenger\TeamworkServiceProvider"
 ```
 
 This will create a `teamwork.php` in your config directory.
@@ -90,7 +73,7 @@ Create a Team model inside `app/Team.php` using the following example:
 ```php
 <?php namespace App;
 
-use Mpociot\Teamwork\TeamworkTeam;
+use Itway\Components\Messenger\TeamworkTeam;
 
 class Team extends TeamworkTeam
 {
@@ -112,7 +95,7 @@ Add the `UserHasTeams` trait to your existing User model:
 ```php
 <?php namespace App;
 
-use Mpociot\Teamwork\Traits\UserHasTeams;
+use Itway\Components\Messenger\Traits\UserHasTeams;
 
 class User extends Model {
 
@@ -324,10 +307,3 @@ if( $invite ) // valid token found
 ```
 
 The `denyInvite` method is only responsible for deleting the invitation from the database.
-    
-<a name="license" />
-## License
-
-Teamwork is free software distributed under the terms of the MIT license.
-
-'Marvel Avengers' image licensed under [Creative Commons 2.0](https://creativecommons.org/licenses/by/2.0/) - Photo from [W_Minshull](https://www.flickr.com/photos/23950335@N07/8251484285/in/photostream/) 
