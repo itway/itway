@@ -10,6 +10,7 @@ use Illuminate\Contracts\Cookie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\File;
 
 class Quiz extends Model implements SluggableInterface
 {
@@ -18,6 +19,7 @@ class Quiz extends Model implements SluggableInterface
     use \Itway\Traits\ViewCounterTrait;
 
     protected $table  = "quiz";
+
     protected $fillable = ['user_id','slug','name', 'question', 'locale', 'published_at'];
 
     protected $sluggable = array(
@@ -25,12 +27,20 @@ class Quiz extends Model implements SluggableInterface
         'save_to'    => 'slug'
     );
 
+    const IMAGEPath =  'images/quizzes/';
+
+
+    /**
+     * @var array
+     */
+    protected $dates = ['published_at'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function quizOptions(){
 
-        return $this->hasMany(QuizOptions::class);
+        return $this->belongsToMany(QuizOptions::class, 'quizOptions','quiz_id', 'id');
 
     }
 
@@ -44,9 +54,13 @@ class Quiz extends Model implements SluggableInterface
     }
 
     /**
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    protected $dates = ['published_at'];
+    public function picture()
+    {
+        return $this->belongsToMany(Picture::class);
+
+    }
 
 
     /**
@@ -111,4 +125,25 @@ class Quiz extends Model implements SluggableInterface
 
     }
 
+    public static function deleteImage($file)
+    {
+        $filepath = self::image_path($file);
+
+        if (file_exists($filepath)) {
+
+            File::delete($filepath);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $file
+     * @return string
+     */
+    public static function image_path($file)
+    {
+        $imagePath = self::IMAGEPath;
+        return public_path("{$imagePath}{$file}");
+    }
 }

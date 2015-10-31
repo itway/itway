@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class CreateQuizTable extends Migration
 {
@@ -16,10 +17,14 @@ class CreateQuizTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->text('question');
+            $table->text('question')->nullable();
             $table->string('locale');
             $table->string('slug');
+            $table->timestamps();
             $table->timestamp('published_at');
+
+            $table->timestamp('date')->default(Carbon::today());
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -32,7 +37,9 @@ class CreateQuizTable extends Migration
     public function down()
     {
         Schema::drop('quiz', function(Blueprint $table) {
+
             $table->dropForeign('quiz_user_id_foreign');
+
         });
 
     }

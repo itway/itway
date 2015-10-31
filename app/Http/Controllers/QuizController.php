@@ -11,7 +11,7 @@ use itway\Quiz;
 use Itway\Repositories\Quiz\QuizRepository;
 use Itway\Services\Youtube\Facades\Youtube;
 use nilsenj\Toastr\Facades\Toastr;
-use itway\Http\Requests\QuizFormRequest;
+use Itway\Validation\Quiz\QuizFormRequest;
 use App;
 
 class QuizController extends Controller
@@ -46,6 +46,7 @@ class QuizController extends Controller
         $tags =  $tagCollection->lists('name', 'id');
 
         return view('Quiz.create', compact('tags'));
+
     }
     public function personalQuizzes(Request $request, Quiz $quizData){
 
@@ -94,7 +95,7 @@ class QuizController extends Controller
 
         }
 
-        Toastr::success(trans('messages.yourPostCreated'), $title = $quiz->title, $options = []);
+        Toastr::success(trans('messages.yourQuizCreated'), $title = $quiz->title, $options = []);
 
         return redirect()->to(App::getLocale().'/quiz/'.$quiz->id);
 

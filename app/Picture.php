@@ -22,6 +22,14 @@ class Picture extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany]
+     */
+    public function quiz()
+    {
+        return $this->belongsToMany(Quiz::class);
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function user()

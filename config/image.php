@@ -16,6 +16,7 @@ return array(
     */
 
     'driver' => 'gd',
-    'postsDESTINATION' => 'images/posts/'
+    'postsDESTINATION' => 'images/posts/',
+    'quizzesDESTINATION' => 'images/quizzes/'
 
 );

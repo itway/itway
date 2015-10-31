@@ -58,6 +58,7 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'noQuizzesFound' => 'please create at least one',
     'yourPhotoUpdated' => 'Your Profile Photo is Updated',
     'liked' => 'You liked this post',
+    'yourQuizCreated' => 'Your quiz has been created'
 
 
 );

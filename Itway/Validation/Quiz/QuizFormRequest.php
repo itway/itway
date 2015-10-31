@@ -1,6 +1,6 @@
 <?php
 
-namespace itway\Http\Requests;
+namespace Itway\Validation\Quiz;
 
 use itway\Http\Requests\Request;
 use itway\Quiz;

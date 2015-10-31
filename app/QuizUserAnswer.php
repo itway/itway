@@ -13,7 +13,7 @@ class QuizUserAnswer extends Model
      */
     public function user(){
 
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
 
     }
 
@@ -21,6 +21,8 @@ class QuizUserAnswer extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function quizOptions(){
+
         return $this->belongsTo(QuizOptions::class);
+
     }
 }
