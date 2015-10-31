@@ -162,7 +162,7 @@ $(function () {
     $.ItwayIO.layout.activate();
     //Activate messenger functionality
     $.ItwayIO.messenger.activate();
-
+    $.ItwayIO.quiz.activate();
     //Enable sidebar tree view controls
     $.ItwayIO.tree('.sidebar');
 
@@ -719,6 +719,113 @@ function _init(o) {
             }
 
 };
+    $.ItwayIO.quiz = {
+        activate: function () {
+            var _this = this;
+            _this.events();
+        },
+        events: function () {
+           var _this = this,
+               quizOptions = $("#quizOptions");
+            //quizOptions.find(".options-block .add_new").on("click", _this.addOption(e));
+            _this.addOption();
+
+        },
+        addOption: function () {
+
+            //define template
+            var template = $('#quizOptions .options-block:first').clone();
+
+            //define counter
+            var sectionsCount = 1;
+
+            //add new section
+            $('body').on('click', '.add_new', function() {
+
+                sectionsCount++;
+
+                var lengthInput = $("#quizOptions .options-block").length;
+                //loop through each input
+                var section = template.clone().find(':input').each(function(){
+
+                    //set id to store the updated section number
+
+                    console.log(lengthInput);
+
+                    var newId = this.id + Number(lengthInput+1);
+
+                    //update for label
+                    $(this).prev().attr('for', newId).text(lengthInput+1);
+
+                    //update id
+                    this.id = newId;
+
+                }).end()
+
+                    //inject new section
+                    .appendTo('#quizOptions');
+                return false;
+            });
+
+            //remove section
+            $('#quizOptions').on('click', '.remove', function() {
+
+                //fade out section
+                $(this).fadeOut(300, function(){
+                    //remove parent element (main section)
+                    $(this).parent().remove();
+
+                    var lengthInput = $("#quizOptions .options-block").length;
+
+                    console.log(lengthInput);
+
+                    for (var i = 0; i <= lengthInput; i++){
+
+                        var newId = "option-id" + Number(i+1);
+
+                        $("#quizOptions .options-block input").eq(i).attr("id", newId);
+
+                        $("#quizOptions .options-block i.icon-circle").eq(i).attr('for', newId).text(i+1);
+
+                        //optionsReset.attr('for', newId).text(i);
+
+                            //$(this).find(".icon-circle").text(i);
+
+                        }
+
+                    return false;
+
+                });
+
+            });
+        //    var multiInputs = $("#quizOptions");
+        //
+        //    function handler(e) {
+        //        var El = $(e.target);
+        //        var tag = El.parent();
+        //        switch (El.attr("data-action")) {
+        //            case "add":
+        //                tag.after(tag.clone().find("input").val("").end());
+        //                break;
+        //            case "delete":
+        //                tag.remove();
+        //                break;
+        //        }
+        //        return false;
+        //    }
+        //
+        //    function save(e) {
+        //        var inputs = multiTags.find(".input.input-line").map(function() {
+        //            return $(this).val();
+        //        }).get().join(',');
+        //        alert(inputs);
+        //        return false;
+        //    }
+        //
+        //    multiInputs.find("a.button").on("click", handler);
+        //
+        }
+    };
     /* Layout
      * ======
      * Fixes the layout height in case min-height fails.

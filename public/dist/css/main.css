@@ -8023,12 +8023,16 @@ form h3.label {
     display: block; }
     .quiz-form-block .options-block .icon-circle {
       font-size: 14px;
-      color: #FF9800; }
+      color: #03A9F4; }
     .quiz-form-block .options-block .input.input-line {
       width: 80%; }
-    .quiz-form-block .options-block button {
+    .quiz-form-block .options-block a.button {
       float: right;
-      width: 10%; }
+      top: 10px;
+      position: relative;
+      color: #03A9F4;
+      background: transparent;
+      border: none; }
 
 #search {
   position: fixed;

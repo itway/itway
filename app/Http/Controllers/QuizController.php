@@ -78,6 +78,8 @@ class QuizController extends Controller
     public function store(Request $request)
     {
 
+        dd(remove_empty($request->options));
+
     }
 
     /**

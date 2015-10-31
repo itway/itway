@@ -101,22 +101,21 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
             Route::get('create', ['uses' => 'QuizController@create', 'as' => 'create']);
             Route::get('edit/{id}', [
                 'uses' => 'QuizController@edit',
-                'as' => 'edit', 'middleware' => 'IsUsers'
+                'as' => 'edit'
             ]);
             Route::patch('update/{id}', [
-                'uses' => 'UserController@update',
+                'uses' => 'QuizController@update',
 //                'middleware' => 'shouldBeUnique',
                 'as' => 'update', 'middleware' => 'IsUsers'
             ]);
             Route::delete('{id}', [
-                'uses' => 'UserController@destroy',
+                'uses' => 'QuizController@destroy',
                 'as' => 'delete', 'middleware' => 'IsUsers'
             ]);
             Route::post('store', [
-                'uses' => 'UserController@store',
-                'as' => 'store', 'middleware' => 'IsUsers'
+                'uses' => 'QuizController@store',
+                'as' => 'store'
             ]);
-            Route::post('photo', ['uses' => 'UserController@userPhoto', 'as' => 'photo']);
 
         });
         //QUIZ ROUTES END

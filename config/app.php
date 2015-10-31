@@ -166,7 +166,7 @@ return [
         'Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider',
         SourceQuartet\VisitorLog\VisitorLogServiceProvider::class,
         Itway\Components\Messenger\MessengerServiceProvider::class,
-
+        itway\Providers\HelperServiceProvider::class,
     ],
 
     /*

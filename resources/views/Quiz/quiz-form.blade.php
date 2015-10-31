@@ -19,14 +19,15 @@
     <div class="quiz-form-block">
 
         <h3 class="label titl">{{trans('quiz.options')}}</h3>
-        <div class="form-group">
+        <div class="form-group" style="display: block" id="quizOptions">
+
         <div class="options-block">
-            <i class="icon-circle"></i>
-
-            <input name="options[]" type="text" class="input input-line">
-            <button class="button add_new">add new</button>
-
+            <i class="icon-circle">1</i>
+            <input name="options[]" id="option-id1" type="text" class="input input-line">
+            <a class="button remove" data-action="delete"><i class="icon-minus text-danger"></i></a>
+            <a class="button add_new" data-action="add"><i class="icon-plus"></i></a>
         </div>
+
 
         </div>
     </div>

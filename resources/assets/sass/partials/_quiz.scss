@@ -7,14 +7,18 @@
     display: block;
     .icon-circle {
       font-size: 14px;
-      color: $warning-color;
+      color: $info-color;
     }
     .input.input-line {
       width:80%;
     }
-    button{
+    a.button{
       float: right;
-      width: 10%;
+      top: 10px;
+      position: relative;
+      color: $info-color;
+      background: transparent;
+      border: none;
     }
   }
 }
