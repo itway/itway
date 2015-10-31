@@ -21,8 +21,6 @@ class CreateQuizTable extends Migration
             $table->string('slug');
             $table->timestamp('published_at');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
         });
     }
 

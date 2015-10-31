@@ -146,6 +146,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('itway\Post');
 
     }
+    public function  quizzes() {
+
+        return $this->hasMany(Quiz::class);
+
+    }
+
 
     public function isAdmin() {
         return false;

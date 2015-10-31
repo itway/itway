@@ -29,7 +29,9 @@ class Quiz extends Model implements SluggableInterface
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function quizOptions(){
+
         return $this->hasMany(QuizOptions::class);
+
     }
 
     /**
@@ -51,28 +53,37 @@ class Quiz extends Model implements SluggableInterface
      * @param $date
      */
     public function setPublishedAtAttribute ($date) {
+
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+
     }
+
 
     /**
      * @param $date
      */
     public function setLocaledAtAttribute ($date) {
+
         $this->attributes['locale'] = Lang::getLocale();
+
     }
 
     /**
      * @param Request $request
      */
     public function getLocaledAtAttribute (Request $request) {
+
         $this->attributes['locale'] = $request->getLocale();
+
     }
 
     /**
      * @param $query
      */
     public function scopePublished($query) {
+
         $query->where('published_at', '<=', Carbon::now());
+
     }
 
     /**
@@ -95,7 +106,9 @@ class Quiz extends Model implements SluggableInterface
      * @param $query
      */
     public function scopeUnpublished($query) {
+
         $query->where('published_at', '>', Carbon::now());
+
     }
 
 }

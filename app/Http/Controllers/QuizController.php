@@ -11,11 +11,15 @@ use itway\Quiz;
 use Itway\Repositories\Quiz\QuizRepository;
 use Itway\Services\Youtube\Facades\Youtube;
 use nilsenj\Toastr\Facades\Toastr;
+use itway\Http\Requests\QuizFormRequest;
+use App;
 
 class QuizController extends Controller
 {
     public function __construct(QuizRepository $repository){
+
         $this->repository = $repository;
+
     }
 
     /**
@@ -25,6 +29,7 @@ class QuizController extends Controller
     public function index(Request $request)
     {
        $quizes = $this->repository->allOrSearch($request->get('q'));
+
         $countUserQuizes = count($quizes->where('user_id', Auth::id()));
 
 
@@ -69,16 +74,30 @@ class QuizController extends Controller
 
         }
     }
+
     /**
-     * Store a newly created resource in storage.
+     * store the quiz
      *
-     * @param  Request  $request
-     * @return Response
+     * @param QuizFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(QuizFormRequest $request)
     {
 
-        dd(remove_empty($request->options));
+        if (\Input::hasFile('image')) {
+
+            $quiz = $this->repository->createQuiz($request, \Input::file('image'));
+        }
+        else {
+
+            $quiz = $this->repository->createQuiz($request, null);
+
+        }
+
+        Toastr::success(trans('messages.yourPostCreated'), $title = $quiz->title, $options = []);
+
+        return redirect()->to(App::getLocale().'/quiz/'.$quiz->id);
+
 
     }
 
