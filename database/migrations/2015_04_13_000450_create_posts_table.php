@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration {
 			$table->timestamps();
 			$table->timestamp('published_at');
 			$table->timestamp('date')->default(Carbon::today());
-
+			$table->softDeletes();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
@@ -40,7 +40,9 @@ class CreatePostsTable extends Migration {
 	public function down()
 	{
 		Schema::drop('posts', function(Blueprint $table) {
+
             $table->dropForeign('posts_user_id_foreign');
+			$table->dropSoftDeletes();
         });
 
     }

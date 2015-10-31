@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Quiz extends Model implements SluggableInterface
 {
-    use SluggableTrait;
+    use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\TaggableTrait;
     use \Itway\Traits\ViewCounterTrait;
 

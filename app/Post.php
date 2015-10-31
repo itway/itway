@@ -11,10 +11,11 @@ use Itway\Traits\Likeable as LikeableTrait;
 use Auth;
 use File;
 use Itway\Traits\Searchable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model implements SluggableInterface, Likeable{
 
-    use SluggableTrait;
+    use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\TaggableTrait;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;

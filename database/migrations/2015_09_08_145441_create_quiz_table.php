@@ -22,8 +22,8 @@ class CreateQuizTable extends Migration
             $table->string('slug');
             $table->timestamps();
             $table->timestamp('published_at');
-
             $table->timestamp('date')->default(Carbon::today());
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -39,6 +39,7 @@ class CreateQuizTable extends Migration
         Schema::drop('quiz', function(Blueprint $table) {
 
             $table->dropForeign('quiz_user_id_foreign');
+            $table->dropSoftDeletes();
 
         });
 
