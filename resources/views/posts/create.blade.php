@@ -5,9 +5,12 @@
     <?php  $msg = "CreatePost";  ?>
 
 @endsection
-@section('sidebar.buttons')
+
+@section('subnavigation.buttons')
     @include('posts.site-btns')
 @endsection
+
+
 @section('content')
 
 

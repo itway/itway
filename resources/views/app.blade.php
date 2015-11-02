@@ -6,9 +6,11 @@
 @include('pages.landing')
     @else
 
+
 <div class="container wrapper">
     <div class="content-wrapper">
         @include('includes.notifier-panel')
+
         {{--<div class="container-fluid">--}}
             {{--@include('includes.subnavigation')--}}
         {{--</div>--}}
@@ -19,13 +21,9 @@
         @endif
         <div class="clearfix"></div>
 
-        <div class="container site-buttons">
-
-            {{--@yield('site-btns')--}}
-        </div>
         @include('includes.search')
 
-        <div  id="container"  class="container" style=" " >
+        <div  id="container"  class="container-fluid" style=" " >
 
     <div class="l-9 m-8 s-12 xs-12" style="padding-left: 0;">
 
@@ -35,21 +33,17 @@
     @yield('content')
 
     </div>
-    @if(URL::current() !== 'http://'.$_SERVER['SERVER_NAME'].'/'.Lang::getLocale())
-    <div class="l-3 m-4 hidden-s hidden-xs">
-        <div class="row">
-            <div class="sidebar">
-                @include('includes.language-chooser')
+            @if(URL::current() !== 'http://'.$_SERVER['SERVER_NAME'].'/'.Lang::getLocale())
+                <div class="l-3 m-4 hidden-s hidden-xs" style="padding-right: 0">
+                    <div class="row">
+                        <div class="sidebar">
 
-                @yield('sidebar.buttons')
+                            @include('includes.sidebar')
 
-                @include('includes.sidebar')
-
+                        </div>
+                    </div>
                 </div>
-        </div>
-    </div>
-    @endif
-
+            @endif
     </div>
     </div>
 </div>

@@ -1,10 +1,3 @@
-<div class="absolute-lang">
-    <h6></h6>
-
-    @include('includes.language-chooser')
-</div>
-
-
 <div class="l-12 m-12 s-12 xs-12">
     <div class="landing">
         <div class="header">

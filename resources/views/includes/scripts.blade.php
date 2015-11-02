@@ -39,6 +39,18 @@
                 on: 'hover'
             })
     ;
+    $('.ui.vertical.menu .ui.dropdown')
+            .dropdown({
+                on: 'hover'
+            })
+    ;
+    $('.ui.dropdown.item.pointing')
+            .dropdown()
+    ;
+    $('.ui.dropdown.item')
+            .dropdown()
+    ;
+    $('.ui.inline.dropdown').dropdown();
     $('.menu .item')
             .tab()
     ;

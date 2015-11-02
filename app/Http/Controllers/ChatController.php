@@ -27,6 +27,7 @@ use itway\Events\ChatRoomCreated;
 class ChatController extends Controller
 {
 
+    private $userRepository;
     /**
      * @param UserRepository $userRepository
      */

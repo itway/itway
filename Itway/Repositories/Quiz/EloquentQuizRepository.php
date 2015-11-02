@@ -16,6 +16,7 @@ use Itway\Uploader\ImageUploader;
 use Auth;
 use itway\Picture;
 use Lang;
+use itway\QuizOptions;
 
 class EloquentQuizRepository implements QuizRepository {
 
@@ -128,21 +129,6 @@ class EloquentQuizRepository implements QuizRepository {
     }
 
     /**
-     * @param int $id
-     * @return bool
-     * @throws \Exception
-     */
-    public function delete($id)
-    {
-        $post = $this->findById($id);
-        if (!is_null($post)) {
-            $post->delete();
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * @param array $data
      * @return mixed
      */
@@ -176,13 +162,33 @@ class EloquentQuizRepository implements QuizRepository {
         return $quiz;
     }
 
+    /**
+     * @param int $id
+     * @return bool
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        $quiz = $this->findById($id);
+        if (!is_null($quiz)) {
+            $quiz->delete();
+            return true;
+        }
+        return false;
+    }
+
+
     protected function bindOptions($quiz, $options) {
 
         $options = remove_empty($options);
 
         foreach($options as $option) {
 
-            $quiz->quizOptions()->attach($option);
+            QuizOptions::create([
+                "quiz_id" => $quiz->id,
+                "option" => $option
+            ]);
+
         }
     }
 

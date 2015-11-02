@@ -12,6 +12,8 @@ use \Illuminate\Http\Request;
 class AdminPostsController extends Controller
 {
 
+    private $userRepository;
+    private $postRepository;
 
     public function __construct(UserRepository $userRepository, PostsRepository $postRepository)
     {

@@ -6,9 +6,11 @@
     <?php  $msg = "User";  ?>
 
 @endsection
-@section('sidebar.buttons')
+
+@section('subnavigation.buttons')
     @include('user.site-btns')
 @endsection
+
 @section('content')
 
     @if (!Auth::check())

@@ -15,7 +15,8 @@ use Toastr;
 
 class AdminUsersController extends Controller {
 
-    protected $users;
+    private $userRepository;
+    private $postRepository;
 
     public function __construct(UserRepository $userRepository, PostsRepository $postRepository)
     {

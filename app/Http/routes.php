@@ -1,28 +1,8 @@
 <?php
 
 
-// Instead, you could have a handy list of patterns and reuse them everywhere:
-// Patterns
-//Route::pattern('id', '\d+');
-//Route::pattern('hash', '[a-z0-9]+');
-//Route::pattern('hex', '[a-f0-9]+');
-//Route::pattern('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
-//Route::pattern('base', '[a-zA-Z0-9]+');
-//Route::pattern('username', '[a-z0-9_-]{3,16}');
-
-
-//Socialite Integration
-Route::get('auth/login/{provider}', ['as' => 'auth.provider', 'uses' => 'Auth\AuthController@loginThirdParty']);
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController'
-]);
-Route::post('/search', ['as' => 'search', 'uses' => 'SearchController@executeSearch']);
-Route::post('/getAllExistingTags', ['as' => 'getAllExistingTags', 'uses' => 'SearchController@getAllExistingTags']);
-//end socialite
-
 // ===============================================
-// blog SECTION =================================
+// localed routes SECTION =================================
 // ===============================================
 $locale = Request::segment(1);
 
@@ -82,6 +62,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'uses' => 'PostsController@store',
                 'as' => 'store'
             ]);
+            Route::get('/tags/{slug}', 'PostsController@tags');
 
         });
         //BLOG ROUTES END
@@ -96,26 +77,33 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 ]);
 
             Route::get('show/{id}', [ 'as' => 'show', 'uses' => 'QuizController@show']);
+
             Route::get('personal_quizzes', [ 'as' => 'personal_quizzes', 'uses' => 'QuizController@personalQuizzes']);
 
-            Route::get('create', ['uses' => 'QuizController@create', 'as' => 'create']);
+            Route::get('create', ['uses' => 'QuizController@create', 'as' => 'create', 'middleware' => 'auth'
+            ]);
+
             Route::get('edit/{id}', [
                 'uses' => 'QuizController@edit',
-                'as' => 'edit'
+                'as' => 'edit',
+                'middleware' => ['auth']
             ]);
+
             Route::patch('update/{id}', [
                 'uses' => 'QuizController@update',
 //                'middleware' => 'shouldBeUnique',
-                'as' => 'update', 'middleware' => 'IsUsers'
+                'as' => 'update', 'middleware' => ['IsUsers', 'auth']
             ]);
-            Route::delete('{id}', [
+            Route::delete('delete/{id}', [
                 'uses' => 'QuizController@destroy',
-                'as' => 'delete', 'middleware' => 'IsUsers'
+                'as' => 'delete', 'middleware' => ['auth','IsUsers']
             ]);
             Route::post('store', [
                 'uses' => 'QuizController@store',
-                'as' => 'store'
+                'as' => 'store',
+                'middleware' => 'auth'
             ]);
+
 
         });
         //QUIZ ROUTES END
@@ -130,6 +118,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         });
         // CHAT ROUTES END
 
+        //================================
         //USER Routes START
         Route::group(['prefix' => 'user','middleware' => 'auth', 'as' => 'user::'], function() {
 
@@ -155,7 +144,8 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 //                'middleware' => 'shouldBeUnique',
                 'as' => 'update', 'middleware' => 'IsUsers'
             ]);
-            Route::delete('{id}', [
+
+            Route::delete('/{id}', [
                 'uses' => 'UserController@destroy',
                 'as' => 'delete', 'middleware' => 'IsUsers'
             ]);
@@ -164,11 +154,159 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'as' => 'store', 'middleware' => 'IsUsers'
             ]);
             Route::post('photo', ['uses' => 'UserController@userPhoto','middleware' => 'IsUsers', 'as' => 'photo']);
+            Route::get('/tags/{slug}', ['uses' => 'UserController@tags']);
+        });
+        //end of USER routes
+        //===============================
+
+
+        // ============================
+        //idea-show  ROUTES Start
+        Route::group(['prefix' => 'idea-show', 'as' => 'idea-show::'], function(){
+
+            Route::get('/', [
+                'uses' => 'IdeaShowController@index',
+                'as' => 'index'
+
+            ]);
+            Route::get('idea/{slug}', [
+                'uses' => 'IdeaShowController@show',
+                'as' => 'show'
+
+            ]);
+            Route::get('create', [
+                'uses' => 'IdeaShowController@create',
+                'as' => 'create'
+
+            ]);
+
+            Route::get('user-ideas', [
+                'uses' => 'IdeaShowController@userPosts',
+                'as' => 'user-posts'
+
+            ]);
+            Route::get('edit/{id}', [
+                'uses' => 'IdeaShowController@edit',
+                'as' => 'edit',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::patch('update/{id}', [
+                'uses' => 'IdeaShowController@update',
+                'as' => 'update'
+            ]);
+            Route::delete('delete/{id}', [
+                'uses' => 'IdeaShowController@destroy',
+                'as' => 'delete',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::post('store', [
+                'uses' => 'IdeaShowController@store',
+                'as' => 'store'
+            ]);
 
         });
-        //USER ROUTES END
+        //idea-show Routes end
+        // ===========================
 
+        // ===============================================
+        //start of teams SECTION =================================
+        Route::group(['prefix' => 'teams', 'as' => 'teams::'], function(){
+
+            Route::get('/', [
+                'uses' => 'TeamsController@index',
+                'as' => 'index'
+
+            ]);
+            Route::get('team/{slug}', [
+                'uses' => 'TeamsController@show',
+                'as' => 'show'
+
+            ]);
+            Route::get('create', [
+                'uses' => 'TeamsController@create',
+                'as' => 'create'
+
+            ]);
+
+            Route::get('user-team', [
+                'uses' => 'TeamsController@userPosts',
+                'as' => 'user-posts'
+
+            ]);
+            Route::get('edit/{id}', [
+                'uses' => 'TeamsController@edit',
+                'as' => 'edit',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::patch('update/{id}', [
+                'uses' => 'TeamsController@update',
+                'as' => 'update',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::delete('delete/{id}', [
+                'uses' => 'TeamsController@destroy',
+                'as' => 'delete',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::post('store', [
+                'uses' => 'TeamsController@store',
+                'as' => 'store'
+            ]);
+
+        });
+        //end of teams SECTION =================================
+        // ===============================================
+
+
+        // =================================================
+        // job-hunting ROUTES start
+        Route::group(['prefix' => 'job-hunting', 'as' => 'job::'], function(){
+
+            Route::get('/', [
+                'uses' => 'JobHuntingController@index',
+                'as' => 'index'
+
+            ]);
+            Route::get('job/{slug}', [
+                'uses' => 'JobHuntingController@show',
+                'as' => 'show'
+
+            ]);
+            Route::get('create', [
+                'uses' => 'TeamsController@create',
+                'as' => 'create'
+
+            ]);
+
+            Route::get('user-jobs', [
+                'uses' => 'JobHuntingController@userPosts',
+                'as' => 'user-posts'
+
+            ]);
+            Route::get('edit/{id}', [
+                'uses' => 'TeamsController@edit',
+                'as' => 'edit',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::patch('update/{id}', [
+                'uses' => 'JobHuntingController@update',
+                'as' => 'update',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::delete('delete/{id}', [
+                'uses' => 'JobHuntingController@destroy',
+                'as' => 'delete',
+                'middleware' => 'IsUsersOrAdminPost'
+            ]);
+            Route::post('store', [
+                'uses' => 'JobHuntingController@store',
+                'as' => 'store'
+            ]);
+
+        });
           });
+        // ================================================
+        // job-hunting ROUTES end
 
     // ADMIN ROUTES START
     Route::group(array('prefix' => 'admin', 'middleware' => ['admin', 'auth'], 'as' => 'admin::'), function () {
@@ -308,31 +446,12 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         });
 
     });
-
-    //END OF ADMIN ROUTES
-
-    get('user/tags/{slug}', ['uses' => 'UserController@tags']);
-
-    Route::get('blog/tags/{slug}', 'PostsController@tags');
-
+    //END OF ADMIN ROUTEs
 
     //like or dislike route
     Route::get('likeORdis/{class_name}/{object_id}', array('uses' => 'LikeController@likeORdis', 'as' => 'likeORdis'))
         ->where('object_id', '[0-9]+');
     //END OF LIKE DISLIKE
-
-
-    // ===============================================
-    //start of teams SECTION =================================
-    // ===============================================
-
-    Route::get('teams', 'TeamsController@index');
-
-    // ===============================================
-    //end of teams SECTION =================================
-    // ===============================================
-
-
 
     // about page (app/views/pages/about.blade.php)
     Route::get('about', 'PagesController@about');
@@ -347,18 +466,21 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
     Route::get('contact', function () {
         return view('pages.contact');
     });
-
-
-    // job-hunting page (app/views/pages/job-hunting.blade.php)
-    Route::get('job-hunting', function () {
-        return view('pages.job-hunting');
-    });
-
-    Route::get('idea-show', 'IdeaShowController@index');
-    // ===============================================
-    // ADMIN SECTION =================================
-    // ===============================================
 });
+
+
+
+//Socialite Integration
+Route::get('auth/login/{provider}', ['as' => 'auth.provider', 'uses' => 'Auth\AuthController@loginThirdParty']);
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController'
+]);
+Route::post('/search', ['as' => 'search', 'uses' => 'SearchController@executeSearch']);
+Route::post('/getAllExistingTags', ['as' => 'getAllExistingTags', 'uses' => 'SearchController@getAllExistingTags']);
+//end socialite
+
+// ROUTES FOR AJAX CALLS
 
 Route::get('chat/{user_id}/rooms', ['uses' => 'ChatController@getUsersConversations', 'as' => 'users-room-get']);
 Route::get('chat/conversations', ['uses' => 'ChatController@getConversations', 'as' => 'room-get']);
@@ -371,7 +493,4 @@ Route::get('room/{current_thread}/{user_id}', ['uses' => 'ChatController@getMess
 Route::get('room/getMessage', ['uses' => 'ChatController@getMessage', 'as' => 'room-message-get']);
 Route::post('room/create-message', ['uses' => 'ChatController@sendMessage', 'as' => 'room-messages-create']);
 
-    //Route::group(['prefix' => '/{locale}', 'middleware' => 'locale'], function($locale){
-    //
-    //    Lang::setLocale($locale);
-
+// END OF ROUTES FOR AJAX CALLS

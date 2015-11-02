@@ -6,6 +6,10 @@
 
 @endsection
 
+@section('subnavigation.buttons')
+    @include('posts.site-btns')
+@endsection
+
 @section('content')
     <div class="bg-white" style="  display: flex;">
 

@@ -18,7 +18,7 @@ trait SidebarTrait {
     protected $teams;
 
     /**
-     * @param Collection $collection
+     * SidebarTrait constructor.
      * @param Post $posts
      * @param Idea $ideas
      * @param Job $jobs
@@ -33,15 +33,16 @@ trait SidebarTrait {
         $this->ideas = $ideas;
         $this->jobs = $jobs;
         $this->teams = $teams;
-
 	}
 
 
-  public function fetch() {
+    /**
+     * @return int
+     */
+   public function fetch() {
         return 5;
-  }
-
-	public function getLastPosts() {
+   }
+    public function getLastPosts() {
 
         return $this->posts->latest('published_at')->published()->localed()->take($this->fetch())->get();
 

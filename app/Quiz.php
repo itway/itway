@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Quiz extends Model implements SluggableInterface
+use Itway\Contracts\Likeable\Likeable;
+use Itway\Traits\Likeable as LikeableTrait;
+
+class Quiz extends Model implements SluggableInterface, Likeable
 {
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\TaggableTrait;
-    use \Itway\Traits\ViewCounterTrait;
+    use \Itway\Traits\ViewCounterTrait, LikeableTrait;
+
 
     protected $table  = "quiz";
 
@@ -39,9 +43,9 @@ class Quiz extends Model implements SluggableInterface
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function quizOptions(){
+    public function QuizOptions(){
 
-        return $this->belongsToMany(QuizOptions::class, 'quizOptions','quiz_id', 'id');
+        return $this->hasMany(QuizOptions::class);
 
     }
 

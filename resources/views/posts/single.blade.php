@@ -8,7 +8,7 @@
 @section('styles-add')
 
 @endsection
-@section('sidebar.buttons')
+@section('subnavigation.buttons')
     @include('posts.site-btns')
 @endsection
 @section('content')

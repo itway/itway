@@ -34,7 +34,9 @@ class PostsController extends Controller {
     /**
      * @var ImageUploader
      */
-    protected $uploader;
+    private $uploader;
+    private $repository;
+
 
     /**
      * @param ImageUploader $uploader
@@ -308,6 +310,12 @@ class PostsController extends Controller {
         return redirect()->to(App::getLocale().'/blog');
 	}
 
+    /**
+     * list posts according to the tags
+     *
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function tags($slug) {
 
         $posts = Post::withAnyTag([$slug])->latest('published_at')->published()->paginate(8);

@@ -6,10 +6,11 @@
 
 @endsection
 
-@section('content')
 @section('sidebar.buttons')
     @include('Quiz.site-btns')
 @endsection
+
+@section('content')
 
     @if(count($quizes)=== 0 )
 
@@ -38,7 +39,7 @@
                                     @endforeach
                                 </div>
                                 <div style="display: none;">
-                                    @include('posts.destroy')
+                                    @include('quiz.destroy')
                                 </div>
                                 <div class="clearfix"></div>
 
@@ -95,6 +96,7 @@
         @endif
 
     @endif
+    @endsection
 @section('scripts-add')
     <script>
         var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';

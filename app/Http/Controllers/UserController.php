@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Input;
 use itway\Http\Requests;
 use Itway\Validation\User\UserPhotoRequest;
-use Itway\Validation\User\UsersFormRequest as UserUpdateRequest;
+use Itway\Validation\User\UserUpdateRequest;
 use itway\Picture;
 use Itway\Uploader\ImageUploader;
 use itway\User;
@@ -12,6 +12,7 @@ use Toastr;
 
 class UserController extends Controller {
 
+	private $uploader;
 
     public function __construct(ImageUploader $uploader){
         $this->uploader = $uploader;
@@ -111,18 +112,12 @@ class UserController extends Controller {
 		$user = User::findBySlugOrId($id);
 
          $taglist = $request->input('tags_list');
-//
-//         if(! empty($user->tagNames())){
-//
-//             $user->untag();
-//         }
 
          if(! empty($taglist)){
 
              $user->retag($taglist);
          }
 
-//		dd($request->all());
 		$user->update($request->all());
 
 		return redirect()->back();

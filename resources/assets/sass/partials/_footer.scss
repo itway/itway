@@ -1,19 +1,20 @@
 footer {
 
-  background-color: $main-color;
+  background-color: transparent;
   font-size: 13px;
   font-size: 0.8125rem;
-  line-height: 23.4px;
-  line-height: 1.46rem;
-  padding-top: 2.25em;
-  padding-bottom: 2.25em;
+  line-height: 20px;
+  line-height: 1rem;
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
   overflow: hidden;
   color: #8a8a8a;
   position: absolute;
   bottom: 0;
   width: 100%;
+  display: inline-block;
   /* Set the fixed height of the footer here */
-  height: 207px;
+  height: 107px;
 
 
  a {
@@ -41,18 +42,18 @@ body {
   margin-bottom: 30px;
 }
 body {
-  padding-bottom: 207px;
+  padding-bottom: 107px;
 }
 .icon-love-to-it {
   position: relative;
   font-size: 32px;
 }
 .love-to-it {
-  display: block;
+  display: inline;
   width: auto;
   height: auto;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: bold;
   font-family: "Source Sans Pro";
-  color: $primary-color;
+  color: #607D8B;
 }

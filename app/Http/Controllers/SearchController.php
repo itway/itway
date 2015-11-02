@@ -10,6 +10,7 @@ use itway\Post;
 
 class SearchController extends Controller
 {
+    private $post;
     /**
      * @param Post $post
      */

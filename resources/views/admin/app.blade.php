@@ -1,7 +1,8 @@
 @include('admin.partials.head')
 
 <body class="layout-boxed sidebar-mini skin-black">
-@include('admin.partials.navigation')
+
+@include('includes.navigation')
 
 
     <div class="container wrapper">

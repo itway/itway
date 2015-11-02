@@ -17,7 +17,6 @@ class CreateQuizOptionsTable extends Migration
             $table->increments('id');
             $table->integer('quiz_id')->unsigned();
             $table->text('option');
-            $table->softDeletes();
             $table->foreign('quiz_id')->references('id')->on('quiz')->onDelete('cascade');
         });
 
@@ -32,7 +31,6 @@ class CreateQuizOptionsTable extends Migration
     {
         Schema::drop('quizOptions', function(Blueprint $table) {
             $table->dropForeign('quizOptions_quiz_id_foreign');
-            $table->dropSoftDeletes();
         });
     }
 }

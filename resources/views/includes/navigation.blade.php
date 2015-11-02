@@ -1,51 +1,110 @@
-<nav class="navigation" id="navigation" style="    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
-    <div class="container">
-        <a class="navigation-brand" href="{{ url('/') }}">Itway.io</a>
-        <nav class="navbar-left">
-            <li>
-                <a href="#" class="button-default button-notify" data-toggle="control-sidebar" title="notifier"><i class="icon-bell-o"></i> </a>
-            </li>
-            <li>
-                <a href="#search" class=""><i class="icon-search"></i> search</a>
-            </li>
-        </nav>
+<div class="container-fluid site-buttons">
 
-        <ul class="nav" id="nav">
 
-            {{--<li><a href="{{ url(App::getLocale().'/pins') }}" ><i class="icon-bookmark"></i> {{ trans('navigation.Pins') }}</a></li>--}}
-                <span class="hidden-s hidden-xs">
-                    @include('includes.admin-nav-link')
-                    <li><a href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil-square"></i> {{ trans('navigation.Blog') }}</a></li>
-                    <li><a href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-list-alt"></i> {{ trans('navigation.Quiz') }}</a></li>
-                    <li><a href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a></li>
-                    <li><a href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i>  {{ trans('navigation.Teams') }}</a></li>
-                    <li><a href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-bank"></i> {{ trans('navigation.Idea-Share') }}</a></li>
-                </span>
+    <div class="ui grey pointing menu subnav-block">
 
-                </ul>
-        @if (Auth::guest())
-            <ul class="nav pull-right">
-                <li><a href="{{ url('/auth/login') }}">Login</a></li>
-                <span class="text-white">/</span>
-                <li><a href="{{ url('/auth/register') }}">Register</a></li>
-            </ul>
-                @else
-            <div class="ui floating dropdown button button-dark pull-right">
+        <div class="ui inline dropdown pull-left l-2 m-2 s-3 xs-3">
 
-                <i class="dropdown icon"></i>
-                <div class="default text"><img src="@include('includes.user-image', $user = Auth::user())" class="avatar" alt="{{ Auth::user()->getSlug() }}"/> <div class="drop-text">{{ Auth::user()->name }}</div>  </div>
-                <div class="menu">
-                    <div class="item">
-                        <li> <a href="{{route('itway::user::show',Auth::user()->id)}}" ><i class="icon-user"></i> {{trans('navigation.profile')}}</a></li>
-
-                </div>
-                <div class="item" >
-                    <li><a href="{{ url('/auth/logout') }}"><i class="icon-power-off"></i> {{trans('navigation.logout')}}</a></li>
-                </div>
-            </div>
+            <div class="text">
+                @if(Request::route()->getPrefix() === App::getLocale()."/blog")
+                   <i class="icon-pencil-square"></i> {{ trans('navigation.Blog') }}
                 @endif
 
+                @if(Request::route()->getPrefix() === App::getLocale()."/quiz")
+                    <i class="icon-list-alt"></i> {{ trans('navigation.Quiz') }}
+                @endif
 
+                @if(Request::route()->getPrefix() === App::getLocale()."/job-hunting")
+                   <i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}
+                @endif
+
+                @if(Request::route()->getPrefix() === App::getLocale()."/teams")
+                    <i class="icon-group text-right"></i>  {{ trans('navigation.Teams') }}
+                @endif
+
+                @if(Request::route()->getPrefix() === App::getLocale()."/idea-show")
+                   <i class="icon-bank"></i> {{ trans('navigation.Idea-Share') }}
+                @endif
+            </div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+
+                @if(Request::route()->getPrefix() === App::getLocale()."/blog")
+                    <a class="item block selected" href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil-square"></i> {{ trans('navigation.Blog') }}</a>
+                @else
+                    <a class="item block" href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil-square"></i> {{ trans('navigation.Blog') }}</a>
+                @endif
+
+                @if(Request::route()->getPrefix() === App::getLocale()."/quiz")
+                    <a class="item block selected" href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-list-alt"></i> {{ trans('navigation.Quiz') }}</a>
+                @else
+                    <a class="item block" href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-list-alt"></i> {{ trans('navigation.Quiz') }}</a>
+                @endif
+
+                @if(Request::route()->getPrefix() === App::getLocale()."/job-hunting")
+                    <a class="item block selected" href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a>
+                @else
+                    <a class="item block" href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a>
+                @endif
+                @if(Request::route()->getPrefix() === App::getLocale()."/teams")
+                        <a class="item block selected" href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i>  {{ trans('navigation.Teams') }}</a>
+                    @else
+
+                    <a class="item block" href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i>  {{ trans('navigation.Teams') }}</a>
+                @endif
+                @if(Request::route()->getPrefix() === App::getLocale()."/idea-show")
+                    <a class="item block selected" href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-bank"></i> {{ trans('navigation.Idea-Share') }}</a>
+                    @else
+                    <a class="item block" href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-bank"></i> {{ trans('navigation.Idea-Share') }}</a>
+                @endif
+            </div>
         </div>
+
+
+        <div class="text-center l-8 m-8 s-6 xs-6 inline-block">
+            <a class="item" style=" height: 40px;" href="{{ url('/') }}"><img style="padding-top: 9px" src="{{ url('/iw.png') }}" alt="Itway.io"></a>
+
+            @include('includes.admin-nav-link')
+
+            <a href="#search" class="item"><i class="icon-search"></i> search</a>
+
+            @yield('subnavigation.buttons')
+
+            <a class="item"><i class="icon-bell-o"></i> Recent activity</a>
+
+
+            <div class="ui dropdown item">
+                More
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item"><i class="icon-edit"></i> Edit Profile</a>
+                    <a class="item"><i class="icon-globe"></i> Choose Language</a>
+                    <a class="item"><i class="icon-cogs"></i> Account Settings</a>
+                </div>
+            </div>
+        </div>
+        @include('includes.language-chooser')
+        @if (Auth::guest())
+            <a class="item" href="{{ url('/auth/login') }}">Login</a>
+            <span class="text-white">/</span>
+            <a class="item" href="{{ url('/auth/register') }}">Register</a>
+
+        @else
+            <a class="item user-img">
+                <img src="@include('includes.user-image', $user = Auth::user())" class="avatar" alt="{{ Auth::user()->getSlug() }}"/>
+            </a>
+            <div class="ui dropdown pointing top right item">
+                {{ Auth::user()->name }}
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="{{route('itway::user::show',Auth::user()->id)}}" ><i class="icon-user"></i> {{trans('navigation.profile')}}</a>
+                    <a class="item" href="{{ url('/auth/logout') }}"><i class="icon-power-off"></i> {{trans('navigation.logout')}}</a>
+                </div>
+            </div>
+
+        @endif
     </div>
-</nav>
+
+
+</div>
+

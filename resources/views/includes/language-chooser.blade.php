@@ -6,7 +6,7 @@
         <option class="button button-primary hidden" value="en" {{ Lang::locale() === 'en' ? '' : 'selected'}}>English</option>
 
     </select>
-    <button class="button button-primary pull-right">
+    <button class="item pull-right" style="border:none; outline: none">
         <span class="pull-left language-info">{{ trans('navigation.LangInfo') }}</span>
         <i class="icon-language"></i>
         {{ Lang::locale() === 'en' ? 'ru' : 'en'}} version

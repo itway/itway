@@ -16,11 +16,25 @@ use App;
 
 class QuizController extends Controller
 {
+
+    private $repository;
+
     public function __construct(QuizRepository $repository){
 
         $this->repository = $repository;
 
     }
+
+    /**
+     * redirect if nothing found
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectNotFound()
+    {
+        return redirect()->to(App::getLocale()."/quiz")->with(\Flash::error('Quiz Not Found!!'));
+    }
+
 
     /**
      * @param Request $request
@@ -30,10 +44,10 @@ class QuizController extends Controller
     {
        $quizes = $this->repository->allOrSearch($request->get('q'));
 
-        $countUserQuizes = count($quizes->where('user_id', Auth::id()));
+        $countUserQuizzes = count($quizes->where('user_id', Auth::id()));
 
 
-        return view('Quiz.index', compact('quizes', 'countUserQuizes'));
+        return view('Quiz.index', compact('quizes', 'countUserQuizzes'));
     }
 
     /**
@@ -97,20 +111,49 @@ class QuizController extends Controller
 
         Toastr::success(trans('messages.yourQuizCreated'), $title = $quiz->title, $options = []);
 
-        return redirect()->to(App::getLocale().'/quiz/'.$quiz->id);
+        return redirect()->to(App::getLocale().'/quiz/show/'.$quiz->id);
 
 
     }
 
+
     /**
-     * Display the specified resource.
+     * show single quiz and pass some data to views
      *
-     * @param  int  $id
-     * @return Response
+     * @param $slug
+     * @param Quiz $quizdata
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($slug)
+
     {
-        //
+        try {
+            $quiz = $this->repository->getModel()->findBySlugOrId($slug);
+
+            $quiz->view();
+
+            $quizUser = $quiz->user_id;
+
+            $countUserQuizzes = $this->repository->countUserQuizzes();
+
+
+            if(Auth::user() && Auth::user()->id === $quizUser) {
+
+                $createdByUser = true;
+
+                return view('quiz.single', compact('quiz', 'createdByUser','countUserQuizzes'));
+            }
+            else {
+                $createdByUser = false;
+
+                return view('quiz.single', compact('quiz','createdByUser','countUserQuizzes'));
+            }
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
     }
 
     /**
@@ -136,14 +179,25 @@ class QuizController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function destroy($id)
     {
-        //
+        $deleted = $this->repository->delete($id);
+
+        if($deleted) {
+
+            Toastr::success(Auth::user()->name, $title = 'Your Quiz deleted successfully! Have a nice day!', $options = []);
+
+            return redirect()->to(App::getLocale().'/quiz');
+        }
     }
+
+    public function tags($slug) {
+
+        $quizzes = Quiz::withAnyTag([$slug])->latest('published_at')->published()->paginate(8);
+
+        $countUserQuizzes = $this->repository->countUserQuizzes();
+
+        return view('Quiz.index',compact('quizzes', 'countUserQuizzes'));
+    }
+
 }

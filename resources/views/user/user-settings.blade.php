@@ -6,7 +6,7 @@
 
 @endsection
 
-@section('sidebar.buttons')
+@section('subnavigation.buttons')
     @include('user.site-btns')
 @endsection
 

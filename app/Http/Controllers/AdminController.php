@@ -9,7 +9,7 @@ use Itway\Repositories\Posts\PostsRepository;
 
 class AdminController extends Controller
 {
-    public $postsRepository;
+    private $postsRepository;
 
     public function __construct(PostsRepository $postsRepository){
 

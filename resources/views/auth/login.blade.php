@@ -2,13 +2,7 @@
 <body>
 
 @include('includes.navigation')
-<div class="absolute-lang">
 
-
-    <h6></h6>
-
-    @include('includes.language-chooser')
-</div>
 
 <div class="container" style="margin-top: 60px;margin-bottom: 40px;">
 
