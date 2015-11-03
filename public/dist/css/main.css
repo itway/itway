@@ -5872,6 +5872,8 @@ select {
       display: inline-block !important; }
       .site-buttons .subnav-block .item.selected:after {
         display: none; }
+      .site-buttons .subnav-block .item.selected {
+        color: #03A9F4 !important; }
     .site-buttons .subnav-block .menu .dropdown .item {
       display: block !important; }
     .site-buttons .subnav-block .ui.dropdown.item .menu .item:not(.filtered) {

@@ -1515,6 +1515,7 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .site-buttons .subnav-block{border-bottom:none!important;background-color:transparent!important;padding:0 7.5px;font-size:14px!important;color:#fff;-webkit-box-align:center!important;-webkit-align-items:center!important;-ms-flex-align:center!important;align-items:center!important;-webkit-box-pack:center!important;-webkit-justify-content:center!important;-ms-flex-pack:center!important;justify-content:center!important;margin-top:0!important;margin-bottom:0!important}
 .site-buttons .subnav-block .item{color:#fff!important;padding:3px 10px!important;display:inline-block!important}
 .site-buttons .subnav-block .item.selected:after{display:none}
+.site-buttons .subnav-block .item.selected{color:#03A9F4!important}
 .site-buttons .subnav-block .item.block,.site-buttons .subnav-block .menu .dropdown .item,.site-buttons .subnav-block .ui.dropdown.item .menu .item:not(.filtered){display:block!important}
 .site-buttons .subnav-block .searchBox{margin-right:10px}
 .site-buttons .subnav-block .searchBox button{padding-left:10px;padding-right:10px;margin-left:0}

@@ -25,6 +25,9 @@
       &.selected:after {
         display: none;
       }
+      &.selected {
+        color: $info-color!important;
+      }
     }
     .menu .dropdown .item {
       display: block!important;

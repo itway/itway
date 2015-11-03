@@ -3,7 +3,6 @@ var initLikeORdis = function (buttonID, base_url, class_name, object_id, redirec
 
                 buttonID.submit(function (e) {
                     e.preventDefault();
-
                     var button = $(this).find("button"),
                         buttonI = $(this).find("button i");
 

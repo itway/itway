@@ -162,6 +162,7 @@ $(function () {
     $.ItwayIO.layout.activate();
     //Activate messenger functionality
     $.ItwayIO.messenger.activate();
+
     $.ItwayIO.quiz.activate();
     //Enable sidebar tree view controls
     $.ItwayIO.tree('.sidebar');
@@ -798,32 +799,7 @@ function _init(o) {
                 });
 
             });
-        //    var multiInputs = $("#quizOptions");
-        //
-        //    function handler(e) {
-        //        var El = $(e.target);
-        //        var tag = El.parent();
-        //        switch (El.attr("data-action")) {
-        //            case "add":
-        //                tag.after(tag.clone().find("input").val("").end());
-        //                break;
-        //            case "delete":
-        //                tag.remove();
-        //                break;
-        //        }
-        //        return false;
-        //    }
-        //
-        //    function save(e) {
-        //        var inputs = multiTags.find(".input.input-line").map(function() {
-        //            return $(this).val();
-        //        }).get().join(',');
-        //        alert(inputs);
-        //        return false;
-        //    }
-        //
-        //    multiInputs.find("a.button").on("click", handler);
-        //
+
         }
     };
     /* Layout

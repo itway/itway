@@ -61,12 +61,12 @@
         </div>
 
 
-        <div class="text-center l-8 m-8 s-6 xs-6 inline-block">
+        <div class="text-center l-8 m-8 s-6 xs-6 inline-block" id="nav">
             <a class="item" style=" height: 40px;" href="{{ url('/') }}"><img style="padding-top: 9px" src="{{ url('/iw.png') }}" alt="Itway.io"></a>
 
             @include('includes.admin-nav-link')
 
-            <a href="#search" class="item"><i class="icon-search"></i> search</a>
+            <a class="item"><i class="icon-search"></i> search</a>
 
             @yield('subnavigation.buttons')
 

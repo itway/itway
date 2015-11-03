@@ -10,7 +10,7 @@
 
         var definedLinks = anchor[i].pathname;
         if(definedLinks === current) {
-            anchor[i].className = "active";
+            anchor[i].className = "item selected";
         }
     }
 
