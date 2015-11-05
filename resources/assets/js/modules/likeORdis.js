@@ -18,6 +18,8 @@ var initLikeORdis = function (buttonID, base_url, class_name, object_id, redirec
                             if (data[0] === "liked") {
 
                                 buttonI.addClass('text-danger');
+                                buttonI.removeClass('icon-favorite_outline');
+                                buttonI.addClass('icon-favorite');
                                 button.tooltipster('content', data[1]);
                                 buttonID.parent().append($("<span/>", {
                                     "text": data[2],
@@ -31,6 +33,8 @@ var initLikeORdis = function (buttonID, base_url, class_name, object_id, redirec
                             else {
 
                                 buttonI.removeClass('text-danger');
+                                buttonI.addClass('icon-favorite_outline');
+                                buttonI.removeClass('icon-favorite');
                                 button.tooltipster('content', data[1]);
                                 buttonID.parent().find(".like-message").remove();
                             }

@@ -5,6 +5,7 @@
 
 return array (
   //==================================== Translations ====================================//
+    'home' => 'Home',
   'Blog' => 'Blog',
   'Create-Post' => 'Create Post',
   'Idea-Share' => 'Idea-Share',
@@ -20,5 +21,6 @@ return array (
     'Settings' => 'Settings',
     'Admin' => 'Admin panel',
     'profile' => 'profile',
-    'logout' => 'logout'
+    'logout' => 'logout',
+    'user' => 'User'
     );

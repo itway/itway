@@ -1,4 +1,5 @@
-<footer id="footer" class="container-fluid shadow-z-1">
+<footer id="footer" class="container-fluid">
+    <div class="foot-line"></div>
     <h6 class="text-center text-title">{{ trans('footer.head') }}
             <span class="love-to-it">IT & Web</span>
        </h6>

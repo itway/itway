@@ -15,12 +15,20 @@ footer {
   display: inline-block;
   /* Set the fixed height of the footer here */
   height: 107px;
-
+  border: none;
 
  a {
     color: #27c0d8;
     text-decoration: none;
     //border-bottom: 1px dotted #27c0d8;
+  }
+  .foot-line {
+    height: 0px;
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 0px 1px #f8f8f8 !important;
+    position: relative;
+    display: block;
   }
   a:hover {
     color: #23adc2;

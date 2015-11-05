@@ -80,8 +80,10 @@ gulp.task('add-vendor-scripts', function() {
 
 gulp.task('sass', function() {
  return gulp.src(['resources/assets/sass/*.scss'])
+     .pipe($.sourcemaps.init())
      .pipe($.plumber())
      .pipe($.sass())
+     .pipe($.sourcemaps.write('./sass-sourcemaps'))
      .pipe(gulp.dest('public/dist/css/'))
      .pipe($.connect.reload());
 });

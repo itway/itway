@@ -42,7 +42,7 @@
                     $url = 'likeORdis'
                     ?>
                     {!!Form::open(["id" => "like", "method" => "GET","url" => route($url, array('class_name' => 'quiz', 'object_id' => $quiz->id))])!!}
-                    <button style="line-height: 40px;" class=" button button-rounded pull-right  tooltip tooltipstered"  @if($quiz->getLikeCount() !== 0) title="{{$quiz->getLikeCount()}}"@endif>@if($quiz->liked(Auth::user()))<i class="icon-heart  text-danger "></i>@else <i class="icon-heart"></i> @endif</button>
+                    <button style="line-height: 40px;" class=" button button-rounded pull-right  tooltip tooltipstered"  @if($quiz->getLikeCount() !== 0) title="{{$quiz->getLikeCount()}}"@endif>@if($quiz->liked(Auth::user()))<i class="icon-favorite  text-danger "></i>@else <i class="icon-favorite_outline"></i> @endif</button>
                     {!!Form::close()!!}
                     <div class="clearfix"></div>
                     @if($quiz->liked(Auth::user()))
@@ -122,7 +122,7 @@
             <a href="{{ url(App::getLocale().'/quiz/show/'.$quiz->id.'#disqus_thread') }}" data-disqus-identifier="{{$quiz->id}}" >0</a>
         </span>
             <span class="text-left text-primary" style="">
-                <i style="text-align: left; margin: 5px;" class="icon-eye text-grey"></i>
+                <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
                 <span>{{$quiz->views_count()}}</span>
             </span>
         </div>

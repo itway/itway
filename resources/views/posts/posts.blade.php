@@ -52,7 +52,7 @@
                                 </div>
                                 <nav class="button-nav-post button-group-vertical  l-1 m-1 s-2 xs-2">
                                     <span class="button">
-                                        <span class="text-left text-primary" style="position: absolute;left: -10px;">{{$post->views_count()}}</span><i style="text-align: right; margin: -5px;" class="icon-eye"></i></span>
+                                        <span class="text-left text-primary" style="position: absolute;left: -10px;">{{$post->views_count()}}</span><i style="text-align: right; margin: -5px;" class="icon-remove_red_eye"></i></span>
                                     <span class="button">
                                         <a class="text-left text-primary" href="{{ url(App::getLocale().'/blog/post/'.$post->id.'#disqus_thread') }}" data-disqus-identifier="{{$post->id}}" style="position: absolute;left: -10px;">0</a>
                                         <i  style="text-align: right; margin: -5px;"  class="icon-comment"></i>

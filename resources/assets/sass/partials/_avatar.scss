@@ -5,10 +5,11 @@
   border-radius: 20%;
   vertical-align: text-top;
 }
-nav .avatar{
+.nav-main .avatar{
   height: 34px;
   width: 34px;
-  margin: -10px 5px;
-  border-radius: 50%;
+  margin: -10px 5px!important;
+  border-radius: 50%!important;
   vertical-align: text-top;
+  width: auto!important;
 }

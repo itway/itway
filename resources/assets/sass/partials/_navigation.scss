@@ -1,10 +1,61 @@
 
-.site-buttons {
+.nav-main {
 
   padding-left: 0;
   padding-right: 0;
   align-items: center!important;
   justify-content: center!important;
+  .left.menu, .right.menu {
+    box-shadow: none!important;
+  }
+  .ui.menu {
+    padding: 0;
+    margin: 0;
+    height: 50px !important;
+    background: transparent;
+    box-shadow: none!important;
+    .center {
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0px !important;
+        background: rgba(34, 36, 38, .1);
+      }
+      .item {
+        color: white !important;
+      }
+    }
+    .item {
+      color: white !important;
+      //&.selected:after {
+      //  display: none;
+      //}
+      &.selected {
+        color: $info-color !important;
+      }
+    }
+    .ui.inline.dropdown {
+      border: none!important;
+      & > .text {
+        font-weight: 400;
+        background: white !important;
+        color: $info-color !important;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .ui.inline.dropdown.item.active.visible {
+      }
+    }
+    .dropdown .item {
+      color: $grey-color !important;
+      i {
+        color: $info-color !important;
+      }
+    }
+  }
   .subnav-block {
     border-bottom: none !important;
     background-color: transparent !important;
@@ -14,23 +65,32 @@
     color: white;
     padding-left: 7.5px;
     padding-right: 7.5px;
-    align-items: center!important;
-    justify-content: center!important;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
     .item {
-      color: white!important;
-      padding: 3px 10px!important;
+      color: white !important;
+      padding: 3px 10px !important;
       display: inline-block !important;
       &.selected:after {
         display: none;
       }
       &.selected {
-        color: $info-color!important;
+        color: $info-color !important;
+      }
+    }
+
+    .dropdown .item {
+      color: $grey-color !important;
+      i {
+        color: $info-color !important;
       }
     }
     .menu .dropdown .item {
       display: block!important;
+
     }
     .ui.dropdown.item .menu .item:not(.filtered) {
       display: block!important;

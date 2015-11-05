@@ -15,9 +15,14 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         'as' => 'language-chooser',
         'uses' => 'LanguageController@chooser'));
 
-    Route::get('/',  [ 'uses' => 'HomeController@index']);
+    Route::get('/',  [
+        'uses' => 'HomeController@index',
+        'as' => 'main'
+    ]);
 
-    Route::group(['prefix' => '/', 'as' => 'itway::'], function(){
+    Route::group([
+        'prefix' => '/', 'as' => 'itway::'],
+        function(){
 
         //BLOG ROUTES START
         Route::group(['prefix' => 'blog', 'as' => 'posts::'], function(){
@@ -67,6 +72,106 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         });
         //BLOG ROUTES END
 
+        //EVENTS ROUTES START
+        Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
+
+            Route::get('/',
+                [
+                    'uses' => 'EventsController@index',
+                    'as' => 'index'
+                ]);
+
+            Route::get('show/{id}', [
+                'as' => 'show',
+                'uses' => 'EventsController@show'
+            ]);
+
+            Route::get('personal_events', [
+                'as' => 'personal_events',
+                'uses' => 'EventsController@personalEvents'
+            ]);
+
+            Route::get('create', [
+                'uses' => 'EventsController@create',
+                'as' => 'create',
+                'middleware' => 'auth'
+            ]);
+
+            Route::get('edit/{id}', [
+                'uses' => 'EventsController@edit',
+                'as' => 'edit',
+                'middleware' => ['auth']
+            ]);
+
+            Route::patch('update/{id}', [
+                'uses' => 'EventsController@update',
+//                'middleware' => 'shouldBeUnique',
+                'as' => 'update', 'middleware' => ['IsUsers', 'auth']
+            ]);
+            Route::delete('delete/{id}', [
+                'uses' => 'EventsController@destroy',
+                'as' => 'delete', 'middleware' => ['auth','IsUsers']
+            ]);
+            Route::post('store', [
+                'uses' => 'EventsController@store',
+                'as' => 'store',
+                'middleware' => 'auth'
+            ]);
+
+
+        });
+        //EVENTS ROUTES END
+
+        //TASKBOARD ROUTES START
+        Route::group(array('prefix' => 'task-board', 'as' => 'task-board::'), function () {
+
+            Route::get('/',
+                [
+                    'uses' => 'TaskBoardController@index',
+                    'as' => 'index'
+                ]);
+
+            Route::get('show/{id}', [
+                'as' => 'show',
+                'uses' => 'TaskBoardController@show'
+            ]);
+
+            Route::get('personal_quizzes', [
+                'as' => 'personal_tasks',
+                'uses' => 'TaskBoardController@personalTasks'
+            ]);
+
+            Route::get('create', [
+                'uses' => 'QuizController@TaskBoardController',
+                'as' => 'create',
+                'middleware' => 'auth'
+            ]);
+
+            Route::get('edit/{id}', [
+                'uses' => 'TaskBoardController@edit',
+                'as' => 'edit',
+                'middleware' => ['auth']
+            ]);
+
+            Route::patch('update/{id}', [
+                'uses' => 'TaskBoardController@update',
+//                'middleware' => 'shouldBeUnique',
+                'as' => 'update', 'middleware' => ['IsUsers', 'auth']
+            ]);
+            Route::delete('delete/{id}', [
+                'uses' => 'TaskBoardController@destroy',
+                'as' => 'delete', 'middleware' => ['auth','IsUsers']
+            ]);
+            Route::post('store', [
+                'uses' => 'TaskBoardController@store',
+                'as' => 'store',
+                'middleware' => 'auth'
+            ]);
+
+
+        });
+        //TASKBOARD ROUTES END
+
         //QUIZ ROUTES START
         Route::group(array('prefix' => 'quiz', 'as' => 'quiz::'), function () {
 
@@ -107,6 +212,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 
         });
         //QUIZ ROUTES END
+
 
         Route::get('sales', [
             'uses' => 'AdminController@sales'

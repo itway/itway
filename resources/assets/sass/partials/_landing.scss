@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   min-height:300px;
-
+  box-shadow: 0px 1px transparentize(#f8f8f8, .4) !important;
   .header {
     display: block;
 //    padding: 0 10%;
@@ -39,6 +39,9 @@
       color: $bluegrey-color;
       font-weight: bold;
     }
+    p{
+      color: aliceblue;
+    }
     i {
 
     }
@@ -65,7 +68,7 @@
      width: 80px;
      text-align: center;
    }
-    border-radius: 500px;
+    border-radius: 5px;
     display: block;
     float: none;
     font-size: 2em;
@@ -74,9 +77,10 @@
     margin: 0 auto 15px;
     opacity: 1;
     padding: 0;
-    width: 100%;
+    width: 70%;
     text-align: center;
     padding-top: 5px;
+    background: white;
     //min-height: 150px;
     position: relative;
     span {
@@ -189,4 +193,181 @@
   }
 
 
+}
+
+.land-line {
+  height: 0px;
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  i {
+    color: aliceblue;
+    font-size: 12px;
+  }
+}
+.landing {
+  background-color: transparent;
+  color: #FAFAFA;
+  min-height: 100vh;
+  width: 100%;
+  .wrapper {
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding-top: 260px;
+
+    .iw {
+      position: absolute;
+      top: 80px;
+      -lh-property: 0;
+      left: -webkit-calc(50% - 90px);
+      left: -moz-calc(50% - 90px);
+      left: calc(50% - 90px);
+      display: block;
+      text-indent: -9999em;
+      width: 180px;
+      height: 140px;
+      margin: 0 auto 1px;
+      background-image: url(/itway-landing.png);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      animation: pulse 2.5s ease-out infinite;
+      border-bottom: 3px solid;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 42px;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+      line-height: 50px;
+      span:nth-child(1) {
+        font-weight: 300;
+      }
+      span {
+        display: block;
+      }
+
+    }
+    p {
+      font-size: 23px;
+      line-height: 30px;
+      font-weight: 300;
+      max-width: 775px;
+      width: 90%;
+      margin: 30px auto;
+    }
+    .buttons-landing {
+      margin-top: 34px;
+      a {
+        display: inline-block;
+        color: #FFF;
+        line-height: 15px;
+        text-decoration: none;
+        text-align: left;
+        background-color: rgba(0, 144, 210, 0.65);
+        padding: 6px 13px 7px 10px;
+        border-radius: 6px;
+        margin: 7px;
+        -webkit-transition: background-color 0.2s ease-out;
+        -moz-transition: background-color 0.2s ease-out;
+        -o-transition: background-color 0.2s ease-out;
+        transition: background-color 0.2s ease-out;
+      }
+      a:hover {
+        background-color: #0090d2;
+      }
+    }
+  }
+}
+.features {
+  background-color: #F0F0F0;
+  min-height: 100vh;
+  width: 100%;
+  .wrapper {
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 38px;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    line-height: 42px;
+    span:nth-child(1) {
+      font-weight: 300;
+    }
+    span {
+      display: block;
+    }
+    span:nth-child(2) {
+      font-size: 52px;
+      letter-spacing: -3px;
+    }
+  }
+
+  p {
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: 300;
+    max-width: 775px;
+    width: 90%;
+    margin: 30px auto;
+  }
+  ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: baseline;
+    li {
+      max-width: 300px;
+      min-height: 260px;
+      padding: 20px;
+      div {
+        margin-bottom: 6px;
+      }
+      h3 {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 20px;
+        position: relative;
+        text-decoration: overline;
+      }
+      span {
+        display: block;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 26px;
+      }
+      i {
+        font-size: 90px;
+        color: $primary-color;
+      }
+    }
+  }
+}
+.wrapper-bottom{
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  padding-top: 10px;
 }

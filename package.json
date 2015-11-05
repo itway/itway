@@ -44,6 +44,7 @@
     "gulp-print": "^2.0.1",
     "gulp-replace": "^0.5.4",
     "gulp-rtlcss": "^0.1.4",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "ioredis": "^1.7.5",
     "map-stream": "0.0.6",

@@ -39,7 +39,7 @@
                         $url = 'likeORdis'
                    ?>
                     {!!Form::open(["id" => "like", "method" => "GET","url" => route($url, array('class_name' => 'post', 'object_id' => $post->id))])!!}
-                    <button style="line-height: 40px;" class=" button button-rounded pull-right  tooltip tooltipstered"  @if($post->getLikeCount() !== 0) title="{{$post->getLikeCount()}}"@endif>@if($post->liked(Auth::user()))<i class="icon-heart  text-danger "></i>@else <i class="icon-heart"></i> @endif</button>
+                    <button style="line-height: 40px;" class=" button button-rounded pull-right  tooltip tooltipstered"  @if($post->getLikeCount() !== 0) title="{{$post->getLikeCount()}}"@endif>@if($post->liked(Auth::user()))<i class="icon-favorite  text-danger "></i>@else <i class="icon-favorite_outline"></i> @endif</button>
                     {!!Form::close()!!}
                     <div class="clearfix"></div>
                         @if($post->liked(Auth::user()))
@@ -105,7 +105,7 @@
             <a href="{{ url(App::getLocale().'/blog/post/'.$post->id.'#disqus_thread') }}" data-disqus-identifier="{{$post->id}}" >0</a>
         </span>
             <span class="text-left text-primary" style="">
-                <i style="text-align: left; margin: 5px;" class="icon-eye text-grey"></i>
+                <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
                 <span>{{$post->views_count()}}</span>
             </span>
         </div>
