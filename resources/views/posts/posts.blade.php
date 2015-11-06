@@ -1,6 +1,6 @@
     {{--ul.posts>li*4>.title+img.post-image+nav.button-nav-post.button-group-vertical>a.button.button-info{share}*4+p.post-text{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt eos facere quaerat repellat? A ad alias aspernatur cum, dicta in ipsum iusto labore maiores, optio recusandae sed, totam voluptatibus!}+a.read-post.button.button-dark{read-more}--}}
 
-    @section('subnavigation.buttons')
+    @section('navigation.buttons')
         @include('posts.site-btns')
     @endsection
 

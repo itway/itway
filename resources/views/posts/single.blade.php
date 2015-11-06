@@ -8,7 +8,7 @@
 @section('styles-add')
 
 @endsection
-@section('subnavigation.buttons')
+@section('navigation.buttons')
     @include('posts.site-btns')
 @endsection
 @section('content')
@@ -166,7 +166,6 @@
         var base_url = "{{ route($url, array('class_name' => 'post', 'object_id' => $post->id)) }}", buttonID = $('#like'),
                 class_name = "post", object_id = "{{$post->id}}", redirectIFerror = "{{url('/auth/login')}}";
 
-        initLikeORdis(buttonID, base_url, class_name, object_id, redirectIFerror);
     </script>
     @endsection
 

@@ -46,12 +46,11 @@ class QuizController extends Controller
 
         $countUserQuizzes = count($quizes->where('user_id', Auth::id()));
 
-
         return view('Quiz.index', compact('quizes', 'countUserQuizzes'));
     }
 
     /**
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -59,7 +58,9 @@ class QuizController extends Controller
 
         $tags =  $tagCollection->lists('name', 'id');
 
-        return view('Quiz.create', compact('tags'));
+        $countUserQuizzes = $this->repository->countUserQuizzes();
+
+        return view('Quiz.create', compact('tags', 'countUserQuizzes'));
 
     }
     public function personalQuizzes(Request $request, Quiz $quizData){

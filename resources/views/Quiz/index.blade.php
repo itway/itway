@@ -6,7 +6,7 @@
 
 @endsection
 
-@section('sidebar.buttons')
+@section('navigation.buttons')
     @include('Quiz.site-btns')
 @endsection
 

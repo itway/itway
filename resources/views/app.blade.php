@@ -48,6 +48,6 @@
     </div>
 </div>
 @include('includes.footer')
-@include('includes.bottom-navigation')
+{{--@include('includes.bottom-navigation')--}}
 </body>
 </html>

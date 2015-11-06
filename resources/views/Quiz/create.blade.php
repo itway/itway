@@ -5,7 +5,9 @@
     <?php  $msg = "Quiz";  ?>
 
 @endsection
-
+@section('navigation.buttons')
+    @include('Quiz.site-btns')
+@endsection
 @section('content')
 
 

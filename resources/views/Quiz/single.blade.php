@@ -9,7 +9,7 @@
 
 @endsection
 
-@section('sidebar.buttons')
+@section('navigation.buttons')
     @include('Quiz.site-btns')
 @endsection
 
@@ -172,8 +172,6 @@
     <script>
         var base_url = "{{ route($url, array('class_name' => 'quiz', 'object_id' => $quiz->id)) }}", buttonID = $('#like'),
                 class_name = "quiz", object_id = "{{$quiz->id}}", redirectIFerror = "{{url('/auth/login')}}";
-
-        initLikeORdis(buttonID, base_url, class_name, object_id, redirectIFerror);
     </script>
 @endsection
 

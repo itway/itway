@@ -52,7 +52,7 @@
     <div class="clearfix"></div>
     <div class="form-group">
         <label for="fileupload" class="filelabel custom-file-input button button-primary button-block">
-        <i class="icon-file"></i>
+        <i class="icon-file_download"></i>
         </label>
 
 

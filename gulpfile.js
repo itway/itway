@@ -44,11 +44,27 @@ gulp.task('fonts-source-pro', function () {
      .pipe($.connect.reload());
 });
 // Compile Coffeescript
-gulp.task('coffee', function () {
- return gulp.src('resources/assets/coffee/*.coffee')
+gulp.task('coffee-main', function () {
+ return gulp.src('resources/assets/coffee/app.coffee')
+     .pipe($.sourcemaps.init())
      .pipe($.plumber())
      .pipe($.coffee())
-     .pipe(gulp.dest('resources/assets/js/modules/'))
+     .pipe($.sourcemaps.write('./coffee-sourcemaps'))
+     .pipe(gulp.dest('resources/assets/js/'))
+     .pipe($.connect.reload());
+});
+
+gulp.task('coffee-secondary', function () {
+ return gulp.src([
+  'resources/assets/coffee/helpers/*.coffee',
+  'resources/assets/coffee/custom/*.coffee',
+  'resources/assets/coffee/components/*.coffee',
+ 'resources/assets/coffee/events/*.coffee'])
+     .pipe($.sourcemaps.init())
+     .pipe($.plumber())
+     .pipe($.coffee())
+     .pipe($.sourcemaps.write('./coffee-sourcemaps'))
+     .pipe(gulp.dest('resources/assets/js/modules'))
      .pipe($.connect.reload());
 });
 // Concatenate & Minify JS
@@ -83,7 +99,7 @@ gulp.task('sass', function() {
      .pipe($.sourcemaps.init())
      .pipe($.plumber())
      .pipe($.sass())
-     .pipe($.sourcemaps.write('./sass-sourcemaps'))
+     .pipe($.sourcemaps.write())
      .pipe(gulp.dest('public/dist/css/'))
      .pipe($.connect.reload());
 });
@@ -130,9 +146,10 @@ gulp.task('minify-css', function () {
 
 // Watch Files For Changes
 gulp.task('watch', function () {
- gulp.watch('resources/assets/js/modules/*.js', ['script-modules']);
- gulp.watch('resources/assets/coffee/*.coffee', ['coffee']);
+ gulp.watch('resources/assets/coffee/*.coffee', ['coffee-main']);
+ gulp.watch('resources/assets/coffee/**/*.coffee', ['coffee-secondary']);
  gulp.watch('resources/assets/js/*.js', ['add-scripts']);
+ gulp.watch('resources/assets/js/modules/*.js', ['script-modules']);
  gulp.watch(['resources/assets/sass/*.scss'], ['sass']);
  gulp.watch(['resources/assets/sass/**/*.scss'], ['sass']);
  gulp.watch('public/dist/css/**/*.css', ['minify-css']);
@@ -141,5 +158,5 @@ gulp.task('watch', function () {
 });
 
 // Default Task
-gulp.task('all', [ 'connect','connect-assets', 'fonts-source-pro', 'fonts', 'sass' ,'minify-css','coffee','add-scripts','add-vendor-scripts' , 'script-modules', 'watch']);
-gulp.task('default', [ 'connect','connect-assets', 'fonts-source-pro', 'sass' ,'minify-css','add-scripts', 'script-modules', 'watch']);
+gulp.task('all', [ 'connect','connect-assets', 'fonts-source-pro', 'fonts', 'sass' ,'minify-css','coffee-main', 'coffee-secondary', 'add-scripts','add-vendor-scripts' , 'script-modules', 'watch']);
+gulp.task('default', [ 'connect','connect-assets', 'fonts-source-pro', 'sass' ,'minify-css', 'coffee-main', 'coffee-secondary', 'add-scripts', 'script-modules', 'watch']);

@@ -1,5 +1,7 @@
+
 <div class="container-fluid nav-main">
 
+    <div class="l-12 xs-12">
     <div class="ui blue menu">
 
         <div class="left menu">
@@ -84,15 +86,15 @@
 
             @include('includes.admin-nav-link')
 
-            <a class="item"><i class="icon-search"></i> search</a>
+            <a class="item"><i class="icon-search"></i> {{trans('navigation.search')}}</a>
 
-            @yield('subnavigation.buttons')
+            @yield('navigation.buttons')
 
-            <a class="item"><i class="icon-bell-o"></i> Recent activity</a>
+            <a class="item"><i class="icon-bell-o"></i> {{trans('navigation.recent')}}</a>
 
 
             <div class="ui dropdown item">
-                More
+                {{trans('navigation.more')}}
                 <i class="dropdown icon"></i>
                 <div class="menu">
                     <a class="item"><i class="icon-edit"></i> Edit Profile</a>
@@ -125,3 +127,4 @@
 
 </div>
 
+</div>

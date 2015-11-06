@@ -19,7 +19,7 @@
     <div class="clearfix"></div>
     <div class="form-group">
         <label for="fileupload" class="filelabel custom-file-input button button-primary button-block" style="margin: 0 auto!important;">
-            <i class="icon-file"></i>
+            <i class="icon-file_download"></i>
         </label>
         {!! Form::file('image', ['id' => 'fileupload','class' => 'file-input',  'placeholder' => 'insert your post image here      (max: 1 )']) !!}
     </div>

@@ -1246,23 +1246,27 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .nav-main .ui.menu .center:before{position:absolute;content:'';top:0;right:0;height:100%;width:0!important;background:rgba(34,36,38,.1)}
 .nav-main .ui.menu .center .item,.nav-main .ui.menu .item{color:#fff!important}
 .nav-main .ui.menu .item.selected{color:#03A9F4!important}
+.nav-main .ui.menu .dropdown.item .menu{padding:5px;border-radius:4px!important}
+.nav-main .ui.menu .dropdown.item .menu .item{border-bottom:1px solid #dfdfdf}
+.nav-main .ui.menu .dropdown.item .menu .item:last-child{border-bottom:none}
 .nav-main .ui.menu .ui.inline.dropdown{border:none!important}
 .nav-main .ui.menu .ui.inline.dropdown>.text{font-weight:400;background:#fff!important;color:#03A9F4!important;padding:10px;border-radius:4px}
 .nav-main .ui.menu .dropdown .item{color:#9E9E9E!important}
 .nav-main .ui.menu .dropdown .item i{color:#03A9F4!important}
-.nav-main .subnav-block{border-bottom:none!important;background-color:transparent!important;padding:0 7.5px;font-size:14px!important;color:#fff;-webkit-box-align:center!important;-webkit-align-items:center!important;-ms-flex-align:center!important;align-items:center!important;-webkit-box-pack:center!important;-webkit-justify-content:center!important;-ms-flex-pack:center!important;justify-content:center!important;margin-top:0!important;margin-bottom:0!important}
-.nav-main .subnav-block .item{color:#fff!important;padding:3px 10px!important;display:inline-block!important}
-.nav-main .subnav-block .item.selected:after{display:none}
-.nav-main .subnav-block .item.selected{color:#03A9F4!important}
-.nav-main .subnav-block .dropdown .item{color:#9E9E9E!important}
-.nav-main .subnav-block .dropdown .item i{color:#03A9F4!important}
-.nav-main .subnav-block .item.block,.nav-main .subnav-block .menu .dropdown .item,.nav-main .subnav-block .ui.dropdown.item .menu .item:not(.filtered){display:block!important}
-.nav-main .subnav-block .searchBox{margin-right:10px}
-.nav-main .subnav-block .searchBox button{padding-left:10px;padding-right:10px;margin-left:0}
-.nav-main .subnav-block .searchBox input[type=search]{margin-left:0;margin-right:0}
+.nav-main .ui.menu .subnav-block{border-bottom:none!important;background-color:transparent!important;padding:0 7.5px;font-size:14px!important;color:#fff;-webkit-box-align:center!important;-webkit-align-items:center!important;-ms-flex-align:center!important;align-items:center!important;-webkit-box-pack:center!important;-webkit-justify-content:center!important;-ms-flex-pack:center!important;justify-content:center!important;margin-top:0!important;margin-bottom:0!important}
+.nav-main .ui.menu .subnav-block .item{color:#fff!important;padding:3px 10px!important;display:inline-block!important}
+.nav-main .ui.menu .subnav-block .item.selected:after{display:none}
+.nav-main .ui.menu .subnav-block .item.selected{color:#03A9F4!important}
+.nav-main .ui.menu .subnav-block .dropdown .item{color:#9E9E9E!important}
+.nav-main .ui.menu .subnav-block .dropdown .item i{color:#03A9F4!important}
+.nav-main .ui.menu .item.block,.nav-main .ui.menu .ui.dropdown.item .menu .item:not(.filtered){display:block!important}
+.nav-main .ui.menu .searchBox{margin-right:10px}
+.nav-main .ui.menu .searchBox button{padding-left:10px;padding-right:10px;margin-left:0}
+.nav-main .ui.menu .searchBox input[type=search]{margin-left:0;margin-right:0}
 .nav-main .language-chooser{padding-left:10px}
 .nav-main .language-chooser a{padding-left:10px;padding-right:10px}
-.menu{font-family:inherit!important;box-shadow:0 1px 2px 0 #f8f8f8!important;border-radius:0!important}
+.menu{font-family:inherit!important;box-shadow:0 1px 2px 0 #f8f8f8!important;border-radius:0!important;font-size:small!important}
+.left.menu{font-size:large!important}
 @media (max-width:992px){.navigation{width:100%;padding-left:0!important;padding-right:0!important}
 .navigation .logo{text-align:center!important}
 .navigation .list-inline.pull-left,.navigation .list-inline.pull-right{display:block!important;width:100%;text-align:center!important}
