@@ -1044,7 +1044,7 @@
     $.ItwayIO.layout.activate();
     $.ItwayIO.messenger.activate();
     $.ItwayIO.quiz.activate();
-    if (buttonID && base_url && class_name && object_id && redirectIFerror) {
+    if ((typeof buttonID && typeof base_url && typeof class_name && typeof object_id && typeof redirectIFerror) !== 'undefined') {
       $.ItwayIO.likeBTN.activate(buttonID, base_url, class_name, object_id, redirectIFerror);
     }
     $.ItwayIO.imageLoad.activate();
