@@ -106,7 +106,7 @@
         <div class="right menu">
         @if (Auth::guest())
             <a class="item" href="{{ url('/auth/login') }}">Login</a>
-            <span class="text-white">/</span>
+            <span class="item">/</span>
             <a class="item" href="{{ url('/auth/register') }}">Register</a>
 
         @else

@@ -1499,7 +1499,7 @@ ul.blocks li{display:block;padding:5px 0;margin-left:0;width:100%}
 .picker--time .picker__box{padding:0;position:relative}
 @media (min-height:40.125em){.picker--time .picker__holder{font-size:.875em}}
 .avatar{height:24px;width:24px;margin:-9px 5px;border-radius:20%;vertical-align:text-top}
-.nav-main .avatar{height:34px;margin:-10px 5px!important;border-radius:50%!important;vertical-align:text-top;width:auto!important}
+.nav-main .avatar{height:34px;width:34px!important;margin:-10px 5px!important;border-radius:50%!important;vertical-align:text-top}
 .image-preview-wrapper{width:100%;text-align:left}
 #fileupload::-webkit-file-upload-button{visibility:hidden;content:'';-webkit-appearance:none!important}
 .filelabel::before{display:none;background:0 0;border-radius:3px;outline:0;content:'';white-space:nowrap;-webkit-user-select:none;cursor:pointer;text-shadow:1px 1px #fff;font-weight:700;-webkit-appearance:none!important;font-size:10pt}
