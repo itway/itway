@@ -50,8 +50,8 @@ class Post extends Model implements SluggableInterface, Likeable{
      */
     protected $searchable = [
         'columns' => [
-            'title' => 120,
-            'body' => 50000,
+            'title' => 10,
+            'body' => 200,
             'preamble' => 120,
             'users.Facebook' => 2,
             'users.Twitter' => 2,
