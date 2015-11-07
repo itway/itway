@@ -30,6 +30,8 @@
 <script src="{{asset('dist\semantic\dist\components\form.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\tab.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\modal.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script>

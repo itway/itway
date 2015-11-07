@@ -6,6 +6,7 @@
 @include('pages.landing')
     @else
 
+@include('includes.search')
 
 <div class="container wrapper">
     <div class="content-wrapper">
@@ -21,7 +22,6 @@
         @endif
         <div class="clearfix"></div>
 
-        @include('includes.search')
 
         <div  id="container"  class="container-fluid" style=" " >
 

@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/divider.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/checkbox.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/label.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/dimmer.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/modal.min.css')}}">
 
 
 {{--<link href="{{asset("dist/vendor/taggingJS/example/tag-basic-style.css")}}" rel="stylesheet">--}}

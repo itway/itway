@@ -86,12 +86,31 @@
 
             @include('includes.admin-nav-link')
 
-            <a class="item"><i class="icon-search"></i> {{trans('navigation.search')}}</a>
+            <a class="ui search-button animate  item"><i class="icon-search"></i> {{trans('navigation.search')}}</a>
 
             @yield('navigation.buttons')
 
-            <a class="item"><i class="icon-bell-o"></i> {{trans('navigation.recent')}}</a>
+            <a class="ui dropdown item" id="alertlink">
 
+                <i class="icon-bell-o"></i> {{trans('navigation.recent')}}
+
+                <div class="menu dropdown-wide alert-dropdown">
+
+                    <div class="panel item no-margin alertsencased" >
+
+                        <div class="panel-encase"><div class="panel-empty tight"><i class="icon-notifications_off"></i><br><br><b>All your alerts are up to date!</b></div></div>
+
+                    </div>
+
+                    <div class="user-activity item">
+                            <span class="actvity-personal">personal activity</span>
+                        <span class="visited-links">
+                        link : <div class="item" href="http://www.itway.io/en/blog/post/1">React Base Fiddle (JSX)</div>
+                        </span>
+                    </div>
+                </div>
+
+            </a>
 
             <div class="ui dropdown item">
                 {{trans('navigation.more')}}

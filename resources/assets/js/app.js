@@ -63,10 +63,13 @@
 
     /* Search functionality */
     $.ItwayIO.search = {
+      selectors: $.ItwayIO.options.search,
       activate: function() {
-        var _this;
+        var _this, searchBTN, searchResult;
         _this = this;
-        $('#search button').click(function(e) {
+        searchBTN = this.selectors.searchBTN;
+        searchResult = this.selectors.searchResult;
+        searchBTN.click(function(e) {
           e.preventDefault();
           _this.search();
         });
@@ -74,20 +77,23 @@
           e.preventDefault();
           _this.tagSearch();
         });
-        $('a[href="#search"]').on('click', function(event) {
+        $('a.search-button').on('click', function(event) {
           event.preventDefault();
-          $('#search').addClass('open');
-          $('#search > form > input[type="search"]').focus();
+          $('#search input[type="search"]').focus();
+          $('#search').addClass('active');
           $('body').css({
             'overflow': 'hidden'
           });
         });
         $('#search, #search button.close').on('click keyup', function(event) {
-          if (event.target === this || event.target.className === 'close' || event.keyCode === 27) {
-            $(this).removeClass('open');
+          if (event.target === this || event.target.className === 'close' || event.target.className === 'icon-close' || event.keyCode === 27) {
+            $(this).removeClass('active');
+            searchResult.html('');
+            $('#search .search-input').val('');
             $('body').css({
               'overflow': 'auto'
             });
+            _this.stopSearch();
           }
         });
         $('#search form').submit(function(event) {
@@ -95,7 +101,7 @@
           return false;
         });
         $('#search > form > input[type="search"]').keyup(function(e) {
-          if (e.keyCode === 13 && $('#search .search-input').val().length > 0 || $('#search .search-input').val().length > 0) {
+          if ((e.keyCode === 13 && $('#search .search-input').val().length > 0) || $('#search .search-input').val().length > 0) {
             _this.search();
           } else {
             _this.stopSearch();
@@ -103,8 +109,9 @@
         });
       },
       search: function() {
-        var _this;
+        var _this, searchResult;
         _this = this;
+        searchResult = this.selectors.searchResult;
         timer = setTimeout((function() {
           $.ajax({
             url: 'http://www.itway.io/search',
@@ -113,10 +120,10 @@
             },
             method: 'post',
             success: function(markup) {
-              $('.search-result').html(markup);
+              searchResult.html(markup);
             },
             error: function(err) {
-              $('.search-result').html('<h3 class="text-danger"> Error occured </h3>');
+              searchResult.html('<h3 class="text-danger"> try once more... </h3>');
               console.log(err.type);
               _this.stopSearch();
             }
@@ -124,17 +131,18 @@
         }), 500);
       },
       tagSearch: function() {
-        var _this;
+        var _this, searchResult;
         _this = this;
+        searchResult = this.selectors.searchResult;
         timer = setTimeout((function() {
           $.ajax({
             url: 'http://www.itway.io/getAllExistingTags',
             method: 'post',
             success: function(markup) {
-              $('.search-result').html(markup);
+              searchResult.html(markup);
             },
             error: function(err) {
-              $('.search-result').html('<h3 class="text-danger"> Error occured </h3>');
+              searchResult.html('<h3 class="text-danger"> try once more... </h3>');
               console.log(err.type);
               _this.stopSearch();
             }
@@ -996,6 +1004,10 @@
     directChat: {
       enable: true,
       contactToggleSelector: '[data-widget="chat-pane-toggle"]'
+    },
+    search: {
+      searchBTN: $('#search button'),
+      searchResult: $('.search-result')
     },
     colors: {
       lightBlue: '#3c8dbc',

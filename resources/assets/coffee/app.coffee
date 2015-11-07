@@ -56,9 +56,12 @@ _init = (o) ->
   ### Search functionality ###
 
   $.ItwayIO.search =
+    selectors: $.ItwayIO.options.search
     activate: ->
       _this = this
-      $('#search button').click (e) ->
+      searchBTN = @selectors.searchBTN
+      searchResult = @selectors.searchResult
+      searchBTN.click (e) ->
         e.preventDefault()
         _this.search()
         return
@@ -66,23 +69,26 @@ _init = (o) ->
         e.preventDefault()
         _this.tagSearch()
         return
-      $('a[href="#search"]').on 'click', (event) ->
+      $('a.search-button').on 'click', (event) ->
         event.preventDefault()
-        $('#search').addClass 'open'
-        $('#search > form > input[type="search"]').focus()
+        $('#search input[type="search"]').focus()
+        $('#search').addClass('active')
         $('body').css 'overflow': 'hidden'
         return
       $('#search, #search button.close').on 'click keyup', (event) ->
-        if event.target == this or event.target.className == 'close' or event.keyCode == 27
-          $(this).removeClass 'open'
+        if event.target == this or event.target.className == 'close' or event.target.className == 'icon-close' or event.keyCode == 27
+          $(this).removeClass 'active'
+          searchResult.html ''
+          $('#search .search-input').val('')
           $('body').css 'overflow': 'auto'
+          _this.stopSearch()
         return
       #Do not include! This prevents the form from submitting for DEMO purposes only!
       $('#search form').submit (event) ->
         event.preventDefault()
         false
       $('#search > form > input[type="search"]').keyup (e) ->
-        if e.keyCode == 13 and $('#search .search-input').val().length > 0 or $('#search .search-input').val().length > 0
+        if (e.keyCode == 13 and $('#search .search-input').val().length > 0) or $('#search .search-input').val().length > 0
           _this.search()
         else
           _this.stopSearch()
@@ -90,16 +96,17 @@ _init = (o) ->
       return
     search: ->
       _this = this
+      searchResult = @selectors.searchResult
       timer = setTimeout((->
         $.ajax
           url: 'http://www.itway.io/search'
           data: 'keywords': $('#search .search-input').val()
           method: 'post'
           success: (markup) ->
-            $('.search-result').html markup
+            searchResult.html markup
             return
           error: (err) ->
-            $('.search-result').html '<h3 class="text-danger"> Error occured </h3>'
+            searchResult.html '<h3 class="text-danger"> try once more... </h3>'
             console.log err.type
             _this.stopSearch()
             return
@@ -108,15 +115,16 @@ _init = (o) ->
       return
     tagSearch: ->
       _this = this
+      searchResult = @selectors.searchResult
       timer = setTimeout((->
         $.ajax
           url: 'http://www.itway.io/getAllExistingTags'
           method: 'post'
           success: (markup) ->
-            $('.search-result').html markup
+            searchResult.html markup
             return
           error: (err) ->
-            $('.search-result').html '<h3 class="text-danger"> Error occured </h3>'
+            searchResult.html '<h3 class="text-danger"> try once more... </h3>'
             console.log err.type
             _this.stopSearch()
             return
@@ -916,6 +924,9 @@ $.ItwayIO.options =
   directChat:
     enable: true
     contactToggleSelector: '[data-widget="chat-pane-toggle"]'
+  search:
+    searchBTN : $('#search button')
+    searchResult : $('.search-result')
   colors:
     lightBlue: '#3c8dbc'
     red: '#f56954'
