@@ -15,8 +15,6 @@ use Itway\Validation\Post\PostsFormRequest;
 interface PostsRepository  extends Repository
 {
     public function getModel();
-    public function allOrSearchUsers();
-    public function getAllUsers();
     public function countUserPosts();
     public function createPost(PostsFormRequest $request,$image);
     public function todayPosts();

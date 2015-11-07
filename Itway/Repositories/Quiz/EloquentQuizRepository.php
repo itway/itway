@@ -9,6 +9,7 @@
 namespace Itway\Repositories\Quiz;
 
 use itway\Commands\CreateQuizCommand;
+use Itway\Repositories\EloquentRepository;
 use Itway\Validation\Quiz\QuizFormRequest;
 use itway\Quiz;
 use Illuminate\Contracts\Bus\Dispatcher;
@@ -18,7 +19,7 @@ use itway\Picture;
 use Lang;
 use itway\QuizOptions;
 
-class EloquentQuizRepository implements QuizRepository {
+class EloquentQuizRepository extends EloquentRepository implements QuizRepository {
 
     /**
      * constructor takes Dispatcher and ImageUploader instances
@@ -31,16 +32,7 @@ class EloquentQuizRepository implements QuizRepository {
         $this->uploader = $uploader;
     }
 
-    /**
-     * @return int
-     */
-    public function perPage()
-    {
-        return 10;
-        /**
-         *
-         */
-    }
+   
 
     /**
      * @return mixed
@@ -52,92 +44,7 @@ class EloquentQuizRepository implements QuizRepository {
         return new $model;
     }
 
-    /**
-     * @param null $searchQuery
-     * @return \Illuminate\Database\Eloquent\Collection|mixed
-     */
-    public function allOrSearch($searchQuery = null)
-    {
-        if (is_null($searchQuery)) {
-            return $this->getAll();
-        }
-        return $this->search($searchQuery);
-    }
 
-    /**
-     * @param null $searchQuery
-     * @return mixed
-     */
-    public function allOrSearchUsers($searchQuery = null)
-    {
-        if (is_null($searchQuery)) {
-
-            return $this->getAllUsers();
-
-        }
-        return $this->search($searchQuery);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAll()
-    {
-        return $this->getModel()->latest('published_at')->published()->localed()->paginate($this->perPage());
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAllUsers()
-    {
-        return $this->getModel()->latest('published_at')->published()->localed()->user()->paginate($this->perPage());
-    }
-
-    /**
-     * @param mixed $searchQuery
-     * @return mixed
-     */
-    public function search($searchQuery)
-    {
-        $search = "%{$searchQuery}%";
-
-        return $this->getModel()->where('name', 'like', $search)
-            ->orWhere('slug', 'like', $search)
-            ->orWhere('question', 'like', $search)
-            ->paginate($this->perPage());
-    }
-
-    /**
-     * @param int $id
-     * @return mixed
-     */
-    public function findById($id)
-    {
-        return $this->getModel()->find($id);
-    }
-
-    /**
-     * @param string $key
-     * @param string $value
-     * @param string $operator
-     * @return mixed
-     */
-    public function findBy($key, $value, $operator = '=')
-    {
-        return $this->getModel()->where($key, $operator, $value)->paginate($this->perPage());
-    }
-
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    public function create(array $data)
-    {
-
-        return $this->getModel()->create($data);
-
-    }
 
     /**
      * @param QuizFormRequest $request
@@ -160,21 +67,6 @@ class EloquentQuizRepository implements QuizRepository {
         $this->bindOptions($quiz, $request->options);
 
         return $quiz;
-    }
-
-    /**
-     * @param int $id
-     * @return bool
-     * @throws \Exception
-     */
-    public function delete($id)
-    {
-        $quiz = $this->findById($id);
-        if (!is_null($quiz)) {
-            $quiz->delete();
-            return true;
-        }
-        return false;
     }
 
 

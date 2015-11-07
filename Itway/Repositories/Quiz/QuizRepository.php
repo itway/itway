@@ -22,11 +22,6 @@ interface QuizRepository extends Repository {
     /**
      * @return mixed
      */
-    public function allOrSearchUsers();
-
-    /**
-     * @return mixed
-     */
     public function countUserQuizzes();
 
     /**

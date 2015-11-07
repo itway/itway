@@ -69,4 +69,8 @@ interface Repository {
      */
     public function create(array $data);
 
+
+    public function allOrSearchUsers();
+
+    public function getAllUsers();
 }

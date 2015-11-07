@@ -22,7 +22,9 @@
         "cviebrock/image-validator": "2.0.0",
         "codezero/mailer": "^1.0",
         "spatie/laravel-analytics": "^1.2.2",
-        "sourcequartet/visitor-log": "^0.1.2"
+        "sourcequartet/visitor-log": "^0.1.2",
+        "league/fractal": "^0.13.0",
+        "prettus/laravel-validation": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.5",

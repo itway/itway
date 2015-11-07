@@ -10,14 +10,11 @@ namespace Itway\Repositories\Pins;
 
 use itway\Post;
 use itway\Pin;
+use Itway\Repositories\EloquentRepository;
 
-class EloquentPinsRepository implements PinsRepository
+class EloquentPinsRepository extends EloquentRepository implements PinsRepository
 {
 
-    public function perPage()
-    {
-        return 10;
-    }
     public function getModel()
     {
         $model = Pin::class;
@@ -30,21 +27,12 @@ class EloquentPinsRepository implements PinsRepository
 
         return new $postmodel;
     }
-    public function allOrSearch($searchQuery = null)
-    {
-        if (is_null($searchQuery)) {
-            return $this->getAll();
-        }
-        return $this->search($searchQuery);
-    }
+
     public function getAllPosts()
     {
         return $this->getPostModel()->latest('published_at')->published()->localed()->paginate($this->perPage());
     }
-    public function getAll()
-    {
-        return $this->getModel()->latest('published_at')->published()->localed()->paginate($this->perPage());
-    }
+
     public function getUserPinnedPosts()
     {
         $posts = [];
@@ -85,26 +73,6 @@ class EloquentPinsRepository implements PinsRepository
             ->paginate($this->perPage())
             ;
     }
-    public function findById($id)
-    {
-        return $this->getModel()->find($id);
-    }
-    public function findBy($key, $value, $operator = '=')
-    {
-        return $this->getModel()->where($key, $operator, $value)->paginate($this->perPage());
-    }
-    public function delete($id)
-    {
-        $post = $this->findById($id);
-        if (!is_null($post)) {
-            $post->delete();
-            return true;
-        }
-        return false;
-    }
-    public function create(array $data)
-    {
-        return $this->getModel()->create($data);
-    }
+
 
 }
