@@ -1,5 +1,10 @@
 # Change Log
 
+## 3.1.2 - 07-Nov-2015
+
+- Fix some namespacing issues in docblocks (#195)
+- Lots of PSR-2 fixes
+
 ## 3.1.1 - 26-Oct-2015
 
 - Fix missing class reference (#192)
