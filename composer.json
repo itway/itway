@@ -24,7 +24,7 @@
         "spatie/laravel-analytics": "^1.2.2",
         "sourcequartet/visitor-log": "^0.1.2",
         "league/fractal": "^0.13.0",
-        "prettus/laravel-validation": "^1.1"
+        "robclancy/presenter": "^1.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.5",
@@ -44,7 +44,8 @@
             "Itway\\": "Itway/",
             "Itway\\Components\\Sidebar\\": "Itway/Components/Sidebar/",
             "Itway\\Components\\teamwork\\Teamwork\\": "Itway/Components/teamwork/Teamwork/",
-            "Itway\\Components\\Messenger\\": "Itway/Components/Messenger/Messenger/"
+            "Itway\\Components\\Messenger\\": "Itway/Components/Messenger/Messenger/",
+            "RepositoryLab\\Repository\\": "Itway/RepositoryLab/"
         }
     },
     "autoload-dev": {

@@ -150,6 +150,7 @@ return [
         'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
         'nilsenj\Toastr\ToastrServiceProvider',
         Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
+        RepositoryLab\Repository\RepositoryServiceProvider::class,
 
 
         /*

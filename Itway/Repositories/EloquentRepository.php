@@ -8,7 +8,6 @@
 
 namespace Itway\Repositories;
 
-
 abstract class EloquentRepository implements Repository
 {
 
@@ -49,6 +48,7 @@ abstract class EloquentRepository implements Repository
      * getALl instances
      *
      * @return mixed
+     *
      */
     public function getAll()
     {
@@ -121,7 +121,7 @@ abstract class EloquentRepository implements Repository
      * but should exist here because of the main repository interface
      *
      * @param array $data
-     * @return mixed
+     * @return mixed4
      */
     public function create(array $data)
     {
