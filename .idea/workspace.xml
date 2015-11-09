@@ -2,99 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab69a0f0-54f5-4d93-9106-e8f42c31ae0f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Categories\CategoryRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Categories\EloquentCategoryRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\EloquentRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Permissions\EloquentPermissionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Permissions\PermissionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Pins\EloquentPinsRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Pins\PinsRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Posts\EloquentPostsRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Posts\PostsRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Quiz\EloquentQuizRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Quiz\QuizRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Repository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Roles\EloquentRolesRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Roles\RolesRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Users\EloquentUserRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\Itway\Repositories\Users\UserRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Idea.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Job.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Pagination.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Permission.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Picture.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Post.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Quiz.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\QuizOptions.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\QuizUserAnswer.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Role.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Team.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\User.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\models\Permission.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\models\Role.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\resources\views\admin\posts\posts.blade.php" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Commands\CreatePostCommand.php" afterPath="$PROJECT_DIR$/Itway/Commands/CreatePostCommand.php" />
-      <change type="MOVED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Commands\CreateQuizCommand.php" afterPath="$PROJECT_DIR$/Itway/Commands/CreateQuizCommand.php" />
-      <change type="MOVED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Commands\CreateUserCommand.php" afterPath="$PROJECT_DIR$/Itway/Commands/CreateUserCommand.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpstorm.meta.php" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_04_13_000450_create_posts_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_13_000450_create_posts_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/RepositoryLab/Eloquent/BaseRepository.php" afterPath="$PROJECT_DIR$/Itway/RepositoryLab/Eloquent/BaseRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/Auth/EloquentUserRepository.php" afterPath="$PROJECT_DIR$/Itway/Repositories/Auth/EloquentUserRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/IsUsersOrAdminPost.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsUsersOrAdminPost.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/JobHuntingController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobHuntingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Traits/Likeable.php" afterPath="$PROJECT_DIR$/Itway/Traits/Likeable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/PostWasCreatedEvent.php" afterPath="$PROJECT_DIR$/app/Events/PostWasCreatedEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/PostWasCreatedListener.php" afterPath="$PROJECT_DIR$/app/Listeners/PostWasCreatedListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Validation/Post/PostsUpdateFormRequest.php" afterPath="$PROJECT_DIR$/Itway/Validation/Post/PostsUpdateFormRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Validation/Quiz/QuizFormRequest.php" afterPath="$PROJECT_DIR$/Itway/Validation/Quiz/QuizFormRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/QuizWasCreated.php" afterPath="$PROJECT_DIR$/app/Events/QuizWasCreated.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/QuizWasCreatedListener.php" afterPath="$PROJECT_DIR$/app/Listeners/QuizWasCreatedListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Components/Sidebar/SidebarTrait.php" afterPath="$PROJECT_DIR$/Itway/Components/Sidebar/SidebarTrait.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/Auth/UserContract.php" afterPath="$PROJECT_DIR$/Itway/Repositories/Auth/UserContract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/UserEnteredChatEvent.php" afterPath="$PROJECT_DIR$/app/Events/UserEnteredChatEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/UserRegisteredListener.php" afterPath="$PROJECT_DIR$/app/Listeners/UserRegisteredListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/UserWasCreatedEvent.php" afterPath="$PROJECT_DIR$/app/Events/UserWasCreatedEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Validation/User/UsersUpdateFormRequest.php" afterPath="$PROJECT_DIR$/Itway/Validation/User/UsersUpdateFormRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Traits/ViewCounterTrait.php" afterPath="$PROJECT_DIR$/Itway/Traits/ViewCounterTrait.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/auth.php" afterPath="$PROJECT_DIR$/config/auth.php" />
+      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Counter.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\Like.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\LikeCounter.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\SidebarCreator.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\app\UserCounter.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Quiz/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/Quiz/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/entrust.php" afterPath="$PROJECT_DIR$/config/entrust.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/image.php" afterPath="$PROJECT_DIR$/config/image.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Quiz/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/Quiz/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/messenger.php" afterPath="$PROJECT_DIR$/config/messenger.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/posts.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/posts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/repository.php" afterPath="$PROJECT_DIR$/config/repository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.php" afterPath="$PROJECT_DIR$/config/services.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Quiz/single.blade.php" afterPath="$PROJECT_DIR$/resources/views/Quiz/single.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/single.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/single.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Quiz/site-btns.blade.php" afterPath="$PROJECT_DIR$/resources/views/Quiz/site-btns.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/site-btns.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/site-btns.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/site-btns.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/site-btns.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/user-image.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/user-image.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/user-profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/user-profile.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/user-settings.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/user-settings.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="itway.iws" />
@@ -626,83 +539,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Providers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -789,10 +626,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2185501" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2185501" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -978,36 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/LikeCounter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.307692">
-          <caret line="24" column="5" selection-start-line="8" selection-start-column="3" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Itway/Models/LikeCounter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.0">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SidebarCreator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6153846">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="48" />
-          <folding>
-            <element signature="e#110#156#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserCounter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.461538">
-          <caret line="10" column="0" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1052,16 +863,6 @@
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
             <element signature="e#38#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Like.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="66.57692">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1111,14 +912,6 @@
           <folding>
             <element signature="e#112#141#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Counter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6153846">
-          <caret line="9" column="59" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
