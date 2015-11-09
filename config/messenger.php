@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'user_model' => 'itway\User',
+    'user_model' => 'Itway\Models\User',
 ];

@@ -5,7 +5,7 @@ namespace itway\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use itway\Http\Requests;
-use itway\User;
+use Itway\Models\User;
 
 class LanguageController extends Controller {
 

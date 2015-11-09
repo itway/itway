@@ -422,10 +422,6 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 
         Route::get('/posts', ['uses' => 'AdminPostsController@index', 'as' => 'post']);
 
-        Route::get('posts/create', function () {
-            return view('admin.posts-create');
-        });
-
         Route::group(['prefix' => 'users', 'as' => 'users::'], function() {
 
             Route::get('/', [
@@ -467,6 +463,11 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'as' => 'index'
 
             ]);
+            Route::get('create', [
+                'uses' => 'AdminPostsController@create',
+                'as' => 'create'
+
+            ]);
 
             Route::get('edit/{id}', [
                 'uses' => 'AdminPostsController@edit',
@@ -483,6 +484,10 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
             Route::post('store', [
                 'uses' => 'AdminPostsController@store',
                 'as' => 'store'
+            ]);
+            Route::get('banORunBan/{id}', [
+                'uses' => 'AdminPostsController@banORunBan',
+                'as' => 'ban'
             ]);
 
         });

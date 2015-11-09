@@ -5,7 +5,7 @@ namespace itway\Events;
 use itway\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use itway\User;
+use Itway\Models\User;
 
 
 class UserEnteredChatEvent extends Event implements ShouldBroadcast

@@ -7,8 +7,8 @@ use Conner\Tagging\Tag;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use itway\Http\Requests;
-use itway\Quiz;
-use Itway\Repositories\Quiz\QuizRepository;
+use Itway\Models\Quiz;
+use Itway\Repositories\QuizRepository;
 use Itway\Services\Youtube\Facades\Youtube;
 use nilsenj\Toastr\Facades\Toastr;
 use Itway\Validation\Quiz\QuizFormRequest;
@@ -42,11 +42,13 @@ class QuizController extends Controller
      */
     public function index(Request $request)
     {
-       $quizes = $this->repository->allOrSearch($request->get('q'));
+        $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
 
-        $countUserQuizzes = count($quizes->where('user_id', Auth::id()));
+        $quizzes = $this->repository->getAll();
 
-        return view('Quiz.index', compact('quizes', 'countUserQuizzes'));
+        $countUserQuizzes = count($quizzes->where('user_id', Auth::id()));
+
+        return view('Quiz.index', compact('quizzes', 'countUserQuizzes'));
     }
 
     /**
@@ -63,12 +65,17 @@ class QuizController extends Controller
         return view('Quiz.create', compact('tags', 'countUserQuizzes'));
 
     }
-    public function personalQuizzes(Request $request, Quiz $quizData){
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function personalQuizzes(){
 
         if (Auth::user()){
 
             try {
-                $quizzes = $this->repository->allOrSearchUsers($request->get('q'));
+                $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+                $quizzes= $this->repository->getAllUsers();
 
                 $countUserQuizzes = count($quizzes->where('user_id', Auth::id()));
 
@@ -120,9 +127,7 @@ class QuizController extends Controller
 
     /**
      * show single quiz and pass some data to views
-     *
      * @param $slug
-     * @param Quiz $quizdata
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function show($slug)

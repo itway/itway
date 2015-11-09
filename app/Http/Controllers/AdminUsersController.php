@@ -1,16 +1,16 @@
 <?php namespace itway\Http\Controllers;
 
 use itway\Http\Requests;
-use Itway\Repositories\Posts\PostsRepository;
-use itway\User;
-use Itway\Repositories\Users\UserRepository;
+use Itway\Repositories\PostRepository;
+use Itway\Models\User;
+use Itway\Repositories\UserRepository;
 use Input;
-use itway\Role;
+use Itway\Models\Role;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Itway\Validation\User\UsersFormRequest;
 use Itway\Validation\User\UsersUpdateFormRequest;
 use Request;
-use itway\Post;
+use Itway\Models\Post;
 use Toastr;
 
 class AdminUsersController extends Controller {
@@ -18,7 +18,7 @@ class AdminUsersController extends Controller {
     private $userRepository;
     private $postRepository;
 
-    public function __construct(UserRepository $userRepository, PostsRepository $postRepository)
+    public function __construct(UserRepository $userRepository, PostRepository $postRepository)
     {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
@@ -41,8 +41,8 @@ class AdminUsersController extends Controller {
      */
     public function index()
     {
-        $users = $this->userRepository->allOrSearch(Input::get('q'));
-
+        $this->userRepository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+        $users = $this->userRepository->paginate();
         $no = $users->firstItem();
 
         return view('admin.users.index', compact('users', 'no'));
@@ -101,9 +101,8 @@ class AdminUsersController extends Controller {
 
     /**
      * edit page for users
-     *
-     * @param $slug
-     * @return \Illuminate\View\View|Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|Response
      */
     public function edit($id)
     {

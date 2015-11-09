@@ -2,7 +2,7 @@
 
 @section('content')
     <span class="admin-head-title">
-        The number of users ({!! \itway\User::all()->count() !!})
+        The number of users ({!! \Itway\Models\User::all()->count() !!})
         &middot;
         <b class="pull-right">{!! link_to_route('admin::users::create', 'Add new user') !!}</b>
     </span>
@@ -61,7 +61,7 @@
     </div>
     </div>
     <div class="text-center">
-        {!! (new itway\Pagination($users))->render() !!}
+        {!! (new Itway\Models\Pagination($users))->render() !!}
     </div>
     @endsection
 @stop

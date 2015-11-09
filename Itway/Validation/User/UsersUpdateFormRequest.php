@@ -3,7 +3,7 @@
 namespace Itway\Validation\User;
 
 use itway\Http\Requests\Request;
-use itway\User;
+use Itway\Models\User;
 use Exception;
 
 class UsersUpdateFormRequest extends Request

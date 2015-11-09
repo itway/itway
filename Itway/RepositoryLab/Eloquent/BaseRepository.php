@@ -3,6 +3,8 @@ namespace RepositoryLab\Repository\Eloquent;
 
 use Closure;
 use Exception;
+use Illuminate\Contracts\Bus\Dispatcher;
+use Itway\Uploader\ImageUploader;
 use RepositoryLab\Repository\Contracts\CriteriaInterface;
 use RepositoryLab\Repository\Contracts\Presentable;
 use RepositoryLab\Repository\Contracts\PresentableInterface;
@@ -83,8 +85,10 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
 
     /**
      * @param Application $app
+     * @param Dispatcher $dispatcher
+     * @throws RepositoryException
      */
-    public function __construct(Application $app)
+    public function __construct(Application $app, Dispatcher $dispatcher)
     {
         $this->app = $app;
         $this->criteria = new Collection();
@@ -92,6 +96,8 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
         $this->makePresenter();
         $this->makeValidator();
         $this->boot();
+        $this->dispatcher = $dispatcher;
+        $this->uploader = new ImageUploader();
     }
 
     /**

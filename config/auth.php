@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => itway\User::class,
+    'model' => Itway\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

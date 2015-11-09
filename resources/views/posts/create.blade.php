@@ -16,7 +16,7 @@
 
     <div class="bg-white" style="  display: flex;">
 
-    {!! Form::model( $postInstance = new itway\Post, ['url' => App::getLocale().'/blog/store', 'class' => 'form', 'id' => 'post-form', 'files' => true ] ) !!}
+    {!! Form::model( $postInstance = new Itway\Models\Post, ['url' => App::getLocale().'/blog/store', 'class' => 'form', 'id' => 'post-form', 'files' => true ] ) !!}
 
     @include('includes.post-form', ['submitButton' => 'Create Post'])
 

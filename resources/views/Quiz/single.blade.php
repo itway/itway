@@ -141,7 +141,7 @@
             <div id="disqus_thread" class="bg-white single-post"></div>
             <script type="text/javascript">
                 var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
-                var disqus_identifier = '{{$quiz->id}}';
+                var disqus_identifier = 'quiz#{{$quiz->id}}';
                 var disqus_title = '{{ $quiz->title }}';
                 var disqus_url = '{{ url(App::getLocale().'/quiz/show/'.$quiz->id.'#disqus_thread') }}';
 

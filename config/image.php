@@ -17,6 +17,8 @@ return array(
 
     'driver' => 'gd',
     'postsDESTINATION' => 'images/posts/',
-    'quizzesDESTINATION' => 'images/quizzes/'
+    'quizzesDESTINATION' => 'images/quizzes/',
+    'usersDESTINATION' => 'images/users/',
+    'missingUserPhoto' => 'default-user.png'
 
 );

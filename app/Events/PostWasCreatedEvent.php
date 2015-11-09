@@ -5,8 +5,8 @@ namespace itway\Events;
 use itway\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use itway\Post;
-use itway\User;
+use itway\Models\Post;
+use Itway\Models\User;
 
 class PostWasCreatedEvent extends Event implements ShouldBroadcast
 {

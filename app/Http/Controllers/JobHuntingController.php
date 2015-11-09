@@ -4,6 +4,7 @@ use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Itway\Models\JobHunt;
 
 class JobHuntingController extends Controller {
 

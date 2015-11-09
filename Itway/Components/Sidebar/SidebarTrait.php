@@ -3,11 +3,11 @@
 namespace Itway\Components\Sidebar;
 
 use Illuminate\Support\Collection;
-use itway\Post;
-use itway\Job;
-use itway\Idea;
-use itway\Quiz;
-use itway\Team;
+use Itway\Models\Post;
+use Itway\Models\JobHunt;
+use Itway\Models\IdeaShare;
+use Itway\Models\Quiz;
+use Itway\Models\Team;
 
 trait SidebarTrait {
 
@@ -18,15 +18,16 @@ trait SidebarTrait {
     protected $teams;
 
     /**
-     * SidebarTrait constructor.
+     *  SidebarTrait constructor.
      * @param Post $posts
-     * @param Idea $ideas
-     * @param Job $jobs
+     * @param IdeaShare $ideas
+     * @param JobHunt $jobs
      * @param Quiz $quizzes
      * @param Team $teams
      */
+
 	public function __construct(
-        Post $posts, Idea $ideas, Job $jobs, Quiz $quizzes, Team $teams
+        Post $posts, IdeaShare $ideas, JobHunt $jobs, Quiz $quizzes, Team $teams
     ) {
         $this->posts = $posts;
         $this->quizzes = $quizzes;

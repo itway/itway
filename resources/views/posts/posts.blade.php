@@ -79,7 +79,7 @@
     @if($posts->hasPages())
         <div class="pagination-wrapper">
             <div class="pagination-wrapper-inner">
-                {!! (new itway\Pagination($posts))->render() !!}
+                {!! (new Itway\Models\Pagination($posts))->render() !!}
 
             </div>
         </div>

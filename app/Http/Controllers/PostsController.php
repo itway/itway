@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use itway\Http\Requests;
-use itway\Post;
+use Itway\Models\Post;
 use Itway\Validation\Post\PostsUpdateFormRequest;
 use Itway\Validation\Post\PostsFormRequest;
-use itway\Commands\CreatePostCommand;
+use Itway\Commands\CreatePostCommand;
 use Illuminate\Contracts\Cookie;
 use \Illuminate\Http\Request;
-use  Itway\Repositories\Posts\PostsRepository;
-use itway\User;
+use Itway\Repositories\PostRepository;
+use Itway\Models\User;
 use App;
-use itway\Picture;
+use Itway\Models\Picture;
 use Itway\Uploader\ImageUploader;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Str;
@@ -40,9 +40,9 @@ class PostsController extends Controller {
 
     /**
      * @param ImageUploader $uploader
-     * @param PostsRepository $repository
+     * @param PostRepository $repository
      */
-    public function __construct(ImageUploader $uploader, PostsRepository $repository)
+    public function __construct(ImageUploader $uploader, PostRepository $repository)
     {
         $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
         $this->uploader = $uploader;
@@ -60,14 +60,12 @@ class PostsController extends Controller {
     }
 
     /**
-     * @param Request $request
-     * @param Post $postData
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-	public function index( Request $request, Post $postData)
+	public function index()
     {
-        $posts = $this->repository->allOrSearch($request->get('q'));
-
+        $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+        $posts = $this->repository->getAll();
         $countUserPosts = $this->repository->countUserPosts();
 
             return view('pages.blog', compact('posts','countUserPosts'));
@@ -160,13 +158,13 @@ class PostsController extends Controller {
         }
 
 	}
-    public function userPosts(Request $request, Post $postData)
+    public function userPosts()
 
     {
 
             try {
 
-                $posts = $this->repository->allOrSearchUsers($request->get('q'));
+                $posts = $this->repository->getAllUsers();
 
                 $countUserPosts = $this->repository->countUserPosts();
 

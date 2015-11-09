@@ -5,7 +5,7 @@
     @if($user->photo)
         {!! $user->photo !!}
     @else
-        {!!url('dist/images/50-50.jpg')!!}
+        {!!url('images/default-user.png')!!}
     @endif
 
 @endif

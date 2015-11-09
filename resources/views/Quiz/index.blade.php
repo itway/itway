@@ -12,13 +12,13 @@
 
 @section('content')
 
-    @if(count($quizes)=== 0 )
+    @if(count($quizzes)=== 0 )
 
         @include('errors.nothing')
 
     @else
         <div class="posts">
-            @foreach(array_chunk($quizes->getCollection()->all(), 2) as $row)
+            @foreach(array_chunk($quizzes->getCollection()->all(), 2) as $row)
                 <div class="row" >
                     @foreach($row as $quiz)
                         <div class="l-6 m-6 s-12 xs-12">
@@ -86,10 +86,10 @@
             @endforeach
         </div>
         <div class="clearfix"></div>
-        @if($quizes->hasPages())
+        @if($quizzes->hasPages())
             <div class="pagination-wrapper">
                 <div class="pagination-wrapper-inner">
-                    {!! (new itway\Pagination($quizes))->render() !!}
+                    {!! (new Itway\Models\Pagination($quizzes))->render() !!}
 
                 </div>
             </div>

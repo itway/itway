@@ -10,7 +10,7 @@ namespace Itway\Validation\Post;
 
 use itway\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
-use itway\Post;
+use Itway\Models\Post;
 use Input;
 
 class PostsUpdateFormRequest extends Request{

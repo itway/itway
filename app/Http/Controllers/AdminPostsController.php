@@ -5,8 +5,9 @@ namespace itway\Http\Controllers;
 //use Illuminate\Http\Request;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
-use Itway\Repositories\Users\UserRepository;
-use Itway\Repositories\Posts\PostsRepository;
+use Itway\Models\Post;
+use Itway\Repositories\UserRepository;
+use Itway\Repositories\PostRepository;
 use \Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
@@ -15,7 +16,7 @@ class AdminPostsController extends Controller
     private $userRepository;
     private $postRepository;
 
-    public function __construct(UserRepository $userRepository, PostsRepository $postRepository)
+    public function __construct(UserRepository $userRepository, PostRepository $postRepository)
     {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
@@ -23,16 +24,19 @@ class AdminPostsController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
-        $posts = $this->postRepository->allOrSearch($request->get('q'));
+
+        $this->postRepository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+        $posts = $this->postRepository->getAll();
+        $no = $posts->firstItem();
 
         $countUserPosts = $this->postRepository->countUserPosts();
 
-        return view('admin.posts.posts',compact('posts','countUserPosts'));
+
+        return view('admin.posts.index',compact('posts','countUserPosts','no'));
 
     }
 
@@ -100,5 +104,32 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function banORunBan($id) {
+        try {
+
+            $post = Post::find($id);
+
+            if(\Auth::user()->id === $post->user->id || !\Auth::user()->hasRole('Admin')) {
+
+                Toastr::error('Can\'t be banned!', $title = $post->title, $options = []);
+
+                return redirect()->back();
+            }
+            else {
+
+                $this->postRepository->banORunBan($id);
+            }
+            return redirect()->back();
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+        }
     }
 }

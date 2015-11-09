@@ -8,8 +8,8 @@
 
 namespace Itway\Traits;
 
-use itway\Counter;
-use itway\UserCounter;
+use Itway\Models\Counter;
+use Itway\Models\UserCounter;
 
 trait ViewCounterTrait {
 

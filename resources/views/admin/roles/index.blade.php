@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="text-center">
-        {!! (new App\Pagination($roles))->render() !!}
+        {!! (new Itway\Models\Pagination($roles))->render() !!}
         {{--{!! pagination_links($categories) !!}--}}
     </div>
 

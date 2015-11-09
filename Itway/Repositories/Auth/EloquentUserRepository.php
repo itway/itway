@@ -1,7 +1,7 @@
 <?php namespace Itway\Repositories\Auth;
 
-use itway\Commands\CreateUserCommand;
-use itway\User;
+use Itway\Commands\CreateUserCommand;
+use Itway\Models\User;
 use Illuminate\Contracts\Bus\Dispatcher;
 /**
  * Class EloquentUserRepository
@@ -70,11 +70,7 @@ class EloquentUserRepository implements UserContract {
 
     /**
      * dispatch command and binded event to create a new user
-     *
      * @param $data
-     * @param null $provider
-     * @param null $photo
-     * @param null $id
      * @return mixed
      */
     protected function dispatchUser($data){

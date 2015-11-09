@@ -27,6 +27,7 @@ class CreatePostsTable extends Migration {
 			$table->timestamps();
 			$table->timestamp('published_at');
 			$table->timestamp('date')->default(Carbon::today());
+			$table->boolean('banned')->default(false);
 			$table->softDeletes();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});

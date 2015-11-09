@@ -22,7 +22,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => itway\User::class,
+        'model'  => Itway\Models\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

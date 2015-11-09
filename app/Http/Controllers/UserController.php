@@ -5,9 +5,9 @@ use Input;
 use itway\Http\Requests;
 use Itway\Validation\User\UserPhotoRequest;
 use Itway\Validation\User\UserUpdateRequest;
-use itway\Picture;
+use Itway\Models\Picture;
 use Itway\Uploader\ImageUploader;
-use itway\User;
+use Itway\Models\User;
 use Toastr;
 
 class UserController extends Controller {

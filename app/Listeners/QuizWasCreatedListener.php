@@ -6,8 +6,8 @@ use itway\Events\QuizWasCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Itway\MailComposers\QuizCreatedMailComposer;
-use itway\Quiz;
-use itway\User;
+use Itway\Models\Quiz;
+use Itway\Models\User;
 use Illuminate\Support\Facades\App;
 
 class QuizWasCreatedListener

@@ -8,8 +8,8 @@
 
 namespace Itway\Traits;
 
-use itway\LikeCounter;
-use itway\Like;
+use Itway\Models\LikeCounter;
+use Itway\Models\Like;
 use Illuminate\Database\Eloquent\Model;
 
 trait Likeable {
@@ -180,7 +180,9 @@ trait Likeable {
 
         }
     }
+
     /**
+     * @param Model $model
      * @return bool
      */
     public function isLiked(Model $model)

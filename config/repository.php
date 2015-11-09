@@ -203,7 +203,7 @@ return [
         |
         */
         'params'=>[
-            'search'        =>'search',
+            'search'        =>'q',
             'searchFields'  =>'searchFields',
             'filter'        =>'filter',
             'orderBy'       =>'orderBy',
@@ -218,7 +218,7 @@ return [
     |
     */
     'generator'=>[
-        'basePath'=>app_path('Itway'),
+        'basePath'=>base_path('Itway'),
         'rootNamespace'=>'Itway\\',
         'paths'=>[
             'models'=>'Models',

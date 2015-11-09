@@ -6,7 +6,7 @@ use itway\Events\UserWasCreatedEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Itway\MailComposers\WelcomeMailComposer;
-use itway\User;
+use Itway\Models\User;
 
 class UserRegisteredListener
 {

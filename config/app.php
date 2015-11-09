@@ -168,6 +168,11 @@ return [
         SourceQuartet\VisitorLog\VisitorLogServiceProvider::class,
         Itway\Components\Messenger\MessengerServiceProvider::class,
         itway\Providers\HelperServiceProvider::class,
+        itway\Providers\ModelsServiceProvider::class,
+        itway\Providers\RepositoriesServiceProvider::class,
+        itway\Providers\TransformersServiceProvider::class,
+        itway\Providers\PresentersServiceProvider::class,
+        itway\Providers\CommandsServiceProvider::class,
     ],
 
     /*

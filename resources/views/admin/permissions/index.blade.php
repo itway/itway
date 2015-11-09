@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="text-center">
-        {!! (new App\Pagination($permissions))->render() !!}
+        {!! (new Itway\Models\Pagination($permissions))->render() !!}
         {{--{!! pagination_links($categories) !!}--}}
     </div>
 

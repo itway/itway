@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use itway\User;
-use itway\Role;
-use itway\Permission;
+use Itway\Models\User;
+use Itway\Models\Role;
+use Itway\Models\Permission;
 class AdminSeeder extends Seeder
 {
 

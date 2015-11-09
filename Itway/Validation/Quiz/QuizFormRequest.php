@@ -3,7 +3,6 @@
 namespace Itway\Validation\Quiz;
 
 use itway\Http\Requests\Request;
-use itway\Quiz;
 use Auth;
 use Input;
 use Toastr;

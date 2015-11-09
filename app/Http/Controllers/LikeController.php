@@ -20,7 +20,7 @@ class LikeController extends Controller
     {
 
         if (Auth::user()) {
-            $class_name = "\\" . self::getAppNamespace() . ucfirst($class_name);
+            $class_name = "\\Itway\\Models\\". ucfirst($class_name);
 
             $object = $class_name::find($object_id);
 

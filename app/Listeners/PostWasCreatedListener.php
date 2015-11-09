@@ -6,9 +6,9 @@ use itway\Events\PostWasCreatedEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Itway\MailComposers\PostCreatedMailComposer;
-use itway\Post;
+use Itway\Models\Post;
 use App;
-use itway\User;
+use Itway\Models\User;
 
 class PostWasCreatedListener
 {

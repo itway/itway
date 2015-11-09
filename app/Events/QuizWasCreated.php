@@ -5,8 +5,8 @@ namespace itway\Events;
 use itway\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use itway\Quiz;
-use itway\User;
+use Itway\Models\Quiz;
+use Itway\Models\User;
 
 class QuizWasCreated extends Event implements ShouldBroadcast
 {
@@ -17,7 +17,7 @@ class QuizWasCreated extends Event implements ShouldBroadcast
     public $user;
 
     /**
-     * @param Post $post
+     * @param Quiz $quz
      * @param User $user
      */
     public function __construct(Quiz $quz, User $user)

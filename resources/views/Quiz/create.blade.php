@@ -13,7 +13,7 @@
 
     <div class="bg-white" style="  display: flex;">
 
-        {!! Form::model( $quizInstance = new itway\Quiz, ['url' => App::getLocale().'/quiz/store', 'class' => 'form', 'id' => 'quiz-form', 'files' => true ] ) !!}
+        {!! Form::model( $quizInstance = new Itway\Models\Quiz, ['url' => App::getLocale().'/quiz/store', 'class' => 'form', 'id' => 'quiz-form', 'files' => true ] ) !!}
 
         @include('Quiz.quiz-form', ['submitButton' => 'Create Quiz'])
 

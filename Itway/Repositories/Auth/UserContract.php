@@ -2,7 +2,7 @@
 
 /**
  * Interface UserContract
- * @package App\Repositories\User
+ * @package Itway\Repositories\User
  */
 interface UserContract {
 

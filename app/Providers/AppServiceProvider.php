@@ -2,9 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 use Blade;
-use itway\Post;
 use View;
-use itway\SidebarCreator;
+use Itway\Models\SidebarCreator;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider {
@@ -44,37 +43,6 @@ class AppServiceProvider extends ServiceProvider {
 			'Itway\Repositories\Auth\UserContract',
 			'Itway\Repositories\Auth\EloquentUserRepository'
 		);
-		$this->app->bind(
-			'Itway\Repositories\Posts\PostsRepository',
-			'Itway\Repositories\Posts\EloquentPostsRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Pins\PinsRepository',
-			'Itway\Repositories\Pins\EloquentPinsRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Categories\CategoryRepository',
-			'Itway\Repositories\Categories\EloquentCategoryRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Roles\RolesRepository',
-			'Itway\Repositories\Roles\EloquentRolesRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Permissions\PermissionRepository',
-			'Itway\Repositories\Permissions\EloquentPermissionRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Users\UserRepository',
-			'Itway\Repositories\Users\EloquentUserRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Goods\GoodsRepository',
-			'Itway\Repositories\Goods\EloquentGoodsRepository'
-		);
-		$this->app->bind(
-			'Itway\Repositories\Quiz\QuizRepository',
-            'Itway\Repositories\Quiz\EloquentQuizRepository');
         $this->app->bind(
             'Itway\Contracts\Likeable\Likeable');
 
