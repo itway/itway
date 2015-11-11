@@ -5,10 +5,10 @@ namespace Itway\Repositories;
 use RepositoryLab\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface IdeaShareRepository
+ * Interface OpenSourceIdeaRepository
  * @package namespace Itway\Repositories;
  */
-interface IdeaShareRepository extends RepositoryInterface
+interface OpenSourceIdeaRepository extends RepositoryInterface
 {
     //
 }

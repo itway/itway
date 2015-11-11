@@ -17,6 +17,11 @@
 
 _init = (o) ->
 
+  $.ItwayIO.csrf =
+  	activate: ->
+  		$.ajaxSetup headers: 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+  
   ### Notifier
   # ======
   # Notifies posts and notifies admin about the users and posts.
@@ -966,6 +971,10 @@ $ ->
   o = $.ItwayIO.options
   #Set up the object
   _init o
+
+  # activate csrf token
+  $.ItwayIO.csrf.activate()
+
   $.ItwayIO.search.activate()
   # start of handling events and sockets
   $.ItwayIO.notifier.activate()
@@ -973,6 +982,7 @@ $ ->
   $.ItwayIO.layout.activate()
   #Activate messenger functionality
   $.ItwayIO.messenger.activate()
+
   $.ItwayIO.quiz.activate()
   if (typeof buttonID and typeof base_url and typeof class_name and typeof object_id and typeof redirectIFerror) != 'undefined'
     $.ItwayIO.likeBTN.activate buttonID, base_url, class_name, object_id, redirectIFerror
@@ -1032,111 +1042,3 @@ $ ->
     return
   return
 
-### ------------------
-# - Custom Plugins -
-# ------------------
-# All custom plugins are defined below.
-###
-
-###
-# BOX REFRESH BUTTON
-# ------------------
-# This is a custom plugin to use with the component BOX. It allows you to add
-# a refresh button to the box. It converts the box's state to a loading state.
-#
-# @type plugin
-# @usage $("#box-widget").boxRefresh( options );
-###
-
-(($) ->
-
-  $.fn.boxRefresh = (options) ->
-# Render options
-    settings = $.extend({
-      trigger: '.refresh-btn'
-      source: ''
-      onLoadStart: (box) ->
-      onLoadDone: (box) ->
-
-    }, options)
-    #The overlay
-    overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>')
-
-    start = (box) ->
-#Add overlay and loading img
-      box.append overlay
-      settings.onLoadStart.call box
-      return
-
-    done = (box) ->
-#Remove overlay and loading img
-      box.find(overlay).remove()
-      settings.onLoadDone.call box
-      return
-
-    @each ->
-#if a source is specified
-      if settings.source == ''
-        if console
-          console.log 'Please specify a source first - boxRefresh()'
-        return
-      #the box
-      box = $(this)
-      #the button
-      rBtn = box.find(settings.trigger).first()
-      #On trigger click
-      rBtn.on 'click', (e) ->
-        e.preventDefault()
-        #Add loading overlay
-        start box
-        #Perform ajax call
-        box.find('.box-body').load settings.source, ->
-          done box
-          return
-        return
-      return
-
-  return
-) jQuery
-
-###
-# TODO LIST CUSTOM PLUGIN
-# -----------------------
-# This plugin depends on iCheck plugin for checkbox and radio inputs
-#
-# @type plugin
-# @usage $("#todo-widget").todolist( options );
-###
-(($) ->
-
-  $.fn.todolist = (options) ->
-# Render options
-    settings = $.extend({
-      onCheck: (ele) ->
-      onUncheck: (ele) ->
-
-    }, options)
-    @each ->
-      if typeof $.fn.iCheck != 'undefined'
-        $('input', this).on 'ifChecked', (event) ->
-          ele = $(this).parents('li').first()
-          ele.toggleClass 'done'
-          settings.onCheck.call ele
-          return
-        $('input', this).on 'ifUnchecked', (event) ->
-          ele = $(this).parents('li').first()
-          ele.toggleClass 'done'
-          settings.onUncheck.call ele
-          return
-      else
-        $('input', this).on 'change', (event) ->
-          ele = $(this).parents('li').first()
-          ele.toggleClass 'done'
-          settings.onCheck.call ele
-          return
-      return
-
-  return
-) jQuery
-
-# ---

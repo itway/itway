@@ -3,22 +3,22 @@
 namespace Itway\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Itway\Models\IdeaShare;
+use Itway\Models\EventSpeekers;
 
 /**
- * Class IdeaShareTransformer
+ * Class EventSpeekersTransformer
  * @package namespace Itway\Transformers;
  */
-class IdeaShareTransformer extends TransformerAbstract
+class EventSpeekersTransformer extends TransformerAbstract
 {
 
     /**
-     * Transform the \IdeaShare entity
-     * @param \IdeaShare $model
+     * Transform the \EventSpeekers entity
+     * @param \EventSpeekers $model
      *
      * @return array
      */
-    public function transform(IdeaShare $model)
+    public function transform(EventSpeekers $model)
     {
         return [
             'id'         => (int) $model->id,

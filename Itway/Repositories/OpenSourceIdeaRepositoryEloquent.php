@@ -4,14 +4,14 @@ namespace Itway\Repositories;
 
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Repositories\IdeaShareRepository;
-use Itway\Models\IdeaShare;
+use Itway\Repositories\OpenSourceIdeaRepository;
+use Itway\Models\OpenSourceIdea;
 
 /**
- * Class IdeaShareRepositoryEloquent
+ * Class OpenSourceIdeaRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class IdeaShareRepositoryEloquent extends BaseRepository implements IdeaShareRepository
+class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository
 {
     /**
      * Specify Model class name
@@ -20,7 +20,7 @@ class IdeaShareRepositoryEloquent extends BaseRepository implements IdeaShareRep
      */
     public function model()
     {
-        return IdeaShare::class;
+        return OpenSourceIdea::class;
     }
 
     /**

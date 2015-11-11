@@ -23,7 +23,6 @@
 <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/vendor/socket.io-client/socket.io.js') }}"></script>
-<script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
 <script src="{{asset('dist\semantic\dist\components\api.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\transition.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dropdown.min.js')}}"></script>
@@ -32,6 +31,9 @@
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\modal.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
+<script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
+
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script>

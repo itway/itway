@@ -81,6 +81,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
@@ -200,6 +201,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
@@ -303,6 +305,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
@@ -401,5 +404,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="itway node_modules" level="project" />
   </component>
 </module>

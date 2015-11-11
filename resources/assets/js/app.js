@@ -21,6 +21,16 @@
   var _init;
 
   _init = function(o) {
+    var timer;
+    $.ItwayIO.csrf = {
+      activate: function() {
+        return $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+      }
+    };
 
     /* Notifier
      * ======
@@ -31,7 +41,6 @@
      *        $.ItwayIO.notifier.newPostCreated()
      *        $.ItwayIO.notifier.addNotifiedState()
      */
-    var timer;
     $.ItwayIO.notifier = {
       activate: function() {
         var _this;
@@ -1051,6 +1060,7 @@
     }
     o = $.ItwayIO.options;
     _init(o);
+    $.ItwayIO.csrf.activate();
     $.ItwayIO.search.activate();
     $.ItwayIO.notifier.activate();
     $.ItwayIO.layout.activate();
@@ -1102,106 +1112,6 @@
       });
     });
   });
-
-
-  /* ------------------
-   * - Custom Plugins -
-   * ------------------
-   * All custom plugins are defined below.
-   */
-
-
-  /*
-   * BOX REFRESH BUTTON
-   * ------------------
-   * This is a custom plugin to use with the component BOX. It allows you to add
-   * a refresh button to the box. It converts the box's state to a loading state.
-   *
-   * @type plugin
-   * @usage $("#box-widget").boxRefresh( options );
-   */
-
-  (function($) {
-    $.fn.boxRefresh = function(options) {
-      var done, overlay, settings, start;
-      settings = $.extend({
-        trigger: '.refresh-btn',
-        source: '',
-        onLoadStart: function(box) {},
-        onLoadDone: function(box) {}
-      }, options);
-      overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>');
-      start = function(box) {
-        box.append(overlay);
-        settings.onLoadStart.call(box);
-      };
-      done = function(box) {
-        box.find(overlay).remove();
-        settings.onLoadDone.call(box);
-      };
-      return this.each(function() {
-        var box, rBtn;
-        if (settings.source === '') {
-          if (console) {
-            console.log('Please specify a source first - boxRefresh()');
-          }
-          return;
-        }
-        box = $(this);
-        rBtn = box.find(settings.trigger).first();
-        rBtn.on('click', function(e) {
-          e.preventDefault();
-          start(box);
-          box.find('.box-body').load(settings.source, function() {
-            done(box);
-          });
-        });
-      });
-    };
-  })(jQuery);
-
-
-  /*
-   * TODO LIST CUSTOM PLUGIN
-   * -----------------------
-   * This plugin depends on iCheck plugin for checkbox and radio inputs
-   *
-   * @type plugin
-   * @usage $("#todo-widget").todolist( options );
-   */
-
-  (function($) {
-    $.fn.todolist = function(options) {
-      var settings;
-      settings = $.extend({
-        onCheck: function(ele) {},
-        onUncheck: function(ele) {}
-      }, options);
-      return this.each(function() {
-        if (typeof $.fn.iCheck !== 'undefined') {
-          $('input', this).on('ifChecked', function(event) {
-            var ele;
-            ele = $(this).parents('li').first();
-            ele.toggleClass('done');
-            settings.onCheck.call(ele);
-          });
-          $('input', this).on('ifUnchecked', function(event) {
-            var ele;
-            ele = $(this).parents('li').first();
-            ele.toggleClass('done');
-            settings.onUncheck.call(ele);
-          });
-        } else {
-          $('input', this).on('change', function(event) {
-            var ele;
-            ele = $(this).parents('li').first();
-            ele.toggleClass('done');
-            settings.onCheck.call(ele);
-          });
-        }
-      });
-    };
-  })(jQuery);
 
 }).call(this);
 

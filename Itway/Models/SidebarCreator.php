@@ -9,7 +9,6 @@ class SidebarCreator implements SidebarInterface
 {
     use SidebarTrait;
 
-
     /**
      * @param $view
      * @return mixed

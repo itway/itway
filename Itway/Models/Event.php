@@ -10,6 +10,6 @@ class Event extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['name','description','time', 'date', 'user_id', 'organizer', 'place', 'max_people_number'];
 
 }

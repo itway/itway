@@ -8,6 +8,7 @@ use RepositoryLab\Repository\Traits\TransformableTrait;
 
 class Chat extends Model implements Transformable
 {
+	
     use TransformableTrait;
 
     protected $fillable = [];

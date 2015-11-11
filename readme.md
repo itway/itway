@@ -1,6 +1,11 @@
-###### Itway web-site for iy guys && web-devs && hr specialists
+###### Itway web-site for iy guys, web-devs, managers, teams 
 
 App is made with a help of Laravel PHP Framework
+
+The basic goal is to create a really scalable app based on Laravel with all the interesting stuff!
+If you like Laravel framework and want to show people that it can be the best option around the whole world variety of frameworks
+to use Laravel...
+#####    Join our team and lets make something amazing
 
 ---
 

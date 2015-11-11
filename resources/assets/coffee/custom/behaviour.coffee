@@ -40,10 +40,6 @@ do ->
       anchor[i].className = 'item selected'
     i++
   return
-do ->
-  $(document).ready ->
-    $.ajaxSetup headers: 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    return
-  return
+
 
 # ---

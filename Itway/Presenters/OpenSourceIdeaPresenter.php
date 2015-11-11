@@ -2,15 +2,15 @@
 
 namespace Itway\Presenters;
 
-use itway\Transformers\IdeaShareTransformer;
+use itway\Transformers\OpenSourceIdeaTransformer;
 use RepositoryLab\Repository\Presenter\FractalPresenter;
 
 /**
- * Class IdeaSharePresenter
+ * Class OpenSourceIdeaPresenter
  *
  * @package namespace Itway\Presenters;
  */
-class IdeaSharePresenter extends FractalPresenter
+class OpenSourceIdeaPresenter extends FractalPresenter
 {
     /**
      * Transformer
@@ -19,6 +19,6 @@ class IdeaSharePresenter extends FractalPresenter
      */
     public function getTransformer()
     {
-        return new IdeaShareTransformer();
+        return new OpenSourceIdeaTransformer();
     }
 }
