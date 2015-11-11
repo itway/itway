@@ -267,46 +267,46 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 
 
         // ============================
-        //idea-show  ROUTES Start
+        //OpenSourceIdeaController  ROUTES Start
         Route::group(['prefix' => 'idea-show', 'as' => 'idea-show::'], function(){
 
             Route::get('/', [
-                'uses' => 'IdeaShowController@index',
+                'uses' => 'OpenSourceIdeaController@index',
                 'as' => 'index'
 
             ]);
             Route::get('idea/{slug}', [
-                'uses' => 'IdeaShowController@show',
+                'uses' => 'OpenSourceIdeaController@show',
                 'as' => 'show'
 
             ]);
             Route::get('create', [
-                'uses' => 'IdeaShowController@create',
+                'uses' => 'OpenSourceIdeaController@create',
                 'as' => 'create'
 
             ]);
 
             Route::get('user-ideas', [
-                'uses' => 'IdeaShowController@userPosts',
+                'uses' => 'OpenSourceIdeaController@userPosts',
                 'as' => 'user-posts'
 
             ]);
             Route::get('edit/{id}', [
-                'uses' => 'IdeaShowController@edit',
+                'uses' => 'OpenSourceIdeaController@edit',
                 'as' => 'edit',
                 'middleware' => 'IsUsersOrAdminPost'
             ]);
             Route::patch('update/{id}', [
-                'uses' => 'IdeaShowController@update',
+                'uses' => 'OpenSourceIdeaController@update',
                 'as' => 'update'
             ]);
             Route::delete('delete/{id}', [
-                'uses' => 'IdeaShowController@destroy',
+                'uses' => 'OpenSourceIdeaController@destroy',
                 'as' => 'delete',
                 'middleware' => 'IsUsersOrAdminPost'
             ]);
             Route::post('store', [
-                'uses' => 'IdeaShowController@store',
+                'uses' => 'OpenSourceIdeaController@store',
                 'as' => 'store'
             ]);
 

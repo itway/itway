@@ -22,7 +22,6 @@ class CreateOpensourceideaTable extends Migration
             $table->string('repository_link')->nullable();
             $table->string('doc')->nullable();
             $table->string('openidea_photo');
-            $table->string('speeker_skills')->nullable;
             $table->timestamps();
             $table->timestamp('published_at');
             $table->softDeletes();

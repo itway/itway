@@ -5,7 +5,7 @@ namespace Itway\Components\Sidebar;
 use Illuminate\Support\Collection;
 use Itway\Models\Post;
 use Itway\Models\JobHunt;
-use Itway\Models\IdeaShare;
+use Itway\Models\OpenSourceIdea;
 use Itway\Models\Quiz;
 use Itway\Models\Team;
 
@@ -20,14 +20,14 @@ trait SidebarTrait {
     /**
      *  SidebarTrait constructor.
      * @param Post $posts
-     * @param IdeaShare $ideas
+     * @param OpenSourceIdea $ideas
      * @param JobHunt $jobs
      * @param Quiz $quizzes
      * @param Team $teams
      */
 
 	public function __construct(
-        Post $posts, IdeaShare $ideas, JobHunt $jobs, Quiz $quizzes, Team $teams
+        Post $posts, OpenSourceIdea $ideas, JobHunt $jobs, Quiz $quizzes, Team $teams
     ) {
         $this->posts = $posts;
         $this->quizzes = $quizzes;

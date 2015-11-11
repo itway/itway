@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class CreateEventsTable extends Migration
 {
@@ -29,6 +30,8 @@ class CreateEventsTable extends Migration
             $table->integer('max_people_number')->unsigned();
             $table->timestamps();
             $table->timestamp('published_at');
+            $table->timestamp('today')->default(Carbon::today());
+            $table->boolean('banned')->default(false);
             $table->softDeletes();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

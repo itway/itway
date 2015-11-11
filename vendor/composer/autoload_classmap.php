@@ -20,6 +20,7 @@ return array(
     'CreateOpensourceideaUsersTable' => $baseDir . '/database/migrations/2015_11_11_001504_create_opensourceidea_users_table.php',
     'CreateParticipantsTable' => $baseDir . '/database/migrations/2015_10_27_122922_create_participants_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePictureEventTable' => $baseDir . '/database/migrations/2015_11_11_024108_create_picture_event_table.php',
     'CreatePicturePost' => $baseDir . '/database/migrations/2015_07_28_203830_create_picture_post.php',
     'CreatePictureQuizTable' => $baseDir . '/database/migrations/2015_10_31_220901_create_picture_quiz_table.php',
     'CreatePictureUserTable' => $baseDir . '/database/migrations/2015_09_06_104024_create_picture_user_table.php',

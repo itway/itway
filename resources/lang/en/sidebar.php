@@ -9,7 +9,7 @@
 return array(
     'blog' => 'Recent posts',
     'quiz' => 'Recent quizzes',
-    'idea' => 'Recent ideas',
+    'idea' => 'Recent opensource ideas',
     'job' => 'Recent jobs',
     'team' => 'Recent teams',
 );

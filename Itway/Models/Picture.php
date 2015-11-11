@@ -31,6 +31,10 @@ class Picture extends Model implements Transformable
         return $this->belongsToMany(Quiz::class);
     }
 
+    public function event()
+    {
+        return $this->belongsToMany(Event::class);
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

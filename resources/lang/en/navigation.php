@@ -8,7 +8,7 @@ return array (
     'home' => 'Home',
     'Blog' => 'Blog',
     'Create-Post' => 'Create Post',
-    'Idea-Share' => 'Idea-Share',
+    'Idea-Share' => 'OpenSource',
     'Quiz' => 'Quiz',
     'Job-Hunt' => 'Job-Hunt',
     'Pins' => 'Pins',

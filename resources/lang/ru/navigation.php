@@ -8,7 +8,7 @@ return array (
     'home' => 'Главная',
     'Blog' => 'Блог',
     'Create-Post' => 'Создать пост',
-    'Idea-Share' => 'Идеи',
+    'Idea-Share' => 'ОпенСорс',
     'Quiz' => 'Опросник',
     'Job-Hunt' => 'Работа',
     'Pins' => 'Закладки',
