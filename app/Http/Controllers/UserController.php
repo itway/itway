@@ -3,19 +3,43 @@
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Input;
 use itway\Http\Requests;
+use Itway\Repositories\UserRepository;
 use Itway\Validation\User\UserPhotoRequest;
 use Itway\Validation\User\UserUpdateRequest;
 use Itway\Models\Picture;
 use Itway\Uploader\ImageUploader;
 use Itway\Models\User;
 use Toastr;
+use App;
+use Auth;
+
 
 class UserController extends Controller {
 
 	private $uploader;
+    private $repository;
 
-    public function __construct(ImageUploader $uploader){
+    public function __construct(ImageUploader $uploader, UserRepository $repository){
         $this->uploader = $uploader;
+        $this->repository = $repository;
+    }
+
+    /**
+     * redirect not found
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectNotFound()
+    {
+        return redirect()->to(App::getLocale().'/user')->with(Toastr::error('User Not Found!',$title = 'the user might be deleted or banned', $options = []));
+    }
+
+    /**
+     * redirect error
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectError()
+    {
+        return redirect()->to(App::getLocale().'/user/'.Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
     }
 	/**
 	 * Display a listing of the resource.
@@ -64,6 +88,7 @@ class UserController extends Controller {
 
             }
             $notFromProfile = false;
+
 		return view('user.user-profile', compact('user', 'picture', 'notFromProfile'));
 
         } catch (ModelNotFoundException $e) {
@@ -75,13 +100,7 @@ class UserController extends Controller {
 	{
         try{
 		$user = User::find($id);
-            $tags = $user->tagNames();
-
-//            if ($user->picture()) {
-//
-//                $user = $user->picture()->get() ;
-//
-//            }
+        $tags = $user->tagNames();
 		return view('user.user-settings', compact('user','tags'));
 
         } catch (ModelNotFoundException $e) {
@@ -148,28 +167,13 @@ class UserController extends Controller {
             // upload image
             $image = \Input::file('photo');
 
-            $imagesPath = 'images/users';
+            $this->repository->bindImage($image, $user);
 
-            $this->uploader->upload($image, $imagesPath)->save($imagesPath);
+            Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
 
-            if ($user->picture()) {
-
-                $picture = $user->picture()->get() ;
-
-                foreach($picture as $pic) {
-                    User::deleteImage($pic->path);
-                }
-                $user->picture()->detach();
-            }
-
-            $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-            $user->picture()->attach($picture);
-
+            return redirect()->back();
         }
-        Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
-
-        return redirect()->back();
+        else return $this->redirectError();
 
     }
 

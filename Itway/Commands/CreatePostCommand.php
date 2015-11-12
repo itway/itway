@@ -1,7 +1,6 @@
 <?php namespace Itway\Commands;
 
 use itway\Commands\Command;
-
 use Illuminate\Contracts\Bus\SelfHandling;
 use Auth;
 use itway\Events\PostWasCreatedEvent;

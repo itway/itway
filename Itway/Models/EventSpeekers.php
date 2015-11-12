@@ -11,7 +11,8 @@ class EventSpeekers extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['events_id',
+    protected $fillable = [
+            'events_id',
             'name',
             'description',
             'slug',
@@ -24,9 +25,7 @@ class EventSpeekers extends Model implements Transformable
     protected $table = "event_speekers";
 
     public function event() {
-
-    	$this->belongsTo(Event::class);
-    
+    	$this->belongsTo(Event::class, 'events_id', 'id');
     }
 
 }

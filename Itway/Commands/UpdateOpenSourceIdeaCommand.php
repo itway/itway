@@ -5,10 +5,12 @@ namespace Itway\Commands;
 use itway\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class UpdateIdeaShareCommand extends Command implements SelfHandling
+class UpdateOpenSourceIdeaCommand extends Command implements SelfHandling
 {
     /**
+     * Create a new command instance.
      *
+     * @return void
      */
     public function __construct()
     {

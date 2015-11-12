@@ -23,7 +23,7 @@ class CommandsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $commands = ['Post', 'Quiz', 'User', 'IdeaShare', 'Chat', 'TaskBoard'];
+        $commands = ['Post', 'Quiz', 'User', 'Event', 'OpenSourceIdea', 'Chat', 'TaskBoard'];
         foreach($commands as $command) {
             $this->app->bind("Itway\\Commands\\Create{$command}Command");
             $this->app->bind("Itway\\Commands\\Update{$command}Command");

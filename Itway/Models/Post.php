@@ -106,12 +106,11 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
         return $this->belongsTo(\Itway\Models\User::class);
 
     }
+
     public function picture()
     {
-        return $this->belongsToMany(Picture::class);
-
+        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
-
     /**
      * @param $query
      * @return mixed

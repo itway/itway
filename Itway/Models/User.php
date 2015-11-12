@@ -49,6 +49,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     protected $dates = ['deleted_at'];
 
+    const IMAGEPath =  'images/users/';
+
 //    protected $searchable = [
 //        'columns' => [
 //            'name' => 10,
@@ -113,13 +115,10 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
         $this->attributes['locale'] = $request->getLocale();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+
     public function picture()
     {
-        return $this->belongsToMany(Picture::class);
-
+        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
     /**
@@ -153,6 +152,17 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     }
 
+    public function events() {
+
+        return $this->hasMany(\Itway\Models\Event::class);
+
+    }
+
+    public function eventUsers () {
+
+        return $this->belongsTo(\Itway\Models\EventUsers::class);
+
+    }
 
     public function isAdmin() {
 
@@ -160,10 +170,6 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     }
 
-    /**
-     * @param $file
-     * @return bool
-     */
     public static function deleteImage($file)
     {
         $filepath = self::image_path($file);
@@ -171,6 +177,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
         if (file_exists($filepath)) {
 
             File::delete($filepath);
+
             return true;
         }
         return false;
@@ -182,6 +189,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      */
     public static function image_path($file)
     {
-        return public_path("images/users/{$file}");
+        $imagePath = self::IMAGEPath;
+
+        return public_path("{$imagePath}{$file}");
     }
 }

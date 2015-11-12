@@ -15,32 +15,38 @@ class Picture extends Model implements Transformable
 
     protected $fillable = array('path');
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function post()
-    {
-        return $this->belongsToMany(Post::class);
-    }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany]
+     * Get all of the owning imageable models.
      */
-    public function quiz()
+    public function imageable()
     {
-        return $this->belongsToMany(Quiz::class);
+        return $this->morphTo();
     }
 
-    public function event()
-    {
-        return $this->belongsToMany(Event::class);
-    }
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
-    }
+//    public function post()
+//    {
+//        return $this->belongsToMany(Post::class);
+//    }
+//
+//    /**
+//     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany]
+//     */
+//    public function quiz()
+//    {
+//        return $this->belongsToMany(Quiz::class);
+//    }
+//
+//    public function event()
+//    {
+//        return $this->belongsToMany(Event::class);
+//    }
+//    /**
+//     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+//     */
+//    public function user()
+//    {
+//        return $this->belongsToMany(User::class);
+//    }
 
 }

@@ -26,14 +26,14 @@ class CreateEventsTable extends Migration
             $table->string('event_photo');
             $table->string('organizer_link')->nullable();
             $table->string('place');
-            $table->string('format')->nullable();
+            $table->string('event_format')->nullable();
             $table->integer('max_people_number')->unsigned();
             $table->timestamps();
             $table->timestamp('published_at');
             $table->timestamp('today')->default(Carbon::today());
             $table->boolean('banned')->default(false);
             $table->softDeletes();
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -45,7 +45,6 @@ class CreateEventsTable extends Migration
     public function down()
     {
         Schema::drop('events', function(Blueprint $table) {
-
             $table->dropForeign('events_user_id_foreign');
             $table->dropSoftDeletes();
         });

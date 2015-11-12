@@ -173,7 +173,9 @@ return [
         itway\Providers\TransformersServiceProvider::class,
         itway\Providers\PresentersServiceProvider::class,
         itway\Providers\CommandsServiceProvider::class,
-    ],
+        'Laracasts\Generators\GeneratorsServiceProvider',
+        'Webpatser\Countries\CountriesServiceProvider',
+         ],
 
     /*
     |--------------------------------------------------------------------------
@@ -230,6 +232,7 @@ return [
         'Youtube' => 'Itway\Services\Youtube\Facades\Youtube',
         'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
         'Visitor' => SourceQuartet\VisitorLog\VisitorLogFacade::class,
+         'Countries' => 'Webpatser\Countries\CountriesFacade',
 
     ],
 

@@ -61,13 +61,10 @@ class Quiz extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+
     public function picture()
     {
-        return $this->belongsToMany(Picture::class);
-
+        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
 

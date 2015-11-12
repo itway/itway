@@ -16,5 +16,4 @@
     <br><br><br>
 
     <br><br><br>
-    <a style="display: block;width: 60%; margin: 0 auto;font-weight: bold; font-size: 24px; background: #404b58;color: white; padding: 10px; text-align: center;" href="http://www.itway.io/">itway.io</a>
-</div>
+    <a style="display: block;width: 200px; margin: 0 auto;font-weight: bold; font-size: 24px; background: transparent;color: #404b58; padding: 10px; text-align: center;" href="http://www.itway.io/">itway.io</a></div>

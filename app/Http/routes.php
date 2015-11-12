@@ -20,9 +20,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         'as' => 'main'
     ]);
 
-    Route::group([
-        'prefix' => '/', 'as' => 'itway::'],
-        function(){
+    Route::group(['prefix' => '/', 'as' => 'itway::'], function(){
 
         //BLOG ROUTES START
         Route::group(['prefix' => 'blog', 'as' => 'posts::'], function(){
@@ -105,7 +103,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 
             Route::patch('update/{id}', [
                 'uses' => 'EventsController@update',
-//                'middleware' => 'shouldBeUnique',
+            //'middleware' => 'shouldBeUnique',
                 'as' => 'update', 'middleware' => ['IsUsers', 'auth']
             ]);
             Route::delete('delete/{id}', [
@@ -583,11 +581,13 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
 
 //Socialite Integration
 Route::get('auth/login/{provider}', ['as' => 'auth.provider', 'uses' => 'Auth\AuthController@loginThirdParty']);
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController'
 ]);
 Route::post('/search', ['as' => 'search', 'uses' => 'SearchController@executeSearch']);
+
 Route::post('/getAllExistingTags', ['as' => 'getAllExistingTags', 'uses' => 'SearchController@getAllExistingTags']);
 //end socialite
 

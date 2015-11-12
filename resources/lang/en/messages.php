@@ -51,7 +51,7 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'yourPost' => 'This is your post. To change it press this button',
     'yourPostBTN' => 'change post',
     'yourPostCreated' => 'Your post has been created',
-    'yourPostUpdated' => 'our post has been updated',
+    'yourPostUpdated' => 'Your post has been updated',
     'noPostsFoundTitle' => 'no Posts Found',
     'noPostsFound' => 'please create at least one',
     'noQuizzesFoundTitle' => 'no Quizzes Found',

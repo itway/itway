@@ -5,7 +5,7 @@ use \Illuminate\Http\Request;
 use Closure;
 use Config, App, Redirect; // ... and so on
 use Auth;
-use itway\User;
+use Itway\Models\User;
 class LocalUser {
 
     /**

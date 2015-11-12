@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
-use itway\Post;
+use Itway\Models\Post;
 
 class SearchController extends Controller
 {

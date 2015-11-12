@@ -40,18 +40,18 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      */
     protected $dates = ['published_at'];
 
-    const IMAGEPath =  'images/events/';
+    const IMAGEPath =  'images/events';
     
-    public function eventSpeekers() {
+//    public function eventSpeekers() {
+//
+//    	$this->hasMany(EventSpeekers::class, 'events_id', 'id');
+//    }
 
-    	$this->hasMany(EventSpeekers::class, "events_id", "id");
-    
-    }
-
-    public function eventUsers() {
-
-    	$this->hasMany(EventUsers::class, "events_id", "id");
-    }
+//    public function eventUsers() {
+//
+//    	$this->belongsToMany(EventUsers::class, 'event_users');
+//
+//    }
 
     public function setPublishedAtAttribute ($date) {
 
@@ -83,9 +83,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         $query->where('user_id', '=', Auth::id());
     
     }
-
-  
-    public function scopeToday  public function scopeUnpublished($query) {
+    public function scopeUnpublished($query) {
     
         $query->where('published_at', '>', Carbon::now());
     
@@ -96,16 +94,15 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         $query->where('today', '=', Carbon::today());
 
     }
-
     public function user() {
 
         return $this->belongsTo(\Itway\Models\User::class);
 
     }
+
     public function picture()
     {
-        return $this->belongsToMany(Picture::class);
-
+        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
     /**

@@ -56,7 +56,7 @@ class PostsController extends Controller {
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(App::getLocale()."/blog")->with(\Flash::error('Post Not Found!!'));
+        return redirect()->to(App::getLocale().'/blog')->with(Toastr::error('Post Not Found!',$title = 'the post might be deleted or banned', $options = []));
     }
 
     /**
@@ -227,64 +227,21 @@ class PostsController extends Controller {
      * @param PostsUpdateFormRequest $request
      * @return Redirect
      */
-	public function update( $slug, PostsUpdateFormRequest $request)
+	public function update($slug, PostsUpdateFormRequest $request)
 	{
         try {
 
             $post = Post::findBySlugOrId($slug);
+            $image = \Input::file('image');
 
-            $data = $request->all();
-
-            unset($data['image']);
-
-            $data['user_id'] = \Auth::id();
-
-            $data['slug'] = Str::slug($data['title']);
-
-            if (\Input::hasFile('image')) {
-                // upload image
-                $image = \Input::file('image');
-
-                if ($post->picture()) {
-
-                    $picture = $post->picture()->get() ;
-
-                    foreach($picture as $pic) {
-
-                        Post::deleteImage($pic->path);
-
-                    }
-                    $post->picture()->detach();
-                }
-
-                $post->update($data);
-
-                $post->untag();
-
-                $post->tag($request->input('tags_list'));
-
-                $this->uploader->upload($image, 'images/posts/')->save('images/posts');
-
-                $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-                $post->picture()->attach($picture);
-
-            }
-            else{
-                $post->update($data);
-
-                $post->untag();
-
-                $post->tag($request->input('tags_list'));
-
-            }
-
+            $this->repository->updatePost($request, $post, $image);
 
             $updatedPost = $post->id;
 
             Toastr::success(trans('messages.yourPostUpdated'), $title = $post->title, $options = []);
 
             return redirect()->to(App::getLocale().'/blog/post/'.$updatedPost);
+
 
         } catch (ModelNotFoundException $e) {
 

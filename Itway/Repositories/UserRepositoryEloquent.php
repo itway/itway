@@ -6,6 +6,7 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\UserRepository;
 use Itway\Models\User;
+use Itway\Models\Picture;
 
 /**
  * Class UserRepositoryEloquent
@@ -98,13 +99,18 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         return $this->getModel()->paginate();
     }
+
+    /**
+     * @param $user
+     * @return string
+     */
     public function getUserPhoto($user)
     {
         if(!empty($user->picture()->get()->all())) {
 
             $picture = $user->picture()->get()->first()->path;
 
-            return  url('images/users/' . $picture);
+            return  url(config('image.usersDESTINATION'). $picture);
         }
         else {
 
@@ -120,6 +126,29 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         }
 
     }
+
+    public function bindImage($image, User $user){
+
+
+        $this->uploader->upload($image, config('image.usersDESTINATION'))->save(config('image.usersDESTINATION'));
+
+        if ($user->picture()->count() !== 0) {
+
+            $picture = $user->picture()->get() ;
+
+            foreach($picture as $pic) {
+
+                User::deleteImage($pic->path);
+            }
+            $user->picture()->delete();
+        }
+
+        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
+
+        $user->picture()->save($picture);
+
+    }
+
     public function getAllExcept($id)
     {
         return $this->getModel()->where('id', '<>', $id)->get();

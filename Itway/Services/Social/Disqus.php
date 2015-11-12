@@ -8,7 +8,7 @@
 
 namespace Itway\Services\Social;
 
-use itway\Post;
+use Itway\Models\Post;
 use RuntimeException;
 use Illuminate\Config\Repository;
 use Guzzle\Service\Client as GuzzleClient;

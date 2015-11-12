@@ -29,7 +29,7 @@ class ModelsServiceProvider extends ServiceProvider
             'Team',
             'Event',
             'Quiz',
-            'IdeaShare',
+            'OpenSourceIdea',
             'Chat',
             'TaskBoard',
             'Counter',

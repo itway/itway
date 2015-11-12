@@ -13,4 +13,8 @@ class Chat extends Model implements Transformable
 
     protected $fillable = [];
 
+    public function picture()
+    {
+        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
+    }
 }

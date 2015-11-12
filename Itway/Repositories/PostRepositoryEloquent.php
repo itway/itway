@@ -2,6 +2,7 @@
 
 namespace Itway\Repositories;
 
+use Itway\Validation\Post\PostsUpdateFormRequest;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\PostRepository;
@@ -10,11 +11,12 @@ use Itway\Validation\Post\PostsFormRequest;
 use Auth;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Itway\Commands\CreatePostCommand;
-use Itway\Repositories\EloquentRepository;
 use Lang;
 use Itway\Models\Picture;
 use Itway\Uploader\ImageUploader;
-
+use Illuminate\Support\Str;
+use Toastr;
+use App;
 /**
  * Class PostRepositoryEloquent
  * @package namespace Itway\Repositories;
@@ -97,20 +99,70 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         return $post;
     }
 
+    public function updatePost(PostsUpdateFormRequest $request, $post, $image){
+
+        $data = $request->all();
+
+        unset($data['image']);
+
+        $data['user_id'] = \Auth::id();
+
+        $data['slug'] = Str::slug($data['title']);
+
+        if ($image) {
+            // upload image
+
+            if ($post->picture()) {
+
+               $this->bindImage($image, $post);
+            }
+
+            $post->update($data);
+
+            $post->untag();
+
+            $post->tag($request->input('tags_list'));
+
+        }
+        else{
+            $post->update($data);
+
+            $post->untag();
+
+            $post->tag($request->input('tags_list'));
+
+        }
+
+
+    }
     /**
      * bind an image to the post
      *
      * @param $image
      * @param $post
      */
-    protected function bindImage($image, $post){
+    public function bindImage($image, $post){
+
 
         $this->uploader->upload($image, config('image.postsDESTINATION'))->save(config('image.postsDESTINATION'));
 
+        if ($post->picture()->count() !== 0) {
+
+            $picture = $post->picture()->get() ;
+
+            foreach($picture as $pic) {
+
+                Post::deleteImage($pic->path);
+            }
+            $post->picture()->delete();
+        }
+
         $picture = Picture::create(['path' => $this->uploader->getFilename()]);
 
-        $post->picture()->attach($picture);
+        $post->picture()->save($picture);
+
     }
+
 
     /**
      * return the number of user's posts

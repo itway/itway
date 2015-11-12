@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'nilsenj\\Toastr\\' => array($vendorDir . '/nilsenj/toastr-5.1-laravel/src'),
-    'Psy\\' => array($vendorDir . '/psy/psysh/src'),
+    'Webpatser\\Countries' => array($vendorDir . '/webpatser/laravel-countries/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Potsky\\LaravelLocalizationHelpers\\' => array($vendorDir . '/potsky/laravel-localization-helpers/src'),

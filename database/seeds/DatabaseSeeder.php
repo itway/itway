@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
         $this->call(AdminSeeder::class);
+        //Seed the countries
+        $this->call('CountriesSeeder');
+        $this->command->info('Seeded the countries!');
         Model::reguard();
     }
 }

@@ -19,6 +19,7 @@ return array(
     'postsDESTINATION' => 'images/posts/',
     'quizzesDESTINATION' => 'images/quizzes/',
     'usersDESTINATION' => 'images/users/',
+    'eventsDESTINATION' => 'images/events',
     'missingUserPhoto' => 'default-user.png'
 
 );

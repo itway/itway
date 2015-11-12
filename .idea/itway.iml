@@ -119,6 +119,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/landish/pagination" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/generators" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -176,6 +177,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webpatser/laravel-countries" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zizaco/entrust" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -239,6 +241,7 @@
           <root url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
           <root url="file://$MODULE_DIR$/vendor/landish/pagination" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
+          <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -296,6 +299,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
+          <root url="file://$MODULE_DIR$/vendor/webpatser/laravel-countries" />
           <root url="file://$MODULE_DIR$/vendor/zizaco/entrust" />
         </CLASSES>
         <SOURCES>
@@ -343,6 +347,7 @@
           <root url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
           <root url="file://$MODULE_DIR$/vendor/landish/pagination" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
+          <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -400,6 +405,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
+          <root url="file://$MODULE_DIR$/vendor/webpatser/laravel-countries" />
           <root url="file://$MODULE_DIR$/vendor/zizaco/entrust" />
         </SOURCES>
       </library>
