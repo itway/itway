@@ -3,26 +3,18 @@
 
 use Conner\Tagging\Tag;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use itway\Http\Requests;
 use Itway\Models\Post;
 use Itway\Validation\Post\PostsUpdateFormRequest;
 use Itway\Validation\Post\PostsFormRequest;
-use Itway\Commands\CreatePostCommand;
 use Illuminate\Contracts\Cookie;
-use \Illuminate\Http\Request;
 use Itway\Repositories\PostRepository;
-use Itway\Models\User;
 use App;
-use Itway\Models\Picture;
-use Itway\Uploader\ImageUploader;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Str;
 use nilsenj\Toastr\Facades\Toastr;
 use Itway\Services\Youtube\Facades\Youtube;
 use Itway\Services\Youtube\YoutubeQuery;
-//use Request;
 
 /**
  * Class PostsController
@@ -31,21 +23,15 @@ use Itway\Services\Youtube\YoutubeQuery;
 class PostsController extends Controller {
 
     use YoutubeQuery;
-    /**
-     * @var ImageUploader
-     */
-    private $uploader;
     private $repository;
 
 
     /**
-     * @param ImageUploader $uploader
      * @param PostRepository $repository
      */
-    public function __construct(ImageUploader $uploader, PostRepository $repository)
+    public function __construct(PostRepository $repository)
     {
         $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
-        $this->uploader = $uploader;
         $this->repository = $repository;
     }
 
@@ -60,11 +46,21 @@ class PostsController extends Controller {
     }
 
     /**
+     * redirect error
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectError()
+    {
+        return redirect()->to(App::getLocale().'/blog/'.Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+    }
+
+    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 	public function index()
     {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+
         $posts = $this->repository->getAll();
         $countUserPosts = $this->repository->countUserPosts();
 
@@ -245,7 +241,7 @@ class PostsController extends Controller {
 
         } catch (ModelNotFoundException $e) {
 
-            return $this->redirectNotFound();
+            return $this->redirectError();
 
         }
 	}

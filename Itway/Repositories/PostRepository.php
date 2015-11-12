@@ -17,7 +17,6 @@ interface PostRepository extends RepositoryInterface
     public function countUserPosts();
     public function createPost(PostsFormRequest $request,$image);
     public function updatePost(PostsUpdateFormRequest $request, $post, $image);
-    public function bindImage($image, $post);
     public function todayPosts();
     public function getAll();
     public function getAllUsers();

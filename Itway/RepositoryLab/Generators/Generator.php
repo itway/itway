@@ -173,6 +173,9 @@ abstract class Generator
             case ('models' === $class):
                 $path = config('repository.generator.paths.models', 'Entities');
                 break;
+            case ('controlers' === $class):
+                $path = config('repository.generator.paths.controlers', 'cControlers');
+                break;
             case ('repositories' === $class):
                 $path = config('repository.generator.paths.repositories', 'Repositories');
                 break;

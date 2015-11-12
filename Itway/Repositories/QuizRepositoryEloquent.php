@@ -2,6 +2,8 @@
 
 namespace Itway\Repositories;
 
+use Itway\Uploader\ImageContract;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\QuizRepository;
@@ -14,13 +16,14 @@ use Itway\Uploader\ImageUploader;
 use Auth;
 use Itway\Models\Picture;
 use Lang;
-use itway\QuizOptions;
+use Itway\Models\QuizOptions;
 /**
  * Class QuizRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class QuizRepositoryEloquent extends BaseRepository implements QuizRepository
+class QuizRepositoryEloquent extends BaseRepository implements QuizRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *
@@ -99,19 +102,6 @@ class QuizRepositoryEloquent extends BaseRepository implements QuizRepository
         }
     }
 
-    /**
-     * bind an image to quiz
-     * @param $image
-     * @param $quiz
-     */
-    protected function bindImage($image, $quiz){
-
-        $this->uploader->upload($image, config('image.quizzesDESTINATION'))->save(config('image.quizzesDESTINATION'));
-
-        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-        $quiz->picture()->attach($picture);
-    }
 
     /**
      * return the number of user's posts

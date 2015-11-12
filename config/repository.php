@@ -223,6 +223,7 @@ return [
         'paths'=>[
             'models'=>'Models',
             'repositories'=>'Repositories',
+            'controllers'=> 'Controllers',
             'interfaces'=>'Repositories',
             'transformers'=>'Transformers',
             'presenters'=>'Presenters'

@@ -2,6 +2,8 @@
 
 namespace Itway\Repositories;
 
+use Itway\Uploader\ImageContract;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\TeamRepository;
@@ -11,8 +13,9 @@ use Itway\Models\Team;
  * Class TeamRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class TeamRepositoryEloquent extends BaseRepository implements TeamRepository
+class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *

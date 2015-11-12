@@ -15,5 +15,4 @@ interface UserRepository extends RepositoryInterface
     public function getUserPhoto($user);
     public function getAllExcept($id);
     public function getAll();
-    public function bindImage($image, User $post);
 }

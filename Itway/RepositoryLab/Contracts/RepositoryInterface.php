@@ -151,4 +151,29 @@ interface RepositoryInterface
      * @return $this
      */
     public function skipPresenter($status = true);
+
+    /**
+     * get the name of the Model
+     * not lowercased
+     *
+     * @return mixed
+     */
+    public function getModelName();
+
+    /**
+     * get some data attached to model from config folder
+     *
+     * @param $configFileName
+     * @return mixed
+     */
+    public function bindFromConfigModel($configFileName);
+
+
+    /**
+     * get image path binded to model from config file
+     *
+     * @param null $imageFileConfig
+     * @return mixed
+     */
+    public function getImagePathFromConfig($imageFileConfig = null);
 }

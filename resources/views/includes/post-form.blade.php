@@ -157,27 +157,27 @@
         //
         //        };
         //
-        //      config.extraPlugins = 'codesnippet';
-        //      config.extraPlugins = 'autosave';
-        //      config.codeSnippet_theme = 'mono-blue';
-        //      config.uiColor = 'transparent';
-        //      config.width = '100%';
-        //      config.resize_enabled  = true;
-        //      config.placeholder = 'Please write your post!';
-        //      config.skin = 'minimalist';
-        //      config.allowedContent = true;
-        //      config.height = 400;
+
 
         var config = {
             language: '{{App::getLocale()}}'
         };
+        config.extraPlugins = 'codesnippet';
+        config.extraPlugins = 'autosave';
+        config.codeSnippet_theme = 'mono-blue';
+        config.width = '100%';
+        config.resize_enabled  = true;
+        config.placeholder = 'Please write your post!';
+        config.allowedContent = true;
+        config.uiColor = 'transparent';
+        config.height = 300;
+        config.toolbarCanCollapse = true;
         CKEDITOR.replace('editor',config);
 
         $('form').on('submit', function(){
 
             var editor_data = CKEDITOR.instances.editor.getData();
             $('#editor').val(editor_data);
-
         });
         CKEDITOR.on('instanceReady', function(){
             $.each( CKEDITOR.instances, function(instance) {

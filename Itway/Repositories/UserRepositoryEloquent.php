@@ -7,13 +7,15 @@ use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\UserRepository;
 use Itway\Models\User;
 use Itway\Models\Picture;
-
+use Itway\Uploader\ImageTrait;
+use Itway\Uploader\ImageContract;
 /**
  * Class UserRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *
@@ -127,27 +129,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     }
 
-    public function bindImage($image, User $user){
-
-
-        $this->uploader->upload($image, config('image.usersDESTINATION'))->save(config('image.usersDESTINATION'));
-
-        if ($user->picture()->count() !== 0) {
-
-            $picture = $user->picture()->get() ;
-
-            foreach($picture as $pic) {
-
-                User::deleteImage($pic->path);
-            }
-            $user->picture()->delete();
-        }
-
-        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-        $user->picture()->save($picture);
-
-    }
 
     public function getAllExcept($id)
     {

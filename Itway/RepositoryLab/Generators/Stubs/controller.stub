@@ -1,0 +1,272 @@
+<?php
+
+$NAMESPACE$
+
+
+use Conner\Tagging\Tag;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use itway\Http\Requests;
+use Itway\Models\$CLASS$;
+use Itway\Validation\$CLASS$\$CLASS$sUpdateFormRequest;
+use Itway\Validation\$CLASS$\$CLASS$sFormRequest;
+use Illuminate\Contracts\Cookie;
+use Itway\Repositories\$CLASS$Repository;
+use App;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use nilsenj\Toastr\Facades\Toastr;
+
+/**
+ * Class $CLASS$sController
+ * @package itway\Http\Controllers
+ */
+class $CLASS$sController extends Controller {
+
+    private $repository;
+
+
+    /**
+     * @param $CLASS$Repository $repository
+     */
+    public function __construct($CLASS$Repository $repository)
+    {
+        $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
+        $this->repository = $repository;
+    }
+
+    /**
+     * Redirect not found.
+     *
+     * @return Response
+     */
+    protected function redirectNotFound()
+    {
+        return redirect()->to(App::getLocale().'/$CLASS$')->with(Toastr::error('$CLASS$ Not Found!',$title = 'the $CLASS$ might be deleted or banned', $options = []));
+    }
+
+    /**
+     * redirect error
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectError()
+    {
+        return redirect()->to(App::getLocale().'/$CLASS$/'.Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+	public function index()
+    {
+        $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+
+        $$CLASS$s = $this->repository->getAll();
+        $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+            return view('pages.$CLASS$', compact('$CLASS$s','countUser$CLASS$s'));
+
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        $tagCollection = Tag::where('count', '>=', ENV('SUPPOSED_TAGS', 5))->get();
+
+        $tags =  $tagCollection->lists('name', 'id');
+
+        $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+        flash()->info(trans('messages.createLang'));
+
+        return view('$CLASS$s.create', compact('tags','countUser$CLASS$s'));
+    }
+
+    /**
+     * store the $CLASS$s data in database and bind the image
+     *
+     * @param $CLASS$sFormRequest $request
+     * @return mixed
+     */
+    public function store($CLASS$sFormRequest $request)
+    {
+
+        if (\Input::hasFile('image')) {
+
+            $$CLASS$ = $this->repository->create$CLASS$($request, \Input::file('image'));
+        }
+        else{
+
+            Toastr::error(trans('messages.imageError'), $title = Auth::user()->name, $options = []);
+
+            return redirect()->back();
+        }
+
+        Toastr::success(trans('messages.your$CLASS$Created'), $title = $$CLASS$->title, $options = []);
+
+        return redirect()->to(App::getLocale().'/blog/$CLASS$/'.$$CLASS$->id);
+    }
+
+
+    /**
+     * show single $CLASS$ and pass some data to views
+     *
+     * @param $slug
+     * @param $CLASS$ $$CLASS$data
+     * @return \Illuminate\View\View|Response
+     */
+	public function show($slug, $CLASS$ $$CLASS$data)
+        
+	{
+        try {
+            $$CLASS$ = $$CLASS$data->findBySlugOrId($slug);
+
+            $$CLASS$->view();
+
+            $$CLASS$User = $$CLASS$->user_id;
+
+            $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+            if(Auth::user() && Auth::user()->id === $$CLASS$User) {
+
+                $createdByUser = true;
+
+                return view('$CLASS$s.single', compact('$CLASS$', 'createdByUser','countUser$CLASS$s'));
+            }
+            else {
+                $createdByUser = false;
+
+                return view('$CLASS$s.single', compact('$CLASS$','createdByUser','countUser$CLASS$s'));
+            }
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
+	}
+    public function user$CLASS$s()
+
+    {
+
+            try {
+
+                $$CLASS$s = $this->repository->getAllUsers();
+
+                $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+
+                if($countUser$CLASS$s === 0)
+                {
+                    Toastr::warning(trans('messages.no$CLASS$sFound'), $title = trans('messages.no$CLASS$sFoundTitle'), $options = []);
+                    return redirect()->back();
+                }
+                else {
+
+                    return view('pages.$CLASS$', compact('$CLASS$s', 'countUser$CLASS$s'));
+                }
+
+            } catch (ModelNotFoundException $e) {
+
+                return $this->redirectNotFound();
+            }
+
+    }
+
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  string  $slug
+	 * @return Response
+	 */
+	public function edit($slug)
+
+	{
+        try {
+            $$CLASS$ = $CLASS$::findBySlugOrId($slug);
+
+            $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+//            $categories = Category::all()->lists("slug", 'id');
+
+            $tags = $$CLASS$->tagNames();
+
+            if ($$CLASS$->picture()) {
+
+                $picture = $$CLASS$->picture()->get() ;
+
+            }
+
+            return view('$CLASS$s.edit', compact('$CLASS$', 'tags', 'picture','countUser$CLASS$s'));
+
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
+	}
+
+    /**
+     * @param $slug
+     * @param $CLASS$sUpdateFormRequest $request
+     * @return Redirect
+     */
+	public function update($slug, $CLASS$sUpdateFormRequest $request)
+	{
+        try {
+
+            $$CLASS$ = $CLASS$::findBySlugOrId($slug);
+            $image = \Input::file('image');
+
+            $this->repository->update$CLASS$($request, $$CLASS$, $image);
+
+            $updated$CLASS$ = $$CLASS$->id;
+
+            Toastr::success(trans('messages.your$CLASS$Updated'), $title = $$CLASS$->title, $options = []);
+
+            return redirect()->to(App::getLocale().'/$CLASS$/'.$updated$CLASS$t);
+
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectError();
+
+        }
+	}
+
+    /**
+     * just deleting $CLASS$s if the $CLASS$ belongs to user or the user is admin
+     *
+     * @param $id
+     * @return mixed
+     */
+	public function destroy($id)
+	{
+        $this->repository->delete($id);
+
+        Toastr::success(Auth::user()->name, $title = 'Your $CLASS$ deleted successfully! Have a nice day!', $options = []);
+
+        return redirect()->to(App::getLocale().'/$CLASS$');
+	}
+
+    /**
+     * list $CLASS$s according to the tags
+     *
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function tags($slug) {
+
+        $$CLASS$s = $CLASS$::withAnyTag([$slug])->latest('published_at')->published()->paginate(8);
+
+        $countUser$CLASS$s = $this->repository->countUser$CLASS$s();
+
+        return view('pages.$CLASS$',compact('$CLASS$s', 'countUser$CLASS$s'));
+    }
+
+
+}

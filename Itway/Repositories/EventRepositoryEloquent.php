@@ -4,20 +4,21 @@ namespace Itway\Repositories;
 
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Repositories\EventRepository;
 use Itway\Models\Event;
 use Itway\Validation\Event\EventRequest;
 use Itway\Commands\CreateEventCommand;
 use App;
 use Lang;
-use Itway\Models\Picture;
 use Auth;
+use Itway\Uploader\ImageContract;
+use Itway\Uploader\ImageTrait;
 /**
  * Class EventRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class EventRepositoryEloquent extends BaseRepository implements EventRepository
+class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *
@@ -80,7 +81,9 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
     }
 
 
-    /**create the event
+    /**
+     * create the event
+     *
      * and dispatch the command
      * @param EventRequest $request
      * @param $image
@@ -108,20 +111,6 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
         return $event;
     }
 
-    /**
-     * bind an image to the event
-     *
-     * @param $image
-     * @param $event
-     */
-    protected function bindImage($image, $event){
-
-        $this->uploader->upload($image, config('image.eventsDESTINATION'))->save(config('image.eventsDESTINATION'));
-
-        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-        $event->picture()->attach($picture);
-    }
 
     /**
      * return the number of user's events

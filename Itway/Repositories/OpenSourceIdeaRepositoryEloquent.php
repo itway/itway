@@ -2,6 +2,8 @@
 
 namespace Itway\Repositories;
 
+use Itway\Uploader\ImageContract;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\OpenSourceIdeaRepository;
@@ -11,8 +13,9 @@ use Itway\Models\OpenSourceIdea;
  * Class OpenSourceIdeaRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository
+class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *

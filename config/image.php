@@ -16,10 +16,14 @@ return array(
     */
 
     'driver' => 'gd',
-    'postsDESTINATION' => 'images/posts/',
-    'quizzesDESTINATION' => 'images/quizzes/',
-    'usersDESTINATION' => 'images/users/',
-    'eventsDESTINATION' => 'images/events',
+    'post' => 'images/posts/',
+    'quiz' => 'images/quizzes/',
+    'user' => 'images/users/',
+    'team' => 'images/teams/',
+    'event' => 'imags/events/',
+    'opensourceidea' => 'images/opensourceidea/',
+    'chat' => 'images/chat/',
+    'taskboard' => 'images/taskboard/',
     'missingUserPhoto' => 'default-user.png'
 
 );

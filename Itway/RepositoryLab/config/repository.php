@@ -64,14 +64,14 @@ return [
          */
         'minutes'   => 30,
 
-         /*
-          |--------------------------------------------------------------------------
-          | Cache Repository
-          |--------------------------------------------------------------------------
-          |
-          | Instance of Illuminate\Contracts\Cache\Repository
-          |
-          */
+        /*
+         |--------------------------------------------------------------------------
+         | Cache Repository
+         |--------------------------------------------------------------------------
+         |
+         | Instance of Illuminate\Contracts\Cache\Repository
+         |
+         */
         'repository'=> 'cache',
 
         /*
@@ -110,15 +110,15 @@ return [
         ],
 
         'params'    => [
-              /*
-              |--------------------------------------------------------------------------
-              | Skip Cache Params
-              |--------------------------------------------------------------------------
-              |
-              |
-              | Ex: http://prettus.local/?search=lorem&skipCache=true
-              |
-              */
+            /*
+            |--------------------------------------------------------------------------
+            | Skip Cache Params
+            |--------------------------------------------------------------------------
+            |
+            |
+            | Ex: http://prettus.local/?search=lorem&skipCache=true
+            |
+            */
             'skipCache'=>'skipCache'
         ],
 
@@ -203,7 +203,7 @@ return [
         |
         */
         'params'=>[
-            'search'        =>'search',
+            'search'        =>'q',
             'searchFields'  =>'searchFields',
             'filter'        =>'filter',
             'orderBy'       =>'orderBy',
@@ -218,11 +218,12 @@ return [
     |
     */
     'generator'=>[
-        'basePath'=>app_path('Itway'),
+        'basePath'=>base_path('Itway'),
         'rootNamespace'=>'Itway\\',
         'paths'=>[
             'models'=>'Models',
             'repositories'=>'Repositories',
+            'controllers'=> 'Controllers',
             'interfaces'=>'Repositories',
             'transformers'=>'Transformers',
             'presenters'=>'Presenters'

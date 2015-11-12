@@ -129,30 +129,6 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
         return $query->where($id)->orWhere('slug', '=', $id);
     }
 
-    /**
-     * @param $file
-     * @return bool
-     */
-    public static function deleteImage($file)
-    {
-        $filepath = self::image_path($file);
 
-        if (file_exists($filepath)) {
-
-            File::delete($filepath);
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @param $file
-     * @return string
-     */
-    public static function image_path($file)
-    {
-        $imagePath = self::IMAGEPath;
-        return public_path("{$imagePath}{$file}");
-    }
 
 }

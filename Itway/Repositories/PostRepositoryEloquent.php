@@ -5,24 +5,23 @@ namespace Itway\Repositories;
 use Itway\Validation\Post\PostsUpdateFormRequest;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Repositories\PostRepository;
 use Itway\Models\Post;
 use Itway\Validation\Post\PostsFormRequest;
 use Auth;
-use Illuminate\Contracts\Bus\Dispatcher;
 use Itway\Commands\CreatePostCommand;
 use Lang;
-use Itway\Models\Picture;
-use Itway\Uploader\ImageUploader;
 use Illuminate\Support\Str;
 use Toastr;
 use App;
+use Itway\Uploader\ImageTrait;
+use Itway\Uploader\ImageContract;
 /**
  * Class PostRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PostRepositoryEloquent extends BaseRepository implements PostRepository
+class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract
 {
+    use ImageTrait;
     /**
      * Specify Model class name
      *
@@ -135,33 +134,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
 
 
     }
-    /**
-     * bind an image to the post
-     *
-     * @param $image
-     * @param $post
-     */
-    public function bindImage($image, $post){
 
-
-        $this->uploader->upload($image, config('image.postsDESTINATION'))->save(config('image.postsDESTINATION'));
-
-        if ($post->picture()->count() !== 0) {
-
-            $picture = $post->picture()->get() ;
-
-            foreach($picture as $pic) {
-
-                Post::deleteImage($pic->path);
-            }
-            $post->picture()->delete();
-        }
-
-        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-        $post->picture()->save($picture);
-
-    }
 
 
     /**

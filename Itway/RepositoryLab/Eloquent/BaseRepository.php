@@ -21,6 +21,7 @@ use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
 use RepositoryLab\Validator\Exceptions\ValidatorException;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use ReflectionClass;
 
 /**
  * Class BaseRepository
@@ -183,6 +184,61 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
 
         return $this->model = $model;
     }
+
+    public function getModelName(){
+
+        $reflection = new ReflectionClass($this->model());
+
+        return $reflection->getShortName();
+
+    }
+
+
+    /**
+     * get data from config folder attached to model
+     *
+     * @param $configName
+     * @return mixed
+     * @throws RepositoryException
+     */
+    public function bindFromConfigModel($configName) {
+
+        $configArray = config(strtolower($configName), $configName);
+
+        if (empty($configArray) || $configArray === null) {
+
+            throw new RepositoryException("Config file {$configName} - not found!");
+        }
+        else {
+
+            $model = strtolower($this->getModelName());
+
+            $confName = $configArray[$model];
+
+            return $confName;
+        }
+
+    }
+
+    /**
+     * @param null $imageFileConfig
+     * @return mixed
+     * @throws RepositoryException
+     */
+    public function getImagePathFromConfig($imageFileConfig = null){
+
+        if ($imageFileConfig === null) {
+
+            return $this->bindFromConfigModel('image');
+        }
+        else {
+
+            return $this->bindFromConfigModel($imageFileConfig);
+
+        }
+
+    }
+
 
     /**
      * @param null $presenter

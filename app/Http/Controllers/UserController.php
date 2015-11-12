@@ -16,11 +16,9 @@ use Auth;
 
 class UserController extends Controller {
 
-	private $uploader;
     private $repository;
 
-    public function __construct(ImageUploader $uploader, UserRepository $repository){
-        $this->uploader = $uploader;
+    public function __construct(UserRepository $repository){
         $this->repository = $repository;
     }
 
