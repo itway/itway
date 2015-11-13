@@ -54,101 +54,104 @@
 //# sourceMappingURL=coffee-sourcemaps/behaviour.js.map
 
 
-/* Search functionality */
+/*
+ * BOX REFRESH BUTTON
+ * ------------------
+ * This is a custom plugin to use with the component BOX. It allows you to add
+ * a refresh button to the box. It converts the box's state to a loading state.
+ *
+ * @type plugin
+ * @usage $("#box-widget").boxRefresh( options );
+ */
 
 (function() {
-  $.ItwayIO.search = {
-    selectors: $.ItwayIO.options.search,
-    activate: function() {
-      var _this, searchBTN, searchResult;
-      _this = this;
-      searchBTN = this.selectors.searchBTN;
-      searchResult = this.selectors.searchResult;
-      searchBTN.click(function(e) {
-        e.preventDefault();
-        _this.search();
-      });
-      $('.tag-search').on('click', function(e) {
-        e.preventDefault();
-        _this.tagSearch();
-      });
-      $('a.search-button').on('click', function(event) {
-        event.preventDefault();
-        $('#search input[type="search"]').focus();
-        $('#search').addClass('active');
-        $('body').css({
-          'overflow': 'hidden'
-        });
-      });
-      $('#search, #search button.close').on('click keyup', function(event) {
-        if (event.target === this || event.target.className === 'close' || event.target.className === 'icon-close' || event.keyCode === 27) {
-          $(this).removeClass('active');
-          searchResult.html('');
-          $('#search .search-input').val('');
-          $('body').css({
-            'overflow': 'auto'
+  (function($) {
+    $.fn.boxRefresh = function(options) {
+      var done, overlay, settings, start;
+      settings = $.extend({
+        trigger: '.refresh-btn',
+        source: '',
+        onLoadStart: function(box) {},
+        onLoadDone: function(box) {}
+      }, options);
+      overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>');
+      start = function(box) {
+        box.append(overlay);
+        settings.onLoadStart.call(box);
+      };
+      done = function(box) {
+        box.find(overlay).remove();
+        settings.onLoadDone.call(box);
+      };
+      return this.each(function() {
+        var box, rBtn;
+        if (settings.source === '') {
+          if (console) {
+            console.log('Please specify a source first - boxRefresh()');
+          }
+          return;
+        }
+        box = $(this);
+        rBtn = box.find(settings.trigger).first();
+        rBtn.on('click', function(e) {
+          e.preventDefault();
+          start(box);
+          box.find('.box-body').load(settings.source, function() {
+            done(box);
           });
-          _this.stopSearch();
-        }
-      });
-      $('#search form').submit(function(event) {
-        event.preventDefault();
-        return false;
-      });
-      $('#search > form > input[type="search"]').keyup(function(e) {
-        if ((e.keyCode === 13 && $('#search .search-input').val().length > 0) || $('#search .search-input').val().length > 0) {
-          _this.search();
-        } else {
-          _this.stopSearch();
-        }
-      });
-    },
-    search: function() {
-      var _this, searchResult, timer;
-      _this = this;
-      searchResult = this.selectors.searchResult;
-      timer = setTimeout((function() {
-        $.ajax({
-          url: 'http://www.itway.io/search',
-          data: {
-            'keywords': $('#search .search-input').val()
-          },
-          method: 'post',
-          success: function(markup) {
-            searchResult.html(markup);
-          },
-          error: function(err) {
-            searchResult.html('<h3 class="text-danger"> try once more... </h3>');
-            console.log(err.type);
-            _this.stopSearch();
-          }
         });
-      }), 500);
-    },
-    tagSearch: function() {
-      var _this, searchResult, timer;
-      _this = this;
-      searchResult = this.selectors.searchResult;
-      timer = setTimeout((function() {
-        $.ajax({
-          url: 'http://www.itway.io/getAllExistingTags',
-          method: 'post',
-          success: function(markup) {
-            searchResult.html(markup);
-          },
-          error: function(err) {
-            searchResult.html('<h3 class="text-danger"> try once more... </h3>');
-            console.log(err.type);
-            _this.stopSearch();
-          }
-        });
-      }), 500);
-    },
-    stopSearch: function() {
-      clearTimeout(timer);
-    }
-  };
+      });
+    };
+  })(jQuery);
 
 }).call(this);
 
-//# sourceMappingURL=coffee-sourcemaps/search.js.map
+//# sourceMappingURL=coffee-sourcemaps/boxRefresh.js.map
+
+
+/*
+ * TODO LIST CUSTOM PLUGIN
+ * -----------------------
+ * This plugin depends on iCheck plugin for checkbox and radio inputs
+ *
+ * @type plugin
+ * @usage $("#todo-widget").todolist( options );
+ */
+
+(function() {
+  (function($) {
+    $.fn.todolist = function(options) {
+      var settings;
+      settings = $.extend({
+        onCheck: function(ele) {},
+        onUncheck: function(ele) {}
+      }, options);
+      return this.each(function() {
+        if (typeof $.fn.iCheck !== 'undefined') {
+          $('input', this).on('ifChecked', function(event) {
+            var ele;
+            ele = $(this).parents('li').first();
+            ele.toggleClass('done');
+            settings.onCheck.call(ele);
+          });
+          $('input', this).on('ifUnchecked', function(event) {
+            var ele;
+            ele = $(this).parents('li').first();
+            ele.toggleClass('done');
+            settings.onUncheck.call(ele);
+          });
+        } else {
+          $('input', this).on('change', function(event) {
+            var ele;
+            ele = $(this).parents('li').first();
+            ele.toggleClass('done');
+            settings.onCheck.call(ele);
+          });
+        }
+      });
+    };
+  })(jQuery);
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/todo.js.map

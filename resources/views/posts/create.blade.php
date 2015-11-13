@@ -18,7 +18,7 @@
 
     {!! Form::model( $postInstance = new Itway\Models\Post, ['url' => App::getLocale().'/blog/store', 'class' => 'form', 'id' => 'post-form', 'files' => true ] ) !!}
 
-    @include('includes.post-form', ['submitButton' => 'Create Post'])
+    @include('includes.post-form', ['submitButton' => 'Create Post', $post=null])
 
     {!! Form::close() !!}
 

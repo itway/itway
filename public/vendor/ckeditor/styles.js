@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -38,8 +38,8 @@ CKEDITOR.stylesSet.add( 'default', [
 		element: 'div',
 		styles: {
 			padding: '5px 10px',
-			background: '#ddd',
-			border: '1px solid transparent'
+			background: '#eee',
+			border: '1px solid #ccc'
 		}
 	},
 
@@ -105,8 +105,7 @@ CKEDITOR.stylesSet.add( 'default', [
 		}
 	},
 
-	{ name: 'Borderless Table',		element: 'table',	styles: { 'border-style': 'hidden', 'background-color': 'transparent' } },
+	{ name: 'Borderless Table',		element: 'table',	styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
 	{ name: 'Square Bulleted List',	element: 'ul',		styles: { 'list-style-type': 'square' } }
 ] );
 
-// %LEAVE_UNMINIFIED% %REMOVE_LINE%

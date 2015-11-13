@@ -13,10 +13,10 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) http://ckeditor.com/builder/144109aaac6d8fff3a0b6155c673063b
+ * (2) http://ckeditor.com/builder/fc695112c8108a77b8ffd2a464932884
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) http://ckeditor.com/builder/download/144109aaac6d8fff3a0b6155c673063b
+ * (3) http://ckeditor.com/builder/download/fc695112c8108a77b8ffd2a464932884
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -25,7 +25,7 @@
  */
 
 var CKBUILDER_CONFIG = {
-	skin: 'icy_orange',
+	skin: 'minimalist',
 	preset: 'basic',
 	ignore: [
 		'.bender',
@@ -50,7 +50,6 @@ var CKBUILDER_CONFIG = {
 		'tests'
 	],
 	plugins : {
-		'about' : 1,
 		'autogrow' : 1,
 		'autosave' : 1,
 		'basicstyles' : 1,
@@ -58,19 +57,18 @@ var CKBUILDER_CONFIG = {
 		'clipboard' : 1,
 		'codesnippet' : 1,
 		'colordialog' : 1,
+		'divarea' : 1,
 		'elementspath' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
-		'floating-tools' : 1,
 		'floatingspace' : 1,
 		'indentlist' : 1,
 		'justify' : 1,
 		'link' : 1,
 		'list' : 1,
-		'placeholder' : 1,
+		'maximize' : 1,
 		'resize' : 1,
 		'smiley' : 1,
-		'stat' : 1,
 		'toolbar' : 1,
 		'tweetabletext' : 1,
 		'undo' : 1,

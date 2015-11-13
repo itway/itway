@@ -14,9 +14,6 @@
 
 <script src="{{ asset('dist/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script  src="{{asset('/dist/vendor/tooltipster/js/jquery.tooltipster.min.js')}}"></script>
-<script src="{{asset('vendor/highlight.pack.js')}}"></script>
-
-<script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 <script src="{{ asset('dist/vendor/taggingJS/tagging.js') }}"></script>
 <script src="{{ asset('dist/vendor/jquery-simply-countable/jquery.simplyCountable.js') }}"></script>
 <script src="{{asset('dist/vendor/toastr/toastr.min.js')}}"></script>
@@ -35,8 +32,19 @@
 <script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 
 
-<script>hljs.initHighlightingOnLoad();</script>
 <script>
+    $(document).ready(function() {
+        hljs.configure({
+            tabReplace: '    ' // 4 spaces
+        });
+
+        hljs.initHighlighting();
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+        initSample();
+
+    });
 
     $('.navigation .ui.dropdown')
             .dropdown({

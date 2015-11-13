@@ -55,8 +55,11 @@
     <h3 class="label">{{trans('post-form.post body')}}</h3>
     <div class="clearfix"></div>
     <div class="form-group">
-        {!! Form::textarea('body', null, [ 'cols' => '80', 'rows'=>'10',  'id' => 'editor', 'class' => 'ckeditor input input-line',  'placeholder' => 'Please write your post!'])!!}
+
+        {!! Form::textarea('body', null, [ 'cols' => '80', 'rows'=>'10', 'class' => 'input input-line hidden', 'id' => 'editor', 'hidden', 'placeholder' => 'Please write your post!'])!!}
+
     </div>
+
 
     <h3 class="label">{{trans('post-form.publish on')}}</h3>
     <div class="clearfix"></div>
@@ -153,51 +156,7 @@
 @endif
     $('.datepicker').pickadate();
 
-        //        var config = {
-        //
-        //        };
-        //
-
-
-        var config = {
-            language: '{{App::getLocale()}}'
-        };
-        config.extraPlugins = 'codesnippet';
-        config.extraPlugins = 'autosave';
-        config.codeSnippet_theme = 'mono-blue';
-        config.width = '100%';
-        config.resize_enabled  = true;
-        config.placeholder = 'Please write your post!';
-        config.allowedContent = true;
-        config.uiColor = 'transparent';
-        config.height = 300;
-        config.toolbarCanCollapse = true;
-        CKEDITOR.replace('editor',config);
-
-        $('form').on('submit', function(){
-
-            var editor_data = CKEDITOR.instances.editor.getData();
-            $('#editor').val(editor_data);
-        });
-        CKEDITOR.on('instanceReady', function(){
-            $.each( CKEDITOR.instances, function(instance) {
-
-                CKEDITOR.instances[instance].on("instanceReady", function() {
-                    this.document.on("keyup", CK_jQ);
-                    this.document.on("paste", CK_jQ);
-                    this.document.on("keypress", CK_jQ);
-                    this.document.on("blur", CK_jQ);
-                    this.document.on("change", CK_jQ);
-                });
-            });
-
-        });
-
-        function CK_jQ() {
-            for ( instance in CKEDITOR.instances ) { CKEDITOR.instances[instance].updateElement(); }
-        }
-
-
     </script>
 
+    @include('includes.ckeitor-config')
 @endsection
