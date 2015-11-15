@@ -40,7 +40,6 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      */
     protected $dates = ['published_at'];
 
-    const IMAGEPath =  'images/events';
     
 //    public function eventSpeekers() {
 //

@@ -79,6 +79,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/angular" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
@@ -122,6 +123,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/generators" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravelcollective/html" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/fractal" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
@@ -201,6 +203,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower_components/angular" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
@@ -244,6 +247,7 @@
           <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
+          <root url="file://$MODULE_DIR$/vendor/laravelcollective/html" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/fractal" />
           <root url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
@@ -307,6 +311,7 @@
           <root url="file://$MODULE_DIR$/vendor/bower_components/angular" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
@@ -350,6 +355,7 @@
           <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
+          <root url="file://$MODULE_DIR$/vendor/laravelcollective/html" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/fractal" />
           <root url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
