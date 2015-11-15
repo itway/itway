@@ -7,10 +7,12 @@
 <div class="container" style="margin-top: 60px;margin-bottom: 40px;">
 
 	<div class="row">
+		<div class="l-8 l-offset-2 m-8 m-offset-2 s-10 s-offset-1 xs-12" style="margin-bottom:10px;padding: 0 0">
+			@include('includes.errors')
+		</div>
 		<div class="l-8 l-offset-2 m-8 m-offset-2 s-10 s-offset-1 xs-12  bg-white">
 
 				<div class="title text-center text-primary">Login</div>
-            @include('includes.errors')
 					<form class="form" role="form" method="POST" action="{{ url('/auth/login') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -20,12 +22,19 @@
 								<input type="email" class="input input-line" name="email" value="{{ old('email') }}">
 							</div>
 						</div>
+						<div class="text-center">
+							{!! $errors->first('email', '<div class="text-danger">:message</div>') !!}
+						</div>
+
 
 						<div class="form-group">
 							<label class="l-4 m-4 s-4 xs-4 text-center label">Password</label>
 							<div class="l-6 m-6 s-7 xs-7">
 								<input type="password" class="input input-line" name="password">
 							</div>
+						</div>
+						<div class="text-center">
+							{!! $errors->first('password', '<div class="text-danger">:message</div>') !!}
 						</div>
 
 						<div class="form-group">

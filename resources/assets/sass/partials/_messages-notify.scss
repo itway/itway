@@ -1,0 +1,26 @@
+.ui.message {
+  border-radius: 0 !important;
+  padding: 0.4em 1.5em !important;
+  box-shadow: none!important;
+  &.error {
+    border-bottom: 3px solid $red-color;
+    background-color: #a94442!important;
+    border-radius: 0 !important;
+    .close {
+      color: white;
+    }
+  }
+  .close {
+    top: .58575em!important;
+  }
+  .header {
+    color: white!important;;
+  }
+  p {
+    margin:0 !important;
+  }
+  .error-small-header {
+    color:white!important;
+  }
+
+}

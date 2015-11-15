@@ -1,15 +1,15 @@
-    @if (count($errors) > 0)
-        <div class="error closable">
-            <div class="close"><div class="icon-close"></div></div>
-        <div class="text-center">
-            <ul class="inline">
-                <strong>
-                <li><strong>WT hack!</strong> Problems apeared!</li>
+@if (count($errors) > 0)
+    <div class="ui error message">
+        <i class="close icon icon-close"></i>
+        <p class="error-small-header">
+            <strong>WT hack!</strong> Problems apeared!
+        </p>
+        <ul class="list hidden">
+            <strong>
                 @foreach ($errors->all() as $error)
-                    <li class="text-grey">{{ $error }}</li>
+                    <li class="text-info">{{ $error }}</li>
                 @endforeach
-                </strong>
-            </ul>
-        </div>
-        </div>
-    @endif
+            </strong>
+        </ul>
+    </div>
+@endif

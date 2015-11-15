@@ -1,4 +1,3 @@
-<link href="{{asset("dist/css/main.css")}}" rel="stylesheet">
 
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/menu.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/image.css')}}">
@@ -16,13 +15,16 @@
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/label.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/dimmer.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/modal.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/nag.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/card.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/message.min.css')}}">
 <link rel="stylesheet" href="{{asset("dist/css/samples.css")}}">
 <link rel="stylesheet" href="{{asset("dist/css/neo.css")}}">
+<link href="{{asset("dist/css/main.css")}}" rel="stylesheet">
+
 <script src="{{asset('vendor/highlight.pack.js')}}"></script>
 <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
-<script src="{{asset('vendor/ckeditor/sample.js')}}"></script>
 
-{{--<link href="{{asset("dist/vendor/taggingJS/example/tag-basic-style.css")}}" rel="stylesheet">--}}
 @yield('styles-add')
 
 

@@ -52,7 +52,10 @@
         var _this;
         _this = this;
         o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
-          o.notifyBlock.prepend('<div class="control-sidebar-heading">New Post added</div> <li><span class="has-notify"></span>' + '<a class="message-link" href="' + o.host + '/' + message.post.locale + '/blog/post/' + message.post.id + '"> ' + '<p class="message-title">' + message.post.title + '</p> ' + '<small class="notifier-info text-center" >' + message.post.preamble + '<div class="clearfix"></div>' + '<img class="avatar" src="' + o.host + '/images/users/' + message.user.photo + '" alt=""></img> ' + '<span class="author">' + message.user.name + '</span> </small>' + '</a></li>');
+          o.notifyBlock.prepend('<div class="control-sidebar-heading"> New Post added</div> <li><span class="has-notify"></span>' + '<a class="message-link" href="');
+          +o.host + '/' + message.post.locale + '/blog/post/' + message.post.id + '"> ' + '<p class="message-title">';
+          +message.post.title + '</p> ' + '<small class="notifier-info text-center" >' + message.post.preamble + '<div class="clearfix"></div>' + '<img class="avatar" src="' + o.host + '/images/users/' + message.user.photo + '" alt=""></img> ' + '<span class="author">';
+          +message.user.name + '</span> </small>' + '</a></li>';
           o.notifyBlock.data('data-new', 'present');
           _this.addNotifiedState();
         });
@@ -219,8 +222,8 @@
         _this.initiateProfileImage();
       },
       renderInstanceImage: function(file, fileinput, settings) {
-        var image, reader;
-        console.log('something is hapenning!');
+        var _this, image, reader;
+        _this = this;
         reader = new FileReader;
         image = new Image;
         reader.onload = function(_file) {
@@ -233,17 +236,20 @@
             n = file.name;
             s = ~~(file.size / 1024) / 1024;
             scaleWidth = settings.thumbnail_size;
-            $('.p').append('<div class=\'s-12 m-10 l-10 l-offset-1 m-offset-1\'><div class=\'thumbnail\' style=\'background: #ffffff\'><img src=\'' + image.src + '\' /><div class=\'caption\' style=\'position: absolute;right: 10px;top:10px;\'> <h4  style=\'background: black;padding: 4px; color: white\'>' + s.toFixed(2) + ' Mb </h4></div></div> </div> ');
+            $('.p').append('<div class=\'s-12 m-12 l-12 xs-12\'><div class=\'thumbnail\' style=\'background: #ffffff\'><img class="img-responsive" src=\'' + image.src + '\' /><div class=\'caption\' style=\'position: absolute;right: 10px;top:10px;\'> <h4  style=\'background: black;padding: 4px; color: white\'>' + s.toFixed(2) + ' Mb </h4></div></div> </div> ');
+            _this.renderLabelFileName(n, 'success');
           };
           image.onerror = function() {
             alert('Invalid file type: ' + file.type);
+            _this.renderLabelFileName(file.name, "error");
             fileinput.val(null);
           };
         };
         reader.readAsDataURL(file);
       },
       renderProfileImage: function(file, fileinput, settings) {
-        var image, reader;
+        var _this, image, reader;
+        _this = this;
         reader = new FileReader;
         image = new Image;
         reader.onload = function(_file) {
@@ -256,17 +262,95 @@
             n = file.name;
             s = ~~(file.size / 1024) / 1024;
             scaleWidth = settings.thumbnail_size;
-            $('.profile-img-block').append('<img class="img profile-img" align="center" src=\'' + image.src + '\' /> ').css({
+            $('.profile-img').attr("src", image.src).css({
               position: 'relative'
             });
-            $('#changeImage .button.button-primary.button-block').val('to download press').addClass('text-success');
+            _this.renderLabelFileProfile(n, "success");
+            _this.downButton("success");
           };
           image.onerror = function() {
             alert('Invalid file type: ' + file.type);
+            _this.renderLabelFileProfile(file.name, file.type);
+            _this.downButton("error");
             fileinput.val(null);
           };
         };
         reader.readAsDataURL(file);
+      },
+      downButton: function(message) {
+        var _this, button;
+        _this = this;
+        button = $('#upload-button');
+        button.removeClass("text-info");
+        button.removeClass("text-danger");
+        if (message === "success") {
+          button.removeClass("hidden");
+          button.addClass("block");
+          return button.val('to download press').addClass("text-info");
+        } else {
+          button.addClass("hidden");
+          button.removeClass("block");
+          button.addClass("text-danger");
+          button.val('wrong file format');
+          return button.bind("click", function(event) {
+            event.preventDefault();
+            return $(this).unbind(event);
+          });
+        }
+      },
+      renderLabelFileName: function(filename, message) {
+        var _this, fileLabel;
+        _this = this;
+        fileLabel = $('.filelabel');
+        if (fileLabel.find("span.text-info").length > 0 || fileLabel.find("span.text-danger").length > 0) {
+          fileLabel.find("span.text-info").remove();
+          fileLabel.find("span.text-danger").remove();
+        }
+        if (message === "success") {
+          return $('.filelabel').append($('<span>').addClass('text-info').text(filename).css({
+            'font-size': '100%',
+            'display': 'inline-block',
+            'font-weight': 'normal',
+            'margin-left': '1em',
+            'font-style': 'normal'
+          }));
+        } else {
+          return $('.filelabel').append($('<span>').addClass('text-danger').text(filename + " format is not valid").css({
+            'font-size': '100%',
+            'display': 'inline-block',
+            'font-weight': 'normal',
+            'margin-left': '1em',
+            'font-style': 'normal'
+          }));
+        }
+      },
+      renderLabelFileProfile: function(filename, message) {
+        var ImgBlock, _this, fileLabel;
+        _this = this;
+        fileLabel = $('.label');
+        ImgBlock = $('.profile-img');
+        if (ImgBlock.next("span.text-info").length > 0 || ImgBlock.next("span.text-danger").length > 0) {
+          console.log(ImgBlock.next());
+          ImgBlock.next("span.text-info").remove();
+          ImgBlock.next("span.text-danger").remove();
+        }
+        if (message === "success") {
+          return ImgBlock.after($('<span>').addClass('text-info').html(filename).css({
+            'font-size': '100%',
+            'display': 'inline-block',
+            'font-weight': 'normal',
+            'margin-left': '1em',
+            'font-style': 'normal'
+          }));
+        } else {
+          return ImgBlock.after($('<span>').addClass('text-danger').html(filename + "<br/><b>format is not valid </b>").css({
+            'font-size': '100%',
+            'display': 'inline-block',
+            'font-weight': 'normal',
+            'margin-left': '1em',
+            'font-style': 'normal'
+          }));
+        }
       },
       initiateInstanceImage: function() {
         var _this, fileinput, settings;
@@ -293,20 +377,9 @@
             i = 0;
             while (i < F.length) {
               if (F[i].type.match('image.*')) {
-                console.log('file matches');
-                if ($('.image-error').length >= 1) {
-                  $('.image-error').remove();
-                }
                 _this.renderInstanceImage(F[i], fileinput, settings);
               } else {
-                $('.filelabel').append($('<small>').addClass('image-error').text(settings.warning_message).css({
-                  'font-size': '100%',
-                  'color': settings.warning_text_color,
-                  'display': 'inline-block',
-                  'font-weight': 'normal',
-                  'margin-left': '1em',
-                  'font-style': 'normal'
-                }));
+                _this.renderLabelFileName(F[i].name, "error");
               }
               i++;
             }
@@ -338,19 +411,12 @@
             i = 0;
             while (i < F.length) {
               if (F[i].type.match('image.*')) {
-                if ($('.image-error')) {
-                  $('.image-error').remove();
-                }
                 _this.renderProfileImage(F[i], fileElement, settings);
+                _this.renderLabelFileProfile(F[i].name, "success");
               } else {
-                $('.profile-img-block').append($('<small>').addClass('image-error').text(settings.warning_message).css({
-                  'font-size': '100%',
-                  'color': settings.warning_text_color,
-                  'display': 'inline-block',
-                  'font-weight': 'normal',
-                  'margin-left': '1em',
-                  'font-style': 'normal'
-                }));
+                _this.renderLabelFileProfile(F[i].name, 'error');
+                _this.downButton("error");
+                fileElement.val(null);
               }
               i++;
             }

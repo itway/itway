@@ -1,77 +1,45 @@
 
 <div class="container-fluid nav-main">
 
-    <div class="l-12 xs-12">
+    <div class="l-12 xs-12" style="padding: 0 0">
     <div class="ui blue menu">
 
         <div class="left menu">
             <div class="ui inline dropdown item">
 
-                <div class="text">
-                    @if(Request::route()->getPrefix() === App::getLocale()."/user")
-                        <i class="icon-user-tie"></i> {{ trans('navigation.user') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/admin")
-                        <i class="icon-code"></i> {{ trans('navigation.Admin') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === "/".App::getLocale())
-                        <i class="icon-home"></i> {{ trans('navigation.home') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/blog")
-                        <i class="icon-pencil"></i> {{ trans('navigation.Blog') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/quiz")
-                        <i class="icon-poll"></i> {{ trans('navigation.Quiz') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/job-hunting")
-                        <i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/teams")
-                        <i class="icon-group text-right"></i>  {{ trans('navigation.Teams') }}
-                    @endif
-
-                    @if(Request::route()->getPrefix() === App::getLocale()."/idea-show")
-                        <i class="icon-graduation-cap"></i> {{ trans('navigation.Idea-Share') }}
-                    @endif
-                </div>
+                <div class="text"></div>
                 <i class="dropdown icon"></i>
                 <div class="menu">
                     @if(Request::route()->getPrefix() === "/".App::getLocale())
-                        <a class="item block selected" href="{{ url(App::getLocale().'/') }}" ><i class="icon-home"></i> {{ trans('navigation.home') }}</a>
+                        <a class="item block active selected" href="{{ url(App::getLocale().'/') }}" ><i class="icon-home"></i> {{ trans('navigation.home') }}</a>
                     @else
                         <a class="item block" href="{{ url(App::getLocale().'/') }}" ><i class="icon-home"></i> {{ trans('navigation.home') }}</a>
                     @endif
                     @if(Request::route()->getPrefix() === App::getLocale()."/blog")
-                        <a class="item block selected" href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil"></i> {{ trans('navigation.Blog') }}</a>
+                        <a class="item block active selected" href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil"></i> {{ trans('navigation.Blog') }}</a>
                     @else
                         <a class="item block" href="{{ url(App::getLocale().'/blog') }}" ><i class="icon-pencil"></i> {{ trans('navigation.Blog') }}</a>
                     @endif
 
                     @if(Request::route()->getPrefix() === App::getLocale()."/quiz")
-                        <a class="item block selected" href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-poll"></i> {{ trans('navigation.Quiz') }}</a>
+                        <a class="item block active  selected" href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-poll"></i> {{ trans('navigation.Quiz') }}</a>
                     @else
                         <a class="item block" href="{{ url(App::getLocale().'/quiz') }}"><i class="icon-poll"></i> {{ trans('navigation.Quiz') }}</a>
                     @endif
 
                     @if(Request::route()->getPrefix() === App::getLocale()."/job-hunting")
-                        <a class="item block selected" href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a>
+                        <a class="item block active selected" href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a>
                     @else
                         <a class="item block" href="{{ url(App::getLocale().'/job-hunting') }}"><i class="icon-briefcase text-right"></i> {{ trans('navigation.Job-Hunt') }}</a>
                     @endif
                     @if(Request::route()->getPrefix() === App::getLocale()."/teams")
-                        <a class="item block selected" href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i> {{ trans('navigation.Teams') }}</a>
+                        <a class="item block active selected" href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i> {{ trans('navigation.Teams') }}</a>
                     @else
 
                         <a class="item block" href="{{ url(App::getLocale().'/teams') }}"><i class="icon-group text-right"></i> {{ trans('navigation.Teams') }}</a>
                     @endif
                     @if(Request::route()->getPrefix() === App::getLocale()."/idea-show")
-                        <a class="item block selected" href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-graduation-cap"></i> {{ trans('navigation.Idea-Share') }}</a>
+                        <a class="item block active selected" href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-graduation-cap"></i> {{ trans('navigation.Idea-Share') }}</a>
                     @else
                         <a class="item block" href="{{ url(App::getLocale().'/idea-show') }}"><i class="icon-graduation-cap"></i> {{ trans('navigation.Idea-Share') }}</a>
                     @endif
@@ -79,7 +47,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="center item" id="nav">
             <a class="item" href="{{ url('/') }}"><img src="{{ url('/iw.png') }}" alt="Itway.io"></a>

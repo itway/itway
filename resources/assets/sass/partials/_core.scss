@@ -3,6 +3,21 @@ body {
     margin: 0;
     color: $body-text-color;
     background: lighten($body-background, 5%);
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a:hover,
+a:focus {
+	color: $info-color;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
 }
 .container {
 margin-top:$container-margin;

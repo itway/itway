@@ -20,14 +20,17 @@
 <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/vendor/socket.io-client/socket.io.js') }}"></script>
+<script src="{{ asset('dist/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
 <script src="{{asset('dist\semantic\dist\components\api.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\transition.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\visibility.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dropdown.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\form.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\tab.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\modal.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\nag.js')}}"></script>
 <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 
@@ -45,6 +48,25 @@
         initSample();
 
     });
+    $('.cookie.nag')
+            .nag('clear')
+    ;
+    $('.cookie.nag')
+            .nag('show')
+    ;
+    $('.special.cards .image').dimmer({
+        on: 'hover'
+    });
+    $('.message .close')
+            .on('click', function() {
+                $(this)
+                        .closest('.message')
+                        .transition('fade')
+                ;
+            })
+    ;
+    // Clears cookie so nag shows again
+
 
     $('.navigation .ui.dropdown')
             .dropdown({
@@ -62,7 +84,11 @@
     $('.ui.dropdown.item')
             .dropdown()
     ;
-    $('.ui.inline.dropdown').dropdown();
+    var drop = $('.ui.inline.dropdown');
+    drop.dropdown({transition: 'drop'});
+    var cloned = drop.find('.item.block.active.selected').clone();
+    drop.find('.text').html(cloned.html());
+    $('.ui.floating.labeled.icon.dropdown.button').dropdown();
     $('.menu .item')
             .tab()
     ;
@@ -74,14 +100,15 @@ $('.notification .close').click(function(e) {
              height: "toggle"
          }, 100);
     });
-    $('.error .close').click(function(e) {
-        e.preventDefault();
-        $(this).closest('.error').animate({
-            opacity: 0.25,
-            left: "+=50",
-             height: "toggle"
-         }, 100);
-    });
+//
+//    $('.error .close').click(function(e) {
+//        e.preventDefault();
+//        $(this).closest('.error').animate({
+//            opacity: 0.25,
+//            left: "+=50",
+//             height: "toggle"
+//         }, 100);
+//    });
 
     var user_id   = "@if(Auth::check()){!! Auth::user()->id !!}@else null @endif";
 

@@ -10,7 +10,7 @@
     // The trick to keep the editor in the sample quite small
     // unless user specified own height.
     CKEDITOR.config.language = '{{App::getLocale()}}';
-    CKEDITOR.config.height = 300;
+    CKEDITOR.config.height = '400px';
     CKEDITOR.config.width = '100%';
     CKEDITOR.config.extraPlugins = 'codesnippet';
     CKEDITOR.config.extraPlugins = 'autosave';
@@ -20,7 +20,7 @@
     CKEDITOR.config.uiColor = 'transparent';
     CKEDITOR.config.autosave_NotOlderThen = 10080;
     CKEDITOR.config.autosave_delay = 10;
-
+    CKEDITOR.config.autosave_saveDetectionSelectors = "a[href^='javascript:__doPostBack'][id*='Save'],a[id*='Cancel']";
 
     var initSample = ( function() {
         var wysiwygareaAvailable = isWysiwygareaAvailable(),
@@ -47,6 +47,9 @@
 
                 // TODO we can consider displaying some info box that
                 // without wysiwygarea the classic editor may not work.
+                window.onload = function() {
+                    CKEDITOR.replace( 'editor' );
+                };
             }
         };
 

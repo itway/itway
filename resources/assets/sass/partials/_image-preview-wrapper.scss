@@ -1,3 +1,18 @@
+.filelabel {
+  width: 100%;
+  height: auto;
+  -webkit-appearance: none !important;
+  padding: 5px 8px!important;
+  margin: 0 auto!important;
+  text-align: center;
+  margin: 0 auto!important;
+  background: #ddd;
+  .icon-file {
+    font-size: 32px;
+    color: white;
+    padding-left: 10px;
+  }
+}
 .image-preview-wrapper {
 
   width: 100%;
