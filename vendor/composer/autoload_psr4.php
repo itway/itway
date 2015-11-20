@@ -58,7 +58,6 @@ return array(
     'Cviebrock\\ImageValidator\\' => array($vendorDir . '/cviebrock/image-validator/src'),
     'Cviebrock\\EloquentSluggable\\' => array($vendorDir . '/cviebrock/eloquent-sluggable/src'),
     'Conner\\Tagging\\' => array($vendorDir . '/rtconner/laravel-tagging/src'),
-    'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'CodeZero\\Mailer\\' => array($vendorDir . '/codezero/mailer/src'),
     'Cocur\\Slugify\\' => array($vendorDir . '/cocur/slugify/src'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),

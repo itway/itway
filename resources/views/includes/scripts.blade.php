@@ -12,7 +12,6 @@
     @endif
 </script>
 
-<script src="{{ asset('dist/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script  src="{{asset('/dist/vendor/tooltipster/js/jquery.tooltipster.min.js')}}"></script>
 <script src="{{ asset('dist/vendor/taggingJS/tagging.js') }}"></script>
 <script src="{{ asset('dist/vendor/jquery-simply-countable/jquery.simplyCountable.js') }}"></script>
@@ -28,9 +27,9 @@
 <script src="{{asset('dist\semantic\dist\components\form.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\tab.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
-<script src="{{asset('dist\semantic\dist\components\modal.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\nag.js')}}"></script>
+<script src="{{asset("dist/vendor/remodal/dist/remodal.min.js")}}"></script>
 <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 
@@ -67,12 +66,43 @@
     ;
     // Clears cookie so nag shows again
 
+    var photo = $(".photo"),
+        githubLink = $(".github-link"),
+        poll = $(".poll"),
+        youtube = $(".youtube");
 
+    // photo.click(function(){
+    //   $('.ui.modal.image-modal')
+    //     .modal({
+    //       blurring: true
+    //     })
+    //     .modal('show');
+    // });
+    // githubLink.click(function(){
+    //   $('.ui.modal.github-modal')
+    //     .modal({
+    //       blurring: true
+    //     })
+    //     .modal('show');
+    // });
+    // poll.click(function(){
+    //   $('.ui.modal.poll-modal')
+    //     .modal({
+    //       blurring: true
+    //     })
+    //     .modal('show');
+    // });
+    // youtube.click(function(){
+    //   $('.ui.modal.youtube-modal')
+    //     .modal({
+    //       blurring: true
+    //     })
+    //     .modal('show');
+    // });
     $('.navigation .ui.dropdown')
             .dropdown({
                 on: 'hover'
-            })
-    ;
+            });
     $('.ui.vertical.menu .ui.dropdown')
             .dropdown({
                 on: 'hover'

@@ -37,7 +37,7 @@ class CreateUserCommand  extends Command implements SelfHandling
     public function __construct(
         $name,
         $email,
-        $password,
+        $password = null,
         $photo,
         $provider = null,
         $provider_id = null
@@ -48,7 +48,7 @@ class CreateUserCommand  extends Command implements SelfHandling
         $this->photo = $photo;
         $this->provider = $provider ? $provider: null;
         $this->provider_id = $provider_id ? $provider_id : null;
-        $this->password = $password ? $password : null;
+        $this->password = $password;
     }
 
     /**

@@ -1,0 +1,78 @@
+.create-form {
+  display: block;
+
+  .attach-block {
+    display: block;
+    text-align: center!important;
+    .button {
+      border-radius: 0!important;
+      border: none;
+      border-bottom: 2px solid $info-color;
+
+    }
+    i {}
+  }
+  .preamble-block, .title-block, .tag-block, .btns-block, .time-block {
+    width: 50%;
+/* margin: 5px; */
+    flex: 1 0 50%;
+    padding: 10px;
+    overflow: hidden;
+    .input-count {
+      right: -10px;
+      position: absolute;
+      bottom: -10px;
+      padding: 2px;
+      color: #566f7c;
+      border: none;
+      background: transparent;
+      font-size: initial;
+    }
+  }
+  .title-block {
+    .pos-rel {
+        padding: 5px!important;
+        visibility: hidden;
+      }
+      textarea:focus, &:hover {
+        .pos-rel {
+        visibility: visible!important;
+        }
+      }
+  }
+  .preamble-block {
+    margin-bottom: 0;
+    .pos-rel {
+      visibility: hidden;
+      padding: 1px!important;
+    }
+
+    textarea:focus, &:hover {
+      .pos-rel {
+      visibility: visible!important;
+      }
+    }
+  }
+  .tag-block {
+    .tagging {
+      padding: 8px 10px!important;
+      border-top: 0!important;
+      .tag{
+        padding: 1px 20px 0px 0!important;
+        margin-top: 0;
+        span {
+              padding: 2px 10px!important;
+        }
+        .tag-i{
+              top:0.6em!important;
+        }
+      }
+    }
+  }
+  .titl {
+    color: $info-color;
+  }
+  .cke_wysiwyg_div {
+    min-height: 200px;
+  }
+}

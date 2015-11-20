@@ -74,6 +74,7 @@ class EloquentUserRepository implements UserContract {
      * @return mixed
      */
     protected function dispatchUser($data){
+        // dd($data['password']);
         $user =  $this->dispatcher->dispatch(
             new CreateUserCommand(
                 $data['name'],

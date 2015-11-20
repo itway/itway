@@ -1,0 +1,25 @@
+.modal-form {
+  i {
+    padding: 10px;
+    color: $grey-color;
+    line-height: 2;
+  }
+}
+.remodal-cancel {
+  background: $danger-color;
+}
+.remodal-confirm {
+  background: $success-color;
+}
+.remodal-close {
+    color: #F44336;
+    background-color: transparent;
+    opacity: 1;
+    padding: 2px 5px;
+    font-size: 18px;
+    border: 1px #0d0d0d;
+    &:hover {
+    background-color: #F44336;
+    color: whitesmoke;
+  }
+}

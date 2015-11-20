@@ -85,6 +85,20 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public function getRememberToken()
+    {
+          return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+          $this->remember_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
     /**
      * Hash the users password
      *

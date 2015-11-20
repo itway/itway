@@ -1,4 +1,6 @@
-<?php namespace Itway\Commands;
+<?php 
+
+namespace Itway\Commands;
 
 use itway\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;

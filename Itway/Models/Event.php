@@ -40,7 +40,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      */
     protected $dates = ['published_at'];
 
-    
+
 //    public function eventSpeekers() {
 //
 //    	$this->hasMany(EventSpeekers::class, 'events_id', 'id');
@@ -51,7 +51,6 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 //    	$this->belongsToMany(EventUsers::class, 'event_users');
 //
 //    }
-
     public function setPublishedAtAttribute ($date) {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
@@ -67,26 +66,27 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     public function scopePublished($query) {
 
         $query->where('published_at', '<=', Carbon::now());
-    
+
     }
 
     public function scopeLocaled($query) {
 
         $query->where('locale', '=', Lang::getLocale());
-    
+
     }
 
 
     public function scopeUsers($query) {
 
         $query->where('user_id', '=', Auth::id());
-    
+
     }
     public function scopeUnpublished($query) {
-    
+
         $query->where('published_at', '>', Carbon::now());
-    
+
     }
+
 
 	public function scopeToday($query) {
 

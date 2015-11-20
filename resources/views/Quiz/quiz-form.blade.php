@@ -24,8 +24,8 @@
         <div class="options-block">
             <i class="icon-circle">1</i>
             <input name="options[]" id="option-id1" type="text" class="input input-line">
-            <a class="button remove" data-action="delete"><i class="icon-minus text-danger"></i></a>
-            <a class="button add_new" data-action="add"><i class="icon-plus"></i></a>
+            <a class="button remove" data-action="delete"><i class="icon-remove text-danger"></i></a>
+            <a class="button add_new" data-action="add"><i class="icon-add"></i></a>
         </div>
 
 
