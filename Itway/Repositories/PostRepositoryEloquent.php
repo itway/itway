@@ -90,12 +90,17 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
                 $request->body,
                 $request->tags_list,
                 $request->published_at,
-                $request->localed = Lang::locale()
+                $request->localed = Lang::locale(),
+                $request->youtube_link,
+                $request->github_link
             ));
 
-        $this->bindImage($image, $post);
+        if (!is_null($image)) {
+          $this->bindImage($image, $post);
+        }
 
         return $post;
+
     }
 
     public function updatePost(PostsUpdateFormRequest $request, $post, $image){

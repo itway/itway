@@ -18,9 +18,7 @@
         <div class="clearfix"></div>
 
         {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
-
       </div>
-
     </div>
     <div class="form-group">
       <div class="preamble-block">
@@ -38,28 +36,6 @@
 
     </div>
 
-
-    <div class="row">
-        <div class="form-group p">
-            @if(isset($post))
-
-                @if($post->picture())
-                        <div class="s-12 m-12 l-12 xs-12">
-                            <div class="thumbnail" style='background: #ffffff'>
-                                @foreach($picture as $pic)
-                                    <img  class="img-responsive" style="" src="{!! asset('images/posts/' . $pic->path) !!}">
-                                @endforeach
-
-                            </div>
-                        </div>
-
-                @endif
-
-            @endif
-
-        </div>
-
-    </div>
     <div class="clearfix"></div>
 
 
@@ -81,7 +57,7 @@
         <div class="clearfix"></div>
 
         @include('create-form.attach-block')
-        @include('create-form.image-modal')
+        @include('create-form.image-modal', [$model = isset($post) ? $post : null])
         @include('create-form.video-modal')
         @include('create-form.github-link')
         @include('create-form.poll-modal')
@@ -112,13 +88,11 @@
 
 
       </div>
-
     </div>
-
+    
     <div class="form-group">
         {!! Form::submit($submitButton, ['class' => 'confirm button button-primary'])!!}
     </div>
-
 
 </div>
 @include('includes.create-post-scripts')

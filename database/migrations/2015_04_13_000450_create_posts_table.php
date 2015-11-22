@@ -21,9 +21,11 @@ class CreatePostsTable extends Migration {
 			$table->text('preamble');
 			$table->string('image');
 			$table->longText('body');
-            $table->string('slug');
-            $table->string('locale');
-            $table->integer('comment_count')->unsigned();
+      $table->string('slug');
+      $table->string('locale');
+      $table->integer('comment_count')->unsigned();
+			$table->string('youtube_link')->nullable();
+			$table->string('github_link')->nullable();
 			$table->timestamps();
 			$table->timestamp('published_at');
 			$table->timestamp('date')->default(Carbon::today());

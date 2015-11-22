@@ -1,0 +1,40 @@
+<?php
+
+namespace itway\Events;
+
+use itway\Events\Event;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Itway\Models\Post;
+use Itway\Models\User;
+
+class PostWasUpdatedEvent extends Event implements ShouldBroadcast
+{
+    use SerializesModels;
+
+    public $post;
+    public $user;
+
+
+    /**
+     * @param Post $post
+     * @param User $user
+     */
+    public function __construct(Post $post, User $user)
+    {
+
+        $this->post = $post;
+        $this->user = $user;
+
+    }
+
+    /**
+     * Get the channels the event should be broadcast on.
+     *
+     * @return array
+     */
+    public function broadcastOn()
+    {
+        return ['post-updated'];
+    }
+}

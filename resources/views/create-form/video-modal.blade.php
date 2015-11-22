@@ -8,6 +8,5 @@
     <input type="text" class="input input-line" name="youtube-link"/>
   </p>
   <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">Save</button>
 </div>

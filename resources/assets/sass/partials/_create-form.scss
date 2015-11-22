@@ -8,9 +8,23 @@
       border-radius: 0!important;
       border: none;
       border-bottom: 2px solid $info-color;
-
+      position: relative!important;
+    }
+    .addon {
+      position: absolute;
+      font-size: 12px;
+      top: -15px;
+      color: $info-color;
+      left: 1px;
     }
     i {}
+  }
+  .time-block {
+    input {
+      text-align: center;
+      width: 60%!important;
+      margin: 0 auto!important;
+    }
   }
   .preamble-block, .title-block, .tag-block, .btns-block, .time-block {
     width: 50%;
@@ -75,4 +89,5 @@
   .cke_wysiwyg_div {
     min-height: 200px;
   }
+
 }

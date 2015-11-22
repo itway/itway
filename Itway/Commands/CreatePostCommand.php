@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Itway\Commands;
 
@@ -16,6 +16,8 @@ class CreatePostCommand extends Command implements SelfHandling {
     public $tags_list;
     public $published_at;
     public $localed;
+    public $youtubelink;
+    public $githublink;
 
     /**
      * @param $title
@@ -27,18 +29,22 @@ class CreatePostCommand extends Command implements SelfHandling {
      */
     public function __construct(
             $title,
-			$preamble,
+			      $preamble,
             $body,
             $tags_list,
             $published_at,
-            $localed)
+            $localed,
+            $youtubelink = null,
+            $githublink = null)
 	{
             $this->title = $title;
-			$this->preamble = $preamble;
+			      $this->preamble = $preamble;
             $this->body = $body;
             $this->tags_list = $tags_list;
             $this->published_at = $published_at;
             $this->localed = $localed;
+            $this->youtubelink = $youtubelink;
+            $this->githublink = $githublink;
 	}
 
     /**
@@ -53,6 +59,8 @@ class CreatePostCommand extends Command implements SelfHandling {
             'body' => $this->body,
             'tags_list' => $this->tags_list,
             'locale' => $this->localed,
+            'youtube_link'=> $this->youtubelink,
+            'github_link' => $this->githublink,
             'published_at' => $this->published_at
 
         ]);

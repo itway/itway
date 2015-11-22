@@ -1,10 +1,11 @@
 @section('styles-add')
     <link rel="stylesheet" href="{{ asset('vendor/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
-
 @endsection
 @section('scripts-add')
 
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
+
+</script>
     {{--<script src="{{asset('vendor/ckeditor/config.js')}}"></script>--}}
     <script type="text/javascript" src="{{asset('vendor/ckeditor/adapters/jquery.js')}}"></script>
 

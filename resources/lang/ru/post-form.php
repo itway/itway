@@ -8,7 +8,7 @@ return [
     'create post'=>'Создать пост:',
     'img'=>'Загрузить фото',
     'author'=>'автор статьи',
-    'videos' => 'видео по тегам',
+    'videos' => 'Прикрепленное видео',
     'attach' => 'Прикрепить еще:',
     'add-github-link' => 'github ссылка',
     'add-youtube' => 'youtube видео ссылка',

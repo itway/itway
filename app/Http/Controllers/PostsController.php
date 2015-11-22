@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use nilsenj\Toastr\Facades\Toastr;
 use Itway\Services\Youtube\Facades\Youtube;
 use Itway\Services\Youtube\YoutubeQuery;
-
+use Exception;
 /**
  * Class PostsController
  * @package itway\Http\Controllers
@@ -93,21 +93,15 @@ class PostsController extends Controller {
     public function store(PostsFormRequest $request)
     {
 
-        if (\Input::hasFile('image')) {
+            $image = \Input::hasFile('image') ? \Input::file('image') : null;
 
-            $post = $this->repository->createPost($request, \Input::file('image'));
-        }
-        else{
+            $post = $this->repository->createPost($request, $image);
 
-            Toastr::error(trans('messages.imageError'), $title = Auth::user()->name, $options = []);
+            Toastr::success(trans('messages.yourPostCreated'), $title = $post->title, $options = []);
 
-            return redirect()->back();
-        }
+            return redirect()->to(App::getLocale().'/blog/post/'.$post->id);
 
-        Toastr::success(trans('messages.yourPostCreated'), $title = $post->title, $options = []);
-
-        return redirect()->to(App::getLocale().'/blog/post/'.$post->id);
-    }
+      }
 
 
     /**
@@ -118,7 +112,7 @@ class PostsController extends Controller {
      * @return \Illuminate\View\View|Response
      */
 	public function show($slug, Post $postdata)
-        
+
 	{
         try {
             $post = $postdata->findBySlugOrId($slug);
@@ -129,23 +123,16 @@ class PostsController extends Controller {
 
             $countUserPosts = $this->repository->countUserPosts();
 
-            if($this->searchYoutubeRelated($post->tagNames())) {
-
-                $videos = $this->searchYoutubeRelated($post->tagNames());
-            }
-
-            else $videos = false;
-
             if(Auth::user() && Auth::user()->id === $postUser) {
 
                 $createdByUser = true;
 
-                return view('posts.single', compact('post', 'createdByUser','countUserPosts', 'videos'));
+                return view('posts.single', compact('post', 'createdByUser','countUserPosts'));
             }
             else {
                 $createdByUser = false;
 
-                return view('posts.single', compact('post','createdByUser','countUserPosts', 'videos'));
+                return view('posts.single', compact('post','createdByUser','countUserPosts'));
             }
         } catch (ModelNotFoundException $e) {
 

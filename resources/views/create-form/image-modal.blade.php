@@ -11,9 +11,9 @@
     </div>
     </p>
     <div class="form-group p">
-        @if(isset($post))
+        @if(isset($model))
 
-            @if($post->picture())
+            @if($model->picture())
                     <div class="s-12 m-12 l-12 xs-12">
                         <div class="thumbnail" style='background: #ffffff'>
                             @foreach($picture as $pic)
@@ -30,6 +30,6 @@
     </div>
 
   <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+  <button data-remodal-action="cancel" class="remodal-cancel">Delete</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">Save</button>
 </div>

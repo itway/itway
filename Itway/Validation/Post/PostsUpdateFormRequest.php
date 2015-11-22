@@ -23,7 +23,9 @@ class PostsUpdateFormRequest extends Request{
         'image' =>'image|image_size:>=450,>=250',
         'body' => 'required|min:300|max:500000',
         'tags_list' => 'required|array',
-        'published_at' => 'required|date'
+        'published_at' => 'required|date',
+        'youtube-link' => 'url',
+        'github-link' => 'url'
 
     ];
 
@@ -64,5 +66,3 @@ class PostsUpdateFormRequest extends Request{
     }
 
 }
-
-  

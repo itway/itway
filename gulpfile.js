@@ -57,6 +57,7 @@ gulp.task('coffee-main', function () {
 gulp.task('coffee-secondary', function () {
     return gulp.src([
         'resources/assets/coffee/helpers/*.coffee',
+        'resources/assets/coffee/validators/*.coffee',
         'resources/assets/coffee/custom/*.coffee',
         'resources/assets/coffee/components/*.coffee',
         'resources/assets/coffee/events/*.coffee'])

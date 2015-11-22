@@ -18,8 +18,8 @@
 _init = (o) ->
 
   $.ItwayIO.csrf =
-  	activate: ->
-  		$.ajaxSetup headers: 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    activate: ->
+      $.ajaxSetup headers: 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 
 
   ### Notifier
@@ -37,44 +37,26 @@ _init = (o) ->
       _this = this
       _this.newPostCreated()
       _this.removeNotifiedState()
-      #o.notifyBlock.children().length
-      return
     newPostCreated: ->
       _this = this
       o.socket.on 'post-created:itway\\Events\\PostWasCreatedEvent',
         (message) ->
-          o.notifyBlock.prepend '<div class="control-sidebar-heading">
-            New Post added</div>
-            <li><span class="has-notify"></span>' +
-            '<a class="message-link" href="'
-            + o.host + '/' + message.post.locale +
-            '/blog/post/' + message.post.id + '"> ' +
-            '<p class="message-title">'
-            + message.post.title +
-            '</p> '+'<small class="notifier-info text-center" >'+
-            message.post.preamble +
-            '<div class="clearfix"></div>'+
-            '<img class="avatar" src="'+
-            o.host + '/images/users/' + message.user.photo +
-            '" alt=""></img> ' + '<span class="author">'
-            + message.user.name + '</span> </small>' + '</a></li>'
+          o.notifyBlock.prepend '<div class="control-sidebar-heading">New Post added</div><li><span class="has-notify"></span>'+'<a class="message-link" href="'+ o.host + '/' + message.post.locale +'/blog/post/' + message.post.id + '"> ' +'<p class="message-title">'+message.post.title +'</p> '+'<small class="notifier-info text-center" >'+message.post.preamble +'<div class="clearfix"></div>'+'<img class="avatar" src="' +o.host + '/images/users/' + message.user.photo +'" alt=""></img> ' + '<span class="author">'+ message.user.name + '</span> </small>' + '</a></li>'
           o.notifyBlock.data 'data-new', 'present'
           _this.addNotifiedState()
-          return
-      return
     addNotifiedState: ->
       o.notifyBtn.prepend '<span class="has-notify"></span>'
-      return
     removeNotifiedState: ->
       o.notifyBtn.bind 'click', ->
         if $(this).find('span.has-notify').length > 0
           $(this).find('span.has-notify').remove()
-        return
-      return
-  timer = undefined
+
+  $.ItwayIO.blog =
+    activate: ->
+      _this = this
 
   ### Search functionality ###
-
+  timer = undefined
   $.ItwayIO.search =
     selectors: $.ItwayIO.options.search
     activate: ->
@@ -299,13 +281,13 @@ _init = (o) ->
           'font-weight': 'normal'
           'margin-left': '1em'
           'font-style': 'normal'})
-       else
-          $('.filelabel').append $('<span>').addClass('text-danger').text(filename + " format is not valid").css({
-            'font-size': '100%'
-            'display': 'inline-block'
-            'font-weight': 'normal'
-            'margin-left': '1em'
-            'font-style': 'normal'})
+      else
+        $('.filelabel').append $('<span>').addClass('text-danger').text(filename + " format is not valid").css({
+          'font-size': '100%'
+          'display': 'inline-block'
+          'font-weight': 'normal'
+          'margin-left': '1em'
+          'font-style': 'normal'})
 
     renderLabelFileProfile: (filename, message)->
       _this = this
@@ -450,7 +432,6 @@ _init = (o) ->
         console.log data
         return
       o.socket.on 'chat.messages:itway\\Events\\ChatMessageCreated', (message) ->
-        `var message`
         data = message.data
         $messageList = $('.msg-wrap .comments')
         $conversation = $('.conversation-wrap a[data-room=\'' + data.room + '\']')
@@ -467,7 +448,7 @@ _init = (o) ->
           return
         return
       o.socket.on 'chat.rooms:itway\\Events\\ChatRoomCreated', (message) ->
-        `var message`
+
         $conversationList = $('.rooms .conversation-wrap')
         data = message.data
         $messageList = $('.msg-wrap .comments')
@@ -821,7 +802,6 @@ _init = (o) ->
 
   $.ItwayIO.controlSidebar =
     activate: ->
-      `var o`
       #Get the object
       _this = this
       #Update options

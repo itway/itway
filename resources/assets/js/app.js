@@ -46,34 +46,37 @@
         var _this;
         _this = this;
         _this.newPostCreated();
-        _this.removeNotifiedState();
+        return _this.removeNotifiedState();
       },
       newPostCreated: function() {
         var _this;
         _this = this;
-        o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
-          o.notifyBlock.prepend('<div class="control-sidebar-heading"> New Post added</div> <li><span class="has-notify"></span>' + '<a class="message-link" href="');
-          +o.host + '/' + message.post.locale + '/blog/post/' + message.post.id + '"> ' + '<p class="message-title">';
-          +message.post.title + '</p> ' + '<small class="notifier-info text-center" >' + message.post.preamble + '<div class="clearfix"></div>' + '<img class="avatar" src="' + o.host + '/images/users/' + message.user.photo + '" alt=""></img> ' + '<span class="author">';
-          +message.user.name + '</span> </small>' + '</a></li>';
+        return o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
+          o.notifyBlock.prepend('<div class="control-sidebar-heading">New Post added</div><li><span class="has-notify"></span>' + '<a class="message-link" href="' + o.host + '/' + message.post.locale(+'/blog/post/' + message.post.id + '"> ' + '<p class="message-title">' + message.post.title(+'</p> ' + '<small class="notifier-info text-center" >' + message.post.preamble(+'<div class="clearfix"></div>' + '<img class="avatar" src="' + o.host + '/images/users/' + message.user.photo(+'" alt=""></img> ' + '<span class="author">' + message.user.name + '</span> </small>' + '</a></li>')))));
           o.notifyBlock.data('data-new', 'present');
-          _this.addNotifiedState();
+          return _this.addNotifiedState();
         });
       },
       addNotifiedState: function() {
-        o.notifyBtn.prepend('<span class="has-notify"></span>');
+        return o.notifyBtn.prepend('<span class="has-notify"></span>');
       },
       removeNotifiedState: function() {
-        o.notifyBtn.bind('click', function() {
+        return o.notifyBtn.bind('click', function() {
           if ($(this).find('span.has-notify').length > 0) {
-            $(this).find('span.has-notify').remove();
+            return $(this).find('span.has-notify').remove();
           }
         });
       }
     };
-    timer = void 0;
+    $.ItwayIO.blog = {
+      activate: function() {
+        var _this;
+        return _this = this;
+      }
+    };
 
     /* Search functionality */
+    timer = void 0;
     $.ItwayIO.search = {
       selectors: $.ItwayIO.options.search,
       activate: function() {
@@ -489,7 +492,6 @@
           console.log(data);
         });
         o.socket.on('chat.messages:itway\\Events\\ChatMessageCreated', function(message) {
-          var message;
           var $conversation, $messageList, conversation, data, from_user_id;
           data = message.data;
           $messageList = $('.msg-wrap .comments');
@@ -509,7 +511,6 @@
           });
         });
         o.socket.on('chat.rooms:itway\\Events\\ChatRoomCreated', function(message) {
-          var message;
           var $conversationList, $conversationTab, $messageList, conversation, data, from_user_id;
           $conversationList = $('.rooms .conversation-wrap');
           data = message.data;
@@ -892,7 +893,6 @@
      */
     $.ItwayIO.controlSidebar = {
       activate: function() {
-        var o;
         var _this, bg, btn, sidebar;
         _this = this;
         o = $.ItwayIO.options.controlSidebarOptions;

@@ -5,6 +5,17 @@
     line-height: 2;
   }
 }
+.remodal {
+  .input-success {
+
+    i {
+      color: white;
+      background: #4CAF50;
+      padding: 10px;
+      border-radius: 50%;
+    }
+  }
+}
 .remodal-cancel {
   background: $danger-color;
 }

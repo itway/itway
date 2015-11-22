@@ -119,10 +119,10 @@
         </div>
     <div class="line"></div>
     <div class="clearfix"></div>
-    @if($videos)
+    @if($post->youtube_link)
     <div id="post-videos" class="l-12 m-12 s-12 xs-12 bg-white" style=" display:block; height:auto; margin-top:5px; padding-bottom: 10px; margin-bottom: 10px;">
             <h5>{{trans('post-form.videos')}}</h5>
-            @include('includes.videos', $videos)
+            @include('includes.videos', [$video = $post->youtube_link])
         </div>
     <div class="clearfix"></div>
     @endif

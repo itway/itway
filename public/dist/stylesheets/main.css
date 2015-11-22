@@ -1704,7 +1704,7 @@ form h3.label{padding-left:10px;color:#607D8B}
 #search .button-search-apply i{font-size:40px}
 #search .tag-search{color:#fff;border:none;background:0 0}
 #search .tag-search .tags-symbol{color:#03A9F4!important;border-bottom:1px solid #fff}
-#search .close{position:fixed;top:10px;right:10px;color:#F44336;background-color:transparent;opacity:1;padding:2px 5px;font-size:18px;border:1px #0d0d0d}
+#search .close{position:fixed;top:20px;right:10px;color:#F44336;background-color:transparent;opacity:1;padding:2px 5px;font-size:18px;border:1px #0d0d0d}
 #search .close:hover{background-color:#F44336;color:#f5f5f5}
 .admin-block{padding-left:0!important;background-color:#FAFAFA;color:#212121}
 .admin-block .xs-12{padding-left:0!important}
@@ -1808,7 +1808,9 @@ body::-webkit-scrollbar{width:12px}
 .ui.message .error-small-header{color:#fff!important}
 .create-form{display:block}
 .create-form .attach-block{display:block;text-align:center!important}
-.create-form .attach-block .button{border-radius:0!important;border:none;border-bottom:2px solid #03A9F4}
+.create-form .attach-block .button{border-radius:0!important;border:none;border-bottom:2px solid #03A9F4;position:relative!important}
+.create-form .attach-block .addon{position:absolute;font-size:12px;top:-15px;color:#03A9F4;left:1px}
+.create-form .time-block input{text-align:center;width:60%!important;margin:0 auto!important}
 .create-form .btns-block,.create-form .preamble-block,.create-form .tag-block,.create-form .time-block,.create-form .title-block{width:50%;-webkit-box-flex:1;-webkit-flex:1 0 50%;-ms-flex:1 0 50%;flex:1 0 50%;padding:10px;overflow:hidden}
 .create-form .btns-block .input-count,.create-form .preamble-block .input-count,.create-form .tag-block .input-count,.create-form .time-block .input-count,.create-form .title-block .input-count{right:-10px;position:absolute;bottom:-10px;padding:2px;color:#566f7c;border:none;background:0 0;font-size:initial}
 .create-form .title-block .pos-rel{padding:5px!important;visibility:hidden}
@@ -1823,6 +1825,7 @@ body::-webkit-scrollbar{width:12px}
 .create-form .titl{color:#03A9F4}
 .create-form .cke_wysiwyg_div{min-height:200px}
 .modal-form i{padding:10px;color:#9E9E9E;line-height:2}
+.remodal .input-success i{color:#fff;background:#4CAF50;padding:10px;border-radius:50%}
 .remodal-cancel{background:#F44336}
 .remodal-confirm{background:#4CAF50}
 .remodal-close{color:#F44336;background-color:transparent;opacity:1;padding:2px 5px;font-size:18px;border:1px #0d0d0d}

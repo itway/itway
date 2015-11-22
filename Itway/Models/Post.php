@@ -48,7 +48,9 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
         'comment_count',
         'locale',
         'date',
-        'banned'
+        'banned',
+        'youtube_link',
+        'github_link'
     ];
 
     /**

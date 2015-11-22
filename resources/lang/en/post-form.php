@@ -8,7 +8,7 @@ return [
     'create post'=>'Create Post',
     'img'=>'Download Image',
     'author'=>'The author of the article',
-    'videos' => 'tagged videos',
+    'videos' => 'attached video',
     'attach' => 'Attach something:',
     'add-github-link' => 'github link',
     'add-youtube' => 'youtube video link',
