@@ -2,7 +2,8 @@
    margin: 0!important;
    .card {
      border-radius: 0!important;
-
+     box-shadow: none;
+     border: 1px solid #ddd;
      .card-header.left {
        font-size: large;
        font-weight: bold;
@@ -14,6 +15,9 @@
        font-weight: bold;
        text-align: right;
        color: $primary-color;
+     }
+     & >.image {
+       border-radius: 0!important;
      }
    }
    .card.fluid {

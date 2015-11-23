@@ -1,14 +1,50 @@
 @section('styles-add')
     <link rel="stylesheet" href="{{ asset('vendor/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
+    <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
 @endsection
 @section('scripts-add')
 
-    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
-
-</script>
+    {{--<script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>--}}
     {{--<script src="{{asset('vendor/ckeditor/config.js')}}"></script>--}}
-    <script type="text/javascript" src="{{asset('vendor/ckeditor/adapters/jquery.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('vendor/ckeditor/adapters/jquery.js')}}"></script>--}}
+    <script src="{{asset('dist/vendor/editor.md/editormd.min.js')}}"></script>
+    @if(App::getLocale() == "en")
+        <script src="{{asset('dist/vendor/editor.md/languages/en.js')}}"></script>
+    @elseif(App::getLocale() == "ru")
+        <script src="{{asset('dist/vendor/editor.md/languages/ru.js')}}"></script>
+    @endif
+    <script type="text/javascript">
+        $(function() {
+            var editor = editormd("editormd", {
+                width  : "100%",
+                height : 500,
+                emoji: false,
+                paceholder: "### Hello Editor.md !",
+                theme        : (localStorage.theme) ? localStorage.theme : "default",
+                toolbarIcons : function() {
+                    // Or return editormd.toolbarModes[name]; // full, simple, mini
+                    // Using "||" set icons align right.
+                    return ["undo", "redo", "|", "bold", "hr", "|", "code-block", "code", "watch", "datetime", "link", "list-ol", "list-ul","del","italic", "quote", "||",  "fullscreen", "preview", "search"]
+                },
+                htmlDecode : true,
+                tex : true,
+                taskList : true,
+                flowChart : true,
+                sequenceDiagram : true,
+                path : "http://www.itway.io/dist/vendor/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+            });
+            console.log(editormd.toolbarModes[name]);
+            editor.setCodeMirrorTheme('neo');
 
+            /*
+             // or
+             var editor = editormd({
+             id   : "editormd",
+             path : "../lib/"
+             });
+             */
+        });
+    </script>
     <script>
 
         var title = $('#title'),
@@ -61,5 +97,4 @@
         title.focus()
     </script>
 
-    @include('includes.ckeitor-config')
 @endsection

@@ -68,6 +68,14 @@ class PostsController extends Controller {
 
     }
 
+    public function getPageBody($id)
+    {
+
+        $body = $this->repository->getModel()->findOrFail($id)->body;
+
+        return response()->json(['body'=>$body]);
+    }
+
     /**
      * @return \Illuminate\View\View
      */

@@ -34,7 +34,10 @@ initialize: ->
   if !ytId
     _this.o.dialog.removeClass "approved"
     _this.resolveAddon()
-
+  else
+    _this.o.dialog.addClass "approved"
+    _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId))
+    _this.resolveAddon()
 
 resolveWithTime: ->
   _this = this

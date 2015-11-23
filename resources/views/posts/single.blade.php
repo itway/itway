@@ -5,9 +5,7 @@
     <?php  $msg = "Blog"; ?>
 
 @endsection
-@section('styles-add')
 
-@endsection
 @section('navigation.buttons')
     @include('posts.site-btns')
 @endsection
@@ -74,7 +72,7 @@
         <div class="line clearfix"></div>
         <div class="image-area">
             <div class="presc-wrapper">
-                @if($post->picture())
+                @if(empty($post->picture()->get()))
                     <div class="l-6 m-6 s-6 xs-10"  style="line-height: 1.875rem;
     padding-top: 0.83333rem;
     padding-bottom: 0.83333rem;">
@@ -87,19 +85,37 @@
                     {{--</div>--}}
                 @endif
 
-                <div class="prescription l-6 m-6 s-6 xs-10">
-                    <h3>{{$post->preamble}}</h3>
-                </div>
+                @if(empty($post->picture()->get()))
+                        <div class="prescription l-6 m-6 s-6 xs-10">
+                            <h3>
+                                <blockquote>
+                                    <i></i>
+                                    {{$post->preamble}}
+                                </blockquote>
+                            </h3>
+                        </div>
+                @else
+                        <div class="prescription l-12 m-12 s-12 xs-12">
+                            <h3>
+                                <blockquote>
+                                    <i></i>
+                                    {{$post->preamble}}
+                                </blockquote>
+                            </h3>
+                        </div>
+                @endif
 
             </div>
 
         </div>
         <div class="clearfix"></div>
 
-        <div class="post-text">{!!$post->body!!}</div>
-
+        <div class="editormd post-text" id="post-body">
+            <div class="ui active centered large inline loader"></div>
+        </div>
+        <h3></h3>
         <div class="clearfix"></div>
-        <div class="counters">
+        <div class="counters l-2 m-2 s-3 xs-3">
 
         <span class="comments-count"><i class="icon-comment text-grey"></i>
             <a href="{{ url(App::getLocale().'/blog/post/'.$post->id.'#disqus_thread') }}" data-disqus-identifier="{{$post->id}}" >0</a>
@@ -109,23 +125,9 @@
                 <span>{{$post->views_count()}}</span>
             </span>
         </div>
+   @include('posts.attached', [$model = $post])
     </div>
 
-        <div id="post-author" class="l-12 m-12 s-12 xs-12 bg-white" style="margin-top:5px; margin-bottom: 10px;">
-        <h5>{{trans('post-form.author')}}</h5>
-
-        @include('user.user-partial', [$user = $post->user, $notFromProfile = true])
-
-        </div>
-    <div class="line"></div>
-    <div class="clearfix"></div>
-    @if($post->youtube_link)
-    <div id="post-videos" class="l-12 m-12 s-12 xs-12 bg-white" style=" display:block; height:auto; margin-top:5px; padding-bottom: 10px; margin-bottom: 10px;">
-            <h5>{{trans('post-form.videos')}}</h5>
-            @include('includes.videos', [$video = $post->youtube_link])
-        </div>
-    <div class="clearfix"></div>
-    @endif
 
     <div class="line"></div>
 
@@ -160,12 +162,57 @@
 
     </script>
 @endsection
+@section('styles-add')
 
+    <link rel="stylesheet" href="{{ asset('vendor/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
+    <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.preview.css')}}">
+
+@endsection
 @section('scripts-add')
+
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/marked.min.js"></script>
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/prettify.min.js"></script>
+
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/raphael.min.js"></script>
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/underscore.min.js"></script>
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/sequence-diagram.min.js"></script>
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/flowchart.min.js"></script>
+    <script src="http://www.itway.io/dist/vendor/editor.md/lib/jquery.flowchart.min.js"></script>
+    <script src="{{asset('dist/vendor/editor.md/editormd.min.js')}}"></script>
+    @if(App::getLocale() == "en")
+        <script src="{{asset('dist/vendor/editor.md/languages/en.js')}}"></script>
+    @elseif(App::getLocale() == "ru")
+        <script src="{{asset('dist/vendor/editor.md/languages/ru.js')}}"></script>
+    @endif
     <script>
         var base_url = "{{ route($url, array('class_name' => 'post', 'object_id' => $post->id)) }}", buttonID = $('#like'),
                 class_name = "post", object_id = "{{$post->id}}", redirectIFerror = "{{url('/auth/login')}}";
 
+        $(function() {
+            $.get("{{route('itway::posts::getPageBody', $post->id)}}", function(md){
+
+                testEditor = editormd.markdownToHTML("post-body", {
+                    markdown        : md['body'] ,//+ "\r\n" + $("#append-test").text(),
+                    htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                    //toc             : false,
+                    tocm            : true,    // Using [TOCM]
+                    height:"100%",
+                    //gfm             : false,
+                    //tocDropdown     : true,
+                    // markdownSourceCode : true, // ???? Markdown ????????????? Textarea ??
+                    emoji           : true,
+                    taskList        : true,
+                    tex             : true,  // ?????
+                    flowChart       : true,  // ?????
+                    sequenceDiagram : true,  // ?????
+                });
+            }).done(function(e) {
+                $("#post-body").find(".loader").remove();
+            });
+
+
+        });
     </script>
     @endsection
 

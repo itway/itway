@@ -65,6 +65,10 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'uses' => 'PostsController@store',
                 'as' => 'store'
             ]);
+            Route::get('getPageBody/{id}',[
+                'uses' => 'PostsController@getPageBody',
+                'as' => 'getPageBody'
+            ]);
             Route::get('/tags/{slug}', 'PostsController@tags');
 
         });

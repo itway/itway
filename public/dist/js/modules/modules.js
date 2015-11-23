@@ -190,6 +190,10 @@
       if (!github) {
         _this.o.dialog.removeClass("approved");
         return _this.resolveAddon();
+      } else {
+        _this.o.dialog.addClass("approved");
+        _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl);
+        return _this.resolveAddon();
       }
     },
     resolveWithTime: function() {
@@ -333,6 +337,10 @@
       });
       if (!ytId) {
         _this.o.dialog.removeClass("approved");
+        return _this.resolveAddon();
+      } else {
+        _this.o.dialog.addClass("approved");
+        _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId));
         return _this.resolveAddon();
       }
     },

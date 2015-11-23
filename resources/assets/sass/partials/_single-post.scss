@@ -67,7 +67,8 @@
     margin-top: 10px;
     padding: 5px 5%;
     word-break: normal;
-
+    height: inherit;
+    border: none;
   }
   .time {
     margin-top:10px;
@@ -120,6 +121,15 @@
     }
     div:last-child{
       margin-bottom: 10px;
+    }
+  }
+  .attached {
+    ul {
+      display: inline-block;
+      li {
+        display: inline;
+        padding: 5px;
+      }
     }
   }
 }

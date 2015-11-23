@@ -37,11 +37,21 @@
       margin-top: 15px;
     }
     .button-nav-post {
-      text-align: right;
-      float:right;
+      text-align: center;
       .button {
-        background-color: transparent;
         border: transparent;
+        background: white;
+        i {
+          margin-right: 5px;
+          line-height: inherit;
+        }
+        span {
+          line-height: inherit;
+          height: 100%;
+          display: block;
+          float: left;
+          padding-right: 3px;
+        }
       }
     }
     .post-text {
@@ -106,7 +116,7 @@
       background: none repeat scroll 0 0 #6b8a99;
       border-radius: 2px 0 0 2px;
       margin-right: 5px;
-      padding: 3px 10px 3px;
+      padding: 2px 10px 2px;
     }
   }
 

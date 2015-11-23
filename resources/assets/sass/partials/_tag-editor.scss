@@ -7,44 +7,47 @@
   height: auto;
   padding: 10px 10px 15px;
   width: 100%;
+  .tag {
+    background: none repeat scroll 0 0 $bluegrey-color!important;
+    border-radius: 2px;
+    color: white;
+    cursor: default;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    padding: 4px 20px 4px 0;
+    margin: 5px 10px 0 0;
+    &:hover {
+      background: lighten($bluegrey-color, .9)!important
+    }
+  }
+
+  .tag span {
+    background: none repeat scroll 0 0 lighten($bluegrey-color,5%)!important;
+    border-radius: 2px 0 0 2px;
+    margin-right: 5px;
+    padding: 5px 10px 5px;
+  }
+
+  .tag .tag-i {
+    color: #D66806;
+    cursor: pointer;
+    font-size: 1.3em;
+    height: 0;
+    line-height: 0.1em;
+    position: absolute;
+    right: 5px;
+    top: 0.7em;
+    text-align: center;
+    width: 10px;
+  }
+
+  .tag .tag-i:hover {
+    color: black;
+    text-decoration: underline;
+  }
 }
 
-.tag {
-  background: none repeat scroll 0 0 $bluegrey-color;
-  border-radius: 2px;
-  color: white;
-  cursor: default;
-  display: inline-block;
-  position: relative;
-  white-space: nowrap;
-  padding: 4px 20px 4px 0;
-  margin: 5px 10px 0 0;
-}
-
-.tag span {
-  background: none repeat scroll 0 0 lighten($bluegrey-color,5%);
-  border-radius: 2px 0 0 2px;
-  margin-right: 5px;
-  padding: 5px 10px 5px;
-}
-
-.tag .tag-i {
-  color: #D66806;
-  cursor: pointer;
-  font-size: 1.3em;
-  height: 0;
-  line-height: 0.1em;
-  position: absolute;
-  right: 5px;
-  top: 0.7em;
-  text-align: center;
-  width: 10px;
-}
-
-.tag .tag-i:hover {
-  color: black;
-  text-decoration: underline;
-}
 
 .type-zone {
   border: 0 none;

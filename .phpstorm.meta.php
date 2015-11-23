@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-11-15.
+    * Generated on 2015-11-23.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -95,7 +95,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\OpenSourceIdeaPresenter' instanceof \Itway\Presenters\OpenSourceIdeaPresenter,
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
-            'Itway\Commands\UpdatePostCommand' instanceof \Itway\Commands\UpdatePostCommand,
             'Itway\Commands\UpdateQuizCommand' instanceof \Itway\Commands\UpdateQuizCommand,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
             'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
@@ -284,7 +283,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\OpenSourceIdeaPresenter' instanceof \Itway\Presenters\OpenSourceIdeaPresenter,
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
-            'Itway\Commands\UpdatePostCommand' instanceof \Itway\Commands\UpdatePostCommand,
             'Itway\Commands\UpdateQuizCommand' instanceof \Itway\Commands\UpdateQuizCommand,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
             'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
@@ -473,7 +471,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\OpenSourceIdeaPresenter' instanceof \Itway\Presenters\OpenSourceIdeaPresenter,
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
-            'Itway\Commands\UpdatePostCommand' instanceof \Itway\Commands\UpdatePostCommand,
             'Itway\Commands\UpdateQuizCommand' instanceof \Itway\Commands\UpdateQuizCommand,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
             'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
@@ -662,7 +659,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\OpenSourceIdeaPresenter' instanceof \Itway\Presenters\OpenSourceIdeaPresenter,
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
-            'Itway\Commands\UpdatePostCommand' instanceof \Itway\Commands\UpdatePostCommand,
             'Itway\Commands\UpdateQuizCommand' instanceof \Itway\Commands\UpdateQuizCommand,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
             'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,

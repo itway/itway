@@ -1,0 +1,23 @@
+#editormd {
+  z-index: 20;
+  .editormd-menu>li {
+    margin: 0;
+    padding: 2px;
+    display: inline-block;
+    position: relative;
+    a {
+      color: #404b58;
+    }
+  }
+  .editormd-toolbar {
+    width: 100%;
+    min-height: 37px;
+    background: #f8f8f8;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+}

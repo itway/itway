@@ -15,6 +15,7 @@ o:
 
 initialize: ->
   _this = this
+
   _this.resolveWithTime()
   ### if resolve link is youtube link it returns the link else returns false ###
   github =  $.ItwayIO.cValidator.githubLNK(_this.o.input.val())
@@ -34,6 +35,11 @@ initialize: ->
   if !github
     _this.o.dialog.removeClass "approved"
     _this.resolveAddon()
+  else
+    _this.o.dialog.addClass "approved"
+    _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl)
+    _this.resolveAddon()
+
 
 
 resolveWithTime: ->

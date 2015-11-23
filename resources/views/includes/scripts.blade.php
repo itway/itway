@@ -35,18 +35,7 @@
 
 
 <script>
-    $(document).ready(function() {
-        hljs.configure({
-            tabReplace: '    ' // 4 spaces
-        });
 
-        hljs.initHighlighting();
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
-        initSample();
-
-    });
     $('.cookie.nag')
             .nag('clear')
     ;

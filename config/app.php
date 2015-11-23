@@ -175,6 +175,7 @@ return [
         itway\Providers\CommandsServiceProvider::class,
         'Laracasts\Generators\GeneratorsServiceProvider',
         'Webpatser\Countries\CountriesServiceProvider',
+
          ],
 
     /*

@@ -33,7 +33,7 @@
                                     </li>
                                 @endforeach
                                 @else
-                                    <h3 class="text-warning text-center">Скилы не указаны</h3>
+                                    <h3 class="text-warning text-center">{{trans('profile.user_no_skills')}}</h3>
 
                                 @endif
                             </div>
@@ -45,7 +45,7 @@
                     <span class="bg-white">
                         <div class="xs-12 s-12 m-12 ">
                             @if(! empty($user->Google) ||  ! empty($user->Facebook) || ! empty($user->Twitter) ||! empty($user->Github))
-                                <span class="user-info-title  text-primary text-center">Пользователь в сетях</span>
+                                <span class="user-info-title  text-primary text-center">{{trans('profile.user_social')}}</span>
 
                                 <div class="links-user-block">
 
@@ -86,19 +86,20 @@
                                 </div>
 
                                 @else
-                                <h3 class="text-warning text-center">У пользователя нет данных о его сетях</h3>
+                                <h3 class="text-warning text-center">{{trans('profile.user_has_noSocial')}}</h3>
 
 
                             @endif
                         </div>
                         <div class="xs-12 s-12 m-12">
-                            <span class="user-info-title text-primary text-center">Дополнительная информация</span>
+                            <span class="user-info-title text-primary text-center">{{trans('profile.user_additional')}}</span>
                             <div class="additional-user-info">
 
 
-                        <span>Email: <a href="mailto:{{$user->email}}" target="_top"><span class="text-info"><i class="icon-mail"></i> {{$user->email}}</span></a></span>
+                        <span>Email:
+                            <a href="mailto:{{$user->email}}" target="_top"><span class="text-info"><i class="icon-mail"></i> {{$user->email}}</span></a></span>
                                 <div class="clearfix"></div>
-                                <span>Последний вход на сайт: <span class="text-info">{{$user->updated_at}}</span></span>
+                                <span>{{trans('profile.user_last_loggedin')}} <span class="text-info">{{$user->updated_at}}</span></span>
 
                         </div>
                         </div>

@@ -165,3 +165,32 @@
   max-height: 650px!important;
   overflow-y: scroll!important;
 }
+.prescription blockquote, .post-info blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+}
+.prescription blockquote i:before, .post-info blockquote i:before {
+  display: block;
+  content: "\201C";
+  font-size: 45px;
+  position: absolute;
+  left: -5px;
+  top: -20px;
+  color: #03A9F4;
+}
+.prescription blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+.prescription blockquote cite:before, .post-info blockquote cite:before {
+  content: "\2014 \2009";
+}

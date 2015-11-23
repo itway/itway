@@ -30,6 +30,5 @@
     </div>
 
   <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Delete</button>
   <button data-remodal-action="confirm" class="remodal-confirm">Save</button>
 </div>
