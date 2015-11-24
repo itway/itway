@@ -9,14 +9,12 @@
         </div>
         <div class="clearfix"></div>
         {!! $errors->first('title', '<div class="text-danger">:message</div>') !!}
-
       </div>
       <div class="tag-block">
         <span class="label titl">#{{trans('post-form.tags')}}</span>
         <div class="clearfix"></div>
                 <div data-tags-input-name="tags_list" id="tagBox" ></div>
         <div class="clearfix"></div>
-
         {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
       </div>
     </div>
@@ -29,46 +27,31 @@
           <div class="input-count">left <span id="counter2"></span> symbols.</div>
       </div>
       <div class="clearfix"></div>
-
       {!! $errors->first('preamble', '<div class="text-danger">:message</div>') !!}
       </div>
-
-
     </div>
-
     <div class="clearfix"></div>
-
-
     <span class="label titl">{{trans('post-form.post body')}}</span>
     <div class="clearfix"></div>
-
     <div class="form-group">
-
         {!! Form::textarea('body', null, [ 'cols' => '120', 'rows'=>'60', 'class' => 'input input-line hidden', 'id' => 'editor', 'hidden', 'style' => 'height:300px', 'placeholder' => 'Please write your post!'])!!}
-
     </div>
     <div id="editormd">
         {!! Form::textarea('body', null, [ 'cols' => '120', 'rows'=>'60', 'class' => 'input input-line hidden', 'id' => 'editor', 'hidden', 'style' => 'height:300px', 'placeholder' => 'Please write your post!'])!!}
     </div>
     <div class="clearfix"></div>
-
     {!! $errors->first('body', '<div class="text-danger">:message</div>') !!}
-
     <div class="form-group">
       <div class="btns-block">
         <span class="label titl">{{trans('post-form.attach')}}</span>
         <div class="clearfix"></div>
-
         @include('create-form.attach-block', [$model = isset($post) ? $post : null])
         @include('create-form.image-modal', [$model = isset($post) ? $post : null])
         @include('create-form.video-modal', [$model = isset($post) ? $post : null])
         @include('create-form.github-link', [$model = isset($post) ? $post : null])
         @include('create-form.poll-modal', [$model = isset($post) ? $post : null])
-
         <div class="clearfix"></div>
-
         {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
-
       </div>
       <div class="clearfix"></div>
 <div class="time-block-addon">
@@ -86,16 +69,11 @@
             </div>
         @endif
         <div class="clearfix"></div>
-
         {!! $errors->first('date', '<div class="text-danger">:message</div>') !!}
-
-
       </div>
     </div>
-
     <div class="form-group">
         {!! Form::submit($submitButton, ['class' => 'confirm button button-primary'])!!}
     </div>
-
 </div>
 @include('includes.create-post-scripts')

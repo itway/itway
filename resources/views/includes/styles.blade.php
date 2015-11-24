@@ -23,5 +23,4 @@
 <link href="{{asset("dist/css/main.css")}}" rel="stylesheet">
 <script src="{{ asset('dist/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/vendor/datedropper/datedropper.min.js') }}"></script>
-
 @yield('styles-add')

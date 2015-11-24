@@ -1,12 +1,7 @@
 @section('styles-add')
-    <link rel="stylesheet" href="{{ asset('vendor/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
 @endsection
 @section('scripts-add')
-
-    {{--<script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>--}}
-    {{--<script src="{{asset('vendor/ckeditor/config.js')}}"></script>--}}
-    {{--<script type="text/javascript" src="{{asset('vendor/ckeditor/adapters/jquery.js')}}"></script>--}}
     <script src="{{asset('dist/vendor/editor.md/editormd.min.js')}}"></script>
     @if(App::getLocale() == "en")
         <script src="{{asset('dist/vendor/editor.md/languages/en.js')}}"></script>
@@ -35,21 +30,11 @@
             });
             console.log(editormd.toolbarModes[name]);
             editor.setCodeMirrorTheme('neo');
-
-            /*
-             // or
-             var editor = editormd({
-             id   : "editormd",
-             path : "../lib/"
-             });
-             */
         });
     </script>
     <script>
-
         var title = $('#title'),
             preamble = $('#preamble');
-
         title.simplyCountable({
             counter:            '#counter1',
             countType:          'characters',
@@ -63,7 +48,6 @@
             onSafeCount:        function(count, countable, counter){},
             onMaxCount:         function(count, countable, counter){}
         });
-
         preamble.simplyCountable({
             counter:            '#counter2',
             countType:          'characters',
@@ -96,5 +80,4 @@
         datepicker.dateDropper({ format:"Y-m-d", option:datepicker.val(), animation:"dropDown", animate_current:"false"});
         title.focus()
     </script>
-
 @endsection

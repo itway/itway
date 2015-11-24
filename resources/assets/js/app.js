@@ -31,43 +31,6 @@
         });
       }
     };
-
-    /* Notifier
-     * ======
-     * Notifies posts and notifies admin about the users and posts.
-     *
-     * @type Object
-     * @usage $.ItwayIO.notifier.activate()
-     *        $.ItwayIO.notifier.newPostCreated()
-     *        $.ItwayIO.notifier.addNotifiedState()
-     */
-    $.ItwayIO.notifier = {
-      activate: function() {
-        var _this;
-        _this = this;
-        _this.newPostCreated();
-        return _this.removeNotifiedState();
-      },
-      newPostCreated: function() {
-        var _this;
-        _this = this;
-        return o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
-          o.notifyBlock.prepend('<div class="control-sidebar-heading">New Post added</div><li><span class="has-notify"></span>' + '<a class="message-link" href="' + o.host + '/' + message.post.locale(+'/blog/post/' + message.post.id + '"> ' + '<p class="message-title">' + message.post.title(+'</p> ' + '<small class="notifier-info text-center" >' + message.post.preamble(+'<div class="clearfix"></div>' + '<img class="avatar" src="' + o.host + '/images/users/' + message.user.photo(+'" alt=""></img> ' + '<span class="author">' + message.user.name + '</span> </small>' + '</a></li>')))));
-          o.notifyBlock.data('data-new', 'present');
-          return _this.addNotifiedState();
-        });
-      },
-      addNotifiedState: function() {
-        return o.notifyBtn.prepend('<span class="has-notify"></span>');
-      },
-      removeNotifiedState: function() {
-        return o.notifyBtn.bind('click', function() {
-          if ($(this).find('span.has-notify').length > 0) {
-            return $(this).find('span.has-notify').remove();
-          }
-        });
-      }
-    };
     $.ItwayIO.blog = {
       activate: function() {
         var _this;
@@ -1044,8 +1007,6 @@
   $.ItwayIO.options = {
     host: 'http://' + window.location.hostname,
     socket: io('http://www.itway.io:6378'),
-    notifyBlock: $('.notify'),
-    notifyBtn: $('.button-notify'),
     navbarMenuSlimscroll: true,
     navbarMenuSlimscrollWidth: '3px',
     navbarMenuHeight: '200px',

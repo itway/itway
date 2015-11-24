@@ -57,30 +57,8 @@
 
             @yield('navigation.buttons')
 
-            <a class="ui dropdown item" id="alertlink">
-
-                <i class="icon-bell-o"></i> {{trans('navigation.recent')}}
-
-                <div class="menu dropdown-wide alert-dropdown">
-
-                    <div class="panel item no-margin alertsencased" >
-
-                        <div class="panel-encase"><div class="panel-empty tight"><i class="icon-notifications_off"></i><br><br><b>All your alerts are up to date!</b></div></div>
-
-                    </div>
-
-                    <div class="user-activity item">
-                            <span class="actvity-personal">personal activity</span>
-                        <span class="visited-links">
-                        link : <div class="item" href="http://www.itway.io/en/blog/post/1">React Base Fiddle (JSX)</div>
-                        </span>
-                    </div>
-                </div>
-
-            </a>
-
             <div class="ui dropdown item">
-                {{trans('navigation.more')}}
+                <i class="icon-plus_one"></i> {{trans('navigation.more')}}
                 <i class="dropdown icon"></i>
                 <div class="menu">
                     <a class="item"><i class="icon-edit"></i> Edit Profile</a>
@@ -96,6 +74,46 @@
             <a class="item" href="{{ url('/auth/register') }}">Register</a>
 
         @else
+
+
+                    <ul class="item" id="alertlink">
+
+                      <li>
+                        <a href="#"><i class="icon-bell-o"></i> {{trans('navigation.recent')}}</a>
+                        <ul class="notify dropdown-wide">
+                            <div class="header-notify">
+                              <b>{{trans('navigation.recent')}}</b>
+                            </div>
+                            <div class="panel" >
+                              <li class="activity">
+                                <a class="link" href="http://www.itway.io/en/blog/post/1">
+                                  <span class="ui tag tiny label"> post </span>
+                                  <span class="link-block">
+                                  <span class="title">Что нужно знать начинающему IT-специалисту? Ответ IT HR-ов на IT Global Meetup what to do
+                                  </span>
+                                  <span class="author">
+                                    <span>author:</span> nilsenj
+                                  </span>
+                                  </span>
+                                </a>
+                              </li>
+                              <li class="activity">
+                                <a class="link" href="http://www.itway.io/en/blog/post/1">
+                                  <span class="ui tag tiny label"> post </span>
+                                  <span class="link-block">
+                                  <span class="title">Что нужно знать начинающему IT-специалисту? Ответ IT HR-ов на IT Global Meetup what to do
+                                  </span>
+                                  <span class="author">
+                                    <span>author:</span> nilsenj
+                                  </span>
+                                  </span>
+                                </a>
+                              </li>
+                            </div>
+                        </ul>
+
+                    </ul>
+
             <div class="ui dropdown inline top right item">
                 <img src="@include('includes.user-image', $user = Auth::user())" class="avatar" alt="{{ Auth::user()->getSlug() }}"/>
                 {{ Auth::user()->name }}

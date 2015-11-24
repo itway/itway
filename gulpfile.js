@@ -59,7 +59,7 @@ gulp.task('coffee-secondary', function () {
         'resources/assets/coffee/helpers/*.coffee',
         'resources/assets/coffee/validators/*.coffee',
         'resources/assets/coffee/custom/*.coffee',
-        'resources/assets/coffee/components/*.coffee',
+        'resources/assets/coffee/modules/*.coffee',
         'resources/assets/coffee/events/*.coffee'])
         .pipe($.sourcemaps.init())
         .pipe($.plumber())

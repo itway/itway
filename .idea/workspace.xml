@@ -2,186 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab69a0f0-54f5-4d93-9106-e8f42c31ae0f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_editor.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/posts/attached.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/attach-modals/github.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/includes/github.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/attach-modals/user.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/attach-modals/youtube.blade.php" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\dist\css\neo.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\dist\css\samples.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\CHANGES.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\build-config.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\ckeditor.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\config.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\contents.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\lang\en.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\lang\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\autosave\css\autosave.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\autosave\js\extensions.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\chart.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\lib\LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\lib\chart.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\chart\widget2chart.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\clipboard\dialogs\paste.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\dialogs\codesnippet.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\CHANGES.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\README.ru.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\highlight.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\arta.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\ascetic.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-dune.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-dune.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-forest.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-forest.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-heath.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-heath.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-lakeside.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-lakeside.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-seaside.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\atelier-seaside.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\brown_paper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\brown_papersq.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\docco.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\far.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\foundation.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\github.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\googlecode.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\idea.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\ir_black.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\magula.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\mono-blue.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\monokai.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\monokai_sublime.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\obsidian.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\paraiso.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\paraiso.light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\pojoaque.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\pojoaque.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\railscasts.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\rainbow.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\school_book.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\school_book.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\solarized_dark.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\solarized_light.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\sunburst.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-blue.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-bright.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night-eighties.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow-night.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\tomorrow.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\vs.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\xcode.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\codesnippet\lib\highlight\styles\zenburn.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\dialog\dialogDefinition.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\link\dialogs\anchor.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\link\dialogs\link.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\link\images\anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\link\images\hidpi\anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\plugins\widget\images\handle.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\css\samples.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\img\github-top.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\img\header-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\img\header-separator.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\img\logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\img\navigation-tip.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\js\sample.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\js\sf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\api.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\appendto.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\assets\inlineall\logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\assets\posteddata.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\assets\sample.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\assets\uilanguages\languages.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\datafiltering.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\divreplace.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\inlineall.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\inlinebycode.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\inlinetextarea.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\jquery.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\readonly.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\replacebyclass.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\replacebycode.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\sample.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\sample.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\sample_posteddata.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\tabindex.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\uicolor.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\uilanguages.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\old\xhtmlstyle.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\css\fontello.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\config.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\fontello.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\fontello.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\font\fontello.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\ckeditor\styles.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ivan\Dropbox\itway\public\vendor\highlight.pack.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpstorm.meta.php" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_card.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_card.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_code-block.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_code-block.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_create-form.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_create-form.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_posts.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_posts.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_single-post.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_single-post.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_tag-editor.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_tag-editor.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/create-form/attach-block.blade.php" afterPath="$PROJECT_DIR$/resources/views/create-form/attach-block.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/create-post-scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/create-post-scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/coffee/custom/github-dialog.coffee" afterPath="$PROJECT_DIR$/resources/assets/coffee/custom/github-dialog.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/modules/coffee-sourcemaps/github-dialog.js.map" afterPath="$PROJECT_DIR$/resources/assets/js/modules/coffee-sourcemaps/github-dialog.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/modules/github-dialog.js" afterPath="$PROJECT_DIR$/resources/assets/js/modules/github-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/create-form/github-link.blade.php" afterPath="$PROJECT_DIR$/resources/views/create-form/github-link.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/create-form/image-modal.blade.php" afterPath="$PROJECT_DIR$/resources/views/create-form/image-modal.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/itway.iml" afterPath="$PROJECT_DIR$/.idea/itway.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/css/main.css" afterPath="$PROJECT_DIR$/public/dist/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/dist/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/main.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/modules/modules.js" afterPath="$PROJECT_DIR$/public/dist/js/modules/modules.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/modules/modules.min.js" afterPath="$PROJECT_DIR$/public/dist/js/modules/modules.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/post-form.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/post-form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/posts.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/posts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/posts/single.blade.php" afterPath="$PROJECT_DIR$/resources/views/posts/single.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/styles.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/styles.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/users.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/users.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/create-form/video-modal.blade.php" afterPath="$PROJECT_DIR$/resources/views/create-form/video-modal.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/videos.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/videos.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/coffee/custom/youtube-dialog.coffee" afterPath="$PROJECT_DIR$/resources/assets/coffee/custom/youtube-dialog.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/modules/coffee-sourcemaps/youtube-dialog.js.map" afterPath="$PROJECT_DIR$/resources/assets/js/modules/coffee-sourcemaps/youtube-dialog.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/modules/youtube-dialog.js" afterPath="$PROJECT_DIR$/resources/assets/js/modules/youtube-dialog.js" />
     </list>
     <ignored path="itway.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -211,21 +33,31 @@
       <file leaf-file-name="attached.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/posts/attached.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6087551">
+            <state vertical-scroll-proportion="0.5442765">
               <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/user.blade.php">
+      <file leaf-file-name="CreateChatCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Commands/CreateChatCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.4444447">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <folding>
+                <element signature="e#34#61#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateOpenSourceIdeaCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Commands/UpdateOpenSourceIdeaCommand.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -233,7 +65,7 @@
       <file leaf-file-name="single.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/posts/single.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.653847">
+            <state vertical-scroll-proportion="0.2962963">
               <caret line="128" column="10" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
               <folding />
             </state>
@@ -243,7 +75,7 @@
       <file leaf-file-name="github.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/github.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.076923">
+            <state vertical-scroll-proportion="-4.6666665">
               <caret line="6" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
@@ -253,20 +85,8 @@
       <file leaf-file-name="github.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/includes/github.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6923077">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-              <folding>
-                <element signature="e#51#106#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="github-link.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/create-form/github-link.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7358491">
-              <caret line="9" column="27" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.8888888">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -275,7 +95,7 @@
       <file leaf-file-name="post-form.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/includes/post-form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.961538">
+            <state vertical-scroll-proportion="-58.333332">
               <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
               <folding>
                 <marker date="1448313426893" expanded="true" signature="1777:1977" placeholder="..." />
@@ -288,7 +108,7 @@
       <file leaf-file-name="attach-block.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/create-form/attach-block.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8867927">
+            <state vertical-scroll-proportion="-16.88889">
               <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding />
             </state>
@@ -298,21 +118,9 @@
       <file leaf-file-name="video-modal.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/create-form/video-modal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5660377">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state vertical-scroll-proportion="-9.333333">
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="github-dialog.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/coffee/custom/github-dialog.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="40" selection-end-column="24" />
-              <folding>
-                <marker date="1448314295896" expanded="true" signature="497:544" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -626,7 +434,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="ColorIdeProjectViewPane" proportions="" version="1">
       <flattenPackages />
       <showMembers ProjectPane="true" />
       <showModules />
@@ -638,8 +446,59 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ColorIdeProjectViewPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Commands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -802,12 +661,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="enableYiiStorm" value="false" />
     <property name="themeName" value="" />
@@ -815,7 +675,7 @@
     <property name="yiicFile" value="" />
     <property name="useYiiMigrations" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="single&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/single.blade.php&#10;post&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;posts.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/posts.blade.php&#10;_single&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_single-post.scss&#10;_posts&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_posts.scss&#10;profile.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-profile.blade.php&#10;user-b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/messages/users-block.blade.php&#10;users.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/pages/users.blade.php&#10;tag&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_tag-editor.scss&#10;_create&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_create-form.scss&#10;samples&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/public/dist/css/samples.css&#10;styles&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;edit&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/edit.blade.php&#10;_code&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_code-block.scss&#10;scripts&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;likeBt&#9;null&#9;null&#10;Posts&#9;null&#9;null&#10;routes&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Http/routes.php&#10;app.coffe&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/coffee/app.coffee&#10;script&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;app&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/config/app.php&#10;video.&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/videos.blade.php&#10;navigation&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/navigation.blade.php&#10;config/app&#9;null&#9;null&#10;regis&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/auth/register.blade.php&#10;login&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/auth/login.blade.php&#10;error&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/errors.blade.php&#10;form&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;confi&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/ckeitor-config.blade.php&#10;scripts.bla&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;_pr&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_profile.scss&#10;landing&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/pages/landing.blade.php&#10;sty&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;user-profile&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-profile.blade.php&#10;user&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-image-update.blade.php&#10;user-ph&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/user-image.blade.php&#10;imageT&#9;null&#9;null&#10;_close&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_close.scss&#10;_icons&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_icons.scss&#10;style&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;create&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/create.blade.php&#10;sc&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;Styles.bl&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;post-f&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;UserContr&#9;null&#9;null&#10;Post&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Models/Post.php&#10;PC&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Http/Controllers/PostsController.php&#10;ERE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Listeners/UserRegisteredListener.php&#10;URE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Repositories/UserRepositoryEloquent.php&#10;PRE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Repositories/PostRepositoryEloquent.php" />
+    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/coffee/app.coffee&#10;single&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/single.blade.php&#10;post&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;posts.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/posts.blade.php&#10;_single&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_single-post.scss&#10;_posts&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_posts.scss&#10;profile.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-profile.blade.php&#10;user-b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/messages/users-block.blade.php&#10;users.b&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/pages/users.blade.php&#10;tag&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_tag-editor.scss&#10;_create&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_create-form.scss&#10;samples&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/public/dist/css/samples.css&#10;styles&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;edit&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/edit.blade.php&#10;_code&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_code-block.scss&#10;scripts&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;likeBt&#9;null&#9;null&#10;Posts&#9;null&#9;null&#10;routes&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Http/routes.php&#10;app.coffe&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/coffee/app.coffee&#10;script&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;video.&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/videos.blade.php&#10;navigation&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/navigation.blade.php&#10;config/app&#9;null&#9;null&#10;regis&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/auth/register.blade.php&#10;login&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/auth/login.blade.php&#10;error&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/errors.blade.php&#10;form&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;confi&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/ckeitor-config.blade.php&#10;scripts.bla&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;_pr&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_profile.scss&#10;landing&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/pages/landing.blade.php&#10;sty&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;user-profile&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-profile.blade.php&#10;user&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/user/user-image-update.blade.php&#10;user-ph&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/user-image.blade.php&#10;imageT&#9;null&#9;null&#10;_close&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_close.scss&#10;_icons&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/assets/sass/partials/_icons.scss&#10;style&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;create&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/posts/create.blade.php&#10;sc&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/scripts.blade.php&#10;Styles.bl&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/styles.blade.php&#10;post-f&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/resources/views/includes/post-form.blade.php&#10;UserContr&#9;null&#9;null&#10;Post&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Models/Post.php&#10;PC&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Http/Controllers/PostsController.php&#10;ERE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/app/Listeners/UserRegisteredListener.php&#10;URE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Repositories/UserRepositoryEloquent.php&#10;PRE&#9;FILE&#9;file://C:/Users/Ivan/Dropbox/itway/Itway/Repositories/PostRepositoryEloquent.php" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.buildTools.gulp.node_interpreter" value="C:\nodejs\node.exe" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="C:\Users\Ivan\AppData\Roaming\npm\node_modules\gulp" />
@@ -889,16 +749,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34061834" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16897655" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.051172707" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36085626" sideWeight="0.5042644" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3604888" sideWeight="0.5042644" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19979613" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19979613" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2609582" sideWeight="0.4914712" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -972,35 +832,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/dist/vendor/editor.md/examples/php/editormd.uploader.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="109.15385">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/vendor/editor.md/examples/multi-languages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="43.346153">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/vendor/editor.md/examples/php/cross-domain-upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/includes/ckeitor-config.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.86130375">
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
           <caret line="180" column="86" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1024,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462">
           <caret line="111" column="22" selection-start-line="107" selection-start-column="20" selection-end-line="111" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1032,9 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.692307">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,15 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.230769">
           <caret line="37" column="22" selection-start-line="35" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/coffee/app.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="2" selection-start-line="138" selection-start-column="2" selection-end-line="138" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,7 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.230769">
           <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1066,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.461538">
           <caret line="75" column="39" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.1153846">
           <caret line="61" column="45" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="6.875">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,9 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="7.423077">
           <caret line="90" column="34" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.384615">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,9 +955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-250.41612">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,7 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.615385">
           <caret line="22" column="85" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.038462">
           <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.056604">
           <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-27.923077">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.153847">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.6603774">
           <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.45283">
           <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6621067">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.076923">
           <caret line="55" column="65" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-85.46154">
           <caret line="101" column="77" selection-start-line="101" selection-start-column="77" selection-end-line="101" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.962264">
           <caret line="193" column="59" selection-start-line="193" selection-start-column="49" selection-end-line="193" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,14 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.384615">
           <caret line="64" column="188" selection-start-line="64" selection-start-column="188" selection-end-line="64" selection-end-column="188" />
-          <folding>
-            <element signature="e#2246#2309#0#HTML" expanded="true" />
-            <element signature="e#2472#2579#0#HTML" expanded="true" />
-            <element signature="e#3011#3037#0#HTML" expanded="true" />
-            <element signature="e#3251#3277#0#HTML" expanded="true" />
-            <element signature="e#4958#4983#0#HTML" expanded="true" />
-            <marker date="1448309579761" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.301887">
           <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.54717">
           <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5384614">
           <caret line="3" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.84615386">
           <caret line="1" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,22 +1089,69 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="40" selection-end-column="24" />
           <folding>
-            <marker date="1448314295896" expanded="true" signature="497:544" placeholder="..." />
+            <marker date="1448314295896" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/create-form/github-link.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7358491">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/coffee/custom/youtube-dialog.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7265522">
+          <caret line="39" column="24" selection-start-line="37" selection-start-column="1" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Bus/SelfHandling.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09492988">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3333333">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/posts/single.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2962963">
+          <caret line="128" column="10" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/github.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6666665">
+          <caret line="6" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/github.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8888888">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/includes/post-form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538">
+        <state vertical-scroll-proportion="-58.333332">
           <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
           <folding>
             <marker date="1448313426893" expanded="true" signature="1777:1977" placeholder="..." />
@@ -1336,7 +1162,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/create-form/attach-block.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8867927">
+        <state vertical-scroll-proportion="-16.88889">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding />
         </state>
@@ -1344,62 +1170,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/create-form/video-modal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5660377">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state vertical-scroll-proportion="-9.333333">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/coffee/custom/youtube-dialog.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7265522">
-          <caret line="39" column="24" selection-start-line="37" selection-start-column="1" selection-end-line="39" selection-end-column="24" />
-          <folding>
-            <marker date="1448315158931" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1448315158931" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/github.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6923077">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-          <folding>
-            <element signature="e#51#106#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/github.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.076923">
-          <caret line="6" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/posts/single.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.653847">
-          <caret line="128" column="10" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/attach-modals/user.blade.php">
+    <entry file="file://$PROJECT_DIR$/Itway/Commands/UpdateOpenSourceIdeaCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Commands/CreateChatCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4444447">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#34#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/coffee/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1899265">
+          <caret line="135" column="17" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+          <folding>
+            <marker date="1448126812300" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1448126812300" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1448126812300" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/posts/attached.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6087551">
+        <state vertical-scroll-proportion="0.5442765">
           <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
           <folding />
         </state>
