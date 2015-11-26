@@ -1,20 +1,16 @@
     {{--ul.posts>li*4>.title+img.post-image+nav.button-nav-post.button-group-vertical>a.button.button-info{share}*4+p.post-text{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt eos facere quaerat repellat? A ad alias aspernatur cum, dicta in ipsum iusto labore maiores, optio recusandae sed, totam voluptatibus!}+a.read-post.button.button-dark{read-more}--}}
-
     @section('navigation.buttons')
         @include('posts.site-btns')
     @endsection
-
     @if(count($posts)=== 0 )
-
     @include('errors.nothing')
-
     @else
-            <div class="posts">
-                @foreach(array_chunk($posts->getCollection()->all(), 2) as $row)
+      @include('includes.tag-side', [$tags, $tags_title = trans("post.post-tags")])
+        <div class="posts l-9 m-9 s-9 xs-9">
+                @foreach(array_chunk($posts->getCollection()->all(), 1) as $row)
                     <div class="row" >
                         @foreach($row as $post)
-                        <div class="l-6 m-12 s-12 xs-12">
-
+                        <div class="l-12 m-12 s-12 xs-12">
                             <div class="post">
                                 <div class="post-author l-6  m-6  s-6 xs-6">
                                     <img class="avatar" src="@include('includes.user-image', $user = $post->user)" alt=""/>
@@ -22,7 +18,6 @@
                                         <a href="{{asset(App::getLocale().'/user/'.$post->user->id)}}">{{ $post->user->name }}</a>
                                     </div>
                                 </div>
-
                                 <div class="tag-block  l-6  m-6  s-6 xs-6">
                                     @foreach($post->tagNames() as $tags)
                                         <li class="pull-right tags">
@@ -30,14 +25,10 @@
                                         </li>
                                     @endforeach
                                 </div>
-
                                 <div class="clearfix"></div>
-
                                 <div class="post-title ">{{str_limit($post->title, 120)}}</div>
                             <div class="clearfix"></div>
-
-                                @if(empty($post->picture()->get()))
-
+                                @if($post->picture()->exists())
                                 <div class="l-12 m-12 s-12 xs-12">
                                         <div class="col-sm-6 col-md-4" style="max-height: 450px; min-height: 300px; padding-top: 5px;">
                                             @foreach($post->picture()->get() as $picture)
@@ -46,7 +37,6 @@
                                             </div>
                                             @endforeach
                                         </div>
-
                                 </div>
                                     <div class="clearfix"></div>
                                     <p style="padding-top: 10px;" class="post-info">
@@ -57,7 +47,6 @@
                                         {{str_limit($post->preamble, 200)}}
                                     </p>
                                 @endif
-
                                 <nav class="button-nav-post button-group-horizontal  l-12 m-12 s-12 xs-12">
                                     <span class="button">
                                         <span class="text-left text-primary">{{$post->views_count()}}</span><i class="icon-remove_red_eye"></i></span>
@@ -65,19 +54,21 @@
                                         <a class="text-left text-primary" href="{{ url(App::getLocale().'/blog/post/'.$post->id.'#disqus_thread') }}" data-disqus-identifier="{{$post->id}}">0</a>
                                         <i  class="icon-comment"></i>
                                     </span>
-                                    <a class="button" href=""><i class="icon-facebook text-facebook"></i></a>
-                                    <a class="button" href=""><i class="icon-google text-google"></i></a>
-                                    <a class="button" href=""><i class="icon-bookmark text-grey"></i></a>
+                                    @if($post->github_link)
+                                    <a class="button" target="_blank" href="{{$post->github_link}}"><i class="icon-github text-grey"></i></a>
+                                    @endif
+                                    @if($post->youtube_link)
+                                    <a class="button" href="#youtube"><i class="icon-youtube text-danger"></i></a>
+                                        @include('attach-modals.youtube', [$model = $post])
+                                    @endif
                                 </nav>
                                 <a class="read-post button button-dark" href="{{url(App::getLocale().'/blog/post/'.$post->id)}}">read-more</a>
-                                <span class="post-time pull-left"><i class="icon-clock-o text-warning"></i>{{$post->published_at->diffForHumans()}}</span>
+                                <span class="post-time pull-left"><i class="icon-access_time text-warning"></i>{{$post->published_at->diffForHumans()}}</span>
                             </div>
-
                         </div>
                             @endforeach
-
                     </div>
-<div style="margin-top: 10px;"></div>
+                <div style="margin-top: 10px;"></div>
                 @endforeach
             </div>
     <div class="clearfix"></div>
@@ -85,16 +76,13 @@
         <div class="pagination-wrapper">
             <div class="pagination-wrapper-inner">
                 {!! (new Itway\Models\Pagination($posts))->render() !!}
-
             </div>
         </div>
     @endif
-
         @endif
     @section('scripts-add')
         <script>
             var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
-
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var s = document.createElement('script'); s.async = true;
@@ -103,5 +91,4 @@
                 (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
             }());
         </script>
-
         @endsection

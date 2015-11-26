@@ -130,11 +130,25 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     }
 
 
+    /**
+     * attach image
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function picture()
     {
         return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
+    /**
+     * poll attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function poll()
+    {
+        return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
+    }
     /**
      * scope for localed user
      * @param $query
@@ -158,11 +172,6 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     public function  posts() {
 
         return $this->hasMany(\Itway\Models\Post::class);
-
-    }
-    public function quizzes() {
-
-        return $this->hasMany(\Itway\Models\Quiz::class);
 
     }
 

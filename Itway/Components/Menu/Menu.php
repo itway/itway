@@ -15,10 +15,6 @@ class Menu implements MenuInterface {
 
 	}
 
-	public function getLastQuizzes() {
-
-	}
-
 	public function getLastIdeas() {
 
 

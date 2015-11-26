@@ -1,11 +1,13 @@
 @extends('app')
+@section('title')
+    - {{$post->title}}
+@endsection
+@section('meta-image') @if($post->picture()->exists()) @foreach($post->picture()->get() as $picture){!! asset('images/posts/' . $picture->path) !!}@endforeach @else http://www.itway.io/itway-landing.png @endif @endsection
+@section('meta-description'){{$post->preamble}}@endsection
 @section('sitelocation')
-
     <?php  $name = "Bl"; ?>
     <?php  $msg = "Blog"; ?>
-
 @endsection
-
 @section('navigation.buttons')
     @include('posts.site-btns')
 @endsection
@@ -31,19 +33,8 @@
                                     @endforeach
                                 </span>
                 </div>
-                <div class="l-4 m-4 s-4 xs-4" style=" ">
+                    @include("includes.like-btn",[$modelName, $model = $post])
 
-                    <?php
-                        $url = 'likeORdis'
-                   ?>
-                    {!!Form::open(["id" => "like", "method" => "GET","url" => route($url, array('class_name' => 'post', 'object_id' => $post->id))])!!}
-                    <button style="line-height: 40px;" class=" button button-rounded pull-right  tooltip tooltipstered"  @if($post->getLikeCount() !== 0) title="{{$post->getLikeCount()}}"@endif>@if($post->liked(Auth::user()))<i class="icon-favorite  text-danger "></i>@else <i class="icon-favorite_outline"></i> @endif</button>
-                    {!!Form::close()!!}
-                    <div class="clearfix"></div>
-                        @if($post->liked(Auth::user()))
-                            <span class="like-message">{{trans("messages.liked")}}</span>
-                        @endif
-                </div>
             </div>
             <div class="header-title">
                 <h4 class="text-center"><strong>{{$post->title}}</strong></h4>
@@ -72,7 +63,7 @@
         <div class="line clearfix"></div>
         <div class="image-area">
             <div class="presc-wrapper">
-                @if(empty($post->picture()->get()))
+                @if($post->picture()->exists())
                     <div class="l-6 m-6 s-6 xs-10"  style="line-height: 1.875rem;
     padding-top: 0.83333rem;
     padding-bottom: 0.83333rem;">
@@ -85,7 +76,7 @@
                     {{--</div>--}}
                 @endif
 
-                @if(empty($post->picture()->get()))
+                @if($post->picture()->exists())
                         <div class="prescription l-6 m-6 s-6 xs-10">
                             <h3>
                                 <blockquote>
@@ -163,8 +154,6 @@
     </script>
 @endsection
 @section('styles-add')
-
-    <link rel="stylesheet" href="{{ asset('vendor/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.preview.css')}}">
 
@@ -186,8 +175,7 @@
         <script src="{{asset('dist/vendor/editor.md/languages/ru.js')}}"></script>
     @endif
     <script>
-        var base_url = "{{ route($url, array('class_name' => 'post', 'object_id' => $post->id)) }}", buttonID = $('#like'),
-                class_name = "post", object_id = "{{$post->id}}", redirectIFerror = "{{url('/auth/login')}}";
+
 
         $(function() {
             $.get("{{route('itway::posts::getPageBody', $post->id)}}", function(md){

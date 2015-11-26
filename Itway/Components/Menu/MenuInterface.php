@@ -6,8 +6,6 @@ interface MenuInterface{
 
 	public function getLastPosts();
 
-	public function getLastQuizzes();
-
 	public function getLastIdeas();
 
 	public function getLastJobs();

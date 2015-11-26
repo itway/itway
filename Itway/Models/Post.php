@@ -109,9 +109,24 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    /**
+     * picture attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function picture()
     {
         return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
+    }
+
+    /**
+ * poll attachment
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+ */
+    public function poll()
+    {
+        return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
     /**
      * @param $query

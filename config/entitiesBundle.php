@@ -10,7 +10,7 @@
      'Post',
      'Team',
      'Event',
-     'Quiz',
+     'Poll',
      'OpenSourceIdea',
      'Chat',
      'TaskBoard',

@@ -110,7 +110,7 @@
 
     @else
 
-        <h4 class="text-warning text-center">{{trans('profile.user_has_noSocial')}}</h4>
+        <h5 class="text-warning text-center">{{trans('profile.user_has_noSocial')}}</h5>
 
     @endif
 
@@ -140,7 +140,7 @@
             </div>
         </div>
     @else
-            <h4 class="text-warning text-center">{{trans('profile.user_no_skills')}}</h4>
+            <h5 class="text-warning text-center">{{trans('profile.user_no_skills')}}</h5>
     @endif
 
 @if(! empty($user->bio))
@@ -154,6 +154,6 @@
         </figure>
     </div>
 @else
-    <h4 class="text-warning text-center">{{trans('profile.user_nobio')}} </h4>
+    <h5 class="text-warning text-center">{{trans('profile.user_nobio')}} </h5>
 @endif
 </div>

@@ -20,7 +20,7 @@
 
     }, options)
     #The overlay
-    overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>')
+    overlay = $('<div class="overlay"><div class="ui active centered large inline loader"></div></div>')
 
     start = (box) ->
 #Add overlay and loading img

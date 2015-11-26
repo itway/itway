@@ -28,7 +28,7 @@ class ModelsServiceProvider extends ServiceProvider
             'Post',
             'Team',
             'Event',
-            'Quiz',
+            'Poll',
             'OpenSourceIdea',
             'Chat',
             'TaskBoard',
@@ -38,7 +38,7 @@ class ModelsServiceProvider extends ServiceProvider
             'Pagination',
             'Permission',
             'Role',
-            'QuizOptions',
+            'PollOptions',
             'SideBarCreator',
             'UserCounter'
         ];

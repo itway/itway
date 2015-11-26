@@ -44,10 +44,10 @@
                     <strong>Job-Hunt</strong>
                 </div>
             </a>
-            <a class="cf_" target="_blank" href="{{route("itway::idea-show::index")}}">
+            <a target="_blank" href="{{route("itway::idea-show::index")}}">
                 <div>
                     <span>Go to</span>
-                    <strong>Idea-Share</strong>
+                    <strong>OpenSource Idea</strong>
                 </div>
             </a>
             <a target="_blank" href="{{route("itway::posts::index")}}">
@@ -90,8 +90,8 @@
                     <div>
                         <i class="icon-poll"></i>
                     </div>
-                    <h3>{{ trans("landing.quiz-header") }}</h3>
-                    <span>{{ trans("landing.quiz-text") }}</span>
+                    <h3>{{ trans("landing.poll-header") }}</h3>
+                    <span>{{ trans("landing.poll-text") }}</span>
                 </li>
                 <li>
                     <div>

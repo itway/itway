@@ -19,7 +19,7 @@
         onLoadStart: function(box) {},
         onLoadDone: function(box) {}
       }, options);
-      overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>');
+      overlay = $('<div class="overlay"><div class="ui active centered large inline loader"></div></div>');
       start = function(box) {
         box.append(overlay);
         settings.onLoadStart.call(box);

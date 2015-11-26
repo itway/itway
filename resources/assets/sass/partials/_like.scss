@@ -1,0 +1,14 @@
+#like {
+  .label {
+    float: right;
+  }
+  .like-message {
+    text-align: right;
+    color: $primary-color;
+    float: right;
+    right: 15px;
+    position: absolute;
+    top: 30px;
+    font-size: 10px;
+  }
+}

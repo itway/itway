@@ -138,13 +138,13 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'uses' => 'TaskBoardController@show'
             ]);
 
-            Route::get('personal_quizzes', [
+            Route::get('personal_tasks', [
                 'as' => 'personal_tasks',
                 'uses' => 'TaskBoardController@personalTasks'
             ]);
 
             Route::get('create', [
-                'uses' => 'QuizController@TaskBoardController',
+                'uses' => 'TaskBoardController@create',
                 'as' => 'create',
                 'middleware' => 'auth'
             ]);
@@ -175,38 +175,38 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
         //TASKBOARD ROUTES END
 
         //QUIZ ROUTES START
-        Route::group(array('prefix' => 'quiz', 'as' => 'quiz::'), function () {
+        Route::group(array('prefix' => 'poll', 'as' => 'poll::'), function () {
 
             Route::get('/',
                 [
-                    'uses' => 'QuizController@index',
+                    'uses' => 'PollController@index',
                     'as' => 'index'
                 ]);
 
-            Route::get('show/{id}', [ 'as' => 'show', 'uses' => 'QuizController@show']);
+            Route::get('show/{id}', [ 'as' => 'show', 'uses' => 'PollController@show']);
 
-            Route::get('personal_quizzes', [ 'as' => 'personal_quizzes', 'uses' => 'QuizController@personalQuizzes']);
+            Route::get('personal_quizzes', [ 'as' => 'personal_quizzes', 'uses' => 'PollController@personalPollzes']);
 
-            Route::get('create', ['uses' => 'QuizController@create', 'as' => 'create', 'middleware' => 'auth'
+            Route::get('create', ['uses' => 'PollController@create', 'as' => 'create', 'middleware' => 'auth'
             ]);
 
             Route::get('edit/{id}', [
-                'uses' => 'QuizController@edit',
+                'uses' => 'PollController@edit',
                 'as' => 'edit',
                 'middleware' => ['auth']
             ]);
 
             Route::patch('update/{id}', [
-                'uses' => 'QuizController@update',
+                'uses' => 'PollController@update',
 //                'middleware' => 'shouldBeUnique',
                 'as' => 'update', 'middleware' => ['IsUsers', 'auth']
             ]);
             Route::delete('delete/{id}', [
-                'uses' => 'QuizController@destroy',
+                'uses' => 'PollController@destroy',
                 'as' => 'delete', 'middleware' => ['auth','IsUsers']
             ]);
             Route::post('store', [
-                'uses' => 'QuizController@store',
+                'uses' => 'PollController@store',
                 'as' => 'store',
                 'middleware' => 'auth'
             ]);

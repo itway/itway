@@ -15,7 +15,7 @@
 
         {!! Form::model($post, ['method' => 'PATCH', 'action' => ['PostsController@update', $post->id], 'class' => 'form', 'files' => true ]) !!}
 
-        @include('includes.post-form', ['submitButton' => 'Update Post'])
+        @include('posts.post-form', ['submitButton' => 'Update Post'])
 
         {!! Form::close() !!}
     </div>

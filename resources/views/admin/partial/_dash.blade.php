@@ -29,7 +29,7 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h3>
-                           {{itway\User::all()->count()}}
+                           {{Itway\Models\User::all()->count()}}
                         </h3>
                         <p>
                             User Registrations

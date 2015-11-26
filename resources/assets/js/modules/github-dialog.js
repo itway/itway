@@ -1,3 +1,8 @@
+
+/*
+  github dialog functionality
+ */
+
 (function() {
   $.ItwayIO.githubDialog = {
     o: {

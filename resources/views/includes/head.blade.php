@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="{{\Illuminate\Support\Facades\Lang::getLocale()}}">
-@section('title')
-
-@endsection
 
 @section('meta_description')
 
@@ -17,7 +14,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>itway.io</title>
+    <title>itway.io @yield('title')</title>
+    <!-- Example Shares with description -->
+    <meta name="description" content="@yield('meta-description')" />
+    <!-- Example Shares with Image -->
+    <meta property="og:image" content="@yield('meta-image')" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

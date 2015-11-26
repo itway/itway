@@ -54,6 +54,6 @@ return array (
     'noQuizzesFoundTitle' => 'ваши опросы не найдены',
     'noQuizzesFound' => 'пожалуйста создайте хотя бы один!',
     'yourPhotoUpdated' => 'Фото вашего профиля обновлено!',
-    'liked' => 'Вы лайкнули статью',
+    'liked' => 'лайкнуто',
 
 );

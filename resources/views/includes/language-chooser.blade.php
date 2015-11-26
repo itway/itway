@@ -7,8 +7,6 @@
 
     </select>
     <button class="" style="border:none; outline: none; background: transparent;">
-        <span class="pull-left language-info">{{ trans('navigation.LangInfo') }}</span>
-        <i class="icon-location_history"></i>
          {{ Lang::locale() === 'en' ? 'ru' : 'en'}} version
     </button>
 <?php

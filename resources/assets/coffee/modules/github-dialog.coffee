@@ -1,3 +1,6 @@
+###
+  github dialog functionality
+###
 $.ItwayIO.githubDialog =
 o:
   dialog: $("[data-remodal-id='github']")

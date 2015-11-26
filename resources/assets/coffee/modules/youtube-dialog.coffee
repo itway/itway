@@ -1,3 +1,6 @@
+###
+  youtube dialog functionality
+###
 $.ItwayIO.youtubeDialog =
 o:
   dialog: $("[data-remodal-id='youtube']")

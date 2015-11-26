@@ -6,8 +6,8 @@ use itway\Events\UserWasCreatedEvent;
 use itway\Events\PostWasCreatedEvent;
 use itway\Listeners\PostWasCreatedListener;
 use itway\Listeners\UserRegisteredListener;
-use itway\Events\QuizWasCreated;
-use itway\Listeners\QuizWasCreatedListener;
+use itway\Events\PollWasCreated;
+use itway\Listeners\PollWasCreatedListener;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -27,8 +27,8 @@ class EventServiceProvider extends ServiceProvider {
 		PostWasCreatedEvent::class => [
 			PostWasCreatedListener::class
 		],
-		QuizWasCreated::class => [
-			QuizWasCreatedListener::class
+		PollWasCreated::class => [
+			PollWasCreatedListener::class
 		]
 
 	];

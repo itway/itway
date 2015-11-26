@@ -12,3 +12,7 @@ text-align: right
   font-family: 'Source Sans Pro';
   font-size: $font-size-base*1.2!important;
 }
+.white-bordered {
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}

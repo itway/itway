@@ -16,18 +16,16 @@ $.ItwayIO.notifier =
     notifyArea: $('.notify .panel')
     notifyBtn: $('#alertlink')
     warningTempl: "<div class=\"text-danger\">Something happened.</div>"
-    notifyTempl: (host, instance, title, author) ->
-      "<div class=\"activity\">
-          <a class=\"link\" href=\"#{host}\">
-            <span class=\"link-block\">
-              <span class=\"ui tag mini label\"> #{instance} </span>
-            <span class=\"title\">#{title}</span>
-            <span class=\"author\">
-              <span>author:</span> #{author}
-            </span>
-            </span>
-        </a>
-        </div>"
+    notifyTempl: (host, instance, link, title, author) ->
+      "<li class=\"activity\">
+      <a class=\"link\" href=\"#{link}\">
+      <span class=\"ui tag tiny label\">@{instance}</span>
+      <span class=\"link-block\">
+      <span class=\"title\">#{title}</span>
+      <span class=\"author\">
+      <span>author:</span>#{author}</span>
+      </span></a>
+      </li>"
   activate: ->
     _this = this
     _this.newInstanceCreated()
@@ -35,7 +33,7 @@ $.ItwayIO.notifier =
     _this = this
     _this.o.socket.on 'post-created:itway\\Events\\PostWasCreatedEvent',
       (message) ->
-        _this.o.notifyArea.prepend _this.o.notifyTempl(o.host, message.keys[0], message.title, message.user.name)
+        _this.o.notifyArea.prepend _this.o.notifyTempl(o.host, message.keys[0],message.link message.title, message.user.name)
         _this.addNotifiedState()
   addNotifiedState: ->
     _this = this
@@ -48,13 +46,4 @@ $.ItwayIO.notifier =
   toggleNotify: ->
     _this = this
     _this.o.notifyBtn.dropit()
-
-    # _this.o.notifyBtn.on "click", ->
-    #   if _this.o.notifyBlock.hasClass("active")
-    #     _this.o.notifyBlock.removeClass("active")
-    #   else _this.o.notifyBlock.addClass("active")
-    #   _this.o.notifyBlock.on "mouseleave", (e) ->
-    #     $("body").not(_this.o.notifyBlock).on "click", ->
-    #       if _this.o.notifyBlock.hasClass "active"
-    #         _this.o.notifyBlock.removeClass "active"
 $.ItwayIO.notifier.activate()

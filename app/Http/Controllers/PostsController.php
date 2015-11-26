@@ -62,9 +62,12 @@ class PostsController extends Controller {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
 
         $posts = $this->repository->getAll();
+
         $countUserPosts = $this->repository->countUserPosts();
 
-            return view('pages.blog', compact('posts','countUserPosts'));
+        $tags = $this->repository->getModel()->existingTags();
+
+        return view('pages.blog', compact('posts','countUserPosts', 'tags'));
 
     }
 
@@ -131,16 +134,18 @@ class PostsController extends Controller {
 
             $countUserPosts = $this->repository->countUserPosts();
 
+            $modelName = $this->repository->getModelName();
+
             if(Auth::user() && Auth::user()->id === $postUser) {
 
                 $createdByUser = true;
 
-                return view('posts.single', compact('post', 'createdByUser','countUserPosts'));
+                return view('posts.single', compact('post', 'createdByUser','countUserPosts', 'modelName'));
             }
             else {
                 $createdByUser = false;
 
-                return view('posts.single', compact('post','createdByUser','countUserPosts'));
+                return view('posts.single', compact('post','createdByUser','countUserPosts', 'modelName'));
             }
         } catch (ModelNotFoundException $e) {
 
@@ -159,6 +164,7 @@ class PostsController extends Controller {
 
                 $countUserPosts = $this->repository->countUserPosts();
 
+                $tags = $this->repository->getModel()->existingTags();
 
                 if($countUserPosts === 0)
                 {
@@ -167,7 +173,7 @@ class PostsController extends Controller {
                 }
                 else {
 
-                    return view('pages.blog', compact('posts', 'countUserPosts'));
+                    return view('pages.blog', compact('posts', 'countUserPosts', 'tags'));
                 }
 
             } catch (ModelNotFoundException $e) {
@@ -267,8 +273,9 @@ class PostsController extends Controller {
         $posts = Post::withAnyTag([$slug])->latest('published_at')->published()->paginate(8);
 
         $countUserPosts = $this->repository->countUserPosts();
+        $tags = $this->repository->getModel()->existingTags();
 
-        return view('pages.blog',compact('posts', 'countUserPosts'));
+        return view('pages.blog',compact('posts', 'countUserPosts', 'tags'));
     }
 
 

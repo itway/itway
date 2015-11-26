@@ -6,13 +6,11 @@ use Illuminate\Support\Collection;
 use Itway\Models\Post;
 use Itway\Models\JobHunt;
 use Itway\Models\OpenSourceIdea;
-use Itway\Models\Quiz;
 use Itway\Models\Team;
 
 trait SidebarTrait {
 
     protected $posts;
-    protected $quizzes;
     protected $ideas;
     protected $jobs;
     protected $teams;
@@ -22,15 +20,13 @@ trait SidebarTrait {
      * @param Post $posts
      * @param OpenSourceIdea $ideas
      * @param JobHunt $jobs
-     * @param Quiz $quizzes
      * @param Team $teams
      */
 
 	public function __construct(
-        Post $posts, OpenSourceIdea $ideas, JobHunt $jobs, Quiz $quizzes, Team $teams
+        Post $posts, OpenSourceIdea $ideas, JobHunt $jobs, Team $teams
     ) {
         $this->posts = $posts;
-        $this->quizzes = $quizzes;
         $this->ideas = $ideas;
         $this->jobs = $jobs;
         $this->teams = $teams;
@@ -50,13 +46,6 @@ trait SidebarTrait {
 
 	}
 
-	public function getLastQuizzes() {
-
-        return $this->quizzes->latest('published_at')->localed()->take($this->fetch())->get();
-
-
-	}
-
 	public function getLastIdeas() {
 
 	}
@@ -72,7 +61,7 @@ trait SidebarTrait {
 
 	public function formLastModelsCollection() {
 
-        $collection = collect(["posts" => $this->getLastPosts(), "quizzes" => $this->getLastQuizzes()]);
+        $collection = collect(["posts" => $this->getLastPosts()]);
 
         return $collection;
 	}

@@ -107,49 +107,8 @@ _init = (o) ->
     stopSearch: ->
       clearTimeout timer
       return
-  $.ItwayIO.likeBTN = activate: (buttonID, base_url, class_name, object_id, redirectIFerror) ->
-    if buttonID.length != 0
-      buttonID.submit (e) ->
-        e.preventDefault()
-        button = $(this).find('button')
-        buttonI = $(this).find('button i')
-        $.ajax {
-          type: 'GET'
-          url: base_url
-          data:
-            'class_name': class_name
-            'object_id': object_id
-          success: (data) ->
-            if data == 'error'
-              window.location.href = redirectIFerror
-            if data[0] == 'liked'
-              buttonI.addClass 'text-danger'
-              buttonI.removeClass 'icon-favorite_outline'
-              buttonI.addClass 'icon-favorite'
-              button.tooltipster 'content', data[1]
-              buttonID.parent().append $('<span/>',
-                'text': data[2]
-                'class': 'like-message')
-              $('span .like-message').animate {
-                opacity: 0.25
-                left: '+=50'
-                height: 'toggle'
-              }, 200
-            else
-              buttonI.removeClass 'text-danger'
-              buttonI.addClass 'icon-favorite_outline'
-              buttonI.removeClass 'icon-favorite'
-              button.tooltipster 'content', data[1]
-              buttonID.parent().find('.like-message').remove()
-            return
-          error: (data) ->
-            console.log 'error' + '   ' + data
-            return
 
-        }, 'html'
-        return
-    return
-  # generate imges live rendering
+  # generate images live rendering
   $.ItwayIO.imageLoad =
     activate: ->
       _this = this
@@ -544,57 +503,7 @@ _init = (o) ->
           $('#btnSendMessage').trigger 'click'
         return
       return
-  $.ItwayIO.quiz =
-    activate: ->
-      _this = this
-      _this.events()
-      return
-    events: ->
-      _this = this
-      quizOptions = $('#quizOptions')
-      #quizOptions.find(".options-block .add_new").on("click", _this.addOption(e));
-      _this.addOption()
-      _this.removeOption()
-      return
-    addOption: ->
-#define template
-      template = $('#quizOptions .options-block:first').clone()
-      #define counter
-      sectionsCount = 1
-      #add new section
-      $('body').on 'click', '.add_new', ->
-        sectionsCount++
-        lengthInput = $('#quizOptions .options-block').length
-        #loop through each input
-        section = template.clone().find(':input').each(->
-#set id to store the updated section number
-          console.log lengthInput
-          newId = @id + Number(lengthInput + 1)
-          #update for label
-          $(this).prev().attr('for', newId).text lengthInput + 1
-          #update id
-          @id = newId
-          return
-        ).end().appendTo('#quizOptions')
-        false
-      return
-    removeOption: ->
-      $('#quizOptions').on 'click', '.remove', ->
-#fade out section
-        $(this).fadeOut 300, ->
-#remove parent element (main section)
-          $(this).parent().remove()
-          lengthInput = $('#quizOptions .options-block').length
-          console.log lengthInput
-          i = 0
-          while i <= lengthInput
-            newId = 'option-id' + Number(i + 1)
-            $('#quizOptions .options-block input').eq(i).attr 'id', newId
-            $('#quizOptions .options-block i.icon-circle').eq(i).attr('for', newId).text i + 1
-            i++
-          false
-        return
-      return
+
 
   ### Layout
   # ======
@@ -1001,16 +910,13 @@ $ ->
   $.ItwayIO.csrf.activate()
 
   $.ItwayIO.search.activate()
+
   # start of handling events and sockets
-  $.ItwayIO.notifier.activate()
   #Activate the layout maker
   $.ItwayIO.layout.activate()
   #Activate messenger functionality
   $.ItwayIO.messenger.activate()
 
-  $.ItwayIO.quiz.activate()
-  if (typeof buttonID and typeof base_url and typeof class_name and typeof object_id and typeof redirectIFerror) != 'undefined'
-    $.ItwayIO.likeBTN.activate buttonID, base_url, class_name, object_id, redirectIFerror
   $.ItwayIO.imageLoad.activate()
   #Enable sidebar tree view controls
   $.ItwayIO.tree '.sidebar'

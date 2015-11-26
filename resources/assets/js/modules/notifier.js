@@ -18,8 +18,8 @@
       notifyArea: $('.notify .panel'),
       notifyBtn: $('#alertlink'),
       warningTempl: "<div class=\"text-danger\">Something happened.</div>",
-      notifyTempl: function(host, instance, title, author) {
-        return "<div class=\"activity\"> <a class=\"link\" href=\"" + host + "\"> <span class=\"link-block\"> <span class=\"ui tag mini label\"> " + instance + " </span> <span class=\"title\">" + title + "</span> <span class=\"author\"> <span>author:</span> " + author + " </span> </span> </a> </div>";
+      notifyTempl: function(host, instance, link, title, author) {
+        return "<li class=\"activity\"> <a class=\"link\" href=\"" + link + "\"> <span class=\"ui tag tiny label\">@{instance}</span> <span class=\"link-block\"> <span class=\"title\">" + title + "</span> <span class=\"author\"> <span>author:</span>" + author + "</span> </span></a> </li>";
       }
     },
     activate: function() {
@@ -31,7 +31,7 @@
       var _this;
       _this = this;
       return _this.o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
-        _this.o.notifyArea.prepend(_this.o.notifyTempl(o.host, message.keys[0], message.title, message.user.name));
+        _this.o.notifyArea.prepend(_this.o.notifyTempl(o.host, message.keys[0], message.link(message.title, message.user.name)));
         return _this.addNotifiedState();
       });
     },

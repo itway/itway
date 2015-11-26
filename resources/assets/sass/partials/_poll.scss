@@ -1,0 +1,41 @@
+.poll-form-block {
+
+  padding: 30px 3px;
+
+  .options-block {
+    width:100%;
+    display: block;
+    text-align: left;
+    .icon-circle {
+      font-size: 14px;
+      background: $info-color;
+      width: 10%;
+      border-radius: 50%;
+      text-align: left;
+      color: white;
+      padding: 5px 8px;
+    }
+    .input.input-line {
+      width:70%;
+    }
+    a.button{
+      top: 8px;
+      position: relative;
+      color: $info-color;
+      background: transparent;
+      border: none;
+      padding: 5px;
+      display: inline-block;
+      &.remove {
+        i{
+          color: $danger-color;
+        }
+      }
+      &.add_new {
+        i{
+          color: $success-color;
+        }
+      }
+    }
+  }
+}

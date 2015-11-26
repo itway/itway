@@ -2,6 +2,7 @@
 
 namespace Itway\Repositories;
 
+use Itway\Validation\Poll\PollFormRequest;
 use Itway\Validation\Post\PostsUpdateFormRequest;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
@@ -141,7 +142,9 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
     }
 
 
+ public function bindPoll(PollFormRequest $request, $post) {
 
+ }
     /**
      * return the number of user's posts
      *

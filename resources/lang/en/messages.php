@@ -25,8 +25,8 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'Contact' => 'Contact with us',
     'Pn' => 'Pins',
     'Pins' =>  'Fnd all your pins & articles!',
-    'Qz' => 'Quiz' ,
-    'Quiz' => 'Raise new topics or Quiz & ask questions!',
+    'Qz' => 'Poll' ,
+    'Quiz' => 'Raise new topics or Poll & ask questions!',
     'Jb' => 'Job-Hunt' ,
     'Job' => 'Find projects || invite others!',
     'Tm' => 'Teams',
@@ -57,8 +57,8 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'noQuizzesFoundTitle' => 'no Quizzes Found',
     'noQuizzesFound' => 'please create at least one',
     'yourPhotoUpdated' => 'Your Profile Photo is Updated',
-    'liked' => 'You liked this post',
-    'yourQuizCreated' => 'Your quiz has been created'
+    'liked' => 'liked',
+    'yourQuizCreated' => 'Your poll has been created'
 
 
 );

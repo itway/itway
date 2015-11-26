@@ -131,55 +131,6 @@
         clearTimeout(timer);
       }
     };
-    $.ItwayIO.likeBTN = {
-      activate: function(buttonID, base_url, class_name, object_id, redirectIFerror) {
-        if (buttonID.length !== 0) {
-          buttonID.submit(function(e) {
-            var button, buttonI;
-            e.preventDefault();
-            button = $(this).find('button');
-            buttonI = $(this).find('button i');
-            $.ajax({
-              type: 'GET',
-              url: base_url,
-              data: {
-                'class_name': class_name,
-                'object_id': object_id
-              },
-              success: function(data) {
-                if (data === 'error') {
-                  window.location.href = redirectIFerror;
-                }
-                if (data[0] === 'liked') {
-                  buttonI.addClass('text-danger');
-                  buttonI.removeClass('icon-favorite_outline');
-                  buttonI.addClass('icon-favorite');
-                  button.tooltipster('content', data[1]);
-                  buttonID.parent().append($('<span/>', {
-                    'text': data[2],
-                    'class': 'like-message'
-                  }));
-                  $('span .like-message').animate({
-                    opacity: 0.25,
-                    left: '+=50',
-                    height: 'toggle'
-                  }, 200);
-                } else {
-                  buttonI.removeClass('text-danger');
-                  buttonI.addClass('icon-favorite_outline');
-                  buttonI.removeClass('icon-favorite');
-                  button.tooltipster('content', data[1]);
-                  buttonID.parent().find('.like-message').remove();
-                }
-              },
-              error: function(data) {
-                console.log('error' + '   ' + data);
-              }
-            }, 'html');
-          });
-        }
-      }
-    };
     $.ItwayIO.imageLoad = {
       activate: function() {
         var _this;
@@ -630,56 +581,6 @@
         });
       }
     };
-    $.ItwayIO.quiz = {
-      activate: function() {
-        var _this;
-        _this = this;
-        _this.events();
-      },
-      events: function() {
-        var _this, quizOptions;
-        _this = this;
-        quizOptions = $('#quizOptions');
-        _this.addOption();
-        _this.removeOption();
-      },
-      addOption: function() {
-        var sectionsCount, template;
-        template = $('#quizOptions .options-block:first').clone();
-        sectionsCount = 1;
-        $('body').on('click', '.add_new', function() {
-          var lengthInput, section;
-          sectionsCount++;
-          lengthInput = $('#quizOptions .options-block').length;
-          section = template.clone().find(':input').each(function() {
-            var newId;
-            console.log(lengthInput);
-            newId = this.id + Number(lengthInput + 1);
-            $(this).prev().attr('for', newId).text(lengthInput + 1);
-            this.id = newId;
-          }).end().appendTo('#quizOptions');
-          return false;
-        });
-      },
-      removeOption: function() {
-        $('#quizOptions').on('click', '.remove', function() {
-          $(this).fadeOut(300, function() {
-            var i, lengthInput, newId;
-            $(this).parent().remove();
-            lengthInput = $('#quizOptions .options-block').length;
-            console.log(lengthInput);
-            i = 0;
-            while (i <= lengthInput) {
-              newId = 'option-id' + Number(i + 1);
-              $('#quizOptions .options-block input').eq(i).attr('id', newId);
-              $('#quizOptions .options-block i.icon-circle').eq(i).attr('for', newId).text(i + 1);
-              i++;
-            }
-            return false;
-          });
-        });
-      }
-    };
 
     /* Layout
      * ======
@@ -1089,13 +990,8 @@
     _init(o);
     $.ItwayIO.csrf.activate();
     $.ItwayIO.search.activate();
-    $.ItwayIO.notifier.activate();
     $.ItwayIO.layout.activate();
     $.ItwayIO.messenger.activate();
-    $.ItwayIO.quiz.activate();
-    if ((typeof buttonID && typeof base_url && typeof class_name && typeof object_id && typeof redirectIFerror) !== 'undefined') {
-      $.ItwayIO.likeBTN.activate(buttonID, base_url, class_name, object_id, redirectIFerror);
-    }
     $.ItwayIO.imageLoad.activate();
     $.ItwayIO.tree('.sidebar');
     if (o.enableControlSidebar) {

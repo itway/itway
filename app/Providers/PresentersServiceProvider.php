@@ -23,7 +23,7 @@ class PresentersServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $models = ['User', 'Post', 'Team', 'Event', 'Quiz', 'OpenSourceIdea', 'Chat', 'TaskBoard'];
+        $models = ['User', 'Post', 'Team', 'Event', 'Poll', 'OpenSourceIdea', 'Chat', 'TaskBoard'];
         foreach($models as $model) {
             $this->app->bind("Itway\\Presenters\\{$model}Presenter");
         }

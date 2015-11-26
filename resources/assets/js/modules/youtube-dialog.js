@@ -1,3 +1,8 @@
+
+/*
+  youtube dialog functionality
+ */
+
 (function() {
   $.ItwayIO.youtubeDialog = {
     o: {

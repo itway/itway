@@ -15,10 +15,6 @@ class Sidebar implements SidebarInterface {
 
 	}
 
-	public function getLastQuizzes() {
-
-	}
-
 	public function getLastIdeas() {
 
 

@@ -16,6 +16,15 @@ class Team extends Model implements Transformable
     {
         return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
+    /**
+     * poll attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function poll()
+    {
+        return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
+    }
     public static function deleteImage($file)
     {
         $filepath = self::image_path($file);

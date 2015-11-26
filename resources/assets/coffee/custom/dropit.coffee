@@ -1,4 +1,7 @@
 (($) ->
+  ###
+  small dropdown plugin
+  ###
 
   $.fn.dropit = (method) ->
     methods = init: (options) ->

@@ -19,11 +19,10 @@ class CreatePostsTable extends Migration {
             $table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->text('preamble');
-			$table->string('image');
 			$table->longText('body');
-      $table->string('slug');
-      $table->string('locale');
-      $table->integer('comment_count')->unsigned();
+      		$table->string('slug');
+      		$table->string('locale');
+      		$table->integer('comment_count')->unsigned();
 			$table->string('youtube_link')->nullable();
 			$table->string('github_link')->nullable();
 			$table->timestamps();

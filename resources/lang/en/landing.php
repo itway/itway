@@ -17,8 +17,8 @@ return [
     "pins-header" => "Your favourite articles, posts, ideas",
     "pins-text" => "Really helpful feature to add all the posts, ideas or even job-hunt proposals!
     All you have to do is to find something interesting click the button to pin it",
-    "quiz-header" => "Quiz App",
-    "quiz-text" => "Discuss some technologies or interesting features from our It world! Helps also to find necessary answers!",
+    "poll-header" => "Attach Polls",
+    "poll-text" => "Attach poll to posts, teams, messages, events, open-source idea. Discuss some technologies or interesting features from our It world!",
     "teams-header" => "Teams App",
     "teams-text" => "Create teams or just join other teams share skills! Fight with other teams to earn a new real world projects or just to make a brainstoms",
     "idea-share-header" => "Share ideas App",

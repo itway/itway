@@ -74,7 +74,7 @@
         onLoadStart: function(box) {},
         onLoadDone: function(box) {}
       }, options);
-      overlay = $('<div class="overlay"><div class="fa fa-refresh fa-spin"></div></div>');
+      overlay = $('<div class="overlay"><div class="ui active centered large inline loader"></div></div>');
       start = function(box) {
         box.append(overlay);
         settings.onLoadStart.call(box);
@@ -152,6 +152,10 @@
 
 (function() {
   (function($) {
+
+    /*
+    small dropdown plugin
+     */
     $.fn.dropit = function(method) {
       var methods;
       methods = {
@@ -221,6 +225,11 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/dropit.js.map
+
+
+/*
+  github dialog functionality
+ */
 
 (function() {
   $.ItwayIO.githubDialog = {
@@ -320,6 +329,218 @@
 
 //# sourceMappingURL=coffee-sourcemaps/github-dialog.js.map
 
+(function() {
+  $.ItwayIO.imageDialog = {
+    o: {
+      addonBtn: $("a.photo"),
+      dialog: $("[data-remodal-id='photo']"),
+      photoBlock: $(".photo-block"),
+      photoinput: $('#photoUpload').attr('accept', 'image/jpeg,image/png,image/gif'),
+      button: $("[data-remodal-id='photo'] .remodal-confirm"),
+      templateImage: function(src, size) {
+        return '<div class=\'s-12 m-12 l-12 xs-12\'><div class=\'thumbnail\' style=\'background: #ffffff\'><img class="img-responsive" src=\'' + src + '\' /><div class=\'caption\' style=\'position: absolute;right: 10px;top:10px;\'> <h4  style=\'background: black;padding: 4px; color: white\'>' + size + ' Mb </h4></div></div> </div> ';
+      }
+    },
+    activate: function() {
+      var _this;
+      _this = this;
+      _this.initiateDialogImage();
+    },
+    renderDialogImage: function(file, fileinput, settings) {
+      var _this, image, reader;
+      _this = this;
+      reader = new FileReader;
+      image = new Image;
+      reader.onload = function(_file) {
+        image.src = _file.target.result;
+        image.onload = function() {
+          var h, n, s, scaleWidth, t, w;
+          w = this.width;
+          h = this.height;
+          t = file.type;
+          n = file.name;
+          s = ~~(file.size / 1024) / 1024;
+          scaleWidth = settings.thumbnail_size;
+          _this.o.photoBlock.append(_this.o.templateImage(image.src, s.toFixed(2)));
+          _this.renderLabelFileName(n, 'success');
+        };
+        image.onerror = function() {
+          alert('Invalid file type: ' + file.type);
+          _this.renderLabelFileName(file.name, "error");
+          fileinput.val(null);
+        };
+      };
+      reader.readAsDataURL(file);
+    },
+    resolveAddon: function() {
+      var _this;
+      _this = this;
+      _this.o.addonBtn.find(".addon").remove();
+      if (_this.o.dialog.hasClass("approved")) {
+        return _this.o.addonBtn.prepend("<span class='addon'><b class='text-danger'>+1</b> added</span>");
+      } else {
+        return _this.o.addonBtn.find(".addon").remove();
+      }
+    },
+    renderLabelFileName: function(filename, message) {
+      var _this, fileLabel;
+      _this = this;
+      fileLabel = $('.filelabel');
+      if (fileLabel.find("span.text-info").length > 0 || fileLabel.find("span.text-danger").length > 0) {
+        fileLabel.find("span.text-info").remove();
+        fileLabel.find("span.text-danger").remove();
+      }
+      if (message === "success") {
+        return $('.filelabel').append($('<span>').addClass('text-info').text(filename).css({
+          'font-size': '100%',
+          'display': 'inline-block',
+          'font-weight': 'normal',
+          'margin-left': '1em',
+          'font-style': 'normal'
+        }));
+      } else {
+        return $('.filelabel').append($('<span>').addClass('text-danger').text(filename + " format is not valid").css({
+          'font-size': '100%',
+          'display': 'inline-block',
+          'font-weight': 'normal',
+          'margin-left': '1em',
+          'font-style': 'normal'
+        }));
+      }
+    },
+    confirmImage: function(input) {
+      var _this;
+      _this = this;
+      return _this.o.button.on("click", function(e) {
+        var newInput;
+        if ($("[data-photo-id='photo-input']").length < 1) {
+          newInput = input.attr("data-photo-id", "photo-input");
+          _this.o.addonBtn.after(newInput);
+        } else {
+          $("[data-photo-id='photo-input']").remove();
+          newInput = input.attr("data-photo-id", "photo-input");
+          _this.o.addonBtn.after(newInput);
+        }
+        _this.o.dialog.addClass("approved");
+        return _this.resolveAddon();
+      });
+    },
+    initiateDialogImage: function() {
+      var _this, settings;
+      _this = this;
+      settings = {
+        thumbnail_size: 460,
+        thumbnail_bg_color: '#ddd',
+        thumbnail_border: '1px solid #fff',
+        thumbnail_shadow: '0 0 0px rgba(0, 0, 0, 0.5)',
+        label_text: '',
+        warning_message: 'Not an image file.',
+        warning_text_color: '#f00',
+        input_class: 'custom-file-input button button-primary button-block'
+      };
+      _this.o.photoinput.change(function(e) {
+        var F, i;
+        _this.o.photoBlock.html('');
+        if (this.disabled) {
+          return alert('File upload not supported!');
+        }
+        F = this.files;
+        if (F && F[0]) {
+          i = 0;
+          while (i < F.length) {
+            if (F[i].type.match('image.*')) {
+              _this.renderDialogImage(F[i], _this.o.photoinput, settings);
+              _this.confirmImage($(e.target));
+            } else {
+              _this.renderLabelFileName(F[i].name, "error");
+              _this.o.dialog.removeClass("approved");
+            }
+            i++;
+          }
+        }
+      });
+    }
+  };
+
+  $.ItwayIO.imageDialog.activate();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/image-dialog.js.map
+
+
+/*
+  like button functionality
+ */
+
+(function() {
+  $.ItwayIO.likeBTN = {
+    o: {
+      formID: $("#like"),
+      buttonID: $("#like button"),
+      base_url: $("#like button").attr("data-base-url"),
+      class_name: $("#like button").attr("data_class_name"),
+      object_id: $("#like button").attr("data_object_id"),
+      label: $("#like .label"),
+      redirectIFerror: "http://www.itway.io/auth/login"
+    },
+    activate: function() {
+      var _this;
+      _this = this;
+      console.log(_this.o.formID, _this.o.base_url);
+      if (_this.o.formID.length !== 0) {
+        _this.o.buttonID.on("click", function(e) {
+          var button, buttonI;
+          button = _this.o.buttonID;
+          buttonI = button.find('i');
+          $.ajax({
+            type: 'GET',
+            url: _this.o.base_url,
+            data: {
+              'class_name': _this.o.class_name,
+              'object_id': _this.o.object_id
+            },
+            success: function(data) {
+              if (data === 'error') {
+                window.location.href = _this.o.redirectIFerror;
+              }
+              if (data[0] === 'liked') {
+                buttonI.addClass('text-danger');
+                buttonI.removeClass('icon-favorite_outline');
+                buttonI.addClass('icon-favorite');
+                _this.o.label.html(data[1]);
+                _this.o.formID.find(".label").after($('<span/>', {
+                  'text': data[2],
+                  'class': 'like-message'
+                }));
+                $('span .like-message').animate({
+                  opacity: 0.25,
+                  left: '+=50',
+                  height: 'toggle'
+                }, 200);
+              } else {
+                buttonI.removeClass('text-danger');
+                buttonI.addClass('icon-favorite_outline');
+                buttonI.removeClass('icon-favorite');
+                _this.o.label.html(data[1]);
+                _this.o.formID.find('.like-message').remove();
+              }
+            },
+            error: function(data) {
+              console.log('error' + '   ' + data);
+            }
+          }, 'html');
+        });
+      }
+    }
+  };
+
+  $.ItwayIO.likeBTN.activate();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/likebtn.js.map
+
 
 /* Notifier
  * ======
@@ -340,8 +561,8 @@
       notifyArea: $('.notify .panel'),
       notifyBtn: $('#alertlink'),
       warningTempl: "<div class=\"text-danger\">Something happened.</div>",
-      notifyTempl: function(host, instance, title, author) {
-        return "<div class=\"activity\"> <a class=\"link\" href=\"" + host + "\"> <span class=\"link-block\"> <span class=\"ui tag mini label\"> " + instance + " </span> <span class=\"title\">" + title + "</span> <span class=\"author\"> <span>author:</span> " + author + " </span> </span> </a> </div>";
+      notifyTempl: function(host, instance, link, title, author) {
+        return "<li class=\"activity\"> <a class=\"link\" href=\"" + link + "\"> <span class=\"ui tag tiny label\">@{instance}</span> <span class=\"link-block\"> <span class=\"title\">" + title + "</span> <span class=\"author\"> <span>author:</span>" + author + "</span> </span></a> </li>";
       }
     },
     activate: function() {
@@ -353,7 +574,7 @@
       var _this;
       _this = this;
       return _this.o.socket.on('post-created:itway\\Events\\PostWasCreatedEvent', function(message) {
-        _this.o.notifyArea.prepend(_this.o.notifyTempl(o.host, message.keys[0], message.title, message.user.name));
+        _this.o.notifyArea.prepend(_this.o.notifyTempl(o.host, message.keys[0], message.link(message.title, message.user.name)));
         return _this.addNotifiedState();
       });
     },
@@ -383,6 +604,76 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/notifier.js.map
+
+
+/*
+  poll functionality
+ */
+
+(function() {
+  $.ItwayIO.poll = {
+    o: {
+      pollOptions: $('#pollOptions')
+    },
+    activate: function() {
+      var _this;
+      _this = this;
+      _this.events();
+    },
+    events: function() {
+      var _this;
+      _this = this;
+      _this.addOption();
+      _this.removeOption();
+    },
+    addOption: function() {
+      var _this, sectionsCount, template;
+      _this = this;
+      template = $('#pollOptions .options-block:first').clone();
+      sectionsCount = 1;
+      $('body').on('click', '.add_new', function() {
+        var lengthInput, section;
+        sectionsCount++;
+        lengthInput = $('#pollOptions .options-block').length;
+        section = template.clone().find(':input').each(function() {
+          var newId;
+          console.log(lengthInput);
+          newId = this.id + Number(lengthInput + 1);
+          $(this).prev().attr('for', newId).text(lengthInput + 1);
+          this.id = newId;
+        }).end().appendTo('#pollOptions');
+        return false;
+      });
+    },
+    removeOption: function() {
+      var _this;
+      _this = this;
+      _this.o.pollOptions.on('click', '.remove', function() {
+        $(this).fadeOut(300, function() {
+          var i, lengthInput, newId;
+          lengthInput = $('#pollOptions .options-block').length;
+          if (lengthInput > 1) {
+            $(this).parent().remove();
+          }
+          console.log(lengthInput);
+          i = 0;
+          while (i <= lengthInput) {
+            newId = 'option-id' + Number(i + 1);
+            $('#pollOptions .options-block input').eq(i).attr('id', newId);
+            $('#pollOptions .options-block i.icon-circle').eq(i).attr('for', newId).text(i + 1);
+            i++;
+          }
+          return false;
+        });
+      });
+    }
+  };
+
+  $.ItwayIO.poll.activate();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/poll.js.map
 
 
 /*
@@ -431,6 +722,11 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/todo.js.map
+
+
+/*
+  youtube dialog functionality
+ */
 
 (function() {
   $.ItwayIO.youtubeDialog = {

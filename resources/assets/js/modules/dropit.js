@@ -1,5 +1,9 @@
 (function() {
   (function($) {
+
+    /*
+    small dropdown plugin
+     */
     $.fn.dropit = function(method) {
       var methods;
       methods = {

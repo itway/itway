@@ -51,6 +51,17 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 //    	$this->belongsToMany(EventUsers::class, 'event_users');
 //
 //    }
+
+    /**
+     * poll attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function poll()
+    {
+        return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
+    }
+
     public function setPublishedAtAttribute ($date) {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
