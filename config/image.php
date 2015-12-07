@@ -19,6 +19,7 @@ return array(
     'post' => 'images/posts/',
     'quiz' => 'images/quizzes/',
     'user' => 'images/users/',
+    'teamworkteam' => 'images/teams/',
     'team' => 'images/teams/',
     'event' => 'imags/events/',
     'opensourceidea' => 'images/opensourceidea/',

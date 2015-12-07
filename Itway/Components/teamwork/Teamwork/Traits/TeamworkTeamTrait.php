@@ -19,13 +19,13 @@ trait TeamworkTeamTrait
     }
     
     /**
-     * Many-to-Many relations with the user model.
+     * one-to-Many relations with the user model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
     {
-        return $this->belongsToMany(Config::get('auth.model'), Config::get('teamwork.team_user_table'), 'team_id','user_id');
+        return $this->hasMany(Config::get('auth.model'), Config::get('teamwork.team_user_table'), 'team_id','user_id');
     }
 
     /**

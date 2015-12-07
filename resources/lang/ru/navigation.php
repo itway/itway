@@ -17,6 +17,8 @@ return array (
     'Pins' => 'Закладки',
     'tag_search' => 'Поиск по тегам',
     'Teams' => 'Комманды',
+    'Create-Team' => 'Создать команду',
+    'User-Team' => 'Ваша команда',
     'About' => 'О нас',
     'LangInfo' => 'Переключиться на:',
     'User-Posts' => 'Ваши посты',

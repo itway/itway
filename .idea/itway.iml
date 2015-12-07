@@ -77,7 +77,6 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" isTestSource="false" packagePrefix="GuzzleHttp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/angular" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/datedropper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
@@ -88,7 +87,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/underscore" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/classpreloader/classpreloader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cocur/slugify" />
@@ -190,12 +188,12 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/composer.phar" />
-          <root url="phar://$MODULE_DIR$/composer_2.phar" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/composer_2.phar/" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/composer.phar" />
-          <root url="phar://$MODULE_DIR$/composer_2.phar" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/composer_2.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -203,17 +201,16 @@
       <library name="PHP">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
-          <root url="file://$MODULE_DIR$/vendor/bower_components/datedropper" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/remodal" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
-          <root url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/underscore" />
           <root url="file://$MODULE_DIR$/vendor/classpreloader/classpreloader" />
           <root url="file://$MODULE_DIR$/vendor/cocur/slugify" />
@@ -311,17 +308,16 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
-          <root url="file://$MODULE_DIR$/vendor/bower_components/datedropper" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/remodal" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/requirejs" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/socket.io-client" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/taggingJS" />
-          <root url="file://$MODULE_DIR$/vendor/bower_components/tooltipster" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/underscore" />
           <root url="file://$MODULE_DIR$/vendor/classpreloader/classpreloader" />
           <root url="file://$MODULE_DIR$/vendor/cocur/slugify" />

@@ -45,7 +45,7 @@ return array(
     'Itway\\Components\\Sidebar\\' => array($baseDir . '/Itway/Components/Sidebar'),
     'Itway\\Components\\Messenger\\' => array($baseDir . '/Itway/Components/Messenger/Messenger'),
     'Itway\\' => array($baseDir . '/Itway'),
-    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image', $vendorDir . '/intervention/imagecache/src/Intervention/Image'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/imagecache/src/Intervention/Image', $vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\Html\\' => array($vendorDir . '/illuminate/html'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'GuzzleHttp\\Stream\\' => array($vendorDir . '/guzzlehttp/streams/src'),

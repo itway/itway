@@ -51,7 +51,7 @@ class PostsController extends Controller {
      */
     protected function redirectError()
     {
-        return redirect()->to(App::getLocale().'/blog/'.Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+        return redirect()->to(App::getLocale().'/blog')->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
     }
 
     /**

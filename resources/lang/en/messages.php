@@ -31,6 +31,7 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'Job' => 'Find projects || invite others!',
     'Tm' => 'Teams',
     'Teams' => 'Create teams, compete, find partners!',
+    'createTeam' => 'Create Your own team. Find partners and cooperate! Please take to account that you can be only in one team.',
     'Id' => 'Idea-Share' ,
     'Idea' => 'Share ideas with everyone || with your team!',
     'l' => 'Login',

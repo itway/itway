@@ -6,7 +6,7 @@
  * Time: 12:06 AM
  */
 return [
-    "special-thanks" => "<h3> Особая благодарность:
+    "special-thanks" => "<h4> Особая благодарность:</h4>
 <span>Всем IT блогерам</span>,
 <span>авторам пособий по программированию</span>,
 <span>разработчикам open-source</span>,

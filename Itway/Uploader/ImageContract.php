@@ -12,5 +12,6 @@ namespace Itway\Uploader;
 interface ImageContract
 {
     public function bindImage($image, $instance);
+    public function bindImageTo($image, $instance, $field);
 
 }

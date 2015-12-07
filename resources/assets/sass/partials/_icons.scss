@@ -390,8 +390,9 @@
 .icon-cancel:before {
   content: "\e205";
 }
-.icon-close:before {
+.icon-close:before, .delete.icon:before {
   content: "\e209";
+  font-style: normal;
 }
 .icon-expand_less:before {
   content: "\e20a";
@@ -555,6 +556,7 @@
 .icon-delete:before {
   content: "\e287";
 }
+
 .icon-event:before {
   content: "\e28c";
 }

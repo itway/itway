@@ -50,7 +50,12 @@
   }
 }
 
-
+.input-line {
+  border: 0!important;
+  border-radius: 0!important;
+  border-bottom: $input-border!important;
+  padding: .67861429em 0.1em!important;
+}
 .input-group {
   .input.with-right-button {
     padding: 3px 40px 3px 10px;

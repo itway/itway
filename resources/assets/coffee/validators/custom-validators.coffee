@@ -17,8 +17,7 @@ $.ItwayIO.cValidator =
     catch err
       false
     return
-
-  # generate the git:// parsing regex
+  #s generate the git:// parsing regex
   # with options, e.g., the ability
   # to specify multiple GHE domains.
 

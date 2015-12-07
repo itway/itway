@@ -177,18 +177,15 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
     public function makeModel()
     {
         $model = $this->app->make($this->model());
-
         if (!$model instanceof Model) {
             throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
-
         return $this->model = $model;
     }
 
-    public function getModelName(){
-
+    public function getModelName()
+    {
         $reflection = new ReflectionClass($this->model());
-
         return $reflection->getShortName();
 
     }
@@ -201,23 +198,19 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
      * @return mixed
      * @throws RepositoryException
      */
-    public function bindFromConfigModel($configName) {
-
+    public function bindFromConfigModel($configName)
+    {
         $configArray = config(strtolower($configName), $configName);
-
         if (empty($configArray) || $configArray === null) {
-
             throw new RepositoryException("Config file {$configName} - not found!");
         }
         else {
-
             $model = strtolower($this->getModelName());
 
             $confName = $configArray[$model];
 
             return $confName;
         }
-
     }
 
     /**
@@ -225,14 +218,12 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
      * @return mixed
      * @throws RepositoryException
      */
-    public function getImagePathFromConfig($imageFileConfig = null){
-
+    public function getImagePathFromConfig($imageFileConfig = null)
+    {
         if ($imageFileConfig === null) {
-
             return $this->bindFromConfigModel('image');
         }
         else {
-
             return $this->bindFromConfigModel($imageFileConfig);
 
         }
@@ -679,7 +670,6 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
                 return $this->presenter->present($result);
             }
         }
-
         return $result;
     }
 }

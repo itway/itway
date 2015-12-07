@@ -224,7 +224,7 @@
           fileLabel.find("span.text-danger").remove();
         }
         if (message === "success") {
-          return $('.filelabel').append($('<span>').addClass('text-info').text(filename).css({
+          return $('.filelabel').append($('<span>').addClass('text-info').css({
             'font-size': '100%',
             'display': 'inline-block',
             'font-weight': 'normal',
@@ -232,7 +232,7 @@
             'font-style': 'normal'
           }));
         } else {
-          return $('.filelabel').append($('<span>').addClass('text-danger').text(filename + " format is not valid").css({
+          return $('.filelabel').append($('<span>').addClass('text-danger').text(" format is not valid").css({
             'font-size': '100%',
             'display': 'inline-block',
             'font-weight': 'normal',
@@ -252,7 +252,7 @@
           ImgBlock.next("span.text-danger").remove();
         }
         if (message === "success") {
-          return ImgBlock.after($('<span>').addClass('text-info').html(filename).css({
+          return ImgBlock.after($('<span>').addClass('text-info').css({
             'font-size': '100%',
             'display': 'inline-block',
             'font-weight': 'normal',
@@ -260,7 +260,7 @@
             'font-style': 'normal'
           }));
         } else {
-          return ImgBlock.after($('<span>').addClass('text-danger').html(filename + "<br/><b>format is not valid </b>").css({
+          return ImgBlock.after($('<span>').addClass('text-danger').html("<br/><b>format is not valid </b>").css({
             'font-size': '100%',
             'display': 'inline-block',
             'font-weight': 'normal',

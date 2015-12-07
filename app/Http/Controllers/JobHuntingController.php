@@ -82,4 +82,16 @@ class JobHuntingController extends Controller {
 		//
 	}
 
+	public function jobInvite(Request $request, $user_id) {
+
+	}
+
+	public function inviteToDiscuss() {
+
+	}
+
+	public function rejectJob() {}
+
+	public function acceptJob() {}
+
 }

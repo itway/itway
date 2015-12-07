@@ -277,7 +277,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'as' => 'index'
 
             ]);
-            Route::get('idea/{slug}', [
+            Route::get('/{slug}', [
                 'uses' => 'OpenSourceIdeaController@show',
                 'as' => 'show'
 
@@ -287,11 +287,9 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'as' => 'create'
 
             ]);
-
             Route::get('user-ideas', [
                 'uses' => 'OpenSourceIdeaController@userPosts',
                 'as' => 'user-posts'
-
             ]);
             Route::get('edit/{id}', [
                 'uses' => 'OpenSourceIdeaController@edit',
@@ -325,7 +323,7 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
                 'as' => 'index'
 
             ]);
-            Route::get('team/{slug}', [
+            Route::get('/{slug}', [
                 'uses' => 'TeamsController@show',
                 'as' => 'show'
 
@@ -344,17 +342,17 @@ Route::group([ 'prefix' => $locale, 'middleware' => 'locale'], function() {
             Route::get('edit/{id}', [
                 'uses' => 'TeamsController@edit',
                 'as' => 'edit',
-                'middleware' => 'IsUsersOrAdminPost'
+                'middleware' => 'IsUsersOrAdminTeam'
             ]);
             Route::patch('update/{id}', [
                 'uses' => 'TeamsController@update',
                 'as' => 'update',
-                'middleware' => 'IsUsersOrAdminPost'
+                'middleware' => 'IsUsersOrAdminTeam'
             ]);
             Route::delete('delete/{id}', [
                 'uses' => 'TeamsController@destroy',
                 'as' => 'delete',
-                'middleware' => 'IsUsersOrAdminPost'
+                'middleware' => 'IsUsersOrAdminTeam'
             ]);
             Route::post('store', [
                 'uses' => 'TeamsController@store',
@@ -596,7 +594,7 @@ Route::post('/getAllExistingTags', ['as' => 'getAllExistingTags', 'uses' => 'Sea
 //end socialite
 
 // ROUTES FOR AJAX CALLS
-
+Route::get('queryCountries/{query}', ['uses' => 'CountriesController@queryCountry', 'as'=>'query-country']);
 Route::get('chat/{user_id}/rooms', ['uses' => 'ChatController@getUsersConversations', 'as' => 'users-room-get']);
 Route::get('chat/conversations', ['uses' => 'ChatController@getConversations', 'as' => 'room-get']);
 Route::get('chat/create', ['as' => 'room.create', 'uses' => 'ChatController@createForm']);

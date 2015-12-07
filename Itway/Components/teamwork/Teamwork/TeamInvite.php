@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 use Itway\Components\teamwork\Teamwork\Traits\TeamworkTeamInviteTrait;
 
-
 class TeamInvite extends Model
 {
     use TeamworkTeamInviteTrait;

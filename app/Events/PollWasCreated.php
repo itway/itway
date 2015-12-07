@@ -17,7 +17,7 @@ class PollWasCreated extends Event implements ShouldBroadcast
     public $user;
 
     /**
-     * @param Quiz $quz
+     * @param Poll $poll
      * @param User $user
      */
     public function __construct(Poll $poll, User $user)

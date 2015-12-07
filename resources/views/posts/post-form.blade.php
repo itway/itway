@@ -1,28 +1,63 @@
 <div class="l-12 m-12 s-12 create-form">
-    <div class="form-group">
-      <div class="title-block ">
-        <span class="label titl">{{trans('post-form.title')}}</span>
-        <div class="clearfix"></div>
-        {!! Form::text('title', null, ['class' => 'input input-line', 'id' => 'title','placeholder' => 'insert your title here      (max:120)'])!!}
-        <div class="pos-rel">
-            <div class="input-count">left <span id="counter1"></span> symbols.</div>
+    <div class="two fields">
+        <div class="field">
+            <div class="title-block ">
+                <span class="label titl">{{trans('post-form.title')}}</span>
+                <div class="clearfix"></div>
+                {!! Form::text('title', null, ['class' => 'input-line', 'id' => 'title','placeholder' => 'insert your title here'])!!}
+                <div class="pos-rel">
+                    <div class="input-count">left <span id="counter1"></span> symbols.</div>
+                </div>
+                <div class="clearfix"></div>
+                {!! $errors->first('title', '<div class="text-danger">:message</div>') !!}
+            </div>
         </div>
-        <div class="clearfix"></div>
-        {!! $errors->first('title', '<div class="text-danger">:message</div>') !!}
-      </div>
-      <div class="tag-block">
-        <span class="label titl">#{{trans('post-form.tags')}}</span>
-        <div class="clearfix"></div>
-                <div data-tags-input-name="tags_list" id="tagBox" ></div>
-        <div class="clearfix"></div>
-        {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
-      </div>
+
+        <div class="field">
+                <div class="tag-block" style="z-index: 22!important;">
+                    <span class="label titl">#{{trans('post-form.tags')}}</span>
+                    <div class="clearfix"></div>
+                    <select multiple="multiple" name="tags_list[]" class="ui tags fluid multiple search normal selection dropdown">
+                        <option value=""> choose {{trans('post-form.tags')}}</option>
+                        @if(url(App::getLocale().'/blog/create') !== Request::url())
+                            @include('posts.updateFormScript')
+                        @else
+                            <option value="angular">Angular</option>
+                            <option value="css">CSS</option>
+                            <option value="design">Graphic Design</option>
+                            <option value="ember">Ember</option>
+                            <option value="html">HTML</option>
+                            <option value="ia">Information Architecture</option>
+                            <option value="javascript">Javascript</option>
+                            <option value="mech">Mechanical Engineering</option>
+                            <option value="meteor">Meteor</option>
+                            <option value="node">NodeJS</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="python">Python</option>
+                            <option value="rails">Rails</option>
+                            <option value="react">React</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="c#">C#</option>
+                            <option value="c++">C++</option>
+                            <option value="php">PHP</option>
+                            <option value="ASPnet">ASPnet</option>
+                            <option value="UI Design">UI Design</option>
+                            <option value="User Experience">User Experience</option>
+                        @endif
+
+                    </select>
+                    <div class="clearfix"></div>
+                    {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
+                </div>
+        </div>
+
     </div>
-    <div class="form-group">
+
+    <div class="field">
       <div class="preamble-block">
         <span class="label titl">{{trans('post-form.preamble')}}</span>
         <div class="clearfix"></div>
-      {!! Form::textarea('preamble', null, ['class' => 'input input-line', 'id' => 'preamble','rows' => '3', 'placeholder' => 'insert your preamble here      (max:300)'])!!}
+      {!! Form::textarea('preamble', null, ['class' => 'input-line', 'id' => 'preamble','rows' => '3', 'placeholder' => 'insert your preamble here      (max:300)'])!!}
       <div class="pos-rel">
           <div class="input-count">left <span id="counter2"></span> symbols.</div>
       </div>
@@ -41,7 +76,8 @@
     </div>
     <div class="clearfix"></div>
     {!! $errors->first('body', '<div class="text-danger">:message</div>') !!}
-    <div class="form-group">
+    <div class="two fields">
+    <div class="field">
       <div class="btns-block">
         <span class="label titl">{{trans('post-form.attach')}}</span>
         <div class="clearfix"></div>
@@ -53,25 +89,29 @@
         <div class="clearfix"></div>
         {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
       </div>
-      <div class="clearfix"></div>
-<div class="time-block-addon">
-</div>
-      <div class="time-block">
-        <span class="label titl">{{trans('post-form.publish on')}}</span>
-        <div class="clearfix"></div>
-        @if(isset($postInstance))
-            <div class="form-group">
-                {!! Form::input('text', 'published_at', $postInstance->published_at ?  explode(" ",$postInstance->published_at)[0]: date('Y-m-d') , ['id'=> 'datepicker','class'=> 'input input-line datepicker'])!!}
-            </div>
-        @else
-            <div class="form-group">
-                {!! Form::input('text', 'published_at', $post->published_at ? explode(" ", $post->published_at)[0] : date('Y-m-d') , ['id'=> 'datepicker', 'class'=> 'input input-line datepicker'])!!}
-            </div>
-        @endif
-        <div class="clearfix"></div>
-        {!! $errors->first('date', '<div class="text-danger">:message</div>') !!}
-      </div>
     </div>
+
+    <div class="field">
+            <div class="time-block-addon">
+            </div>
+        <div class="time-block">
+                <span class="label titl">{{trans('post-form.publish on')}}</span>
+                <div class="clearfix"></div>
+                @if(isset($postInstance))
+                    <div class="form-group">
+                        {!! Form::input('text', 'published_at', $postInstance->published_at ?  explode(" ",$postInstance->published_at)[0]: date('Y-m-d') , ['id'=> 'datepicker','class'=> 'input input-line datepicker'])!!}
+                    </div>
+                @else
+                    <div class="form-group">
+                        {!! Form::input('text', 'published_at', $post->published_at ? explode(" ", $post->published_at)[0] : date('Y-m-d') , ['id'=> 'datepicker', 'class'=> 'input input-line datepicker'])!!}
+                    </div>
+                @endif
+                <div class="clearfix"></div>
+                {!! $errors->first('date', '<div class="text-danger">:message</div>') !!}
+        </div>
+    </div>
+    </div>
+
     <div class="form-group">
         {!! Form::submit($submitButton, ['class' => 'confirm button button-primary'])!!}
     </div>

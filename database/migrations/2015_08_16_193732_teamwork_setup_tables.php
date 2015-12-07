@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class TeamworkSetupTables extends Migration
 {
@@ -35,8 +36,16 @@ class TeamworkSetupTables extends Migration
             $table->increments( 'id' )->unsigned();
             $table->integer( 'owner_id' )->unsigned()->nullable();
             $table->string( 'name' );
+            $table->string('slug');
+            $table->string('locale');
+            $table->timestamp('date')->default(Carbon::today());
+            $table->boolean('banned')->default(false);
+            $table->string('logo_bg');
+            $table->string('country');
+            $table->string('country_name');
+            $table->softDeletes();
             $table->timestamps();
-        } );
+        });
 
         Schema::create( \Config::get( 'teamwork.team_user_table' ), function ( $table )
         {
@@ -50,7 +59,7 @@ class TeamworkSetupTables extends Migration
                 ->onDelete( 'cascade' );
 
             $table->foreign( 'team_id' )->references( 'id' )->on( \Config::get( 'teamwork.teams_table' ) );
-        } );
+        });
     }
 
     /**
@@ -71,7 +80,9 @@ class TeamworkSetupTables extends Migration
         });
 
         Schema::drop(\Config::get('teamwork.team_user_table'));
-        Schema::drop(\Config::get('teamwork.teams_table'));
+        Schema::drop(\Config::get('teamwork.teams_table'), function(Blueprint $table){
+            $table->dropSoftDeletes();
+        });
         Schema::drop(\Config::get('teamwork.team_invites_table'));
 
     }

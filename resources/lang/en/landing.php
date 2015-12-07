@@ -6,7 +6,7 @@
  * Time: 12:06 AM
  */
 return [
-    "special-thanks" => "<h3> Special thanks to: <span>All IT bloggers</span>, <span>authors of Programming Guides </span>,<span> open-source developers</span>, <span>iT investors</span>",
+    "special-thanks" => "<h4> Special thanks to:</h4> <span>All IT bloggers</span>, <span>authors of Programming Guides </span>,<span> open-source developers</span>, <span>iT investors</span>",
     "ult-devs" => "<span>The Ultimate DEVS</span>
             <span>Platform</span>",
     "header" => "Itway unites computer & It nerds",

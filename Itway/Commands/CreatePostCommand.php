@@ -29,7 +29,7 @@ class CreatePostCommand extends Command implements SelfHandling {
      */
     public function __construct(
             $title,
-			      $preamble,
+            $preamble,
             $body,
             $tags_list,
             $published_at,
@@ -46,6 +46,7 @@ class CreatePostCommand extends Command implements SelfHandling {
             $this->youtubelink = $youtubelink;
             $this->githublink = $githublink;
 	}
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Model

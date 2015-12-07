@@ -1,0 +1,19 @@
+.ui.search.selection
+{
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  &.half {
+    flex: 1 0 50%!important;
+    padding: 10px!important;
+    width: 50%;
+    margin: 0;
+  }
+  .search-country {
+    padding: 5px 10px;
+    font: normal 18px/normal "PT Sans", Helvetica, sans-serif;
+    line-height: 1.5;
+    border-radius: 2px;
+  }
+}

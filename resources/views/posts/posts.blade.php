@@ -6,13 +6,13 @@
     @include('errors.nothing')
     @else
       @include('includes.tag-side', [$tags, $tags_title = trans("post.post-tags")])
-        <div class="posts l-9 m-9 s-9 xs-9">
+        <div class="slots l-9 m-9 s-9 xs-9">
                 @foreach(array_chunk($posts->getCollection()->all(), 1) as $row)
                     <div class="row" >
                         @foreach($row as $post)
                         <div class="l-12 m-12 s-12 xs-12">
-                            <div class="post">
-                                <div class="post-author l-6  m-6  s-6 xs-6">
+                            <div class="slot">
+                                <div class="slot-author l-6  m-6  s-6 xs-6">
                                     <img class="avatar" src="@include('includes.user-image', $user = $post->user)" alt=""/>
                                     <div class="name">
                                         <a href="{{asset(App::getLocale().'/user/'.$post->user->id)}}">{{ $post->user->name }}</a>
@@ -26,7 +26,7 @@
                                     @endforeach
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="post-title ">{{str_limit($post->title, 120)}}</div>
+                                <div class="slot-title ">{{str_limit($post->title, 120)}}</div>
                             <div class="clearfix"></div>
                                 @if($post->picture()->exists())
                                 <div class="l-12 m-12 s-12 xs-12">
@@ -39,15 +39,15 @@
                                         </div>
                                 </div>
                                     <div class="clearfix"></div>
-                                    <p style="padding-top: 10px;" class="post-info">
+                                    <p style="padding-top: 10px;" class="slot-info">
                                         {{str_limit($post->preamble, 200)}}
                                     </p>
                                 @else
-                                    <p style="padding-top: 10px;" class="l-12 m-12 s-12 xs-12 post-info">
+                                    <p style="padding-top: 10px;" class="l-12 m-12 s-12 xs-12 slot-info">
                                         {{str_limit($post->preamble, 200)}}
                                     </p>
                                 @endif
-                                <nav class="button-nav-post button-group-horizontal  l-12 m-12 s-12 xs-12">
+                                <nav class="button-nav-slot button-group-horizontal  l-12 m-12 s-12 xs-12">
                                     <span class="button">
                                         <span class="text-left text-primary">{{$post->views_count()}}</span><i class="icon-remove_red_eye"></i></span>
                                     <span class="button">
@@ -62,8 +62,8 @@
                                         @include('attach-modals.youtube', [$model = $post])
                                     @endif
                                 </nav>
-                                <a class="read-post button button-dark" href="{{url(App::getLocale().'/blog/post/'.$post->id)}}">read-more</a>
-                                <span class="post-time pull-left"><i class="icon-access_time text-warning"></i>{{$post->published_at->diffForHumans()}}</span>
+                                <a class="read-slot button button-dark" href="{{url(App::getLocale().'/blog/post/'.$post->id)}}">read-more</a>
+                                <span class="slot-time pull-left"><i class="icon-access_time text-warning"></i>{{$post->published_at->diffForHumans()}}</span>
                             </div>
                         </div>
                             @endforeach

@@ -21,7 +21,7 @@ class PostsFormRequest extends Request{
         'preamble' => 'required|min:100|max:300',
         'image' =>'image_size:>=450,>=250|mimes:jpeg,jpg,png,bmp,gif,svg',
         'body' => 'required|min:300|max:500000',
-        'tags_list' => 'required|array|min:1|max:10',
+        'tags_list' => 'required|array|min:1|max:3',
         'published_at' => 'required|date',
         'youtube_link' => 'min:6|max:120',
         'github_link' => 'url||min:6|max:120'

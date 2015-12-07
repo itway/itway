@@ -37,6 +37,7 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest('public/dist/fonts/'))
         .pipe($.connect.reload());
 });
+
 gulp.task('fonts-source-pro', function () {
     return gulp.src('resources/assets/fonts/Source-Sans-Pro/*')
         .pipe($.plumber())

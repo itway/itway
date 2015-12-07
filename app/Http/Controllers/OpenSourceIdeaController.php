@@ -82,4 +82,12 @@ class OpenSourceIdeaController extends Controller
     {
         //
     }
+
+    public function sendOpenInvite(Request $request, $user_id) {}
+
+    public function rejectOpenInvite(Request $request, $openInvite)
+    {
+        # code...
+    }
+
 }

@@ -26,23 +26,16 @@
       margin: 0 auto!important;
     }
   }
-  .preamble-block, .title-block, .tag-block, .btns-block, .time-block {
-    width: 50%;
-/* margin: 5px; */
-    flex: 1 0 50%;
-    padding: 10px;
-    overflow: hidden;
     .input-count {
       right: -10px;
       position: absolute;
-      bottom: -10px;
+      bottom: -25px;
       padding: 2px;
       color: #566f7c;
       border: none;
       background: transparent;
       font-size: initial;
     }
-  }
   .title-block {
     .pos-rel {
         padding: 5px!important;
@@ -89,5 +82,4 @@
   .cke_wysiwyg_div {
     min-height: 200px;
   }
-
 }

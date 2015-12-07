@@ -28,7 +28,6 @@
                 sequenceDiagram : true,
                 path : "http://www.itway.io/dist/vendor/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
             });
-            console.log(editormd.toolbarModes[name]);
             editor.setCodeMirrorTheme('neo');
         });
     </script>
@@ -99,11 +98,17 @@
         var tagBox = $("#tagBox");
         tagBox.tagging(tag_options);
         $('.type-zone').attr('placeholder' ,'at least one tag');
-        @if(url(App::getLocale().'/blog/create') !== Request::url())
-        @include('posts.updateFormScript')
-        @endif
         var datepicker = $( "#datepicker" );
-        datepicker.dateDropper({ format:"Y-m-d", option:datepicker.val(), animation:"dropDown", animate_current:"false"});
+        datepicker.pickadate({
+            format:"yyyy-mm-dd"});
         title.focus()
+        $('.ui.normal.tags.dropdown')
+                .dropdown({
+                    minCharacters : 3,
+                    allowAdditions: true,
+                    multiple: true,
+                    maxSelections: 3
+                })
+        ;
     </script>
 @endsection

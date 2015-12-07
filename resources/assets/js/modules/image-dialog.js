@@ -5,15 +5,17 @@
       dialog: $("[data-remodal-id='photo']"),
       photoBlock: $(".photo-block"),
       photoinput: $('#photoUpload').attr('accept', 'image/jpeg,image/png,image/gif'),
+      fileLabel: $(".filelabel"),
       button: $("[data-remodal-id='photo'] .remodal-confirm"),
       templateImage: function(src, size) {
-        return '<div class=\'s-12 m-12 l-12 xs-12\'><div class=\'thumbnail\' style=\'background: #ffffff\'><img class="img-responsive" src=\'' + src + '\' /><div class=\'caption\' style=\'position: absolute;right: 10px;top:10px;\'> <h4  style=\'background: black;padding: 4px; color: white\'>' + size + ' Mb </h4></div></div> </div> ';
+        return '<img class="" src=\'' + src + '\' />';
       }
     },
     activate: function() {
       var _this;
       _this = this;
       _this.initiateDialogImage();
+      _this.findImageifExists();
     },
     renderDialogImage: function(file, fileinput, settings) {
       var _this, image, reader;
@@ -41,6 +43,17 @@
       };
       reader.readAsDataURL(file);
     },
+    findImageifExists: function() {
+      var _this;
+      _this = this;
+      if (_this.o.photoBlock.find("img").length >= 1) {
+        _this.o.fileLabel.addClass('hasImage');
+        return _this.o.addonBtn.prepend("<span class='addon'><b class='text-danger'>+1</b> added</span>");
+      } else {
+        _this.o.fileLabel.removeClass('hasImage');
+        return _this.o.addonBtn.find(".addon").remove();
+      }
+    },
     resolveAddon: function() {
       var _this;
       _this = this;
@@ -55,24 +68,18 @@
       var _this, fileLabel;
       _this = this;
       fileLabel = $('.filelabel');
-      if (fileLabel.find("span.text-info").length > 0 || fileLabel.find("span.text-danger").length > 0) {
-        fileLabel.find("span.text-info").remove();
-        fileLabel.find("span.text-danger").remove();
+      if (fileLabel.find("i.text-success").length > 0 || fileLabel.find("i.text-danger").length > 0) {
+        fileLabel.find("i.text-success.icon-expand_more").remove();
+        fileLabel.find("i.text-danger").remove();
       }
       if (message === "success") {
-        return $('.filelabel').append($('<span>').addClass('text-info').text(filename).css({
-          'font-size': '100%',
-          'display': 'inline-block',
-          'font-weight': 'normal',
-          'margin-left': '1em',
-          'font-style': 'normal'
-        }));
+        return _this.o.fileLabel.addClass('hasImage');
       } else {
-        return $('.filelabel').append($('<span>').addClass('text-danger').text(filename + " format is not valid").css({
-          'font-size': '100%',
-          'display': 'inline-block',
+        _this.o.fileLabel.removeClass('hasImage');
+        return _this.o.fileLabel.append($('<i>').addClass('text-danger').text("format is not valid").css({
+          'font-size': '14px',
+          'display': 'block',
           'font-weight': 'normal',
-          'margin-left': '1em',
           'font-style': 'normal'
         }));
       }

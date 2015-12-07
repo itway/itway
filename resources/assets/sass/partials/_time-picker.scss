@@ -6,7 +6,7 @@
  */
 
 .picker {
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   line-height: 1.2;
   color: #000000;
@@ -17,7 +17,6 @@
   -ms-user-select: none;
   user-select: none;
 }
-
 /**
  * The picker input element.
  */
@@ -25,7 +24,7 @@
 .picker__input {
   cursor: default;
   &.picker__input--active {
-    border-color: #0089ec;
+    border-color: $info-color;
   }
 }
 
@@ -41,75 +40,164 @@
   width: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
 }
 
 /*!
- * Classic picker styling for pickadate.js
+ * Default mobile-first, responsive styling for pickadate.js
  * Demo: http://amsul.github.io/pickadate.js
  */
 /**
  * Note: the root picker element should *NOT* be styled more than what’s here.
  */
+/**
+ * Make the holder and frame fullscreen.
+ */
 
-.picker {
-  width: 100%;
+.picker__frame {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
 }
 
 /**
- * The holder is the base of the picker.
+ * The holder should overlay the entire screen.
  */
 
 .picker__holder {
+  position: fixed;
+  transition: background 0.15s ease-out, -webkit-transform 0s 0.15s;
+  transition: background 0.15s ease-out, transform 0s 0.15s;
+  -webkit-backface-visibility: hidden;
+}
+
+/**
+ * The frame that bounds the box contents of the picker.
+ */
+
+.picker__frame {
   position: absolute;
-  background: #ffffff;
-  border: 1px solid #aaaaaa;
-  border-top-width: 0;
-  border-bottom-width: 0;
-  border-radius: 0 0 5px 5px;
-  box-sizing: border-box;
-  min-width: 176px;
+  margin: 0 auto;
+  min-width: 256px;
   max-width: 466px;
-  max-height: 0;
+  width: 100%;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity = 0);
   -moz-opacity: 0;
   opacity: 0;
-  -webkit-transform: translateY(-1em) perspective(600px) rotateX(10deg);
-  transform: translateY(-1em) perspective(600px) rotateX(10deg);
-  transition: -webkit-transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s 0.15s, border-width 0s 0.15s;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s 0.15s, border-width 0s 0.15s;
+  transition: all 0.15s ease-out;
+}
+
+@media (min-height: 33.875em) {
+  .picker__frame {
+    overflow: visible;
+    top: 10%;
+    bottom: -100%;
+    max-height: 80%;
+  }
+}
+
+@media (min-height: 40.125em) {
+  .picker__frame {
+    margin-bottom: 7.5%;
+    top: 10%;
+
+  }
 }
 
 /**
- * The frame and wrap work together to ensure that
- * clicks within the picker don’t reach the holder.
+ * The wrapper sets the stage to vertically align the box contents.
  */
 
-.picker__frame {
-  padding: 1px;
+.picker__wrap {
+  display: table;
+  width: 100%;
+  height: 100%;
 }
 
-.picker__wrap {
-  margin: -1px;
+@media (min-height: 33.875em) {
+  .picker__wrap {
+    display: block;
+  }
+}
+
+/**
+ * The box contains all the picker contents.
+ */
+
+.picker__box {
+  background: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media (min-height: 26.5em) {
+  .picker__box {
+    font-size: 1.25em;
+  }
+}
+
+@media (min-height: 33.875em) {
+  .picker__box {
+    display: block;
+    font-size: 1.33em;
+    border: 1px solid #777777;
+    border-top-color: #898989;
+    border-bottom-width: 0;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (min-height: 40.125em) {
+  .picker__box {
+    font-size: 1.5em;
+    border-bottom-width: 1px;
+    border-radius: 5px;
+  }
 }
 
 /**
  * When the picker opens...
  */
 
-.picker--opened .picker__holder {
-  max-height: 25em;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: alpha(opacity = 100);
-  -moz-opacity: 1;
-  opacity: 1;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  -webkit-transform: translateY(0) perspective(600px) rotateX(0);
-  transform: translateY(0) perspective(600px) rotateX(0);
-  transition: -webkit-transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out, max-height 0s, border-width 0s;
-  box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+.picker--opened {
+  .picker__holder {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#1E000000,endColorstr=#1E000000)";
+    zoom: 1;
+    background: rgba(0, 0, 0, 0.32);
+    transition: background 0.15s ease-out;
+  }
+  .picker__frame {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity = 100);
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+}
+
+@media (min-height: 33.875em) {
+  .picker--opened .picker__frame {
+    top: 10%;
+    bottom: 0;
+  }
 }
 
 /* ==========================================================================
@@ -500,180 +588,5 @@
 }
 
 /* ==========================================================================
-   $CLASSIC-DATE-PICKER
+   $DEFAULT-DATE-PICKER
    ========================================================================== */
-/* ==========================================================================
-   $BASE-TIME-PICKER
-   ========================================================================== */
-/**
- * The list of times.
- */
-
-.picker__list {
-  list-style: none;
-  padding: 0.75em 0 4.2em;
-  margin: 0;
-}
-
-/**
- * The times on the clock.
- */
-
-.picker__list-item {
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd;
-  margin-bottom: -1px;
-  position: relative;
-  background: #ffffff;
-  padding: .75em 1.25em;
-  &:hover {
-    cursor: pointer;
-    color: #000000;
-    background: #b1dcfb;
-    border-color: #0089ec;
-    z-index: 10;
-  }
-}
-
-@media (min-height: 46.75em) {
-  .picker__list-item {
-    padding: .5em 1em;
-  }
-}
-
-/* Hovered time */
-
-/* Highlighted and hovered/focused time */
-
-.picker__list-item--highlighted {
-  border-color: #0089ec;
-  z-index: 10;
-  &:hover {
-    cursor: pointer;
-    color: #000000;
-    background: #b1dcfb;
-  }
-}
-
-.picker--focused .picker__list-item--highlighted {
-  cursor: pointer;
-  color: #000000;
-  background: #b1dcfb;
-}
-
-/* Selected and hovered/focused time */
-
-.picker__list-item--selected {
-  background: #0089ec;
-  color: #ffffff;
-  z-index: 10;
-  &:hover {
-    background: #0089ec;
-    color: #ffffff;
-    z-index: 10;
-  }
-}
-
-.picker--focused .picker__list-item--selected {
-  background: #0089ec;
-  color: #ffffff;
-  z-index: 10;
-}
-
-/* Disabled time */
-
-.picker__list-item--disabled {
-  background: #f5f5f5;
-  border-color: #f5f5f5;
-  color: #dddddd;
-  cursor: default;
-  border-color: #dddddd;
-  z-index: auto;
-  &:hover {
-    background: #f5f5f5;
-    border-color: #f5f5f5;
-    color: #dddddd;
-    cursor: default;
-    border-color: #dddddd;
-    z-index: auto;
-  }
-}
-
-.picker--focused .picker__list-item--disabled {
-  background: #f5f5f5;
-  border-color: #f5f5f5;
-  color: #dddddd;
-  cursor: default;
-  border-color: #dddddd;
-  z-index: auto;
-}
-
-/**
- * The clear button
- */
-
-.picker--time {
-  .picker__button--clear {
-    display: block;
-    width: 80%;
-    margin: 1em auto 0;
-    padding: 1em 1.25em;
-    background: none;
-    border: 0;
-    font-weight: 500;
-    font-size: .67em;
-    text-align: center;
-    text-transform: uppercase;
-    color: #666;
-    &:hover, &:focus {
-      color: #000000;
-      background: #b1dcfb;
-      background: #ee2200;
-      border-color: #ee2200;
-      cursor: pointer;
-      color: #ffffff;
-      outline: none;
-    }
-    &:before {
-      top: -0.25em;
-      color: #666;
-      font-size: 1.25em;
-      font-weight: bold;
-    }
-    &:hover:before, &:focus:before {
-      color: #ffffff;
-      border-color: #ffffff;
-    }
-  }
-  min-width: 256px;
-  max-width: 320px;
-  .picker__holder {
-    background: #f2f2f2;
-  }
-  .picker__box {
-    padding: 0;
-    position: relative;
-  }
-}
-
-/* ==========================================================================
-   $CLASSIC-TIME-PICKER
-   ========================================================================== */
-/**
- * Note: the root picker element should __NOT__ be styled
- * more than what’s here. Style the `.picker__holder` instead.
- */
-
-/**
- * The holder is the base of the picker.
- */
-
-@media (min-height: 40.125em) {
-  .picker--time .picker__holder {
-    font-size: .875em;
-  }
-}
-
-/**
- * The box contains the list of times.
- */

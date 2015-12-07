@@ -12,7 +12,6 @@
     @endif
 </script>
 
-<script  src="{{asset('/dist/vendor/tooltipster/js/jquery.tooltipster.min.js')}}"></script>
 <script src="{{ asset('dist/vendor/taggingJS/tagging.js') }}"></script>
 <script src="{{ asset('dist/vendor/jquery-simply-countable/jquery.simplyCountable.js') }}"></script>
 <script src="{{asset('dist/vendor/toastr/toastr.min.js')}}"></script>
@@ -29,7 +28,10 @@
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\nag.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\search.js')}}"></script>
 <script src="{{asset("dist/vendor/remodal/dist/remodal.min.js")}}"></script>
+<script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.js")}}"></script>
+<script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.date.js")}}"></script>
 <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 

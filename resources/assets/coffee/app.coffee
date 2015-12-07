@@ -25,7 +25,6 @@ _init = (o) ->
   $.ItwayIO.blog =
     activate: ->
       _this = this
-
   ### Search functionality ###
   timer = undefined
   $.ItwayIO.search =
@@ -205,14 +204,14 @@ _init = (o) ->
         fileLabel.find("span.text-danger").remove()
 
       if message == "success"
-        $('.filelabel').append $('<span>').addClass('text-info').text(filename).css({
+        $('.filelabel').append $('<span>').addClass('text-info').css({
           'font-size': '100%'
           'display': 'inline-block'
           'font-weight': 'normal'
           'margin-left': '1em'
           'font-style': 'normal'})
       else
-        $('.filelabel').append $('<span>').addClass('text-danger').text(filename + " format is not valid").css({
+        $('.filelabel').append $('<span>').addClass('text-danger').text(" format is not valid").css({
           'font-size': '100%'
           'display': 'inline-block'
           'font-weight': 'normal'
@@ -231,14 +230,14 @@ _init = (o) ->
 
       if message == "success"
 
-        ImgBlock.after $('<span>').addClass('text-info').html(filename).css({
+        ImgBlock.after $('<span>').addClass('text-info').css({
           'font-size': '100%'
           'display': 'inline-block'
           'font-weight': 'normal'
           'margin-left': '1em'
           'font-style': 'normal'})
       else
-        ImgBlock.after $('<span>').addClass('text-danger').html(filename + "<br/><b>format is not valid </b>").css({
+        ImgBlock.after $('<span>').addClass('text-danger').html("<br/><b>format is not valid </b>").css({
           'font-size': '100%'
           'display': 'inline-block'
           'font-weight': 'normal'

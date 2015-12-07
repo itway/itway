@@ -75,11 +75,14 @@
 [aria-label="breadcrumbs"] [aria-hidden="true"]:after {
   content: "/";
 }
-
+.pagination-wrapper {
+  text-align: right;
+}
 ul.pagination {
-  display: block;
+  display: inline-flex;
   min-height: 1.5rem;
   margin-left: -0.3125rem;
+  text-align: center!important;
   li {
     height: 1.5rem;
     color: #222222;

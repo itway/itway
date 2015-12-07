@@ -1,27 +1,19 @@
 
 <div class="xs-12 s-12 m-4 text-center">
     {{--<h4 class="text-primary text-center" style="margin-top: 0">{{trans('profile.user_profile')}}</h4>--}}
-
-
     <div class="ui special fluid cards">
         <div class="card">
-
-
             @if($user->id === Auth::id())
                 @if(!$notFromProfile)
-
                     @include('user.user-image-update')
-
                 @else
                     <div class="blurring dimmable image">
                         <img  alt="{{$user->name}}" align="center"  title="{{$user->name}}" style="" src="@include('includes.user-image', $user)">
                     </div>
                 @endif
-
             @else
                 <img class="profile-img" alt="{{$user->name}}" align="center"  title="{{$user->name}}" style="" src="@include('includes.user-image', $user)">
             @endif
-
                 <div class="content">
                 <a class="header" href="{{url(App::getLocale()."/user/".$user->id)}}">{{$user->name}}</a>
                 <div class="meta">
@@ -34,15 +26,11 @@
                     invite to your team
                 </a>
             </div>
-
         </div>
     </div>
-
 </div>
-
 <div class="user-info-block xs-12 xs-offset-0 s-12 s-offset-0 m-8 m-offset-0">
     <div class="ui cards">
-
         <div class="card fluid">
             <div class="content">
                 <span class="card-header left">{{trans('profile.user_additional')}}</span>
@@ -58,9 +46,7 @@
             </div>
         </div>
     </div>
-
     @if(! empty($user->Google) ||  ! empty($user->Facebook) || ! empty($user->Twitter) ||! empty($user->Github))
-
         <div class="ui cards">
 
             <div class="card fluid">

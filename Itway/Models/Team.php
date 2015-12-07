@@ -2,16 +2,22 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
+use Itway\Components\teamwork\Teamwork\TeamworkTeam;
+use Illuminate\Support\Facades\Lang;
+use Carbon\Carbon;
+use \Illuminate\Http\Request;
+use Auth;
 
-class Team extends Model implements Transformable
+class Team extends TeamworkTeam
 {
-    use TransformableTrait;
-
-    protected $fillable = [];
-
+    protected $fillable = ['name', 'slug', 'locale', 'logo_bg','banned', 'date'];
+    /**
+     * @var array
+     */
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'slug'
+    );
     public function picture()
     {
         return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
@@ -25,26 +31,90 @@ class Team extends Model implements Transformable
     {
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
-    public static function deleteImage($file)
-    {
-        $filepath = self::image_path($file);
-
-        if (file_exists($filepath)) {
-
-            File::delete($filepath);
-            return true;
-        }
-        return false;
-    }
-
+    const IMAGEPath =  'images/teams/';
     /**
-     * @param $file
-     * @return string
+     * @param Request $request
      */
-    public static function image_path($file)
+    /**
+     * team trends attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function trends()
     {
-        $imagePath = self::IMAGEPath;
-        return public_path("{$imagePath}{$file}");
+        return $this->hasMany(\Itway\Models\TeamsTrends::class, "team_id");
     }
+    public function getLocaledAtAttribute (Request $request) {
 
+        $this->attributes['locale'] = $request->getLocale();
+
+    }
+    public function scopeCreatedAt($query) {
+
+        $query->where('created_at', '<=', Carbon::now());
+
+    }
+    /**
+     * @param $query
+     */
+    public function scopeLocaled($query) {
+
+        $query->where('locale', '=', Lang::getLocale());
+
+    }
+    /**
+     * @param $query
+     */
+    public function scopeOwners($query) {
+
+        $query->where('owner_id', '=', Auth::id());
+    }
+    /**
+     * @param $query
+     */
+    public function scopeToday($query) {
+
+        $query->where('date', '=', Carbon::today());
+
+    }
+    /**
+     * @param $query
+     * @param $id
+     * @return mixed
+     */
+    public function scopeBySlugOrId($query, $id)
+    {
+        return $query->where($id)->orWhere('slug', '=', $id);
+    }
+    public function trendNames()
+    {
+        $trendNames = array();
+        $tagged = $this->trends()->get(array('trend'));
+
+        foreach($tagged as $tagged) {
+            $trendNames[] = $tagged->trend;
+        }
+
+        return $trendNames;
+    }
+    public function ownerName()
+    {
+        $ownerNames = array();
+        $tagged = $this->owner()->get(array('name'));
+
+        foreach($tagged as $tagged) {
+            $ownerNames[] = $tagged->name;
+        }
+        return $ownerNames;
+    }
+    public function ownerId()
+    {
+        $ownerIds = array();
+        $tagged = $this->owner()->get(array('id'));
+
+        foreach($tagged as $tagged) {
+            $ownerIds[] = $tagged->id;
+        }
+        return $ownerIds;
+    }
 }

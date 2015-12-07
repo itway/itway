@@ -11,11 +11,13 @@
 @endsection
 
 @section('content')
-    <div class="bg-white" style="  display: flex;">
 
-        {!! Form::model($post, ['method' => 'PATCH', 'action' => ['PostsController@update', $post->id], 'class' => 'form', 'files' => true ]) !!}
+    <div class="bg-white" style="">
+
+        {!! Form::model($post, ['method' => 'PATCH', 'action' => ['PostsController@update', $post->id], 'class' => 'ui form', 'files' => true ]) !!}
 
         @include('posts.post-form', ['submitButton' => 'Update Post'])
+        <div class="clearfix"></div>
 
         {!! Form::close() !!}
     </div>
