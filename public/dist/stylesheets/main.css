@@ -949,7 +949,7 @@ table td[class*=col-],table th[class*=col-]{position:static;display:table-cell;f
 .hljs-addition,.hljs-argument,.hljs-blockquote,.hljs-built_in,.hljs-filename,.hljs-header,.hljs-link_label,.hljs-literal,.hljs-name,.hljs-parent,.hljs-string,.hljs-tag,.hljs-title,.hljs-value{color:#0048ab}
 .hljs-attr_selector,.hljs-attribute,.hljs-bullet,.hljs-decorator,.hljs-deletion,.hljs-doctype,.hljs-link_url,.hljs-phony,.hljs-pi,.hljs-pragma,.hljs-preprocessor,.hljs-prompt,.hljs-regexp,.hljs-shebang,.hljs-sqbracket,.hljs-string .hljs-variable,.hljs-subst,.hljs-symbol,.hljs-xmlDocTag{color:#4c81c9}
 .post-text pre{padding:5px!important;max-height:650px!important;overflow-y:scroll!important}
-.post-info blockquote,.prescription blockquote{font-family:Georgia,serif;font-size:18px;font-style:italic;margin:.25em 0;padding:.25em 40px;line-height:1.45;position:relative;color:#383838}
+.post-info blockquote,.prescription blockquote{font-family:"Source Sans Pro",icomoon,sans-serif!important;font-size:22px;font-style:italic;margin:.25em 0;padding:.25em 40px;line-height:1.75;position:relative;color:#383838}
 .post-info blockquote i:before,.prescription blockquote i:before{display:block;content:"\201C";font-size:45px;position:absolute;left:-5px;top:-20px;color:#03A9F4}
 .prescription blockquote cite{color:#999;font-size:14px;display:block;margin-top:5px}
 .post-info blockquote cite:before,.prescription blockquote cite:before{content:"\2014 \2009"}
@@ -1320,6 +1320,7 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .slots .slot-author .title,.slots .slot-team .title{font-size:12px;font-weight:700;padding:inherit;padding-right:5px;line-height:inherit;color:#9E9E9E}
 .slots .slot-author .avatar,.slots .slot-author .logo,.slots .slot-team .avatar,.slots .slot-team .logo{border-radius:100%;float:left;vertical-align:middle;width:34px;height:34px}
 .slots .slot-author .name,.slots .slot-team .name{font-weight:700;text-align:right;color:#484848;margin-left:5px}
+.slot-author{padding-top:10px}
 .slot-country,.slot-team,.team-owner{display:block!important}
 .slot-country .title,.slot-team .title,.team-owner .title{display:block;float:left}
 .slot-country .logo,.slot-country .name,.slot-team .logo,.slot-team .name,.team-owner .logo,.team-owner .name{float:right!important;padding:3px;line-height:32px}
@@ -1339,7 +1340,7 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .single-post .button-rounded{width:50px;height:50px;border-radius:100%;margin:0}
 .single-post .button-rounded i{margin:0 auto}
 .single-post .button-nav-post .button{background-color:transparent;border:transparent}
-.single-post .post-text{font-size:16px;margin-top:10px;padding:5px 5%;word-break:normal;height:inherit;border:none;font-family:"Source Sans Pro",icomoon,sans-serif!important}
+.single-post .post-text{font-size:20px;margin-top:10px;padding:5px 5%;word-break:normal;height:inherit;border:none;font-family:"Source Sans Pro",icomoon,sans-serif!important}
 .single-post .time{margin-top:10px;color:#9E9E9E}
 .single-post .post-author{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;width:100%;height:50px;float:left}
 .single-post .post-author .avatar{height:50px;width:50px;margin:0;vertical-align:text-top;border-radius:100%;float:left}
@@ -1874,6 +1875,7 @@ body::-webkit-scrollbar{width:12px}
 #editormd .editormd-menu>li{margin:0;padding:2px;display:inline-block;position:relative}
 #editormd .editormd-menu>li a{color:#404b58}
 #editormd .editormd-toolbar{width:100%;min-height:37px;background:#f8f8f8;display:none;position:absolute;top:0;left:0;z-index:10}
+.editormd-dialog{height:auto!important}
 #like .label{float:right}
 #like .like-message{text-align:right;color:#607D8B;float:right;right:15px;position:absolute;top:30px;font-size:10px}
 .ui.search.selection{margin:0;border-radius:0;border:none;border-bottom:2px solid #607D8B}

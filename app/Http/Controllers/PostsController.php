@@ -207,6 +207,7 @@ class PostsController extends Controller {
                 $picture = $post->picture()->get() ;
 
             }
+            flash()->info(trans('messages.createLang'));
 
             return view('posts.edit', compact('post', 'tags', 'picture','countUserPosts'));
 
@@ -273,6 +274,7 @@ class PostsController extends Controller {
         $posts = Post::withAnyTag([$slug])->latest('published_at')->published()->paginate(8);
 
         $countUserPosts = $this->repository->countUserPosts();
+
         $tags = $this->repository->getModel()->existingTags();
 
         return view('pages.blog',compact('posts', 'countUserPosts', 'tags'));

@@ -78,9 +78,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/angular" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/embed-js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/kreate.js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/remodal" />
@@ -123,6 +125,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/generators" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/homestead" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravelcollective/html" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -174,6 +177,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
@@ -202,9 +207,11 @@
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/embed-js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/kreate.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/remodal" />
@@ -247,6 +254,7 @@
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/homestead" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/fractal" />
@@ -297,6 +305,8 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/translation" />
@@ -309,9 +319,11 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/editor.md" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/embed-js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-simply-countable" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/jquery.cookie" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/kreate.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/particles.js" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/pickadate" />
           <root url="file://$MODULE_DIR$/vendor/bower_components/remodal" />
@@ -354,6 +366,7 @@
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/generators" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/homestead" />
           <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/fractal" />
@@ -404,6 +417,8 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/translation" />

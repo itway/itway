@@ -4,11 +4,47 @@ namespace itway\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
+use Itway\Repositories\EventRepository;
+use nilsenj\Toastr\Facades\Toastr;
 
 class EventsController extends Controller
 {
+    private $repository;
+
+    /**
+     * @param  $repository
+     */
+    public function __construct(EventRepository $repository)
+    {
+        $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
+        $this->repository = $repository;
+    }
+
+    /**
+     * Redirect not found.
+     *
+     * @return Response
+     */
+    protected function redirectNotFound()
+    {
+        return redirect()->to(route("itway::events::index"))->with(Toastr::error('Event Not Found!',$title = 'team might be deleted or banned', $options = []));
+    }
+
+    /**
+     * redirect error
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirectError($message = null)
+    {
+        if (!is_null($message))
+        {
+            return redirect()->to(route("itway::events::index"))->with(Toastr::error($message, $title = "Error", $options = []));
+        }
+        else return redirect()->to(route("itway::events::index"))->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +52,6 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

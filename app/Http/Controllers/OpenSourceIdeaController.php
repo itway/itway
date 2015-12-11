@@ -80,10 +80,12 @@ class OpenSourceIdeaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        #code
     }
 
-    public function sendOpenInvite(Request $request, $user_id) {}
+    public function sendOpenInvite(Request $request, $user_id) {
+
+    }
 
     public function rejectOpenInvite(Request $request, $openInvite)
     {

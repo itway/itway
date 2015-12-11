@@ -13,7 +13,7 @@ use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
 use Toastr;
 use App;
-use Itway\Components\teamwork\Teamwork\Teamwork;
+use Teamwork;
 use Auth;
 use Itway\Components\teamwork\Teamwork\Exceptions\UserNotInTeamException;
 
@@ -38,7 +38,7 @@ class TeamsController extends Controller {
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(App::getLocale().'/blog')->with(Toastr::error('Team Not Found!',$title = 'team might be deleted or banned', $options = []));
+        return redirect()->to(route("itway::teams::index"))->with(Toastr::error('Team Not Found!',$title = 'team might be deleted or banned', $options = []));
     }
 
     /**
@@ -65,10 +65,7 @@ class TeamsController extends Controller {
         return view('teams.teams', compact('teams', 'tags'));
     }
     
-    public function show($id) {
-
-
-    }
+    public function show($id) {}
     /**
      * @return \Illuminate\View\View
      */
@@ -95,21 +92,13 @@ class TeamsController extends Controller {
         return redirect()->to(App::getLocale().'/teams/'.$team->id);
     }
 
-  	public function edit($id)
-	{
-		//
-	}
+  	public function edit($id){}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * @param UpdateTeamRequest $request
+     * @param $id
+     */
+	public function update(UpdateTeamRequest $request, $id){}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -117,10 +106,7 @@ class TeamsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
-		//
-	}
+	public function destroy($id){}
 
     public function invite($team_id)
     {

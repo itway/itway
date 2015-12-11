@@ -25,11 +25,9 @@
       padding:5px 5px;
       font-weight: bold;
       background-color: #f8f8f8;
-
       word-wrap: break-word;
       margin-right: 0px;
       z-index: 1;
-
     }
     .title {
       font-size: 12px;
@@ -106,7 +104,9 @@
     }
   }
 }
-
+.slot-author {
+  padding-top: 10px;
+}
 .slot-team,.slot-country,.team-owner {
   display:block!important;
   .title {
