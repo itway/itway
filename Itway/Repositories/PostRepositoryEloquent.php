@@ -73,7 +73,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
         return $this->getModel()->latest('published_at')->published()->localed()->users()->paginate();
     }
 
-
     /**
      * create the post
      * and dispatch the command

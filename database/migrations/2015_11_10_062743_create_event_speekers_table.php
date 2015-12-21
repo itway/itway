@@ -10,36 +10,31 @@ class CreateEventSpeekersTable extends Migration
      *
      * @return void
      */
-    public function up(){}
-    public function down() {}
-//    public function up()
-//    {
-//        Schema::create('event_speekers', function(Blueprint $table){
-//            $table->increments('id');
-//            $table->integer('events_id')->unsigned();
-//            $table->string('name');
-//            $table->string('description');
-//            $table->string('slug');
-//            $table->string('speeker_logo')->nullable();
-//            $table->string('speeker_link');
-//            $table->string('speeker_company');
-//            $table->string('speeker_skills')->nullable();
-//            $table->timestamps();
-//            $table->timestamp('published_at');
-//            $table->foreign('events_id')->references('id')->on('events')->onDelete('cascade');
-//        });
-//    }
-//
-//    /**
-//     * Reverse the migrations.
-//     *
-//     * @return void
-//     */
-//    public function down()
-//    {
-//        Schema::drop('event_speekers', function(Blueprint $table) {
-//
-//            $table->dropForeign('event_speekers_events_id_foreign');
-//        });
-//    }
+    public function up()
+    {
+        Schema::create('event_speekers', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('event_id')->unsigned();
+            $table->integer('user_id')->nullable();
+            $table->string('name');
+            $table->string('description');
+            $table->string('slug');
+            $table->string('speeker_logo');
+            $table->string('speeker_link')->nullable();
+            $table->string('speeker_company')->nullable();
+            $table->timestamps();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+        });
+    }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('event_speekers', function(Blueprint $table) {
+            $table->dropForeign('event_speekers_event_id_foreign');
+        });
+    }
 }

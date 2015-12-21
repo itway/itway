@@ -31,7 +31,7 @@ class AdminPostsController extends Controller
     {
 
         $this->postRepository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
-        $posts = $this->postRepository->getAll();
+        $posts = $this->postRepository->paginate();
         $no = $posts->firstItem();
 
         $countUserPosts = $this->postRepository->countUserPosts();

@@ -18,29 +18,30 @@ o:
 
 initialize: ->
   _this = this
-  _this.resolveWithTime()
-  ### if resolve link is youtube link it returns the link else returns false ###
-  ytId =  $.ItwayIO.cValidator.ytVidId(_this.o.input.val())
-  _this.o.button.on 'click', () ->
-    if !ytId && _this.o.input.val().length <= 6
-      _this.stop()
-      $("[data-youtube-id='youtube-input']").attr('value', null)
-      _this.resolveAddon()
+  if _this.o.dialog.length >=1
+    _this.resolveWithTime()
+    ### if resolve link is youtube link it returns the link else returns false ###
+    ytId =  $.ItwayIO.cValidator.ytVidId(_this.o.input.val())
+    _this.o.button.on 'click', () ->
+      if !ytId && _this.o.input.val().length <= 6
+        _this.stop()
+        $("[data-youtube-id='youtube-input']").attr('value', null)
+        _this.resolveAddon()
 
-    else
-      _this.o.dialog.find(".text-danger").remove()
-      _this.o.dialog.addClass "approved"
-      if $("[data-youtube-id='youtube-input']").length < 1
-        _this.o.addonBtn.after _this.o.formInput($.ItwayIO.cValidator.ytVidId(_this.o.input.val()))
-      else $("[data-youtube-id='youtube-input']").attr("value",$.ItwayIO.cValidator.ytVidId(_this.o.input.val()))
+      else
+        _this.o.dialog.find(".text-danger").remove()
+        _this.o.dialog.addClass "approved"
+        if $("[data-youtube-id='youtube-input']").length < 1
+          _this.o.addonBtn.after _this.o.formInput($.ItwayIO.cValidator.ytVidId(_this.o.input.val()))
+        else $("[data-youtube-id='youtube-input']").attr("value",$.ItwayIO.cValidator.ytVidId(_this.o.input.val()))
+        _this.resolveAddon()
+    if !ytId
+      _this.o.dialog.removeClass "approved"
       _this.resolveAddon()
-  if !ytId
-    _this.o.dialog.removeClass "approved"
-    _this.resolveAddon()
-  else
-    _this.o.dialog.addClass "approved"
-    _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId))
-    _this.resolveAddon()
+    else
+      _this.o.dialog.addClass "approved"
+      _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId))
+      _this.resolveAddon()
 
 resolveWithTime: ->
   _this = this

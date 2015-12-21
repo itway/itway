@@ -108,6 +108,16 @@ class TeamsController extends Controller {
 	 */
 	public function destroy($id){}
 
+    public function tags($slug) {
+
+        $teams = Team::withAnyTag([$slug])->latest('created_at')->paginate(8);
+
+
+        $tags = $this->repository->getModel()->existingTags();
+
+        return view('teams.teams',compact('teams', 'tags'));
+    }
+
     public function invite($team_id)
     {
         if (!Auth::guest())

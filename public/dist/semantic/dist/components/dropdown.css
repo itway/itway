@@ -1190,7 +1190,6 @@ select.ui.dropdown {
   content: '';
   visibility: visible;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
@@ -1225,7 +1224,6 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
@@ -1243,7 +1241,6 @@ select.ui.dropdown {
   right: 1em;
   margin: 0em;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
@@ -1259,7 +1256,6 @@ select.ui.dropdown {
   left: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
@@ -1276,7 +1272,6 @@ select.ui.dropdown {
   right: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
 
@@ -1294,7 +1289,6 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(-135deg);
-      -ms-transform: rotate(-135deg);
           transform: rotate(-135deg);
 }
 

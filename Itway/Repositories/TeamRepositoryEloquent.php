@@ -51,8 +51,6 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
         'locale' => 'like',
         'slug' => 'like'
     ];
-
-
     /**
      * get the model instance
      *
@@ -64,7 +62,6 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
 
         return new $model;
     }
-
     /** fetch all paginated, createdAt and localed teams */
     public function getAll()
     {

@@ -13,6 +13,12 @@ Route::group(['prefix' => 'blog', 'as' => 'posts::'], function(){
         'as' => 'index'
 
     ]);
+
+    Route::get('/create-post', [
+        'uses' => 'PostsController@createPost',
+        'as' => 'create-post'
+
+    ]);
     Route::get('post/{slug}', [
         'uses' => 'PostsController@show',
         'as' => 'show'

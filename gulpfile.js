@@ -1,10 +1,3 @@
-/*
- |--------------------------------------------------------------------------
- | ITWAY.IO Asset Management
- |--------------------------------------------------------------------------
- |
- */
-
 // Grab node packages
 var gulp = require('gulp'),
     connectPhp = require('gulp-connect-php'),
@@ -37,7 +30,6 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest('public/dist/fonts/'))
         .pipe($.connect.reload());
 });
-
 gulp.task('fonts-source-pro', function () {
     return gulp.src('resources/assets/fonts/Source-Sans-Pro/*')
         .pipe($.plumber())
@@ -57,11 +49,11 @@ gulp.task('coffee-main', function () {
 
 gulp.task('coffee-secondary', function () {
     return gulp.src([
-        'resources/assets/coffee/helpers/*.coffee',
-        'resources/assets/coffee/validators/*.coffee',
-        'resources/assets/coffee/custom/*.coffee',
-        'resources/assets/coffee/modules/*.coffee',
-        'resources/assets/coffee/events/*.coffee'])
+            'resources/assets/coffee/helpers/*.coffee',
+            'resources/assets/coffee/validators/*.coffee',
+            'resources/assets/coffee/custom/*.coffee',
+            'resources/assets/coffee/modules/*.coffee',
+            'resources/assets/coffee/events/*.coffee'])
         .pipe($.sourcemaps.init())
         .pipe($.plumber())
         .pipe($.coffee())
@@ -91,9 +83,13 @@ gulp.task('add-scripts', function () {
 });
 
 gulp.task('add-vendor-scripts', function() {
-    return gulp.src('vendor/bower_components/**')
+    return gulp.src('bower_components/**')
         .pipe($.plumber())
         .pipe(gulp.dest('public/dist/vendor/'))
+});
+
+gulp.task('publish', function() {
+    return gulp.src('bower_components/**').pipe(gulp.dest('public/dist/vendor/'));
 });
 
 gulp.task('sass', function() {

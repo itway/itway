@@ -18,4 +18,16 @@ return [
     'user_nobio' => 'Biography not found',
     'user_download' => 'Download your image',
     'user_press_to_down' => 'press to choose',
+    'user_settings' => 'Here you can find your settings',
+    'alter_user_fullname' => 'Change your fullname: ',
+    'alter_user_email' => 'Change Email: ',
+    'alter_user_password' => 'Change Password: ',
+    'alter_user_google' => 'Change Google(email) Account: ',
+    'alter_user_twitter' => 'Change Twitter Account: ',
+    'alter_user_facebook' => 'Change Facebook Account: ',
+    'alter_user_github' => 'Change Github Account: ',
+    'alter_user_skills' => 'Your Skills: ',
+    'alter_user_bio_top' => 'Can Add Your BIO ',
+    'alter_user_bio_bottom' => 'Everything you wright here will be presented in a simple text way'
+
 ];

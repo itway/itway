@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Contracts\Cookie;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
+use \Illuminate\Http\Request;
 
 class Event extends Model implements Transformable, SluggableInterface, Likeable
 {
@@ -25,32 +26,38 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     use LikeableTrait;
 
     protected $table = "events";
-    protected $fillable = ['name','description','time', 'date', 'user_id', 'organizer', 'place', 'max_people_number', 'organizer_link'];
 
-       /**
+    protected $fillable = ['name',
+        'description',
+        'time',
+        'date',
+        'user_id',
+        'organizer',
+        'event_photo',
+        'event_format',
+        'place',
+        'locale',
+        'max_people_number',
+        'organizer_link',
+        'published_at',
+        'today',
+        'banned'];
+    /**
      * @var array
      */
     protected $sluggable = array(
         'build_from' => 'title',
-        'save_to'    => 'slug'
+        'save_to' => 'slug'
     );
-
-        /**
+    /**
      * @var array
      */
     protected $dates = ['published_at'];
 
-
-//    public function eventSpeekers() {
-//
-//    	$this->hasMany(EventSpeekers::class, 'events_id', 'id');
-//    }
-
-//    public function eventUsers() {
-//
-//    	$this->belongsToMany(EventUsers::class, 'event_users');
-//
-//    }
+    public function eventSpeekers()
+    {
+        $this->hasMany(EventSpeekers::class, 'events_id');
+    }
 
     /**
      * poll attachment
@@ -62,49 +69,63 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
 
-    public function setPublishedAtAttribute ($date) {
+    public function setPublishedAtAttribute($date)
+    {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
 
     }
 
-    public function getLocaledAtAttribute (Request $request) {
+    public function getLocaledAtAttribute(Request $request)
+    {
 
         $this->attributes['locale'] = $request->getLocale();
 
     }
 
-    public function scopePublished($query) {
+    public function setLocaledAtAttribute(Request $request )
+    {
+
+        $this->attributes['locale'] = $request->getLocale();
+
+    }
+
+    public function scopePublished($query)
+    {
 
         $query->where('published_at', '<=', Carbon::now());
 
     }
 
-    public function scopeLocaled($query) {
+    public function scopeLocaled($query)
+    {
 
         $query->where('locale', '=', Lang::getLocale());
 
     }
 
-
-    public function scopeUsers($query) {
+    public function scopeUsers($query)
+    {
 
         $query->where('user_id', '=', Auth::id());
 
     }
-    public function scopeUnpublished($query) {
+
+    public function scopeUnpublished($query)
+    {
 
         $query->where('published_at', '>', Carbon::now());
-
     }
 
-
-	public function scopeToday($query) {
+    public function scopeToday($query)
+    {
 
         $query->where('today', '=', Carbon::today());
 
     }
-    public function user() {
+
+    public function user()
+    {
 
         return $this->belongsTo(\Itway\Models\User::class);
 
@@ -121,8 +142,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      */
     public function scopeDrafted($query)
     {
-        return $query->where('published_at', '!=' , null);
+        return $query->where('published_at', '!=', null);
     }
+
     /**
      * @param $query
      * @param $id

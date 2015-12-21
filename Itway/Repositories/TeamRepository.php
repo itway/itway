@@ -20,5 +20,6 @@ interface TeamRepository extends RepositoryInterface
     public function todayTeams();
     public function getAll();
     public function bindPoll(PollFormRequest $request, $team);
+    public function banORunBan($id);
 
 }

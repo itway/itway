@@ -16,6 +16,8 @@ use nilsenj\Toastr\Facades\Toastr;
 use Itway\Services\Youtube\Facades\Youtube;
 use Itway\Services\Youtube\YoutubeQuery;
 use Exception;
+use Illuminate\Http\Request;
+
 /**
  * Class PostsController
  * @package itway\Http\Controllers
@@ -69,6 +71,19 @@ class PostsController extends Controller {
 
         return view('pages.blog', compact('posts','countUserPosts', 'tags'));
 
+    }
+
+    public  function createPost() {
+
+        $tagCollection = Tag::where('count', '>=', ENV('SUPPOSED_TAGS', 5))->get();
+
+        $tags =  $tagCollection->lists('name', 'id');
+
+        $countUserPosts = $this->repository->countUserPosts();
+
+        flash()->info(trans('messages.createLang'));
+
+        return view('posts.create', compact('tags','countUserPosts'));
     }
 
     public function getPageBody($id)
@@ -154,10 +169,8 @@ class PostsController extends Controller {
         }
 
 	}
-    public function userPosts()
-
+    public function userPosts(Request $request)
     {
-
             try {
 
                 $posts = $this->repository->getAllUsers();
@@ -168,12 +181,22 @@ class PostsController extends Controller {
 
                 if($countUserPosts === 0)
                 {
-                    Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
-                    return redirect()->back();
+
+                    if($request->ajax()) {
+                        Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
+                    }
+                    else {
+                        Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
+                        return redirect()->back();
+                    }
                 }
                 else {
-
-                    return view('pages.blog', compact('posts', 'countUserPosts', 'tags'));
+                    if($request->ajax()) {
+                        return view('posts.dynamic-posts', compact('posts', 'countUserPosts', 'tags'));
+                    }
+                    else {
+                        return view('pages.blog', compact('posts', 'countUserPosts', 'tags'));
+                    }
                 }
 
             } catch (ModelNotFoundException $e) {

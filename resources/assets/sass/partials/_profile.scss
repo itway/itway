@@ -28,19 +28,12 @@
 
 }
 
-.user-info-block {
-
-
-  border-left: 4px solid lighten($primary-color, 5%);
-
-}
+.user-info-block {}
 
 .user-img {
-
   display: inline-flex;
   //width: 50%!important;
   padding: 10px;
-
   .avatar {
     border-radius: 100%;
     float: left;

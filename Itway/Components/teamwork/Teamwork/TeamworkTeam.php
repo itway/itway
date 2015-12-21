@@ -119,7 +119,7 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
     {
         parent::__construct( $attributes );
 
-        $this->table = Config::get( 'teamwork.teams_table' );
+        $this->table = config('teamwork.teams_table');
     }
 
 }

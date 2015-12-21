@@ -50,6 +50,8 @@ Route::group(['prefix' => 'teams', 'as' => 'teams::'], function(){
         'as' => 'store'
     ]);
 
+    Route::get('/tags/{slug}', 'TeamsController@tags');
+
 });
 //end of teams SECTION =================================
 // ===============================================

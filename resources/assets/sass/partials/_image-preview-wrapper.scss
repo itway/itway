@@ -50,7 +50,7 @@
   }
   .photo-block {
     display: block;
-    height: 450px;
+    height: 350px;
     img {
       max-width:100%!important;
       max-height:100%!important;
@@ -118,9 +118,10 @@
 }
 .filelabel:active, .filelabel:hover {
   background:  darken(#dddddd, 5%);
+  position: relative;
+
   span {
     color: transparent;
-
   }
   .upload-span {
     display: block !important;
@@ -128,7 +129,7 @@
     opacity: .8;
     i {
       display: block;
-      padding-top: 25%;
+      padding-top: 15%;
     }
   }
 }
@@ -152,4 +153,3 @@
   visibility: hidden;
   height: 0;
 }
-

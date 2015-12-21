@@ -20,11 +20,11 @@ trait TaggableTrait {
 			});
 		}
 	}
-
+	
 	/**
-	 * 	 * Return collection of tags related to the tagged model
-
-	 * @return mixed
+	 * Return collection of tags related to the tagged model
+	 *
+	 * @return Illuminate\Database\Eloquent\Collection
 	 */
 	public function tagged()
 	{

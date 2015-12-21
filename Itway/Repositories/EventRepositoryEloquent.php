@@ -40,7 +40,8 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
     'organizer' => '=', 
     'place' => 'like', 
     'max_people_number' => '=', 
-    'organizer_link' => 'like'
+    'organizer_link' => 'like',
+    'today' =>'='
     ];
 
     /**
@@ -120,8 +121,8 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
     public function countUserEvents(){
 
         return $this->getModel()->where('user_id', '=', Auth::id())->count();
-    }
 
+    }
     /**
      * return the number of today's events
      *

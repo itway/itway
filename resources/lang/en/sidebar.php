@@ -11,5 +11,5 @@ return array(
     'quiz' => 'Recent quizzes',
     'idea' => 'Recent opensource ideas',
     'job' => 'Recent jobs',
-    'team' => 'Recent teams',
+    'teams' => 'Recent teams',
 );

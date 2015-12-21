@@ -1,8 +1,8 @@
 .slots {
   display: inline-block;
-  margin-bottom: 0!important;
-  margin-top: 0!important;
-  padding:0;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding: 0;
   float: left;
   position: relative;
 
@@ -11,18 +11,18 @@
     box-sizing: border-box;
     list-style-type: none;
     background-color: $main-color;
-    box-shadow: 0 0 3px rgba(0,0,0, .12),
-    0 1px 2px rgba(0,0,0, .24) ;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .12),
+    0 1px 2px rgba(0, 0, 0, .24);
     display: inline-block;
-    padding:5px 10px;
+    padding: 5px 10px;
     overflow: hidden;
     word-break: break-all;
     width: 100%;
 
     .slot-title {
       color: darken($primary-color, 10%);
-      font-size: $font-size-base*0.75;
-      padding:5px 5px;
+      font-size: $font-size-base*0.8;
+      padding: 5px 5px;
       font-weight: bold;
       background-color: #f8f8f8;
       word-wrap: break-word;
@@ -31,7 +31,7 @@
     }
     .title {
       font-size: 12px;
-      font-weight:bold;
+      font-weight: bold;
       padding: inherit;
       line-height: inherit;
       padding-right: 5px;
@@ -65,11 +65,11 @@
       margin-top: 10px;
     }
     .read-slot {
-      margin-top:10px;
+      margin-top: 10px;
       float: right;
     }
     .slot-time {
-      margin-top:10px;
+      margin-top: 10px;
     }
   }
   .tag-block {
@@ -83,18 +83,11 @@
     //width: 50%!important;
     .title {
       font-size: 12px;
-      font-weight:bold;
+      font-weight: bold;
       padding: inherit;
       line-height: inherit;
       padding-right: 5px;
       color: $grey-color;
-    }
-    .avatar, .logo {
-      border-radius: 100%;
-      float: left;
-      vertical-align: middle;
-      width: 34px;
-      height: 34px;
     }
     .name {
       font-weight: bold;
@@ -104,22 +97,30 @@
     }
   }
 }
+
 .slot-author {
   padding-top: 10px;
 }
-.slot-team,.slot-country,.team-owner {
-  display:block!important;
+
+.slot-team, .slot-country, .team-owner {
+  display: block !important;
   .title {
     display: block;
     float: left;
   }
-  .name, .logo{
-    float: right!important;
+  .name, .logo {
+    float: right;
     padding: 3px;
     line-height: 32px;
   }
+  .logo {
+    width:32px;
+    height:32px;
+
+  }
 
 }
+
 .slot-country {
   .country-block {
     float: right;
@@ -127,19 +128,22 @@
     line-height: 32px;
   }
 }
+
 .team-owner {
-  .team-owner-name{
+  .team-owner-name {
     float: right;
     padding: 3px;
     line-height: 32px;
   }
 }
+
 .trend-block {
   .trend {
     padding: 3px;
     line-height: 32px;
   }
 }
+
 .tags {
   margin-top: 1px;
   .tag-name {
@@ -151,7 +155,7 @@
     position: relative;
     white-space: nowrap;
     margin: 2px 5px 0 0;
-    background-color:  $primary-color;
+    background-color: $primary-color;
     padding: 2px 2px;
     padding-left: 0;
     margin-right: 2px;
@@ -166,5 +170,4 @@
       padding: 1px 5px 1px;
     }
   }
-
 }

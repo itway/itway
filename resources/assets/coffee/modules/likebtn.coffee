@@ -12,7 +12,6 @@ $.ItwayIO.likeBTN =
     redirectIFerror: "http://www.itway.io/auth/login"
   activate: () ->
     _this = this
-    console.log _this.o.formID, _this.o.base_url
     if _this.o.formID.length != 0
       _this.o.buttonID.on "click", (e) ->
         button = _this.o.buttonID

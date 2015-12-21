@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.26 (LTS) on 2015-12-11.
+ * Generated for Laravel 5.1.27 (LTS) on 2015-12-20.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2505,11 +2505,12 @@ namespace {
          *
          * @param string $path
          * @param string $domain
+         * @param bool $secure
          * @return $this 
          * @static 
          */
-        public static function setDefaultPathAndDomain($path, $domain){
-            return \Illuminate\Cookie\CookieJar::setDefaultPathAndDomain($path, $domain);
+        public static function setDefaultPathAndDomain($path, $domain, $secure = false){
+            return \Illuminate\Cookie\CookieJar::setDefaultPathAndDomain($path, $domain, $secure);
         }
         
         /**
@@ -4449,7 +4450,7 @@ namespace {
         /**
          * Determine if any rows exist for the current query.
          *
-         * @return bool|null 
+         * @return bool 
          * @static 
          */
         public static function exists(){
@@ -10733,16 +10734,6 @@ namespace {
         }
         
         /**
-         * Remove data that was flashed for only the current request.
-         *
-         * @return void 
-         * @static 
-         */
-        public static function removeFlashNowData(){
-            \Illuminate\Session\Store::removeFlashNowData();
-        }
-        
-        /**
          * Checks if an attribute is defined.
          *
          * @param string $name The attribute name
@@ -10924,14 +10915,14 @@ namespace {
         }
         
         /**
-         * Remove an item from the session.
+         * Remove one or many items from the session.
          *
-         * @param string $key
+         * @param string|array $keys
          * @return void 
          * @static 
          */
-        public static function forget($key){
-            \Illuminate\Session\Store::forget($key);
+        public static function forget($keys){
+            \Illuminate\Session\Store::forget($keys);
         }
         
         /**
@@ -14286,6 +14277,19 @@ namespace {
         public static function save($options = array()){
             //Method inherited from \Illuminate\Database\Eloquent\Model            
             return \Webpatser\Countries\Countries::save($options);
+        }
+        
+        /**
+         * Save the model to the database using transaction.
+         *
+         * @param array $options
+         * @return bool 
+         * @throws \Throwable
+         * @static 
+         */
+        public static function saveOrFail($options = array()){
+            //Method inherited from \Illuminate\Database\Eloquent\Model            
+            return \Webpatser\Countries\Countries::saveOrFail($options);
         }
         
         /**

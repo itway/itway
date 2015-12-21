@@ -20,7 +20,7 @@ class AdminUsersController extends Controller
 
     public function __construct(UserRepository $repository)
     {
-        $this->userRepository = $repository;
+        $this->repository = $repository;
 
     }
 
@@ -41,7 +41,9 @@ class AdminUsersController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+
         $users = $this->repository->paginate();
+
         $no = $users->firstItem();
 
         return view('admin.users.index', compact('users', 'no'));

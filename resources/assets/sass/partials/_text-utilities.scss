@@ -15,4 +15,15 @@ text-align: right
 .white-bordered {
   border-bottom: 1px solid white;
   padding-bottom: 5px;
+  display: block;
+  position: relative;
+}
+.title-underlined {
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: capitalize;
+
 }

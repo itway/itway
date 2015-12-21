@@ -1,6 +1,4 @@
-
 .block {
-
   .header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     -webkit-transition: background-color 100ms linear;
@@ -96,27 +94,22 @@
     @import "../../../color-schemas/_blue-grey";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
-
   &.success {
     @import "../../../color-schemas/_green";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
-
   &.info {
     @import "../../../color-schemas/_light-blue";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
-
   &.warning {
     @import "../../../color-schemas/_orange";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
-
   &.danger {
     @import "../../../color-schemas/_red";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
-
   // grey
   &.grey {
     @import "../../../color-schemas/_grey";
@@ -126,4 +119,15 @@
     @import "../../../color-schemas/_dark";
     @include block-variant($darkPrimaryColor, $primaryTextColor, $textPrimaryColor, $primaryColor, $lightPrimaryColor, $secondaryTextColor, $accentColor, $dividerColor);
   }
+}
+
+.block .avatar, .block .logo {
+  border-radius: 100%;
+  float: left!important;
+  vertical-align: middle;
+  width: 34px !important;
+  height: 34px !important;
+  max-width: 34px!important;
+  max-height: 34px!important;
+  min-width: 34px!important;
 }

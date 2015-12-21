@@ -52,6 +52,15 @@ class EventsController extends Controller
      */
     public function index()
     {
+        $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+
+        $events = $this->repository->getAll();
+
+        $countUserEvents = $this->repository->countUserEvents();
+
+        $tags = $this->repository->getModel()->existingTags();
+
+        return view('events.events', compact('events','countUserEvents', 'tags'));
     }
 
     /**

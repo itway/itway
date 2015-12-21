@@ -1,5 +1,4 @@
 <?php
-
 namespace itway\Console\Commands;
 
 use Illuminate\Console\Command;

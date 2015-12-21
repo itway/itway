@@ -60,7 +60,7 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
 
     const IMAGEPath =  'images/posts/';
 
-    public function setPublishedAtAttribute ($date) {
+    public function setPublishedAtAttribute($date) {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
 
@@ -88,7 +88,9 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
     }
 
     public function scopeUnpublished($query) {
+
         $query->where('published_at', '>', Carbon::now());
+
     }
 
     public function scopeToday($query) {

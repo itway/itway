@@ -75,6 +75,45 @@
 //# sourceMappingURL=coffee-sourcemaps/boxRefresh.js.map
 
 
+/*
+  createToggler functionality
+ */
+
+(function() {
+  $.ItwayIO.createToggler = {
+    o: {
+      host: 'http://' + window.location.hostname,
+      togglerInput: $("#create-instance"),
+      instance: $("#create-instance").attr("data-instance"),
+      organizer_link: $("[name='organizer_link']"),
+      warningTempl: "<div class=\"text-danger\">OOPS something went wrong.</div>",
+      dialogTempl: "<div class=\"\"> <i class=\"icon-plus_one\"></i> </div>"
+    },
+    initialize: function() {
+      var _this;
+      return _this = this;
+    },
+    resolve: function() {
+      var _this;
+      return _this = this;
+    },
+    stop: function() {
+      var _this;
+      return _this = this;
+    },
+    resolveAddon: function() {
+      var _this;
+      return _this = this;
+    }
+  };
+
+  $.ItwayIO.createToggler.initialize();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/create-toggler.js.map
+
+
 /**
  * JavaScript function to match (and return) the video Id
  * of any valid Youtube Url, given as input string.
@@ -109,6 +148,15 @@
       opts = opts || {};
       baseUrls = ['gist.github.com', 'github.com'].concat(opts.extraBaseUrls || []);
       return new RegExp(/^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?/.source + '(' + baseUrls.join('|') + ')' + /[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source);
+    },
+    urlReg: function(url) {
+      var p;
+      p = "((?:(http|https|Http|Https|rtsp|Rtsp):\\/\\/(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)" + "\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_" + "\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)?" + "((?:(?:[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}\\.)+" + "(?:" + "(?:aero|arpa|asia|a[cdefgilmnoqrstuwxz])" + "|(?:biz|b[abdefghijmnorstvwyz])" + "|(?:cat|com|coop|c[acdfghiklmnoruvxyz])" + "|d[ejkmoz]" + "|(?:edu|e[cegrstu])" + "|f[ijkmor]" + "|(?:gov|g[abdefghilmnpqrstuwy])" + "|h[kmnrtu]" + "|(?:info|int|i[delmnoqrst])" + "|(?:jobs|j[emop])" + "|k[eghimnrwyz]" + "|l[abcikrstuvy]" + "|(?:mil|mobi|museum|m[acdghklmnopqrstuvwxyz])" + "|(?:name|net|n[acefgilopruz])" + "|(?:org|om)" + "|(?:pro|p[aefghklmnrstwy])" + "|qa" + "|r[eouw]" + "|s[abcdeghijklmnortuvyz]" + "|(?:tel|travel|t[cdfghjklmnoprtvwz])" + "|u[agkmsyz]" + "|v[aceginu]" + "|w[fs]" + "|y[etu]" + "|z[amw]))" + "|(?:(?:25[0-5]|2[0-4]" + "[0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\\.(?:25[0-5]|2[0-4][0-9]" + "|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(?:25[0-5]|2[0-4][0-9]|[0-1]" + "[0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}" + "|[1-9][0-9]|[0-9])))" + "(?:\\:\\d{1,5})?)" + "(\\/(?:(?:[a-zA-Z0-9\\;\\/\\?\\:\\@\\&\\=\\#\\~" + "\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_])|(?:\\%[a-fA-F0-9]{2}))*)?" + "(?:\\b|$)";
+      if (url.match(p)) {
+        return RegExp.$1;
+      } else {
+        return false;
+      }
     }
   };
 
@@ -191,6 +239,53 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/dropit.js.map
+
+
+/*
+  events functionality
+ */
+
+(function() {
+  $.ItwayIO.envents = {
+    o: {
+      dialog: $("[data-remodal-id='create-event']"),
+      button: $("[data-remodal-id='create-event'] .remodal-confirm"),
+      organizer_link: $("[name='organizer_link']"),
+      addonBtn: $("a.github-link"),
+      timer: void 0,
+      warningTempl: "<div class=\"text-danger\">The url is not real.</div>",
+      dialogTempl: "<div class=\"organizer_link-input-success input-success \"> <i class=\"icon-plus_one\"></i> </div>"
+    },
+    initialize: function() {
+      var _this;
+      return _this = this;
+    },
+    resolve: function() {
+      var _this;
+      return _this = this;
+    },
+    stop: function() {
+      var _this;
+      return _this = this;
+    },
+    resolveAddon: function() {
+      var _this;
+      return _this = this;
+    }
+  };
+
+  $.ItwayIO.envents.initialize();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/envents.js.map
+
+(function() {
+
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/event-dialog.js.map
 
 
 /*
@@ -460,7 +555,6 @@
     activate: function() {
       var _this;
       _this = this;
-      console.log(_this.o.formID, _this.o.base_url);
       if (_this.o.formID.length !== 0) {
         _this.o.buttonID.on("click", function(e) {
           var button, buttonI;
@@ -720,33 +814,35 @@
     initialize: function() {
       var _this, ytId;
       _this = this;
-      _this.resolveWithTime();
+      if (_this.o.dialog.length >= 1) {
+        _this.resolveWithTime();
 
-      /* if resolve link is youtube link it returns the link else returns false */
-      ytId = $.ItwayIO.cValidator.ytVidId(_this.o.input.val());
-      _this.o.button.on('click', function() {
-        if (!ytId && _this.o.input.val().length <= 6) {
-          _this.stop();
-          $("[data-youtube-id='youtube-input']").attr('value', null);
+        /* if resolve link is youtube link it returns the link else returns false */
+        ytId = $.ItwayIO.cValidator.ytVidId(_this.o.input.val());
+        _this.o.button.on('click', function() {
+          if (!ytId && _this.o.input.val().length <= 6) {
+            _this.stop();
+            $("[data-youtube-id='youtube-input']").attr('value', null);
+            return _this.resolveAddon();
+          } else {
+            _this.o.dialog.find(".text-danger").remove();
+            _this.o.dialog.addClass("approved");
+            if ($("[data-youtube-id='youtube-input']").length < 1) {
+              _this.o.addonBtn.after(_this.o.formInput($.ItwayIO.cValidator.ytVidId(_this.o.input.val())));
+            } else {
+              $("[data-youtube-id='youtube-input']").attr("value", $.ItwayIO.cValidator.ytVidId(_this.o.input.val()));
+            }
+            return _this.resolveAddon();
+          }
+        });
+        if (!ytId) {
+          _this.o.dialog.removeClass("approved");
           return _this.resolveAddon();
         } else {
-          _this.o.dialog.find(".text-danger").remove();
           _this.o.dialog.addClass("approved");
-          if ($("[data-youtube-id='youtube-input']").length < 1) {
-            _this.o.addonBtn.after(_this.o.formInput($.ItwayIO.cValidator.ytVidId(_this.o.input.val())));
-          } else {
-            $("[data-youtube-id='youtube-input']").attr("value", $.ItwayIO.cValidator.ytVidId(_this.o.input.val()));
-          }
+          _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId));
           return _this.resolveAddon();
         }
-      });
-      if (!ytId) {
-        _this.o.dialog.removeClass("approved");
-        return _this.resolveAddon();
-      } else {
-        _this.o.dialog.addClass("approved");
-        _this.o.dialog.find('.modal-form').after(_this.o.dialogTempl(ytId));
-        return _this.resolveAddon();
       }
     },
     resolveWithTime: function() {
