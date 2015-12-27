@@ -28,6 +28,7 @@ return [
     'alter_user_github' => 'Change Github Account: ',
     'alter_user_skills' => 'Your Skills: ',
     'alter_user_bio_top' => 'Can Add Your BIO ',
-    'alter_user_bio_bottom' => 'Everything you wright here will be presented in a simple text way'
+    'alter_user_bio_bottom' => 'Everything you wright here will be presented in a simple text way',
+    'alter_user_country' => 'Select your country: '
 
 ];

@@ -138,19 +138,20 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        'Potsky\LaravelLocalizationHelpers\LaravelLocalizationHelpersServiceProviderLaravel5',
-        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-        'Illuminate\Html\HtmlServiceProvider',
-        'Laravel\Socialite\SocialiteServiceProvider',
-        'Laracasts\Flash\FlashServiceProvider',
-        'Intervention\Image\ImageServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider',
-        'Conner\Tagging\TaggingServiceProvider',
-        'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
-        'nilsenj\Toastr\ToastrServiceProvider',
+        Potsky\LaravelLocalizationHelpers\LaravelLocalizationHelpersServiceProviderLaravel5::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        Conner\Tagging\TaggingServiceProvider::class,
+        Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
+        nilsenj\Toastr\ToastrServiceProvider::class,
         Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
         RepositoryLab\Repository\RepositoryServiceProvider::class,
+        Itway\components\ActiveItem\ActiveServiceProvider::class,
 
 
         /*
@@ -173,9 +174,9 @@ return [
         itway\Providers\TransformersServiceProvider::class,
         itway\Providers\PresentersServiceProvider::class,
         itway\Providers\CommandsServiceProvider::class,
-        'Laracasts\Generators\GeneratorsServiceProvider',
-        'Webpatser\Countries\CountriesServiceProvider',
-
+        Laracasts\Generators\GeneratorsServiceProvider::class,
+        Webpatser\Countries\CountriesServiceProvider::class,
+        Camroncade\Timezone\TimezoneServiceProvider::class,
          ],
 
     /*
@@ -235,6 +236,7 @@ return [
         'Visitor' => SourceQuartet\VisitorLog\VisitorLogFacade::class,
         'Countries' => Webpatser\Countries\CountriesFacade::class,
         'Teamwork' => \Itway\Components\teamwork\Teamwork\Facades\Teamwork::class,
+        'Active' => Itway\components\ActiveItem\Facades\Active::class,
     ],
 
 ];

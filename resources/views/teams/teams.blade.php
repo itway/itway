@@ -103,6 +103,7 @@
             @endif
         @endif
     </div>
+@endsection
 @section('scripts-add')
     <script>
         var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
@@ -115,5 +116,4 @@
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-@endsection
 @endsection

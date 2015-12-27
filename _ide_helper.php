@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.27 (LTS) on 2015-12-20.
+ * Generated for Laravel 5.1.27 (LTS) on 2015-12-27.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15517,6 +15517,205 @@ namespace {
          */
         public static function denyInvite($invite){
             return \Itway\Components\teamwork\Teamwork\Teamwork::denyInvite($invite);
+        }
+        
+    }
+
+
+    class Active extends \Itway\components\ActiveItem\Facades\Active{
+        
+        /**
+         * Return 'active' class if current requested URI is matched
+         *
+         * @param string $uri
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string 
+         * @static 
+         */
+        public static function uri($uri, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::uri($uri, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if current requested query string has key that matches value
+         *
+         * @param string $key the query key
+         * @param string $value the value of the query parameter
+         * @param string $activeClass the returned class
+         * @param string $inactiveClass
+         * @return string the returned class if the parameter <code>$key</code> has
+         * the value equal to <code>$value</code> or contains the <code>$value</code>
+         * in case of an array
+         * @static 
+         */
+        public static function query($key, $value, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::query($key, $value, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if current route match a pattern
+         *
+         * @param string|array $patterns
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string 
+         * @static 
+         */
+        public static function pattern($patterns, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::pattern($patterns, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if current route name match one of provided names
+         *
+         * @param string|array $names
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string 
+         * @static 
+         */
+        public static function route($names, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::route($names, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Check the current route name with one or some patterns
+         *
+         * @param string|array $patterns
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string the <code>$activeClass</code> if matched
+         * @since 1.2
+         * @static 
+         */
+        public static function routePattern($patterns, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::routePattern($patterns, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if current route action match one of provided action names
+         *
+         * @param string|array $actions
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @param bool $fullClassName if set to false, only controller class name (without namespace) is included
+         *                                    in the action string. Otherwise, namespace will be included.
+         * @return string 
+         * @static 
+         */
+        public static function action($actions, $activeClass = 'active', $fullClassName = false, $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::action($actions, $activeClass, $fullClassName, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if current controller match a controller name and
+         * current method doest not belong to excluded methods. The controller name
+         * and method name are gotten from <code>getController</code> and <code>getMethod</code>.
+         *
+         * @param string $controller
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @param array $excludedMethods
+         * @return string 
+         * @static 
+         */
+        public static function controller($controller, $activeClass = 'active', $excludedMethods = array(), $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::controller($controller, $activeClass, $excludedMethods, $inactiveClass);
+        }
+        
+        /**
+         * Get the current controller name with the suffix 'Controller' trimmed
+         *
+         * @return string|null 
+         * @static 
+         */
+        public static function getController(){
+            return \Itway\components\ActiveItem\Active::getController();
+        }
+        
+        /**
+         * Get the current method name with the prefix 'get', 'post', 'put', 'delete', 'show' trimmed
+         *
+         * @return string|null 
+         * @static 
+         */
+        public static function getMethod(){
+            return \Itway\components\ActiveItem\Active::getMethod();
+        }
+        
+        /**
+         * Return 'active' class if current controller name match one of provided
+         * controller names.
+         *
+         * @param array $controllers
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string 
+         * @static 
+         */
+        public static function controllers($controllers, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::controllers($controllers, $activeClass, $inactiveClass);
+        }
+        
+        /**
+         * Return 'active' class if the current route name matches a specific value, route parameters with keys defined in
+         * the `$params` has the correct value.
+         * 
+         * The `$params` is an associative array, the key is name of the route parameter, the item is the desired value of
+         * that parameter.
+         *
+         * @param string $routeName
+         * @param array $params
+         * @param string $activeClass
+         * @param string $inactiveClass
+         * @return string 
+         * @since 2.3.0
+         * @static 
+         */
+        public static function routeParam($routeName, $params, $activeClass = 'active', $inactiveClass = ''){
+            return \Itway\components\ActiveItem\Active::routeParam($routeName, $params, $activeClass, $inactiveClass);
+        }
+        
+    }
+
+
+    class Timezone extends \Camroncade\Timezone\Facades\Timezone{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getTimezones(){
+            return \Camroncade\Timezone\Timezone::getTimezones();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function selectForm($selected = null, $placeholder = null, $selectAttributes = array(), $optionAttributes = array()){
+            return \Camroncade\Timezone\Timezone::selectForm($selected, $placeholder, $selectAttributes, $optionAttributes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function convertFromUTC($timestamp, $timezone, $format = 'Y-m-d H:i:s'){
+            return \Camroncade\Timezone\Timezone::convertFromUTC($timestamp, $timezone, $format);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function convertToUTC($timestamp, $timezone, $format = 'Y-m-d H:i:s'){
+            return \Camroncade\Timezone\Timezone::convertToUTC($timestamp, $timezone, $format);
         }
         
     }

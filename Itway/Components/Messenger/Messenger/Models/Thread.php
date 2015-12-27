@@ -22,7 +22,7 @@ class Thread extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['subject'];
+    protected $fillable = ['subject', 'banned'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -50,8 +50,7 @@ class Thread extends Eloquent
 
     /**
      * Returns the latest message from a thread
-     *
-     * @return \Cmgmyr\Messenger\Models\Message
+     * @return mixed
      */
     public function getLatestMessageAttribute()
     {

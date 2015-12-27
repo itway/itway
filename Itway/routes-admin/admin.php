@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ivan
- * Date: 12/11/2015
- * Time: 11:19 PM
- */
+
 Route::group(['prefix' => 'teams', 'as' => 'teams::'], function(){
     Route::get('/', [
         'uses' => 'Admin\AdminTeamsController@index',

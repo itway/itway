@@ -7,7 +7,7 @@
  */
 //================================
 //USER Routes START
-Route::group(['prefix' => 'user','middleware' => 'auth', 'as' => 'user::'], function() {
+Route::group(['prefix' => 'user', 'middleware' => 'auth', 'as' => 'user::'], function() {
 
     Route::get('/', [
         'uses' => 'UserController@index',
@@ -42,6 +42,7 @@ Route::group(['prefix' => 'user','middleware' => 'auth', 'as' => 'user::'], func
     ]);
     Route::post('photo', ['uses' => 'UserController@userPhoto','middleware' => 'IsUsers', 'as' => 'photo']);
     Route::get('/tags/{slug}', ['uses' => 'UserController@tags']);
+
 });
 //end of USER routes
 //===============================

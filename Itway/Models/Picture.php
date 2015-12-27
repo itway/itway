@@ -13,7 +13,7 @@ class Picture extends Model implements Transformable
      * @var array
      */
 
-    protected $fillable = array('path');
+    protected $fillable = array('path','banned');
 
 
     /**

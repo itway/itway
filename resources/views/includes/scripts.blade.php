@@ -37,30 +37,27 @@
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\nag.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\search.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\popup.min.js')}}"></script>
 <script src="{{asset("dist/vendor/remodal/dist/remodal.min.js")}}"></script>
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.js")}}"></script>
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.date.js")}}"></script>
 <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
 <script>
-
     $('.cookie.nag')
-            .nag('clear')
-    ;
+            .nag('clear');
     $('.cookie.nag')
-            .nag('show')
-    ;
+            .nag('show');
     $('.special.cards .image').dimmer({
         on: 'hover'
     });
+
     $('.message .close')
             .on('click', function () {
                 $(this)
                         .closest('.message')
-                        .transition('fade')
-                ;
-            })
-    ;
+                        .transition('fade');
+            });
     $('.navigation .ui.dropdown')
             .dropdown({
                 on: 'hover'
@@ -68,22 +65,16 @@
     $('.ui.vertical.menu .ui.dropdown')
             .dropdown({
                 on: 'hover'
-            })
-    ;
+            });
     $('.ui.dropdown.item.pointing')
-            .dropdown()
-    ;
+            .dropdown();
     $('.ui.dropdown.item')
-            .dropdown()
-    ;
+            .dropdown();
     var drop = $('.ui.inline.dropdown');
     drop.dropdown({transition: 'drop'});
     var cloned = drop.find('.item.block.active.selected').clone();
     drop.find('.text').html(cloned.html());
     $('.ui.floating.labeled.icon.dropdown.button').dropdown();
-//    $('.menu .item')
-//            .tab()
-//    ;
     $('.notification .close').click(function (e) {
         e.preventDefault();
         $(this).closest('.notification').animate({
@@ -93,62 +84,6 @@
         }, 100);
     });
     var user_id = "@if(Auth::check()){!! Auth::user()->id !!}@else null @endif";
-
-
-    var init = true,
-            state = window.history.pushState !== undefined;
-
-    // Handles response
-    var handler = function(data) {
-        $('title').html($('title', data).html());
-        $('.content').html($('.content', data).html());
-        $('.page').show();
-        $.address.title(/>([^<]*)<\/title/.exec(data)[1]);
-    };
-    var tryTab = function(){
-        $.address.state("http://www.itway.io").init(function() {
-        // Initializes the plugin
-        $('.submenu a').address();
-    }).change(function(event) {
-        // Selects the proper navigation link
-        $('.submenu a').each(function() {
-            if ($(this).attr('href') == ($.address.state() + event.path)) {
-                $(this).on("click", function(e){e.preventDefault()});
-                $(this).addClass('selected').focus();
-            } else {
-                $(this).removeClass('selected');
-            }
-        });
-
-        // Loads the page content and inserts it into the content area
-        $.ajax({
-            url: $.address.state() + event.path,
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                handler(XMLHttpRequest.responseText);
-            },
-            success: function(data, textStatus, XMLHttpRequest) {
-                handler(data);
-            }
-        });
-
-
-    });
-
-        if (!state) {
-
-            // Hides the page during initialization
-            document.write('<style type="text/css"> .page { display: none; } </style>');
-        }
-    };
-    $('.submenu a').each(function() {
-        $(this).click(function (e) {
-            tryTab();
-            $('.submenu a').address();
-        });
-
-    });
-
-
 </script>
 
 {!! Toastr::render() !!}

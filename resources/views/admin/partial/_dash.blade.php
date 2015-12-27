@@ -1,7 +1,46 @@
 <!-- Main content -->
 <section class="content">
-    <!-- Small boxes (Stat box) -->
     <div class="row">
+        <div class="ui cards" style="margin-top: 0px">
+            <div>
+                <div class="fluid card">
+                    <div class="content">
+                        <div class="header">Elliot Fu</div>
+                        <div class="description">
+                            Elliot Fu is a film-maker from New York.
+                        </div>
+                    </div>
+                    <div class="ui bottom attached button">
+                        <i class="add icon"></i>
+                        Add Friend
+                    </div>
+                </div>
+            </div>
+            <div class="fluid card">
+                <div class="content">
+                    <div class="header">Veronika Ossi</div>
+                    <div class="description">
+                        Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+                    </div>
+                </div>
+                <div class="ui bottom attached button">
+                    <i class="add icon"></i>
+                    Add Friend
+                </div>
+            </div>
+            <div class="l-4 m-4 s-4 xs-6 fluid card">
+                <div class="content">
+                    <div class="header">Jenny Hess</div>
+                    <div class="description">
+                        Jenny is a student studying Media Management at the New School
+                    </div>
+                </div>
+                <div class="ui bottom attached button">
+                    <i class="add icon"></i>
+                    Add Friend
+                </div>
+            </div>
+        </div>
         <div class="l-4 xs-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -71,7 +110,7 @@
         <!-- Left col -->
         <section class="l-6 connectedSortable">
             <!-- Box (with bar chart) -->
-            <div class="box box-danger" id="loading-example">
+            <div class="ui card box-danger" id="loading-example">
                 <div class="box-header">
                     <!-- tools box -->
                     <div class="pull-right box-tools">

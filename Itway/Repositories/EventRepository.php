@@ -17,5 +17,6 @@ interface EventRepository extends RepositoryInterface
     public function todayEvents();
     public function getAll();
     public function getAllUsers();
+    public function banORunBan($id);
 
 }

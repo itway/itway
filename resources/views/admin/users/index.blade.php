@@ -1,4 +1,14 @@
-﻿@extends('admin/app')
+﻿
+@extends('admin/app')
+@section('navigation.buttons')
+    @include('user.site-btns')
+@endsection
+
+@if(count($users)=== 0 )
+
+    @include('errors.nothing')
+
+@else
 @section('content')
     <span class="admin-head-title">
         The number of users ({!! \Itway\Models\User::all()->count() !!})
@@ -62,4 +72,19 @@
     <div class="text-center">
         {!! (new Itway\Models\Pagination($users))->render() !!}
     </div>
-    @endsection
+@endif
+@endsection
+@section('scripts-add')
+    <script>
+        var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+
+@endsection

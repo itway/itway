@@ -13,7 +13,6 @@
     settings = $.extend({
       onCheck: (ele) ->
       onUncheck: (ele) ->
-
     }, options)
     @each ->
       if typeof $.fn.iCheck != 'undefined'

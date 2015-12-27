@@ -16,13 +16,17 @@ use Toastr;
 use App;
 use Itway\Uploader\ImageTrait;
 use Itway\Uploader\ImageContract;
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
 /**
  * Class PostRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract
+class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract, Bannable
 {
     use ImageTrait;
+    use Banable;
+
     /**
      * Specify Model class name
      *
@@ -41,6 +45,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
         'body' => 'like',
         'preamble' => 'like'
     ];
+
     /**
      * Boot up the repository, pushing criteria
      */
@@ -67,7 +72,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
     {
         return $this->getModel()->latest('published_at')->published()->localed()->paginate();
     }
-    /** fetch all users paginated, published and localed posts */
+    /** fetch all USERS' paginated, published and localed posts */
     public function getAllUsers()
     {
         return $this->getModel()->latest('published_at')->published()->localed()->users()->paginate();
@@ -81,8 +86,8 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
      * @param $image
      * @return mixed
      */
-    public function createPost(PostsFormRequest $request, $image){
-
+    public function createPost(PostsFormRequest $request, $image)
+    {
         $post = $this->dispatcher->dispatch(
             new CreatePostCommand(
                 $request->title,
@@ -94,101 +99,92 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
                 $request->youtube_link,
                 $request->github_link
             ));
-
         if (!is_null($image)) {
-          $this->bindImage($image, $post);
+            $this->bindImage($image, $post);
         }
-
         return $post;
-
     }
 
-    public function updatePost(PostsUpdateFormRequest $request, $post, $image){
+    /**
+     * TODO code smells refactor needs refactor
+     *
+     * @param PostsUpdateFormRequest $request
+     * @param $post
+     * @param $image
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function updatePost(PostsUpdateFormRequest $request, $post, $image)
+    {
+        try {
 
-        $data = $request->all();
+            $data = $request->all();
 
-        unset($data['image']);
+            unset($data['image']);
+            unset($data['body']);
 
-        $data['user_id'] = \Auth::id();
-
-        $data['slug'] = Str::slug($data['title']);
-
-        if ($image) {
-            // upload image
-
-            if ($post->picture()) {
-
-               $this->bindImage($image, $post);
+            $data['user_id'] = \Auth::id();
+            $data['slug'] = Str::slug($data['title']);
+            if ($image && $post->picture()) {
+                $this->bindImage($image, $post);
             }
-
             $post->update($data);
-
+            $post->body()->update(["body" => $request->body]);
             $post->untag();
-
             $post->tag($request->input('tags_list'));
 
-        }
-        else{
-            $post->update($data);
+        } catch (\Exception $e) {
 
-            $post->untag();
-
-            $post->tag($request->input('tags_list'));
+            return response("error appeared can't update " . $e->getMessage(), $e->getCode());
 
         }
-
-
     }
 
+    /**
+     * delete post && attached body && attached tags
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteAll($id)
+    {
+        try {
+            $post = $this->getModel()->find($id);
+            $post->body()->delete();
+            $post->untag();
+            $this->delete($id);
+        } catch (\Exception $e) {
+            return response("error appeared " . $e->getMessage(), $e->getCode());
+        }
+    }
 
- public function bindPoll(PollFormRequest $request, $post) {
+    /**
+     * bind poll to the existing post
+     *
+     * @param PollFormRequest $request
+     * @param $post
+     */
+    public function bindPoll(PollFormRequest $request, $post)
+    {
+    }
 
- }
     /**
      * return the number of user's posts
-     *
      * @return mixed
      */
-    public function countUserPosts(){
+    public function countUserPosts()
+    {
 
         return $this->getModel()->where('user_id', '=', Auth::id())->count();
     }
 
     /**
      * return the number of today's posts
-     *
      * @return mixed
      */
-    public function todayPosts(){
+    public function todayPosts()
+    {
 
         return $this->getModel()->latest('published_at')->published()->today()->count();
 
     }
-
-    /**
-     * ban or unban the user
-     *
-     * @param $id
-     */
-    public function banORunBan($id)
-    {
-        $post = $this->find($id);
-
-        if ($post->banned === 0) {
-
-            \Toastr::warning('Post banned!', $title = $post->title, $options = []);
-
-            $post->banned = true;
-
-        }
-        else {
-            \Toastr::info('Post unbanned!', $title = $post->title, $options = []);
-
-            $post->banned = false;
-        }
-
-        $post->update();
-    }
-
 
 }

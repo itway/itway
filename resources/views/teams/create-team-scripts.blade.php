@@ -31,17 +31,18 @@
                                 maxSelections: 3
 
                 });
-        $('#select-trend.ui.dropdown').dropdown({
-            maxSelections: 2,
-            allowAdditions:false
+        $('.tagsTrend.ui.dropdown').dropdown({
+            maxSelections: 4,
+            allowAdditions:false,
+            multiple: true
         });
-        $('.ui.normal.skills.dropdown')
+
+        $('.ui.normal.tags.dropdown')
                 .dropdown({
                     minCharacters : 2,
                     allowAdditions: true,
                     multiple: true,
-                    maxSelections: 8
-                })
-        ;
+                    maxSelections: 5
+                });
     </script>
 @endsection

@@ -50,12 +50,6 @@ class AdminTeamsController extends Controller
         return view('admin.teams.index', compact('teams', 'no'));
     }
 
-    /**
-     * create new team
-     */
-    public function create()
-    {
-    }
 
     /**
      * @param TeamRequest $request

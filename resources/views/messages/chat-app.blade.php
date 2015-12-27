@@ -6,11 +6,6 @@
 
 <div class="container wrapper">
     <div class="content-wrapper">
-        @include('includes.notifier-panel')
-        {{--<div class="container-fluid">--}}
-        {{--@include('includes.subnavigation')--}}
-        {{--</div>--}}
-
         <div>
             @include('includes.site-location')
         </div>
@@ -37,7 +32,5 @@
 </div>
 
 @include('includes.footer')
-@include('includes.bottom-navigation')
-
 </body>
 </html>

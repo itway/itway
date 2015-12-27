@@ -12,13 +12,16 @@ use Lang;
 use Auth;
 use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
+
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
 /**
  * Class EventRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract
+class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract, Bannable
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
     /**
      * Specify Model class name
      *
@@ -134,30 +137,6 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
 
     }
 
-    /**
-     * ban or unban the user
-     *
-     * @param $id
-     */
-    public function banORunBan($id)
-    {
-        $event = $this->find($id);
-
-        if ($event->banned === 0) {
-
-            \Toastr::warning('Event banned!', $title = $event->name, $options = []);
-
-            $event->banned = true;
-
-        }
-        else {
-            \Toastr::info('Event unbanned!', $title = $event->name, $options = []);
-
-            $event->banned = false;
-        }
-
-        $event->update();
-    }
 
 
 }

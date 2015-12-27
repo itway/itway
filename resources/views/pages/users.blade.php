@@ -5,6 +5,9 @@
     <?php  $msg = "User";  ?>
 
 @endsection
+@section('navigation.buttons')
+    @include('user.site-btns')
+@endsection
 @section('content')
 
     @if (!Auth::check())

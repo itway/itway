@@ -17,13 +17,16 @@ use Auth;
 use Itway\Models\Picture;
 use Lang;
 use Itway\Models\PollOptions;
+
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
 /**
  * Class PollRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PollRepositoryEloquent extends BaseRepository implements PollRepository, ImageContract
+class PollRepositoryEloquent extends BaseRepository implements PollRepository, ImageContract, Bannable
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
     /**
      * Specify Model class name
      *

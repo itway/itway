@@ -9,13 +9,15 @@ use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\ChatRepository;
 use Itway\Models\Chat;
 
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
 /**
  * Class ChatRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class ChatRepositoryEloquent extends BaseRepository implements ChatRepository, ImageContract
+class ChatRepositoryEloquent extends BaseRepository implements ChatRepository, ImageContract, Bannable
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
     /**
      * Specify Model class name
      *

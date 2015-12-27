@@ -1,25 +1,31 @@
 <?php namespace itway\Http\Controllers;
 
+use App;
+use Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Input;
+use Itway\components\Country\CountryBuilder;
 use itway\Http\Requests;
+use Itway\Models\User;
+use Itway\Repositories\PostRepository;
 use Itway\Repositories\UserRepository;
 use Itway\Validation\User\UserPhotoRequest;
 use Itway\Validation\User\UserUpdateRequest;
-use Itway\Models\Picture;
-use Itway\Uploader\ImageUploader;
-use Itway\Models\User;
-use Toastr;
-use App;
-use Auth;
+use nilsenj\Toastr\Facades\Toastr;
 
-
-class UserController extends Controller {
+class UserController extends Controller
+{
 
     private $repository;
+    private $postrepo;
+    private $country;
 
-    public function __construct(UserRepository $repository){
+    public function __construct(UserRepository $repository, PostRepository $postrepo, CountryBuilder $country)
+    {
         $this->repository = $repository;
+        $this->postrepo = $postrepo;
+        $this->country = $country;
     }
 
     /**
@@ -28,7 +34,7 @@ class UserController extends Controller {
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(App::getLocale().'/user')->with(Toastr::error('User Not Found!',$title = 'the user might be deleted or banned', $options = []));
+        return redirect()->to(App::getLocale() . '/user')->with(Toastr::error('User Not Found!', $title = 'the user might be deleted or banned', $options = []));
     }
 
     /**
@@ -37,127 +43,155 @@ class UserController extends Controller {
      */
     protected function redirectError()
     {
-        return redirect()->to(App::getLocale().'/user/'.Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+        return redirect()->to(App::getLocale() . '/user/' . Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
     }
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return view('user.user-profile');
-	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return view('user.user-profile');
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        //
+    }
 
-	}
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-        try{
-		$user = User::findBySlugOrId($id);
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        try {
+            $user = User::findBySlugOrId($id);
+            if (Auth::user()->id == $user->id) {
+                $owner = true;
+            } else {
+                $owner = false;
+            }
             if ($user->picture()) {
 
-                $picture = $user->picture()->get() ;
-
+                $picture = $user->picture()->get();
             }
             $notFromProfile = false;
+            $countUserPosts = $this->postrepo->countUserPosts();
+            $currentTeam = $user->currentTeam;
 
-		return view('user.user-profile', compact('user', 'picture', 'notFromProfile'));
-
-        } catch (ModelNotFoundException $e) {
-
-            return $this->redirectNotFound();
-        }
-	}
-	public function settings($id)
-	{
-        try{
-		$user = User::find($id);
-        $tags = $user->tagNames();
-		return view('user.user-settings', compact('user','tags'));
+            return view('user.user-profile', compact('user', 'picture', 'notFromProfile', 'countUserPosts', 'owner', 'currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 
             return $this->redirectNotFound();
         }
-	}
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+    public function settings(Request $request, $id)
+    {
+        try {
+            $user = User::find($id);
+
+            if (Auth::user()->id == $user->id) {
+                $owner = true;
+            } else {
+                Toastr::warning('Not Allowed!', $title = 'this is not your profile...', $options = []);
+                return redirect()->back();
+            }
+
+            $tags = $user->tagNames();
+            $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
+            $countUserPosts = $this->postrepo->countUserPosts();
+            $currentTeam = $this->repository->getUserTeam($user);
+
+            return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'currentTeam'));
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * @param $id
      * @param UserUpdateRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-	public function update($id, UserUpdateRequest $request)
-	{
-     try{
-		$user = User::findBySlugOrId($id);
+    public function update($id, UserUpdateRequest $request)
+    {
+        try {
+            $user = User::findBySlugOrId($id);
 
-         $taglist = $request->input('tags_list');
+            $taglist = $request->input('tags_list');
 
-         if(! empty($taglist)){
+            if (!empty($taglist)) {
 
-             $user->retag($taglist);
-         }
+                $user->retag($taglist);
+            }
+            $country = $request->input('country');
 
-		$user->update($request->all());
+            if (isset($country)) {
 
-		return redirect()->back();
+                $this->repository->updateSettingsCountry($user, $country);
 
-     } catch (ModelNotFoundException $e) {
+            }
 
-         return $this->redirectNotFound();
+            $user->update($request->all());
 
-     }
+            return redirect()->back();
 
-	}
+        } catch (ModelNotFoundException $e) {
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-    public function userPhoto( UserPhotoRequest $request) {
+            return $this->redirectNotFound();
+
+        }
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function userPhoto(UserPhotoRequest $request)
+    {
 
         $user = User::find($request->user()->id);
 
@@ -170,16 +204,29 @@ class UserController extends Controller {
             Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
 
             return redirect()->back();
-        }
-        else return $this->redirectError();
+        } else return $this->redirectError();
 
     }
 
-    public function tags($slug) {
+    public function banned($username)
+    {
 
-        $users = User::withAnyTag([$slug])->paginate(8);
+        return view('user.banned', compact('username'));
+    }
 
-        return view('pages.users', compact('users'));
+    public function tags($slug)
+    {
+        if(!Auth::guest()) {
+            $user = Auth::user();
+            $users = User::withAnyTag([$slug])->paginate(8);
+            $countUserPosts = $this->postrepo->countUserPosts();
+            $currentTeam = $this->repository->getUserTeam($user);
+            return view('pages.users', compact('users', 'countUserPosts', 'currentTeam'));
 
+        }
+        else {
+            Toastr::warning('You are not logged in', $title = 'please try login first');
+            return redirect()->to('auth/login');
+        }
     }
 }

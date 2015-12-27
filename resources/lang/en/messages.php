@@ -59,7 +59,8 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'noQuizzesFound' => 'please create at least one',
     'yourPhotoUpdated' => 'Your Profile Photo is Updated',
     'liked' => 'liked',
-    'yourQuizCreated' => 'Your poll has been created'
-
+    'yourQuizCreated' => 'Your poll has been created',
+    'banned' => 'banned!',
+    'unbanned' => 'unbanned!'
 
 );

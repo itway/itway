@@ -17,18 +17,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
 
-class Poll extends Model implements Transformable, SluggableInterface, Likeable
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
+
+class Poll extends Model implements Transformable, SluggableInterface, Likeable, Bannable
 {
     use TransformableTrait;
 
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\TaggableTrait;
-    use \Itway\Traits\ViewCounterTrait, LikeableTrait;
+    use \Itway\Traits\ViewCounterTrait, LikeableTrait, Banable;
 
 
     protected $table  = "poll";
 
-    protected $fillable = ['slug','name', 'hint', 'locale', 'published_at'];
+    protected $fillable = ['slug','name', 'hint', 'locale', 'published_at', 'banned'];
 
     protected $sluggable = array(
         'build_from' => 'name',

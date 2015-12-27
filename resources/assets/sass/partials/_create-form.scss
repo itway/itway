@@ -1,5 +1,6 @@
 .create-form {
   display: block;
+  margin-top: 10px;
 
   .attach-block {
     display: block;
@@ -78,8 +79,38 @@
   }
   .titl {
     color: $info-color;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 15px 0;
+    display: block;
   }
   .cke_wysiwyg_div {
     min-height: 200px;
+  }
+}
+
+.side-form-tabs.ui.vertical.menu {
+  width: 100%;
+  & > .menu {
+    box-shadow: none!important;
+  }
+  .tabs-line {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none!important;
+  }
+}
+
+.ui.popup {
+  line-height: 1;
+  padding: .333em 1em;
+  font-size: .8rem;
+  &:before {
+    width: .45em;
+    height: .45em;
+  }
+  &.left:before {
+    top: -.225em!important;
   }
 }

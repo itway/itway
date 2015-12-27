@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \itway\Http\Middleware\VerifyCsrfToken::class,
         \SourceQuartet\VisitorLog\Middleware\VisitorMiddleware::class,
+
     ];
 
     /**
@@ -34,5 +35,8 @@ class Kernel extends HttpKernel
         'locale' => \itway\Http\Middleware\LocalUser::class,
         'admin' => \itway\Http\Middleware\RedirectIfNotAdmin::class,
         'IsUsersOrAdminPost' => \itway\Http\Middleware\IsUsersOrAdminPost::class,
-        'IsUsers' => \itway\Http\Middleware\IsUsers::class,    ];
+        'IsUsers' => \itway\Http\Middleware\IsUsers::class,
+        'checkBannedUser' => \itway\Http\Middleware\CheckBannedUser::class,
+
+    ];
 }

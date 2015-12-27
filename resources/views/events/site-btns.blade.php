@@ -1,3 +1,21 @@
-<a class="item" href="#create-event" > <i class="icon-pencil"></i> {{ trans('navigation.Create-Event') }}</a>
-@include('create-form.eventCreate-modal', [$model = isset($event) ? $event : null])
-<a class="item" href="{{ url(App::getLocale().'/events/') }}" ><i class="icon-layers"></i> {{ trans('navigation.User-Event') }} <div class="ui blue tiny label"></div></a>
+@section('subnav')
+    <div class="ui pointing secondary menu nav submenu">
+        <div class="container">
+            <a class="item {!! Active::pattern(App::getLocale().'/events', 'active selected') !!} blue" href="{{url(App::getLocale().'/events')}}">
+                <i class="icon-grid_on"></i> Events
+            </a>
+            @if(!Auth::guest())
+                <a class="item {!! Active::pattern(App::getLocale().'/events/create', 'active selected') !!} green" href="{{route('itway::events::create')}}">
+                    <i class="icon-pencil"></i> {{ trans('navigation.create-event') }}
+                </a>
+            @endif
+            @if(!Auth::guest())
+                <a class="item {!! Active::pattern(App::getLocale().'/events/user-events', 'active selected') !!} red" href="{{route('itway::events::user-events')}}"><i
+                            class="icon-layers"></i> {{ trans('navigation.user-event') }}
+                    <div class="ui red tiny label"></div>
+                </a>
+            @endif
+            <a class="item {!! Active::pattern(App::getLocale().'/', 'active selected') !!} brown" href="{{url(App::getLocale().'/teams')}}"></a>
+        </div>
+    </div>
+@endsection

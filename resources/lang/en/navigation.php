@@ -30,5 +30,7 @@ return array (
     'user' => 'User',
     'recent' => 'Recent Activity',
     'more' => 'More',
-    'search' => 'Search'
+    'search' => 'Search',
+    'create-event' => 'Create Event',
+    'user-event' => 'User Events'
     );

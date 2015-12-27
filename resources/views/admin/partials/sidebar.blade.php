@@ -15,16 +15,16 @@
             <li class="header">Blog menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ route('admin::index') }}">
-                    <i class='fa fa-th'></i>
+                    <i class='icon-layers'></i>
                     <span>Dashboard</span></a></li>
             <li><a href="{{ route('admin::roles::index') }}">
-                    <i class='fa  fa-street-view'></i>
+                    <i class='icon-user-tie'></i>
                     <span>Roles</span></a></li>
-            <li><a href="{{ route('admin::permissions::index') }}">
-                    <i class='fa fa-user-md'></i>
-                    <span>Privileges</span></a></li>
+            {{--<li><a href="{{ route('admin::permissions::index') }}">--}}
+                    {{--<i class='icon-user-tie'></i>--}}
+                    {{--<span>Privileges</span></a></li>--}}
             <li><a href="{{ route('admin::users::index') }}">
-                    <i class='fa fa-users'></i>
+                    <i class='icon-users'></i>
                     <span>Users</span></a></li>
             <li><a href="{{ route('admin::posts::index') }}">
                     <i class='icon-pencil'></i>

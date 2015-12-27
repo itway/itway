@@ -15,7 +15,7 @@
         {{Redirect::to(URL::previous())}}
     @else
         <div class="l-12 m-12 s-12">
-            <h3 class="title-underlined text-white">{{trans('profile.user_settings')}}</h3>
+            <h3 class="title-underlined text-info">{{trans('profile.user_settings')}}</h3>
         </div>
         <div class="l-12 m-12 s-12">
             <div class="ui special fluid cards">
@@ -67,6 +67,23 @@
                                     {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
+                        </div>
+                        {!!Form::close()!!}
+                    </div>
+                </div>
+                <div class="card fluid">
+                    <div class="content">
+                        {!! Form::model($user, ['method' => 'PATCH', 'action' => ['UserController@update', $user->id], 'id' => 'changelocation' , 'class' => 'form card-material-lightgrey', 'role' =>  'form']) !!}
+                        <div class="form-group">
+                        <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
+                            <h5 class="text-info ">{{trans('profile.alter_user_country')}}</h5>
+                            <div class="field">
+                                {!! $countryBuilder !!}
+                            </div>
+                            <div class="pull-right">
+                                {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                            </div>
+                        </div>
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -179,7 +196,7 @@
                                 <div class="pos-rel">
                                     <div class="input-count">left <span id="counter1"></span> symbols.</div>
                                 </div>
-                                {!!Form::textarea('bio',  null, ['class'=>'input input-line', 'rows'=> '3',  'id'=>'about-yourself'])!!}
+                                {!!Form::textarea('bio',  null, ['class'=>'input input-line', 'rows'=> '10',  'id'=>'about-yourself'])!!}
 
                                 <span class="help-block">{{trans('profile.alter_user_bio_bottom')}}</span>
 
@@ -205,7 +222,7 @@
         $('#about-yourself').simplyCountable({
             counter: '#counter1',
             countType: 'characters',
-            maxCount: 450,
+            maxCount: 1000,
             strictMax: true,
             countDirection: 'down',
             safeClass: 'safe',
@@ -244,9 +261,16 @@
         tagBox.tagging(tag_options);
         $('.type-zone').attr('placeholder', 'at least one tag');
         @if(Route::currentRouteName() === 'itway::user::settings')
-
             @include('user.updateFormScript')
         @endif
+         $('.ui.dropdown.search')
+                .dropdown({
+                    minCharacters: 3,
+                    allowAdditions: false,
+                    maxSelections: 3
+                });
+        var fullname = $('#fullname').focus();
+
     </script>
 @endsection
 @endif

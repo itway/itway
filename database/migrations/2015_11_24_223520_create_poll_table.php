@@ -23,6 +23,7 @@ class CreatePollTable extends Migration
             $table->timestamp('published_at');
             $table->integer('pollable_id');
             $table->string('pollable_type');
+            $table->boolean('banned')->default(false);
             $table->timestamp('date')->default(Carbon::today());
             $table->softDeletes();
         });

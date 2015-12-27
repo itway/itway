@@ -1,9 +1,7 @@
 <div class="remodal" data-remodal-id="create-event">
     <button data-remodal-action="close" class="remodal-close"></button>
     <h3>create your event</h3>
-
     <p>
-
     <div class="bg-white" style="">
         {!! Form::model( $eventInstance = new Itway\Models\Event(), ['url' => App::getLocale().'/events/store', 'class' => 'ui form', 'id' => 'event-form', 'files' => true ] ) !!}
         <div class="l-12 m-12 s-12 create-form">
@@ -26,7 +24,6 @@
                 {!! Form::file('logo', ['id' => 'photoUpload','class' => 'file-input', 'data-multiple-caption'=> null, 'placeholder' => 'insert your post image here      (max: 1 )']) !!}
             </div>
             <br>
-
             <div class="field">
                 <div class="title-block ">
                     <span class="label titl">{{trans('event-form.name')}}</span>
@@ -40,11 +37,9 @@
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-
             <div class="field">
                 <div class="tag-block">
                     <span class="label titl">#{{trans('event-form.tags')}}</span>
-
                     <div class="clearfix"></div>
                     <select multiple style="z-index: 25!important;" name="tags_list[]"
                             class="ui tag-list fluid multiple search normal selection dropdown">

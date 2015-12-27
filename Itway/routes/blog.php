@@ -14,11 +14,6 @@ Route::group(['prefix' => 'blog', 'as' => 'posts::'], function(){
 
     ]);
 
-    Route::get('/create-post', [
-        'uses' => 'PostsController@createPost',
-        'as' => 'create-post'
-
-    ]);
     Route::get('post/{slug}', [
         'uses' => 'PostsController@show',
         'as' => 'show'
@@ -35,16 +30,19 @@ Route::group(['prefix' => 'blog', 'as' => 'posts::'], function(){
         'as' => 'user-posts'
 
     ]);
+
     Route::get('edit/{id}', [
         'uses' => 'PostsController@edit',
         'as' => 'edit',
         'middleware' => 'IsUsersOrAdminPost'
     ]);
+
     Route::patch('update/{id}', [
         'uses' => 'PostsController@update',
         'as' => 'update',
         'middleware' => 'IsUsersOrAdminPost'
     ]);
+
     Route::delete('delete/{id}', [
         'uses' => 'PostsController@destroy',
         'as' => 'delete',

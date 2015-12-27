@@ -18,14 +18,16 @@ use File;
 use Itway\Traits\Searchable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Itway\Models\Picture;
-
-class Post extends Model implements Transformable, SluggableInterface, Likeable
+use Itway\Models\PostBody;
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
+class Post extends Model implements Transformable, SluggableInterface, Likeable, Bannable
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\TaggableTrait;
     use \Itway\Traits\ViewCounterTrait;
-    use LikeableTrait;
+    use LikeableTrait, Banable;
     /**
      * @var array
      */
@@ -111,6 +113,12 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    public function body() {
+
+        return $this->hasMany(\Itway\Models\PostBody::class);
+
+    }
+
     /**
      * picture attachment
      *
@@ -149,5 +157,9 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
     }
 
 
-
+    public function getBody()
+    {
+        $body = PostBody::where('post_id', $this->id)->select('body')->first();
+        return $body;
+    }
 }

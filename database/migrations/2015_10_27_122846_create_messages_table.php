@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->integer('thread_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('body');
+            $table->boolean('banned')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

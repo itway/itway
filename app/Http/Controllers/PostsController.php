@@ -4,8 +4,10 @@
 use Conner\Tagging\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Itway\components\Tags\TagsBuilder;
 use itway\Http\Requests;
 use Itway\Models\Post;
+use Itway\Models\PostBody;
 use Itway\Validation\Post\PostsUpdateFormRequest;
 use Itway\Validation\Post\PostsFormRequest;
 use Illuminate\Contracts\Cookie;
@@ -14,9 +16,9 @@ use App;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use nilsenj\Toastr\Facades\Toastr;
 use Itway\Services\Youtube\Facades\Youtube;
-use Itway\Services\Youtube\YoutubeQuery;
 use Exception;
 use Illuminate\Http\Request;
+
 
 /**
  * Class PostsController
@@ -24,17 +26,20 @@ use Illuminate\Http\Request;
  */
 class PostsController extends Controller {
 
-    use YoutubeQuery;
     private $repository;
+    private $tags;
 
 
     /**
+     * PostsController constructor.
      * @param PostRepository $repository
+     * @param TagsBuilder $tags
      */
-    public function __construct(PostRepository $repository)
+    public function __construct(PostRepository $repository, TagsBuilder $tags)
     {
         $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
         $this->repository = $repository;
+        $this->tags = $tags;
     }
 
     /**
@@ -49,11 +54,12 @@ class PostsController extends Controller {
 
     /**
      * redirect error
-     * @return \Illuminate\Http\RedirectResponse
+     * @param null $code
+     * @return mixed
      */
-    protected function redirectError()
+    protected function redirectError($code=null)
     {
-        return redirect()->to(App::getLocale().'/blog')->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+        return redirect()->to(App::getLocale().'/blog')->with(Toastr::error("Error appeared!", $title = isset($code) ? $code : null, $options = []));
     }
 
     /**
@@ -73,25 +79,11 @@ class PostsController extends Controller {
 
     }
 
-    public  function createPost() {
-
-        $tagCollection = Tag::where('count', '>=', ENV('SUPPOSED_TAGS', 5))->get();
-
-        $tags =  $tagCollection->lists('name', 'id');
-
-        $countUserPosts = $this->repository->countUserPosts();
-
-        flash()->info(trans('messages.createLang'));
-
-        return view('posts.create', compact('tags','countUserPosts'));
-    }
-
     public function getPageBody($id)
     {
+        $body = $this->repository->getModel()->findOrFail($id)->body()->first();
 
-        $body = $this->repository->getModel()->findOrFail($id)->body;
-
-        return response()->json(['body'=>$body]);
+        return response()->json(['body' => $body]);
     }
 
     /**
@@ -103,11 +95,13 @@ class PostsController extends Controller {
 
         $tags =  $tagCollection->lists('name', 'id');
 
+        $tagsBuilder = $this->tags->tagsTechMultipleSelect("choose".trans('post-form.tags'));
+
         $countUserPosts = $this->repository->countUserPosts();
 
         flash()->info(trans('messages.createLang'));
 
-        return view('posts.create', compact('tags','countUserPosts'));
+        return view('posts.create', compact('tags','countUserPosts', 'tagsBuilder'));
     }
 
     /**
@@ -221,19 +215,21 @@ class PostsController extends Controller {
 
             $countUserPosts = $this->repository->countUserPosts();
 
-//            $categories = Category::all()->lists("slug", 'id');
-
             $tags = $post->tagNames();
 
             if ($post->picture()) {
 
-                $picture = $post->picture()->get() ;
+                $picture = $post->picture()->get();
 
             }
+
+            $body = $post->getBody();
+
             flash()->info(trans('messages.createLang'));
 
-            return view('posts.edit', compact('post', 'tags', 'picture','countUserPosts'));
+            $tagsBuilder = $this->tags->tagsTechMultipleSelect("choose".trans('post-form.tags'), $tags);
 
+            return view('posts.edit', compact('post', 'tags', 'body', 'picture','countUserPosts', 'tagsBuilder'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -251,14 +247,10 @@ class PostsController extends Controller {
 	public function update($slug, PostsUpdateFormRequest $request)
 	{
         try {
-
             $post = Post::findBySlugOrId($slug);
             $image = \Input::file('image');
-
             $this->repository->updatePost($request, $post, $image);
-
             $updatedPost = $post->id;
-
             Toastr::success(trans('messages.yourPostUpdated'), $title = $post->title, $options = []);
 
             return redirect()->to(App::getLocale().'/blog/post/'.$updatedPost);
@@ -279,7 +271,7 @@ class PostsController extends Controller {
      */
 	public function destroy($id)
 	{
-        $this->repository->delete($id);
+        $this->repository->deleteAll($id);
 
         Toastr::success(Auth::user()->name, $title = 'Your Post deleted successfully! Have a nice day!', $options = []);
 

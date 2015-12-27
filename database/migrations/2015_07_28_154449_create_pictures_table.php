@@ -17,6 +17,7 @@ class CreatePicturesTable extends Migration
             $table->text('path')->default('');
             $table->integer('imageable_id');
             $table->string('imageable_type');
+            $table->boolean('banned')->default(false);
             $table->timestamps();
         });
     }

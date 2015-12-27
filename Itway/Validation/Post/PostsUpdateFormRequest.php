@@ -21,15 +21,12 @@ class PostsUpdateFormRequest extends Request{
 //			'localed' => 'required',
 //        'image' => 'image',
         'image' =>'image|image_size:>=450,>=250',
-        'body' => 'required|min:300|max:500000',
+        'body' => 'required|min:300|max:10000',
         'tags_list' => 'required|array',
         'published_at' => 'required|date',
         'youtube-link' => 'url',
         'github-link' => 'url'
-
     ];
-
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -52,7 +49,6 @@ class PostsUpdateFormRequest extends Request{
         return true;
 
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -60,9 +56,7 @@ class PostsUpdateFormRequest extends Request{
      */
     public function rules()
     {
-
         return $this->rules;
-
     }
 
 }

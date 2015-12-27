@@ -2,13 +2,23 @@
 
 namespace itway\Http\Controllers\Admin;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
+use Itway\Models\Event;
+use Itway\Repositories\EventRepository;
+use nilsenj\Toastr\Facades\Toastr;
 
 class AdminEventsController extends Controller
 {
+    private $eventrepo;
+
+    public function __construct(EventRepository $eventRepository){
+
+        $this->eventrepo = $eventRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -83,5 +93,31 @@ class AdminEventsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function banORunBan($id) {
+        try {
+
+            $event= Event::find($id);
+
+            if(\Auth::user()->id === $event->user->id || !\Auth::user()->hasRole('Admin')) {
+
+                Toastr::error('Can\'t be banned!', $title = $event->title, $options = []);
+
+                return redirect()->back();
+            }
+            else {
+                $this->eventrepo->banORunBan($id);
+            }
+            return redirect()->back();
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+        }
     }
 }

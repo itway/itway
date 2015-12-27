@@ -25,7 +25,7 @@
                          alt="{{ $team->name }}"/>
                     <div class="author">author:
                         <small>
-                            <a href="@foreach($team->ownerId() as $ownerId){{App::getLocale()."/user/".$ownerId}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
+                            <a href="@foreach($team->ownerId() as $ownerId){{url(App::getLocale()."/user/".$ownerId)}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
                         </small>
                     </div>
 

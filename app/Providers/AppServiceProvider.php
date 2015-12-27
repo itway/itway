@@ -45,6 +45,9 @@ class AppServiceProvider extends ServiceProvider {
 		);
         $this->app->bind(
             'Itway\Contracts\Likeable\Likeable');
+		$this->app->bind(
+				'Itway\Contracts\Bannable\Bannable');
+
 
 	}
 

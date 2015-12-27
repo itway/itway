@@ -56,5 +56,6 @@ return array (
     'noQuizzesFound' => 'пожалуйста создайте хотя бы один!',
     'yourPhotoUpdated' => 'Фото вашего профиля обновлено!',
     'liked' => 'лайкнуто',
-
+    'banned' => 'забанено!',
+    'unbanned' => 'разбанено!'
 );

@@ -38,7 +38,7 @@ class CreatePostCommand extends Command implements SelfHandling {
             $githublink = null)
 	{
             $this->title = $title;
-			      $this->preamble = $preamble;
+            $this->preamble = $preamble;
             $this->body = $body;
             $this->tags_list = $tags_list;
             $this->published_at = $published_at;
@@ -57,18 +57,18 @@ class CreatePostCommand extends Command implements SelfHandling {
         $post =  Auth::user()->posts()->create([
             'title' => $this->title,
             'preamble' => $this->preamble,
-            'body' => $this->body,
             'tags_list' => $this->tags_list,
             'locale' => $this->localed,
             'youtube_link'=> $this->youtubelink,
             'github_link' => $this->githublink,
             'published_at' => $this->published_at
-
         ]);
 
         $post->tag($this->tags_list);
 
         $post->save();
+
+        $post->body()->create(["body" => $this->body]);
 
         event(new PostWasCreatedEvent($post, Auth::user()));
 

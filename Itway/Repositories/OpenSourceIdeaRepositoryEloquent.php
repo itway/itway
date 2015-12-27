@@ -9,13 +9,15 @@ use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\OpenSourceIdeaRepository;
 use Itway\Models\OpenSourceIdea;
 
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
 /**
  * Class OpenSourceIdeaRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, ImageContract
+class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, ImageContract, Bannable
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
     /**
      * Specify Model class name
      *

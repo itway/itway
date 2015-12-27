@@ -1,34 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ivan
- * Date: 12/11/2015
- * Time: 11:00 PM
- */
-// ===============================================
-//start of teams SECTION =================================
-Route::group(['prefix' => 'teams', 'as' => 'teams::'], function(){
+
+Route::group(['prefix' => 'teams', 'as' => 'teams::'], function () {
 
     Route::get('/', [
         'uses' => 'TeamsController@index',
         'as' => 'index'
-
     ]);
+
     Route::get('/{slug}', [
         'uses' => 'TeamsController@show',
         'as' => 'show'
-
     ]);
-    Route::get('create', [
+    Route::get('team/create', [
         'uses' => 'TeamsController@create',
         'as' => 'create'
-
     ]);
-
-    Route::get('user-team', [
-        'uses' => 'TeamsController@userPosts',
-        'as' => 'user-posts'
-
+    Route::get('team/{id}', [
+        'uses' => 'TeamsController@team',
+        'as' => 'team'
     ]);
     Route::get('edit/{id}', [
         'uses' => 'TeamsController@edit',
@@ -49,9 +38,5 @@ Route::group(['prefix' => 'teams', 'as' => 'teams::'], function(){
         'uses' => 'TeamsController@store',
         'as' => 'store'
     ]);
-
-    Route::get('/tags/{slug}', 'TeamsController@tags');
-
+    Route::get('/tags/{slug}', ['uses' => 'TeamsController@tags', 'as' => 'team-tags']);
 });
-//end of teams SECTION =================================
-// ===============================================

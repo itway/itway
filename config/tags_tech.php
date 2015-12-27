@@ -11,7 +11,7 @@ return [
     "design" => "Graphic Design",
     "ember" => "Ember",
     "html" => "HTML",
-    "ia" => "Information Architecture",
+    "infoarch" => "Information Architecture",
     "javascript" => "Javascript",
     "mech" =>"Mechanical Engineering",
     "meteor" => "Meteor",
@@ -39,6 +39,5 @@ return [
     "laravel" => "Laravel",
     "cakePHP" => "CakePHP",
     "flask" => "Flask",
-    "django" => "Django",
-
+    "django" => "Django"
 ];

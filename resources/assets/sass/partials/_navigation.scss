@@ -60,8 +60,9 @@
             }
         }
         .dropdown.item .menu {
-            padding: 5px;
-            border-radius: 4px!important;
+            padding: 5px 10px;
+            /* border-radius: 4px !important; */
+            min-width: 180px;
             .item {
                 border-bottom: 1px solid lighten(#ddd, .9);
                 &:last-child {
@@ -193,7 +194,6 @@
 
 .menu {
     font-family: inherit!important;
-    box-shadow: 0 1px 2px 0 #f8f8f8!important;
     border-radius: 0!important;
     font-size: small!important;
 }

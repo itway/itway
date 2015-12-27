@@ -19,8 +19,8 @@ Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
         'uses' => 'EventsController@show'
     ]);
 
-    Route::get('personal_events', [
-        'as' => 'personal_events',
+    Route::get('user-events', [
+        'as' => 'user-events',
         'uses' => 'EventsController@personalEvents'
     ]);
 
@@ -50,7 +50,7 @@ Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
         'as' => 'store',
         'middleware' => 'auth'
     ]);
-
+    Route::get('/tags/{slug}', ['uses' => 'EventsController@tags', 'as' => 'team-tags']);
 
 });
 //EVENTS ROUTES END

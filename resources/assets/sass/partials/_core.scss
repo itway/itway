@@ -51,22 +51,30 @@ li {
 ::-webkit-scrollbar {
   background:transparent;
   overflow:visible;
-  width:15px;
+  width:5px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color:rgba(0,0,0,0.2);
-  border:solid #fff;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+  background-clip: padding-box;
+  background-color: rgba(0,0,0,.2);
+  min-height: 28px;
+  padding-top: 100px;
+}
+::selection {
+  background: #39f;
+  color: #fff;
+  text-shadow: none;
 }
 ::-webkit-scrollbar-thumb:hover {
   background:rgba(0,0,0,0.4);
 }
 ::-webkit-scrollbar-thumb:horizontal {
   border-width:4px 6px;
-  min-width:40px;
+  min-width:20px;
 }
 ::-webkit-scrollbar-thumb:vertical {
   border-width:6px 4px;
-  min-height:40px;
+  min-height:20px;
 }
 ::-webkit-scrollbar-track-piece{
   background-color:#fff;

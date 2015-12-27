@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/divider.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/checkbox.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/label.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/popup.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/dimmer.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/nag.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/card.min.css')}}">

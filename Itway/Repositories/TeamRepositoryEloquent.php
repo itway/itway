@@ -2,19 +2,19 @@
 
 namespace Itway\Repositories;
 
-use Itway\Components\teamwork\Teamwork\TeamworkTeam;
+use Auth;
+use Countries;
+use Itway\Commands\CreateTeamCommand;
+use Itway\Models\Team;
+use Itway\Traits\Banable;
 use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
-use RepositoryLab\Repository\Eloquent\BaseRepository;
-use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Models\Team;
+use Itway\Validation\Poll\PollFormRequest;
 use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
-use Itway\Validation\Poll\PollFormRequest;
-use Itway\Commands\CreateTeamCommand;
-use Auth;
 use Lang;
-use Countries;
+use RepositoryLab\Repository\Criteria\RequestCriteria;
+use RepositoryLab\Repository\Eloquent\BaseRepository;
 
 /**
  * Class TeamRepositoryEloquent
@@ -22,7 +22,8 @@ use Countries;
  */
 class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, ImageContract
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
+
     /**
      * Specify Model class name
      *
@@ -42,7 +43,6 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
     }
 
 
-
     /**
      * @var array
      */
@@ -51,6 +51,7 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
         'locale' => 'like',
         'slug' => 'like'
     ];
+
     /**
      * get the model instance
      *
@@ -62,23 +63,27 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
 
         return new $model;
     }
+
     /** fetch all paginated, createdAt and localed teams */
     public function getAll()
     {
         return $this->getModel()->localed()->paginate();
     }
+
     /** fetch the owners team, createdAt and localed teams */
     public function getOwnerTeam()
     {
         return $this->getModel()->localed()->owners()->paginate();
     }
+
     /**
      * @param TeamRequest $request
      * @param $logo
      * @return mixed
      */
 
-    public function createTeam(TeamRequest $request, $logo){
+    public function createTeam(TeamRequest $request, $logo)
+    {
 
         $team = $this->dispatcher->dispatch(
             new CreateTeamCommand(
@@ -88,16 +93,24 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
                 $request->tags_list,
                 strtoupper($request->country),
                 $this->getCountriesByValue($request->country)
-              ));
+            ));
         if (!is_null($logo)) {
             $this->bindImageTo($logo, $team, "logo_bg");
         }
         if (!is_null($request->trend)) {
             $this->bindTrend($request->trend, $team);
         }
+        Auth::user()->attachTeam($team);
         return $team;
     }
-    public function updateTeam(UpdateTeamRequest $request, $team, $logo){
+
+    /**
+     * @param UpdateTeamRequest $request
+     * @param $team
+     * @param $logo
+     */
+    public function updateTeam(UpdateTeamRequest $request, $team, $logo)
+    {
 
         $data = $request->all();
 
@@ -121,8 +134,7 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
             $team->untag();
 
             $team->tag($request->input('tags_list'));
-        }
-        else{
+        } else {
             $team->update($data);
 
             $team->untag();
@@ -134,7 +146,8 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
     /**
      * count users in a team
      */
-    public function countUsers(){
+    public function countUsers()
+    {
 
     }
 
@@ -142,20 +155,22 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
      * @param PollFormRequest $request
      * @param $team
      */
-    public function bindPoll(PollFormRequest $request, $team) {
+    public function bindPoll(PollFormRequest $request, $team)
+    {
 
     }
+
     /**
      * @param array $trends
      * @param $team
      */
     public function bindTrend(array $trends, $team)
     {
-        foreach($trends as $trend)
-        {
+        foreach ($trends as $trend) {
             $team->trends()->create(['trend' => $trend]);
         }
     }
+
     /**
      * return the number of today's teams
      *
@@ -167,26 +182,9 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
     }
 
     /**
-     * ban or unban the team
-     *
-     * @param $id
+     * @param $country
+     * @return mixed
      */
-    public function banORunBan($id)
-    {
-        $team = $this->find($id);
-
-        if ($team->banned === 0) {
-            \Toastr::warning('Team banned!', $title = $team->name, $options = []);
-            $team->banned = true;
-
-        }
-        else {
-            \Toastr::info('Team unbanned!', $title = $team->name, $options = []);
-            $team->banned = false;
-        }
-        $team->update();
-    }
-
     public function getCountriesByValue($country)
     {
         $result = Countries::orderBy('name', 'asc')->where('iso_3166_2', strtoupper($country))->select('name')->first();

@@ -27,23 +27,17 @@
                 <div class="l-4 m-4 s-4 xs-4 text-center tags">
                                 <span class="tags">
                                     @foreach($post->tagNames() as $tags)
-
                                         <a class="tag-name" href="{{url(App::getLocale().'/blog/tags/'.$tags)}}"><span>#</span>{{$tags}}</a>
-
                                     @endforeach
                                 </span>
                 </div>
                     @include("includes.like-btn",[$modelName, $model = $post])
-
             </div>
             <div class="header-title">
                 <h4 class="text-center"><strong>{{$post->title}}</strong></h4>
             </div>
-
             <div class="time text-center">
-
                 <span class="post-time"><i class="icon-clock-o"></i>{{$post->published_at->diffForHumans()}}</span>
-
             </div>
             <div class="l-12 m-12 s-12 xs-12 text-center">
                 <nav class="button-nav-post button-group-horizontal">
@@ -94,13 +88,10 @@
                                 </blockquote>
                             </h3>
                         </div>
-                @endif
-
+                    @endif
             </div>
-
         </div>
         <div class="clearfix"></div>
-
         <div class="editormd post-text" id="post-body">
             <div class="ui active centered large inline loader"></div>
         </div>
@@ -176,7 +167,7 @@
         $(function() {
             $.get("{{route('itway::posts::getPageBody', $post->id)}}", function(md){
                 testEditor = editormd.markdownToHTML("post-body", {
-                    markdown        : md['body'] ,//+ "\r\n" + $("#append-test").text(),
+                    markdown        : md['body']['body'],//+ "\r\n" + $("#append-test").text(),
                     htmlDecode      : "style,script,iframe",  // you can filter tags decode
                     //toc             : false,
                     tocm            : true,    // Using [TOCM]

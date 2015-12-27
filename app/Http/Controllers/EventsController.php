@@ -3,48 +3,61 @@
 namespace itway\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
+use Itway\components\Country\CountryBuilder;
+use Itway\components\Tags\TagsBuilder;
+use Itway\components\Timezone\TimezoneBuilder;
 use itway\Http\Requests;
-use itway\Http\Controllers\Controller;
+use Itway\Models\Event;
+use Itway\Models\User;
 use Itway\Repositories\EventRepository;
 use nilsenj\Toastr\Facades\Toastr;
 
 class EventsController extends Controller
 {
     private $repository;
+    private $timezone;
+    private $country;
+    private $tags;
 
     /**
-     * @param  $repository
+     * EventsController constructor.
+     * @param EventRepository $repository
+     * @param TimezoneBuilder $timezone
+     * @param CountryBuilder $country
+     * @param TagsBuilder $tags
      */
-    public function __construct(EventRepository $repository)
+    public function __construct(EventRepository $repository, TimezoneBuilder $timezone, CountryBuilder $country, TagsBuilder $tags)
     {
         $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store']]);
         $this->repository = $repository;
+        $this->timezone = $timezone;
+        $this->country = $country;
+        $this->tags = $tags;
     }
 
     /**
      * Redirect not found.
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(route("itway::events::index"))->with(Toastr::error('Event Not Found!',$title = 'team might be deleted or banned', $options = []));
+        return redirect()->to(route("itway::events::index"))->with(Toastr::error('Event Not Found!', $title = 'team might be deleted or banned', $options = []));
     }
 
     /**
      * redirect error
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function redirectError($message = null)
     {
-        if (!is_null($message))
-        {
+        if (!is_null($message)) {
             return redirect()->to(route("itway::events::index"))->with(Toastr::error($message, $title = "Error", $options = []));
-        }
-        else return redirect()->to(route("itway::events::index"))->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+        } else return redirect()->to(route("itway::events::index"))->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +73,7 @@ class EventsController extends Controller
 
         $tags = $this->repository->getModel()->existingTags();
 
-        return view('events.events', compact('events','countUserEvents', 'tags'));
+        return view('events.events', compact('events', 'countUserEvents', 'tags'));
     }
 
     /**
@@ -70,13 +83,22 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+
+        $timezoneBuilder = $this->timezone->buildSelect();
+        $countryBuilder = $this->country->buildCountrySelect();
+        $tagsBuilder = $this->tags->tagsTechMultipleSelect(trans('event-form.select-tags'));
+        $countUserEvents = $this->repository->countUserEvents();
+        $tags = $this->repository->getModel()->existingTags();
+
+
+        return view('events.create', compact('countUserEvents', 'tags', 'timezoneBuilder', 'countryBuilder', 'tagsBuilder'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -87,7 +109,7 @@ class EventsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -98,7 +120,7 @@ class EventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -109,8 +131,8 @@ class EventsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -121,11 +143,35 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
+
+    public function personalEvents($id)
+    {
+
+        $user = User::findBySlugOrId($id);
+
+        $this->repository->getModel()->where('user_id', $user->id)->first();
+
+    }
+
+    /**
+     * get the list of tags defined for teams
+     *
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function tags($slug)
+    {
+        $events = Event::withAnyTag([$slug])->latest('created_at')->paginate(8);
+        $tags = $this->repository->getModel()->existingTags();
+
+        return view('events.events', compact('events', 'tags'));
+    }
+
 }

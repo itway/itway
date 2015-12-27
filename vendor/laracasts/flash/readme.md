@@ -4,13 +4,9 @@
 
 First, pull in the package through Composer.
 
-```js
-"require": {
-    "laracasts/flash": "~1.3"
-}
-```
+Run `composer require laracasts/flash`
 
-And then, if using Laravel 5, include the service provider within `app/config/app.php`.
+And then, if using Laravel 5, include the service provider within `config/app.php`.
 
 ```php
 'providers' => [
@@ -54,7 +50,7 @@ Again, if using Laravel, this will set a few keys in the session:
 
 Alternatively, again, if you're using Laravel, you may reference the `flash()` helper function, instead of the facade. Here's an example:
 
-```
+```php
 /**
  * Destroy the user's session (logout).
  *
@@ -64,11 +60,13 @@ public function destroy()
 {
     Auth::logout();
 
-    flash()->info('You have been logged out.');
+    flash()->success('You have been logged out.');
 
     return home();
 }
 ```
+
+Or, for a general information flash, just do: `flash('Some message');`.
 
 With this message flashed to the session, you may now display it in your view(s). Maybe something like:
 
@@ -98,7 +96,7 @@ Because flash messages and overlays are so common, if you want, you may use (or 
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -109,7 +107,7 @@ Because flash messages and overlays are so common, if you want, you may use (or 
 </div>
 
 <script src="//code.jquery.com/jquery.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- This is only necessary if you do Flash::overlay('...') -->
 <script>
@@ -123,10 +121,10 @@ Because flash messages and overlays are so common, if you want, you may use (or 
 If you need to modify the flash message partials, you can run:
 
 ```bash
-php artisan view:publish laracasts/flash
+php artisan vendor:publish
 ```
 
-The two package views will now be located in the `app/views/packages/laracasts/flash/' directory.
+The two package views will now be located in the `app/views/packages/laracasts/flash/` directory.
 
 ```php
 Flash::message('Welcome aboard!');
@@ -137,7 +135,7 @@ return Redirect::home();
 ![https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/message.png](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/message.png)
 
 ```php
-Flash::error('Sorry Please try again.');
+Flash::error('Sorry! Please try again.');
 
 return Redirect::home();
 ```
@@ -153,4 +151,3 @@ return Redirect::home();
 ![https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/overlay.png](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/overlay.png)
 
 > [Learn exactly how to build this very package on Laracasts!](https://laracasts.com/lessons/flexible-flash-messages)
-

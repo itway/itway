@@ -9,13 +9,18 @@ use Itway\Models\User;
 use Itway\Models\Picture;
 use Itway\Uploader\ImageTrait;
 use Itway\Uploader\ImageContract;
+
+use Itway\Contracts\Bannable\Bannable;
+use Itway\Traits\Banable;
+use Countries;
+
 /**
  * Class UserRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract
+class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract, Bannable
 {
-    use ImageTrait;
+    use ImageTrait, Banable;
     /**
      * Specify Model class name
      *
@@ -34,6 +39,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
             'Facebook' => 'like',
             'Twitter' => 'like',
             'Github' => 'like',
+            'country_name' => 'like'
             ];
 
 
@@ -45,6 +51,22 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
+    public function updateSettingsCountry($instance, $country) {
+
+        try {
+            $instance->country = strtoupper($country);
+
+            $instance->country_name = $this->getCountriesByValue($country);
+
+            $instance->save();
+
+        } catch (\Exception $e){
+
+            \Toastr::error('error appeared', 'try once more or contact to admin');
+
+            return redirect()->back();
+        }
+    }
     /**
      * get the model
      *
@@ -72,30 +94,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
         }
     }
 
-    /**
-     * ban or unban the user
-     *
-     * @param $id
-     */
-    public function banORunBan($id)
-    {
-        $user = $this->find($id);
-
-        if ($user->banned === 0) {
-
-            \Toastr::warning('User banned!', $title = $user->name, $options = []);
-
-            $user->banned = true;
-
-        }
-        else {
-            \Toastr::info('User unbanned!', $title = $user->name, $options = []);
-
-            $user->banned = false;
-        }
-
-        $user->update();
-    }
     /** fetch all paginated, published and localed users */
     public function getAll()
     {
@@ -129,6 +127,23 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
 
     }
 
+    public function getUserTeam($user) {
+        $teams = [];
+        foreach ($user->teams()->get() as $key => $team) {
+            $teams[$key] = $team;
+        }
+        return $team;
+    }
+
+    /**
+     * @param $country
+     * @return mixed
+     */
+    public function getCountriesByValue($country)
+    {
+        $result = Countries::orderBy('name', 'asc')->where('iso_3166_2', strtoupper($country))->select('name')->first();
+        return $result->name;
+    }
 
     public function getAllExcept($id)
     {

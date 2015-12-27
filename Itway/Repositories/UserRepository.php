@@ -15,4 +15,6 @@ interface UserRepository extends RepositoryInterface
     public function getUserPhoto($user);
     public function getAllExcept($id);
     public function getAll();
+    public function updateSettingsCountry($instance, $country);
+    public function getUserTeam($user);
 }

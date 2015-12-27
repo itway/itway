@@ -3,6 +3,7 @@
         <div class="field">
             <div class="title-block ">
                 <span class="label titl">{{trans('post-form.title')}}</span>
+
                 <div class="clearfix"></div>
                 {!! Form::text('title', null, ['class' => 'input-line', 'id' => 'title','placeholder' => 'insert your title here'])!!}
                 <div class="pos-rel">
@@ -14,88 +15,63 @@
         </div>
 
         <div class="field">
-                <div class="tag-block" style="z-index: 22!important;">
-                    <span class="label titl">#{{trans('post-form.tags')}}</span>
-                    <div class="clearfix"></div>
-                    <select multiple="multiple" name="tags_list[]" class="ui tags fluid multiple search normal selection dropdown">
-                        <option value=""> choose {{trans('post-form.tags')}}</option>
-                        @if(url(App::getLocale().'/blog/create') !== Request::url())
-                            @include('posts.updateFormScript')
-                        @else
-                            <option value="angular">Angular</option>
-                            <option value="css">CSS</option>
-                            <option value="design">Graphic Design</option>
-                            <option value="ember">Ember</option>
-                            <option value="html">HTML</option>
-                            <option value="ia">Information Architecture</option>
-                            <option value="javascript">Javascript</option>
-                            <option value="mech">Mechanical Engineering</option>
-                            <option value="meteor">Meteor</option>
-                            <option value="node">NodeJS</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="python">Python</option>
-                            <option value="rails">Rails</option>
-                            <option value="react">React</option>
-                            <option value="ruby">Ruby</option>
-                            <option value="c#">C#</option>
-                            <option value="c++">C++</option>
-                            <option value="php">PHP</option>
-                            <option value="ASPnet">ASPnet</option>
-                            <option value="UI Design">UI Design</option>
-                            <option value="User Experience">User Experience</option>
-                        @endif
+            <div class="tag-block" style="z-index: 22!important;">
+                <span class="label titl">#{{trans('post-form.tags')}}</span>
 
-                    </select>
-                    <div class="clearfix"></div>
-                    {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
-                </div>
+                <div class="clearfix"></div>
+                {!! $tagsBuilder !!}
+                <div class="clearfix"></div>
+                {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
+            </div>
         </div>
 
     </div>
 
     <div class="field">
-      <div class="preamble-block">
-        <span class="label titl">{{trans('post-form.preamble')}}</span>
-        <div class="clearfix"></div>
-      {!! Form::textarea('preamble', null, ['class' => 'input-line', 'id' => 'preamble','rows' => '3', 'placeholder' => 'insert your preamble here      (max:300)'])!!}
-      <div class="pos-rel">
-          <div class="input-count">left <span id="counter2"></span> symbols.</div>
-      </div>
-      <div class="clearfix"></div>
-      {!! $errors->first('preamble', '<div class="text-danger">:message</div>') !!}
-      </div>
+        <div class="preamble-block">
+            <span class="label titl">{{trans('post-form.preamble')}}</span>
+
+            <div class="clearfix"></div>
+            {!! Form::textarea('preamble', null, ['class' => 'input-line', 'id' => 'preamble','rows' => '3', 'placeholder' => 'insert your preamble here      (max:300)'])!!}
+            <div class="pos-rel">
+                <div class="input-count">left <span id="counter2"></span> symbols.</div>
+            </div>
+            <div class="clearfix"></div>
+            {!! $errors->first('preamble', '<div class="text-danger">:message</div>') !!}
+        </div>
     </div>
     <div class="clearfix"></div>
     <span class="label titl">{{trans('post-form.post body')}}</span>
+
     <div class="clearfix"></div>
-    <div class="form-group">
-        {!! Form::textarea('body', null, [ 'cols' => '120', 'rows'=>'60', 'class' => 'input input-line hidden', 'id' => 'editor', 'hidden', 'style' => 'height:300px', 'placeholder' => 'Please write your post!'])!!}
-    </div>
     <div id="editormd">
-        {!! Form::textarea('body', null, [ 'cols' => '120', 'rows'=>'60', 'class' => 'input input-line hidden', 'id' => 'editor', 'hidden', 'style' => 'height:300px', 'placeholder' => 'Please write your post!'])!!}
+        <textarea name="body" cols="120" rows="60" class="post-body input input-line hidden" id="editor" hidden
+                  style="height:300px" placeholder="Please write your post!">@if(isset($post))<?php $body = $post->getBody();echo $body['body'];?>@endif</textarea>
     </div>
     <div class="clearfix"></div>
     {!! $errors->first('body', '<div class="text-danger">:message</div>') !!}
     <div class="two fields">
-    <div class="field">
-      <div class="btns-block">
-        <span class="label titl">{{trans('post-form.attach')}}</span>
-        <div class="clearfix"></div>
-        @include('create-form.attach-block', [$model = isset($post) ? $post : null])
-        @include('create-form.image-modal', [$model = isset($post) ? $post : null])
-        @include('create-form.video-modal', [$model = isset($post) ? $post : null])
-        @include('create-form.github-link', [$model = isset($post) ? $post : null])
-        @include('create-form.poll-modal', [$model = isset($post) ? $post : null])
-        <div class="clearfix"></div>
-        {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
-      </div>
-    </div>
+        <div class="field">
+            <div class="btns-block">
+                <span class="label titl">{{trans('post-form.attach')}}</span>
 
-    <div class="field">
+                <div class="clearfix"></div>
+                @include('create-form.attach-block', [$model = isset($post) ? $post : null])
+                @include('create-form.image-modal', [$model = isset($post) ? $post : null])
+                @include('create-form.video-modal', [$model = isset($post) ? $post : null])
+                @include('create-form.github-link', [$model = isset($post) ? $post : null])
+                @include('create-form.poll-modal', [$model = isset($post) ? $post : null])
+                <div class="clearfix"></div>
+                {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+            </div>
+        </div>
+
+        <div class="field">
             <div class="time-block-addon">
             </div>
-        <div class="time-block">
+            <div class="time-block">
                 <span class="label titl">{{trans('post-form.publish on')}}</span>
+
                 <div class="clearfix"></div>
                 @if(isset($postInstance))
                     <div class="form-group">
@@ -108,8 +84,8 @@
                 @endif
                 <div class="clearfix"></div>
                 {!! $errors->first('date', '<div class="text-danger">:message</div>') !!}
+            </div>
         </div>
-    </div>
     </div>
 
     <div class="form-group">

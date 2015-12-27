@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration {
             $table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->text('preamble');
-			$table->longText('body');
       		$table->string('slug');
       		$table->string('locale');
       		$table->integer('comment_count')->unsigned();

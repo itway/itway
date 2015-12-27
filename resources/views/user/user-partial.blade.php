@@ -1,7 +1,6 @@
-<div class="xs-12 s-12 m-4 text-center">
-    {{--<h4 class="text-primary text-center" style="margin-top: 0">{{trans('profile.user_profile')}}</h4>--}}
+<div class="xs-12 s-12 m-4 text-center" style="padding-left: 0">
     <div class="ui special fluid cards">
-        <div class="card">
+        <div class="card" style="margin-left: 0">
             @if($user->id === Auth::id())
                 @if(!$notFromProfile)
                     @include('user.user-image-update')
@@ -29,8 +28,17 @@
                 </a>
             </div>
         </div>
+        @if(isset($user->country))
+            <div class="card" style="margin-left: 0">
+                <span class="header text-primary text-center">Country:</span>
+                <div class="country-block">
+                    <i class="{{strtolower($user->country)}} flag"></i>{{$user->country_name}}
+                </div>
+            </div>
+        @endif
     </div>
 </div>
+
 <div class="user-info-block xs-12 xs-offset-0 s-12 s-offset-0 m-8 m-offset-0">
     <div class="ui cards">
         <div class="card fluid">
@@ -41,7 +49,8 @@
                     <span>Slug:  <span class="text-info"> {{$user->slug}}</span> </span>
 
                     <div class="clearfix"></div>
-                    <span>{{trans('profile.user_fullname')}} <span class="text-info"> {{$user->name}} </span> </span>
+                        <span>{{trans('profile.user_fullname')}} <span
+                                    class="text-info"> {{$user->name}} </span> </span>
 
                     <div class="clearfix"></div>
                     <span>Email: <a href="mailto:{{$user->email}}" target="_top"><span class="text-info"><i
@@ -66,7 +75,7 @@
                         @if(! empty($user->Google))
 
                             <a href="{{$user->Google}}" target="_blank" class="text-primary">
-                        <i class="icon-google text-google"></i>
+                                <i class="icon-google text-google"></i>
                                 {{$user->Google}}
                             </a>
                             <div class="clearfix"></div>
@@ -81,15 +90,15 @@
                             <div class="clearfix"></div>
                         @endif
                         @if(! empty($user->Twitter))
-                            <a href="{{$user->Twitter}}"  target="_blank" class="text-primary">
-                        <i class="icon-twitter text-twitter"></i>
+                            <a href="{{$user->Twitter}}" target="_blank" class="text-primary">
+                                <i class="icon-twitter text-twitter"></i>
                                 {{$user->Twitter}}
                             </a>
                             <div class="clearfix"></div>
                         @endif
                         @if(! empty($user->Github))
                             <a href="{{$user->Github}}" target="_blank" class="text-primary">
-                        <i class="icon-github text-github"></i>
+                                <i class="icon-github text-github"></i>
                                 {{$user->Github}}
                             </a>
                         @endif
@@ -148,15 +157,17 @@
     @endif
 
     @if(! empty($user->bio))
-        <div class="row">
-            <figure class="bg-white">
-                <span class="user-info-title b text-primary text-center">{{trans('profile.user_bio')}}</span>
+        <div class="ui cards">
 
-                <div class="profile-bio">
-                    <b><i>{{$user->bio}}</i></b>
+            <div class="card fluid">
+                <div class="content">
+                    <span class="user-info-title b text-primary text-center">{{trans('profile.user_bio')}}</span>
+
+                    <div class="profile-bio">
+                        <b><i>{{$user->bio}}</i></b>
+                    </div>
                 </div>
-
-            </figure>
+            </div>
         </div>
     @else
         <div class="ui cards">

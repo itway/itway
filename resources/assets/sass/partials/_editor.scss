@@ -1,6 +1,5 @@
 #editormd {
   z-index: 20;
-  overflow: auto!important;
   .editormd-menu>li {
     margin: 0;
     padding: 2px;
@@ -21,7 +20,23 @@
     z-index: 10;
   }
 
+  .CodeMirror-dialog-top {
+    input {
+      width: 100%;
+    }
+  }
 }
+
+//.CodeMirror-scroll {
+//  display: block!important;
+//  width: 100%!important;
+//  .CodeMirror-sizer {
+//    width: 100%!important;
+//  }
+//}
 .editormd-dialog {
   height: auto!important;
+}
+.editormd-preview-container {
+  padding: 10px;
 }

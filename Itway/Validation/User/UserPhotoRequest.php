@@ -4,6 +4,7 @@
 namespace Itway\Validation\User;
 
 use itway\Http\Requests\Request;
+use Auth;
 
 class UserPhotoRequest extends Request
 {
@@ -14,7 +15,7 @@ class UserPhotoRequest extends Request
      */
     public function authorize()
     {
-        return true;
+            return true;
     }
 
     /**
@@ -25,7 +26,7 @@ class UserPhotoRequest extends Request
     public function rules()
     {
         return [
-            'photo' => 'image_size:>=150,>=150|mimes:jpeg,jpg,png,bmp,gif,svg'
+            'photo' => 'required|image_size:>=150,>=150|mimes:jpeg,jpg,png,bmp,gif,svg'
         ];
     }
 }

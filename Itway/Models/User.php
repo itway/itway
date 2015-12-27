@@ -76,7 +76,23 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'photo', 'provider','locale', 'provider_id','bio','location','Google','Facebook','Github','Twitter', 'banned'];
+    protected $fillable = ['name', 'email', 'password', 'photo', 'provider','locale', 'provider_id','bio','location','Google','Facebook','Github','Twitter', 'banned', 'country', 'country_name'];
+
+    /**
+     * @return boolean
+     */
+    public function isTimestamps()
+    {
+        return $this->timestamps;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isWasRecentlyCreated()
+    {
+        return $this->wasRecentlyCreated;
+    }
 
     /**
      * The attributes excluded from the model's JSON form.

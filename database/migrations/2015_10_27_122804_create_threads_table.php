@@ -15,6 +15,7 @@ class CreateThreadsTable extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
+            $table->boolean('banned')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
