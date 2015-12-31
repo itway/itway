@@ -35,6 +35,12 @@
                    class="input-line">
         </div>
     </div>
+
+    <div class="field">
+        <span class="label titl">#{{trans('event-form.event-timezone')}}</span>
+        {!!$timezoneBuilder!!}
+    </div>
+
     <span class="label titl">{{trans('event-form.organizer')}}</span>
 
     <div class="clearfix"></div>
@@ -58,9 +64,5 @@
                name="max_people_number"
                placeholder="max people number"
                class="input-line">
-    </div>
-    <div class="field">
-        <span class="label titl">#{{trans('event-form.event-timezone')}}</span>
-        {!!$timezoneBuilder!!}
     </div>
 </div>
