@@ -2,7 +2,7 @@
 
 use App;
 use Auth;
-use Conner\Tagging\Tag;
+use Conner\Tagging\Model\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Itway\components\Country\CountryBuilder;
@@ -10,17 +10,29 @@ use Itway\components\Tags\TagsBuilder;
 use Itway\Components\teamwork\Teamwork\Exceptions\UserNotInTeamException;
 use itway\Http\Requests;
 use Itway\Models\Team;
-use Itway\Models\User;
 use Itway\Repositories\TeamRepository;
 use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
 use nilsenj\Toastr\Facades\Toastr;
 use Teamwork;
 
+/**
+ * Class TeamsController
+ * @package itway\Http\Controllers
+ */
 class TeamsController extends Controller
 {
+    /**
+     * @var TeamRepository
+     */
     private $repository;
+    /**
+     * @var CountryBuilder
+     */
     private $country;
+    /**
+     * @var TagsBuilder
+     */
     private $tags;
 
     /**
@@ -31,7 +43,7 @@ class TeamsController extends Controller
      */
     public function __construct(TeamRepository $repository, CountryBuilder $country, TagsBuilder $tags)
     {
-        $this->middleware('auth', ['only' => ['createTeam', 'edit', 'update', 'store']]);
+        $this->middleware('auth', ['only' => ['create', 'show', 'team', 'invite', 'edit', 'update', 'switchTeam', 'store']]);
         $this->repository = $repository;
         $this->country = $country;
         $this->tags = $tags;
@@ -71,8 +83,9 @@ class TeamsController extends Controller
         $teams = $this->repository->getAll();
 
         $tags = $this->repository->getModel()->existingTags();
+        $currentTeam = $this->repository->getCurrentTeam();
 
-        return view('teams.teams', compact('teams', 'tags'));
+        return view('teams.teams', compact('teams', 'tags', 'currentTeam'));
     }
 
     /**
@@ -88,38 +101,45 @@ class TeamsController extends Controller
 
         $tagsBuilder = $this->tags->tagsTechMultipleSelect(trans('team-form.select-tags'));
         $tagsTrendBuilder = $this->tags->tagsTrendsMultipleSelect(trans('team-form.select-trend-tags'));
+        $currentTeam = $this->repository->getCurrentTeam();
 
         flash()->info(trans('messages.createTeam'));
 
-        return view('teams.create', compact('tags', 'countryBuilder', 'tagsBuilder', 'tagsTrendBuilder'));
+        return view('teams.create', compact('tags', 'countryBuilder', 'tagsBuilder', 'tagsTrendBuilder', 'currentTeam'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
-        if(!Auth::guest()) {
+        $team = Team::findBySlugOrId($id);
+        $currentTeam = $this->repository->getCurrentTeam();
+        $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
-            $team = Team::findBySlugOrId($id);
-            return view('teams.single', compact('team'));
+        return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
 
-        }
-        else {
-
-            return redirect()->to('auth/login');
-        }
     }
 
+    /**
+     * @param TeamRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(TeamRequest $request)
     {
 
         $logo = \Input::hasFile('logo') ? \Input::file('logo') : null;
-
         $team = $this->repository->createTeam($request, $logo);
 
         Toastr::success(trans('messages.yourTeamCreated'), $title = $team->name, $options = []);
 
-        return redirect()->to(App::getLocale() . '/teams/' . $team->id);
+        return redirect()->to(App::getLocale() . '/teams/team/' . $team->id);
     }
 
+    /**
+     * @param $id
+     */
     public function edit($id)
     {
     }
@@ -142,13 +162,18 @@ class TeamsController extends Controller
     {
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function team($id)
     {
 
-        $user = User::findBySlugOrId($id);
+        $team = Team::findBySlugOrId($id);
+        $currentTeam = $this->repository->getCurrentTeam();
+        $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
-        $team = $this->repository->getModel()->where('user_id', $user->id)->first();
-        dd($team);
+        return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
 
     }
 
@@ -175,14 +200,13 @@ class TeamsController extends Controller
      */
     public function invite($team_id)
     {
-        if (!Auth::guest()) {
-            $user = Auth::user();
-            $team = Team::find($team_id);
 
-            Teamwork::inviteToTeam($user, $team, function ($invite) {
-                // Send email to user / let them know that they got invited
-            });
-        } else return $this->redirectError('you are not logged in...');
+        $user = Auth::user();
+        $team = Team::find($team_id);
+
+        Teamwork::inviteToTeam($user, $team, function ($invite) {
+            // Send email to user / let them know that they got invited
+        });
     }
 
     /**
@@ -249,11 +273,9 @@ class TeamsController extends Controller
     public function switchTeam($team_id)
     {
         try {
-            if (!Auth::guest()) {
-                Auth::user()->switchTeam($team_id);
-                // Or remove a team association at all
+            Auth::user()->switchTeam($team_id);
+            // Or remove a team association at all
 //                Auth::user()->switchTeam( null );
-            } else return $this->redirectError('you are not logged in...');
 
         } catch (UserNotInTeamException $e) {
             return $this->redirectError('Given team is not allowed for the you...');

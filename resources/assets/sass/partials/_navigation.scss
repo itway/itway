@@ -5,10 +5,17 @@
     align-items: center!important;
     justify-content: center!important;
     background: $body-background;
+    .item>img:not(.ui) {
+        display: inline-block;
+        vertical-align: middle;
+        /* margin: -.1em 0; */
+        width: 2em;
+    }
     .left.menu,
     .right.menu {
         box-shadow: none!important;
     }
+
     .item.center {
         &:before {
             position: absolute;
@@ -190,6 +197,20 @@
             color: #555;
         }
     }
+    .left.menu .dropdown.item .menu {
+        padding: 5px 10px;
+        /* border-radius: 4px !important; */
+        min-width: 210px;
+        left: -60px;
+    }
+    .search-button {
+        background: lighten($body-background, .4)!important;
+        padding-left: 20px !important;
+        padding-right: 250px !important;
+        height: 40px !important;
+        margin-top: 4px !important;
+        border-bottom: 2px solid;
+    }
 }
 
 .menu {
@@ -200,6 +221,7 @@
 
 .left.menu {
     font-size: large!important;
+
 }
 
 .ui.menu {

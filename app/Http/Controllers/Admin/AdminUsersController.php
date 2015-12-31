@@ -9,18 +9,36 @@ use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
 use Itway\Models\Role;
 use Itway\Models\User;
+use Itway\Repositories\PostRepository;
 use Itway\Repositories\UserRepository;
 use Itway\Validation\User\UsersFormRequest;
 use Itway\Validation\User\UsersUpdateFormRequest;
 use nilsenj\Toastr\Facades\Toastr;
 
+/**
+ * Class AdminUsersController
+ * @package itway\Http\Controllers\Admin
+ */
 class AdminUsersController extends Controller
 {
+    /**
+     * @var UserRepository
+     */
     private $repository;
+    /**
+     * @var PostRepository
+     */
+    private $postrepo;
 
-    public function __construct(UserRepository $repository)
+    /**
+     * AdminUsersController constructor.
+     * @param UserRepository $repository
+     * @param PostRepository $postrepo
+     */
+    public function __construct(UserRepository $repository, PostRepository $postrepo)
     {
         $this->repository = $repository;
+        $this->postrepo = $postrepo;
 
     }
 
@@ -43,10 +61,9 @@ class AdminUsersController extends Controller
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
 
         $users = $this->repository->paginate();
-
         $no = $users->firstItem();
-
-        return view('admin.users.index', compact('users', 'no'));
+        $countUserPosts = $this->postrepo->countUserPosts();
+        return view('admin.users.index', compact('users', 'no', 'countUserPosts'));
     }
 
     /**
@@ -57,8 +74,8 @@ class AdminUsersController extends Controller
     public function create()
     {
         $roles = Role::all()->lists('name', 'id');
-
-        return view('admin.users.create', compact('roles'));
+        $countUserPosts = $this->postrepo->countUserPosts();
+        return view('admin.users.create', compact('roles', 'countUserPosts'));
     }
 
     /**
@@ -90,8 +107,9 @@ class AdminUsersController extends Controller
             $user = User::findBySlug($slug);
 
             $role = $this->repository->getRole($user);
+            $countUserPosts = $this->postrepo->countUserPosts();
 
-            return view('admin.users.show', compact('user', 'role'));
+            return view('admin.users.show', compact('user', 'role', 'countUserPosts'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -180,6 +198,10 @@ class AdminUsersController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|Response
+     */
     public function banORunBan($id) {
         try {
             $username = User::find($id)->name;

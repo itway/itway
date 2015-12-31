@@ -2,43 +2,46 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
-use Itway\Models\EventSpeekers;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Itway\Models\Picture;
 use Carbon\Carbon;
+use Conner\Tagging\Model\Tagged;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Contracts\Cookie;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
-use \Illuminate\Http\Request;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
 
 class Event extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
 
     protected $table = "events";
 
-    protected $fillable = ['name',
+    protected $fillable = [
+        'name',
         'description',
         'time',
         'date',
         'user_id',
         'organizer',
+        'organizer_link',
         'event_photo',
         'event_format',
-        'place',
+        'address',
+        'country',
+        'country_name',
+        'event_invite',
         'locale',
         'max_people_number',
-        'organizer_link',
         'published_at',
         'today',
         'banned'];
@@ -57,6 +60,16 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     public function eventSpeekers()
     {
         $this->hasMany(EventSpeekers::class, 'events_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function description()
+    {
+
+        return $this->hasMany(\Itway\Models\EventsDescription::class);
+
     }
 
     /**
@@ -83,7 +96,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    public function setLocaledAtAttribute(Request $request )
+    public function setLocaledAtAttribute(Request $request)
     {
 
         $this->attributes['locale'] = $request->getLocale();
@@ -107,7 +120,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     public function scopeUsers($query)
     {
 
-        $query->where('user_id', '=', Auth::id());
+        $query->where('user_id', '=', \Auth::id());
 
     }
 
@@ -155,5 +168,18 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         return $query->where($id)->orWhere('slug', '=', $id);
     }
 
+    /**
+     * rewrite the taggable trait function
+     * @return mixed
+     */
+    public static function existingTags()
+    {
+        return Tagged::distinct()
+            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
+            ->where('taggable_type', '=', (new static)->getMorphClass())
+            ->orderBy('count', 'desc')
+            ->take(8)
+            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
+    }
 
 }

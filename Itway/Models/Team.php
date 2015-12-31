@@ -2,6 +2,7 @@
 
 namespace Itway\Models;
 
+use Conner\Tagging\Model\Tagged;
 use Itway\Components\teamwork\Teamwork\TeamworkTeam;
 use Illuminate\Support\Facades\Lang;
 use Carbon\Carbon;
@@ -138,4 +139,17 @@ class Team extends TeamworkTeam
         return $usersArr;
     }
 
+    /**
+     * rewrite the taggable trait function
+     * @return mixed
+     */
+    public static function existingTags()
+    {
+        return Tagged::distinct()
+            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
+            ->where('taggable_type', '=', (new static)->getMorphClass())
+            ->orderBy('count', 'desc')
+            ->take(8)
+            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
+    }
 }

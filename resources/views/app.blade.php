@@ -1,5 +1,6 @@
 @include('includes.head')
 <body class="layout-boxed sidebar-mini skin-black">
+
 @include('includes.navigation')
 @yield('subnav')
 @if(URL::current() === 'http://'.$_SERVER['SERVER_NAME'].'/'.Lang::getLocale())
@@ -7,6 +8,7 @@
 @else
     @include('includes.search')
     <div class="container wrapper">
+    
         <div class="content-wrapper">
             <div>
                 @include('includes.site-location')
@@ -35,7 +37,7 @@
             </div>
         </div>
     </div>
-    @include('includes.footer')
+@include('includes.footer')
     {{--@include('includes.bottom-navigation')--}}
 </body>
 </html>

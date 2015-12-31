@@ -13,6 +13,9 @@
 .text-success {
   @include text-color($green-color);
 }
+.text-brown {
+  @include text-color($brown-color);
+}
 
 .text-info {
   @include text-color($cyan-color);

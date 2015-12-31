@@ -19,11 +19,25 @@
 @endsection
 @section('scripts-add')
     <script>
-        var title = $('#title');
+        var title = $('#title'),
+                preamble = $('#preamble');
         title.simplyCountable({
             counter:            '#counter1',
             countType:          'characters',
             maxCount:           120,
+            strictMax:          true,
+            countDirection:     'down',
+            safeClass:          'safe',
+            overClass:          'over',
+            thousandSeparator:  ',',
+            onOverCount:        function(count, countable, counter){},
+            onSafeCount:        function(count, countable, counter){},
+            onMaxCount:         function(count, countable, counter){}
+        });
+        preamble.simplyCountable({
+            counter:            '#counter2',
+            countType:          'characters',
+            maxCount:           300,
             strictMax:          true,
             countDirection:     'down',
             safeClass:          'safe',
@@ -54,8 +68,7 @@
 
         var addEditor = function() {
             $.getScript("http://www.itway.io/dist/vendor/editor.md/editormd.min.js", function () {
-                $(".attached.tab[data-tab='description']").append("<div id=\"editormd\"></div>");
-
+                $(".attached.tab[data-tab='main'] .event-desc-block").append("<div id=\"editormd\"></div>");
                 var editor = editormd("editormd", {
                     width: "100%",
                     height: 500,
@@ -100,7 +113,7 @@
                     history : true,
                     evaluateScripts: true,
                     onLoad: function(path, parameterArray, historyEvent) {
-                        if(path == "description" && $('#editormd').length === 0){
+                        if(path == "main" && $('#editormd').length === 0){
                             addEditor();
                         }
                     }
@@ -115,12 +128,12 @@
                     html: "Main <a href=\"#/main/#info-main\" >info</a>"
                 })
         ;
-        $('.side-form-tabs .item[data-tab="description"]')
+        $('.side-form-tabs .item[data-tab="optional"]')
                 .popup({
                     variation: 'inverted',
                     position: 'bottom left',
                     on: 'click',
-                    html: "Event description <a href=\"#/description/#info-description\" >info</a>"
+                    html: "Event optional fields <a href=\"#/optional/#info-optional\" >info</a>"
                 })
         ;
         $('.side-form-tabs .item[data-tab="logo"]')

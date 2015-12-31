@@ -582,134 +582,6 @@
       }
     };
 
-    /* Layout
-     * ======
-     * Fixes the layout height in case min-height fails.
-     *
-     * @type Object
-     * @usage $.ItwayIO.layout.activate()
-     *        $.ItwayIO.layout.fix()
-     *        $.ItwayIO.layout.fixSidebar()
-     */
-    $.ItwayIO.layout = {
-      activate: function() {
-        var _this;
-        _this = this;
-        _this.fix();
-        _this.fixSidebar();
-        $(window, '.container.wrapper').resize(function() {
-          _this.fix();
-          _this.fixSidebar();
-        });
-      },
-      fix: function() {
-        var controlSidebar, neg, postSetWidth, sidebar_height, window_height;
-        neg = $('#navigation').outerHeight() + $('#footer').outerHeight();
-        window_height = $(window).height();
-        sidebar_height = $('.sidebar').height();
-        if ($('body').hasClass('fixed')) {
-          $('.content-wrapper, .right-side').css('min-height', window_height - $('#footer').outerHeight());
-        } else {
-          postSetWidth = void 0;
-          if (window_height >= sidebar_height) {
-            $('.content-wrapper, .right-side').css('min-height', window_height - neg);
-            postSetWidth = window_height - neg;
-          } else {
-            $('.content-wrapper, .right-side').css('min-height', sidebar_height);
-            postSetWidth = sidebar_height;
-          }
-          controlSidebar = $($.ItwayIO.options.controlSidebarOptions.selector);
-          if (typeof controlSidebar !== 'undefined') {
-            if (controlSidebar.height() > postSetWidth) {
-              $('.content-wrapper, .right-side').css('min-height', controlSidebar.height());
-            }
-          }
-        }
-      },
-      fixSidebar: function() {
-        if (!$('body').hasClass('fixed')) {
-          if (typeof $.fn.slimScroll !== 'undefined') {
-            $('.sidebar').slimScroll({
-              destroy: true
-            }).height('auto');
-          }
-          return;
-        } else if (typeof $.fn.slimScroll === 'undefined' && console) {
-          console.error('Error: the fixed layout requires the slimscroll plugin!');
-        }
-        if ($.ItwayIO.options.sidebarSlimScroll) {
-          if (typeof $.fn.slimScroll !== 'undefined') {
-            $('.sidebar').slimScroll({
-              destroy: true
-            }).height('auto');
-            $('.sidebar').slimscroll({
-              height: $(window).height() - $('#navigation').height() + 'px',
-              color: 'rgba(0,0,0,0.2)',
-              size: '3px'
-            });
-          }
-        }
-      }
-    };
-
-    /* PushMenu()
-     * ==========
-     * Adds the push menu functionality to the sidebar.
-     *
-     * @type Function
-     * @usage: $.ItwayIO.pushMenu("[data-toggle='offcanvas']")
-     */
-    $.ItwayIO.pushMenu = {
-      activate: function(toggleBtn) {
-        var screenSizes;
-        screenSizes = $.ItwayIO.options.screenSizes;
-        $(toggleBtn).on('click', function(e) {
-          e.preventDefault();
-          console.log('notifier clicked');
-          if ($(window).width() > screenSizes.sm - 1) {
-            $('body').toggleClass('sidebar-collapse');
-          } else {
-            if ($('body').hasClass('sidebar-open')) {
-              $('body').removeClass('sidebar-open');
-              $('body').removeClass('sidebar-collapse');
-            } else {
-              $('body').addClass('sidebar-open');
-            }
-          }
-        });
-        $('.content-wrapper').click(function() {
-          if ($(window).width() <= screenSizes.sm - 1 && $('body').hasClass('sidebar-open')) {
-            $('body').removeClass('sidebar-open');
-          }
-        });
-        if ($.ItwayIO.options.sidebarExpandOnHover || $('body').hasClass('fixed') && $('body').hasClass('sidebar-mini')) {
-          this.expandOnHover();
-        }
-      },
-      expandOnHover: function() {
-        var _this, screenWidth;
-        _this = this;
-        screenWidth = $.ItwayIO.options.screenSizes.sm - 1;
-        $('.main-sidebar').hover((function() {
-          if ($('body').hasClass('sidebar-mini') && $('body').hasClass('sidebar-collapse') && $(window).width() > screenWidth) {
-            _this.expand();
-          }
-        }), function() {
-          if ($('body').hasClass('sidebar-mini') && $('body').hasClass('sidebar-expanded-on-hover') && $(window).width() > screenWidth) {
-            _this.collapse();
-          }
-        });
-      },
-      expand: function() {
-        $('body').removeClass('sidebar-collapse').addClass('sidebar-expanded-on-hover');
-      },
-      collapse: function() {
-        if ($('body').hasClass('sidebar-expanded-on-hover')) {
-          $('body').removeClass('sidebar-expanded-on-hover').addClass('sidebar-collapse');
-        }
-      }
-    };
-
     /* Tree()
      * ======
      * Converts the sidebar into a multilevel
@@ -746,88 +618,6 @@
           e.preventDefault();
         }
       });
-    };
-
-    /* ControlSidebar
-     * ==============
-     * Adds functionality to the right sidebar
-     *
-     * @type Object
-     * @usage $.ItwayIO.controlSidebar.activate(options)
-     */
-    $.ItwayIO.controlSidebar = {
-      activate: function() {
-        var _this, bg, btn, sidebar;
-        _this = this;
-        o = $.ItwayIO.options.controlSidebarOptions;
-        sidebar = $(o.selector);
-        btn = $(o.toggleBtnSelector);
-        btn.on('click', function(e) {
-          e.preventDefault();
-          if (!sidebar.hasClass('control-sidebar-open') && !$('body').hasClass('control-sidebar-open')) {
-            _this.open(sidebar, o.slide);
-            $(this).addClass('active');
-          } else {
-            _this.close(sidebar, o.slide);
-            $(this).removeClass('active');
-          }
-        });
-        bg = $('.control-sidebar-bg');
-        _this._fix(bg);
-        if ($('body').hasClass('fixed')) {
-          _this._fixForFixed(sidebar);
-        } else {
-          if ($('.content-wrapper, .right-side').height() < sidebar.height()) {
-            _this._fixForContent(sidebar);
-          }
-        }
-      },
-      open: function(sidebar, slide) {
-        var _this;
-        _this = this;
-        if (slide) {
-          sidebar.addClass('control-sidebar-open');
-        } else {
-          $('body').addClass('control-sidebar-open');
-        }
-      },
-      close: function(sidebar, slide) {
-        if (slide) {
-          sidebar.removeClass('control-sidebar-open');
-        } else {
-          $('body').removeClass('control-sidebar-open');
-        }
-      },
-      _fix: function(sidebar) {
-        var _this, neg;
-        _this = this;
-        neg = $('#navigation').outerHeight();
-        if ($('body').hasClass('layout-boxed')) {
-          sidebar.css('position', 'absolute');
-          sidebar.height($(window).height() / 2 - neg).css({
-            'overflow-y': 'auto'
-          });
-          $(window).resize(function() {
-            _this._fix(sidebar);
-          });
-        } else {
-          sidebar.css({
-            'position': 'fixed',
-            'height': 'auto'
-          });
-        }
-      },
-      _fixForFixed: function(sidebar) {
-        sidebar.css({
-          'position': 'fixed',
-          'max-height': '100%',
-          'overflow': 'auto',
-          'padding-bottom': '50px'
-        });
-      },
-      _fixForContent: function(sidebar) {
-        $('.content-wrapper, .right-side').css('min-height', sidebar.height());
-      }
     };
 
     /* BoxWidget
@@ -990,22 +780,14 @@
     _init(o);
     $.ItwayIO.csrf.activate();
     $.ItwayIO.search.activate();
-    $.ItwayIO.layout.activate();
     $.ItwayIO.messenger.activate();
     $.ItwayIO.imageLoad.activate();
-    $.ItwayIO.tree('.sidebar');
-    if (o.enableControlSidebar) {
-      $.ItwayIO.controlSidebar.activate();
-    }
     if (o.navbarMenuSlimscroll && typeof $.fn.slimscroll !== 'undefined') {
       $('.navbar .menu').slimscroll({
         height: o.navbarMenuHeight,
         alwaysVisible: false,
         size: o.navbarMenuSlimscrollWidth
       }).css('width', '100%');
-    }
-    if (o.sidebarPushMenu) {
-      $.ItwayIO.pushMenu.activate(o.sidebarToggleSelector);
     }
     if (o.enableBoxWidget) {
       $.ItwayIO.boxWidget.activate();

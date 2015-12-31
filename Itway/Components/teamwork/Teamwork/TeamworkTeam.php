@@ -2,37 +2,36 @@
 
 namespace Itway\Components\teamwork\Teamwork;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Config;
-use Itway\Components\teamwork\Teamwork\Traits\TeamworkTeamTrait;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
+use Itway\Components\teamwork\Teamwork\Traits\TeamworkTeamTrait;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
-use Carbon\Carbon;
-use \Illuminate\Http\Request;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
 
 class TeamworkTeam extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TeamworkTeamTrait;
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
 
-    protected $fillable = ['name', 'slug', 'locale', 'logo_bg','banned', 'date'];
+    protected $fillable = ['name', 'slug', 'locale', 'logo_bg', 'banned', 'date'];
 
     /**
      * @var array
      */
     protected $sluggable = array(
         'build_from' => 'name',
-        'save_to'    => 'slug'
+        'save_to' => 'slug'
     );
 
     /**
@@ -41,12 +40,13 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
      * @var string
      */
     protected $table;
-    const IMAGEPath =  'images/teams/';
+    const IMAGEPath = 'images/teams/';
 
     /**
      * @param Request $request
      */
-    public function getLocaledAtAttribute (Request $request) {
+    public function getLocaledAtAttribute(Request $request)
+    {
 
         $this->attributes['locale'] = $request->getLocale();
 
@@ -72,14 +72,17 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
 
-    public function scopeCreatedAt($query) {
+    public function scopeCreatedAt($query)
+    {
         $query->where('created_at', '<=', Carbon::now());
     }
+
     /**
      * @param $query
      */
 
-    public function scopeLocaled($query) {
+    public function scopeLocaled($query)
+    {
 
         $query->where('locale', '=', Lang::getLocale());
     }
@@ -87,7 +90,8 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
     /**
      * @param $query
      */
-    public function scopeOwners($query) {
+    public function scopeOwners($query)
+    {
 
         $query->where('owner_id', '=', Auth::id());
     }
@@ -95,7 +99,8 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
     /**
      * @param $query
      */
-    public function scopeToday($query) {
+    public function scopeToday($query)
+    {
 
         $query->where('date', '=', Carbon::today());
 
@@ -110,14 +115,15 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
     {
         return $query->where($id)->orWhere('slug', '=', $id);
     }
+
     /**
      * Creates a new instance of the model.
      *
      * @param array $attributes
      */
-    public function __construct( array $attributes = [ ] )
+    public function __construct(array $attributes = [])
     {
-        parent::__construct( $attributes );
+        parent::__construct($attributes);
 
         $this->table = config('teamwork.teams_table');
     }

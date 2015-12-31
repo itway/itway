@@ -1110,6 +1110,7 @@ button.href:hover,input[type=submit].href:hover{text-decoration:underline}
 .text-danger{color:#F44336}
 .text-warning{color:#FF5722}
 .text-success{color:#4CAF50}
+.text-brown{color:#795548}
 .text-info{color:#00BCD4}
 .text-vk{color:#36638e}
 .text-facebook{color:#3b5998}
@@ -1268,6 +1269,7 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .sidebar .user-title p{padding-right:10px;display:inline;font-size:medium;position:absolute;right:2px;top:5px}
 .sidebar .user-title h4{position:relative;padding-top:5px;padding-bottom:10px;background-color:#455A64;color:#FFF}
 .nav-main{padding-left:0;padding-right:0;-webkit-box-align:center!important;-webkit-align-items:center!important;-ms-flex-align:center!important;align-items:center!important;-webkit-box-pack:center!important;-webkit-justify-content:center!important;-ms-flex-pack:center!important;justify-content:center!important;background:#34495e}
+.nav-main .item>img:not(.ui){display:inline-block;vertical-align:middle;width:2em}
 .nav-main .left.menu,.nav-main .right.menu{box-shadow:none!important}
 .nav-main .item.center:before{position:absolute;content:'';top:0;right:0;height:100%;width:0!important;background:0 0;border:none}
 .nav-main .item.center .item{color:#fff!important}
@@ -1303,6 +1305,8 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .nav-main .user-activity{text-align:center}
 .nav-main .user-activity span.actvity-personal{color:#607D8B;float:none;margin:0 auto}
 .nav-main .user-activity .visited-links{padding:5px 0;color:#555}
+.nav-main .left.menu .dropdown.item .menu{padding:5px 10px;min-width:210px;left:-60px}
+.nav-main .search-button{background:#354a5f!important;padding-left:20px!important;padding-right:250px!important;height:40px!important;margin-top:4px!important;border-bottom:2px solid}
 .menu{font-family:inherit!important;border-radius:0!important;font-size:small!important}
 .left.menu{font-size:large!important}
 .ui.menu{height:inherit!important}
@@ -1887,9 +1891,8 @@ body::-webkit-scrollbar{width:12px}
 .create-form .tag-block .tagging .tag .tag-i{top:.55em!important}
 .create-form .titl{color:#03A9F4;font-size:1rem;line-height:1rem;margin:15px 0;display:block}
 .create-form .cke_wysiwyg_div{min-height:200px}
-.side-form-tabs.ui.vertical.menu{width:100%}
-.side-form-tabs.ui.vertical.menu>.menu{box-shadow:none!important}
-.side-form-tabs.ui.vertical.menu .tabs-line{width:100%;padding-left:0;padding-right:0;box-shadow:none!important}
+.side-form-tabs .tabs-line{width:100%;padding-left:0;padding-right:0;box-shadow:none!important}
+.side-form-tabs .tabs-line a{font-size:medium}
 .ui.popup{line-height:1;padding:.333em 1em;font-size:.8rem}
 .ui.popup:before{width:.45em;height:.45em}
 .ui.popup.left:before{top:-.225em!important}

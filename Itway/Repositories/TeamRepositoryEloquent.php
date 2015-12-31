@@ -6,7 +6,6 @@ use Auth;
 use Countries;
 use Itway\Commands\CreateTeamCommand;
 use Itway\Models\Team;
-use Itway\Traits\Banable;
 use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use Itway\Validation\Poll\PollFormRequest;
@@ -22,7 +21,7 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  */
 class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, ImageContract
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
 
     /**
      * Specify Model class name
@@ -151,6 +150,26 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
 
     }
 
+    public function getCurrentTeam()
+    {
+        if (!Auth::guest()) {
+            $currentTeam = Auth::user()->currentTeam;
+        } else {
+            $currentTeam = null;
+        }
+        return $currentTeam;
+    }
+
+    public function isTeamMember($team_id, $currentTeam_id)
+    {
+        if ($team_id == $currentTeam_id) {
+            $teamMember = true;
+        } else {
+            $teamMember = false;
+        }
+        return $teamMember;
+    }
+
     /**
      * @param PollFormRequest $request
      * @param $team
@@ -191,4 +210,26 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
         return $result->name;
     }
 
+    /**
+     * ban or unban instance
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function banORunBan($id)
+    {
+        try {
+            $instance = $this->find($id);
+            if ($instance->banned === 0) {
+                \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = true;
+            } else {
+                \Toastr::info(trans('unbans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = false;
+            }
+            $instance->update();
+        } catch (\Exception $e) {
+            return response("Error appeared. Maybe model doesn't have banned field" . $e->getMessage(), $e->getCode());
+        }
+    }
 }

@@ -2,43 +2,40 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
-use Auth;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Cookie;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Itway\Contracts\Likeable\Likeable;
-use Itway\Traits\Likeable as LikeableTrait;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Lang;
 use Itway\Contracts\Bannable\Bannable;
+use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Banable;
+use Itway\Traits\Likeable as LikeableTrait;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
 
 class Poll extends Model implements Transformable, SluggableInterface, Likeable, Bannable
 {
     use TransformableTrait;
-
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait, LikeableTrait, Banable;
 
 
-    protected $table  = "poll";
+    protected $table = "poll";
 
-    protected $fillable = ['slug','name', 'hint', 'locale', 'published_at', 'banned'];
+    protected $fillable = ['slug', 'name', 'hint', 'locale', 'published_at', 'banned'];
 
     protected $sluggable = array(
         'build_from' => 'name',
-        'save_to'    => 'slug'
+        'save_to' => 'slug'
     );
 
-    const IMAGEPath =  'images/polls/';
+    const IMAGEPath = 'images/polls/';
 
 
     /**
@@ -49,7 +46,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function PollOptions(){
+    public function PollOptions()
+    {
 
         return $this->hasMany(PollOptions::class);
 
@@ -73,7 +71,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param $date
      */
-    public function setPublishedAtAttribute ($date) {
+    public function setPublishedAtAttribute($date)
+    {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
 
@@ -83,7 +82,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param $date
      */
-    public function setLocaledAtAttribute ($date) {
+    public function setLocaledAtAttribute($date)
+    {
 
         $this->attributes['locale'] = Lang::getLocale();
 
@@ -92,7 +92,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param Request $request
      */
-    public function getLocaledAtAttribute (Request $request) {
+    public function getLocaledAtAttribute(Request $request)
+    {
 
         $this->attributes['locale'] = $request->getLocale();
 
@@ -101,7 +102,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param $query
      */
-    public function scopePublished($query) {
+    public function scopePublished($query)
+    {
 
         $query->where('published_at', '<=', Carbon::now());
 
@@ -110,7 +112,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param $query
      */
-    public function scopeLocaled($query) {
+    public function scopeLocaled($query)
+    {
 
         $query->where('locale', '=', Lang::getLocale());
     }
@@ -118,7 +121,8 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @param $query
      */
-    public function scopeUnpublished($query) {
+    public function scopeUnpublished($query)
+    {
 
         $query->where('published_at', '>', Carbon::now());
 

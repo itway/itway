@@ -1,6 +1,6 @@
 @section('subnav')
 <div class="ui pointing secondary menu nav submenu">
-    <div class="container">
+    <div class="container" style="overflow: visible">
         <a class="item {!! Active::pattern(App::getLocale().'/blog', 'active selected') !!} blue" href="{{url(App::getLocale().'/blog')}}">
             <i class="icon-grid_on"></i> Posts
         </a>

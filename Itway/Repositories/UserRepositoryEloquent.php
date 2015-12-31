@@ -2,25 +2,21 @@
 
 namespace Itway\Repositories;
 
-use RepositoryLab\Repository\Eloquent\BaseRepository;
-use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Repositories\UserRepository;
-use Itway\Models\User;
-use Itway\Models\Picture;
-use Itway\Uploader\ImageTrait;
-use Itway\Uploader\ImageContract;
-
-use Itway\Contracts\Bannable\Bannable;
-use Itway\Traits\Banable;
 use Countries;
+use Itway\Models\User;
+use Itway\Uploader\ImageContract;
+use Itway\Uploader\ImageTrait;
+use RepositoryLab\Repository\Criteria\RequestCriteria;
+use RepositoryLab\Repository\Eloquent\BaseRepository;
 
 /**
  * Class UserRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract, Bannable
+class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
+
     /**
      * Specify Model class name
      *
@@ -32,15 +28,15 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
     }
 
     protected $fieldSearchable = [
-            'name' => '=',
-            'email' => 'like',
-            'bio' => 'like',
-            'Google' => 'like',
-            'Facebook' => 'like',
-            'Twitter' => 'like',
-            'Github' => 'like',
-            'country_name' => 'like'
-            ];
+        'name' => '=',
+        'email' => 'like',
+        'bio' => 'like',
+        'Google' => 'like',
+        'Facebook' => 'like',
+        'Twitter' => 'like',
+        'Github' => 'like',
+        'country_name' => 'like'
+    ];
 
 
     /**
@@ -51,7 +47,8 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function updateSettingsCountry($instance, $country) {
+    public function updateSettingsCountry($instance, $country)
+    {
 
         try {
             $instance->country = strtoupper($country);
@@ -60,13 +57,14 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
 
             $instance->save();
 
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
 
             \Toastr::error('error appeared', 'try once more or contact to admin');
 
             return redirect()->back();
         }
     }
+
     /**
      * get the model
      *
@@ -85,7 +83,8 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
      * @param $user
      * @return mixed
      */
-    public function getRole($user) {
+    public function getRole($user)
+    {
 
         foreach ($user->roles()->get() as $role) {
             {
@@ -106,13 +105,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
      */
     public function getUserPhoto($user)
     {
-        if(!empty($user->picture()->get()->all())) {
+        if (!empty($user->picture()->get()->all())) {
 
             $picture = $user->picture()->get()->first()->path;
 
-            return  url(config('image.usersDESTINATION'). $picture);
-        }
-        else {
+            return url(config('image.usersDESTINATION') . $picture);
+        } else {
 
             if ($user->photo) {
 
@@ -120,14 +118,15 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
 
             } else {
 
-                return url('images/'.config('image.missingUserPhoto'));
+                return url('images/' . config('image.missingUserPhoto'));
 
             }
         }
 
     }
 
-    public function getUserTeam($user) {
+    public function getUserTeam($user)
+    {
         $teams = [];
         foreach ($user->teams()->get() as $key => $team) {
             $teams[$key] = $team;
@@ -148,5 +147,27 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
     public function getAllExcept($id)
     {
         return $this->getModel()->where('id', '<>', $id)->get();
+    }
+    /**
+     * ban or unban instance
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function banORunBan($id)
+    {
+        try {
+            $instance = $this->find($id);
+            if ($instance->banned === 0) {
+                \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = true;
+            } else {
+                \Toastr::info(trans('unbans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = false;
+            }
+            $instance->update();
+        } catch (\Exception $e) {
+            return response("Error appeared. Maybe model doesn't have banned field" . $e->getMessage(), $e->getCode());
+        }
     }
 }

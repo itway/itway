@@ -28,7 +28,7 @@
                 </a>
             </div>
         </div>
-        @if(isset($user->country))
+        @if(!empty($user->country))
             <div class="card" style="margin-left: 0">
                 <span class="header text-primary text-center">Country:</span>
                 <div class="country-block">

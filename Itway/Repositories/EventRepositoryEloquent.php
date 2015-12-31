@@ -19,9 +19,9 @@ use Itway\Traits\Banable;
  * Class EventRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract, Bannable
+class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
     /**
      * Specify Model class name
      *
@@ -137,6 +137,27 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
 
     }
 
-
+    /**
+     * ban or unban instance
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function banORunBan($id)
+    {
+        try {
+            $instance = $this->find($id);
+            if ($instance->banned === 0) {
+                \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = true;
+            } else {
+                \Toastr::info(trans('unbans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = false;
+            }
+            $instance->update();
+        } catch (\Exception $e) {
+            return response("Error appeared. Maybe model doesn't have banned field" . $e->getMessage(), $e->getCode());
+        }
+    }
 
 }

@@ -2,38 +2,40 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
+use Auth;
 use Carbon\Carbon;
+use Conner\Tagging\Model\Tagged;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Contracts\Cookie;
-use \Illuminate\Http\Request;
-use Itway\Contracts\Likeable\Likeable;
-use Itway\Traits\Likeable as LikeableTrait;
-use Auth;
-use File;
-use Itway\Traits\Searchable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Itway\Models\Picture;
-use Itway\Models\PostBody;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Itway\Contracts\Bannable\Bannable;
+use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Banable;
-class Post extends Model implements Transformable, SluggableInterface, Likeable, Bannable
+use Itway\Traits\Likeable as LikeableTrait;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
+
+/**
+ * Class Post
+ * @package Itway\Models
+ */
+class Post extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
-    use LikeableTrait, Banable;
+    use LikeableTrait;
     /**
      * @var array
      */
     protected $sluggable = array(
         'build_from' => 'title',
-        'save_to'    => 'slug'
+        'save_to' => 'slug'
     );
 
     /**
@@ -60,60 +62,103 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
      */
     protected $dates = ['published_at'];
 
-    const IMAGEPath =  'images/posts/';
+    /**
+     *
+     */
+    const IMAGEPath = 'images/posts/';
 
-    public function setPublishedAtAttribute($date) {
+    /**
+     * @param $date
+     */
+    public function setPublishedAtAttribute($date)
+    {
 
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
 
     }
 
-    public function getLocaledAtAttribute (Request $request) {
+    /**
+     * @param Request $request
+     */
+    public function getLocaledAtAttribute(Request $request)
+    {
 
         $this->attributes['locale'] = $request->getLocale();
 
     }
 
-    public function scopePublished($query) {
+    /**
+     * @param $query
+     */
+    public function scopePublished($query)
+    {
         $query->where('published_at', '<=', Carbon::now());
     }
 
-    public function scopeLocaled($query) {
+    /**
+     * @param $query
+     */
+    public function scopeLocaled($query)
+    {
 
         $query->where('locale', '=', Lang::getLocale());
     }
 
 
-    public function scopeUsers($query) {
+    /**
+     * @param $query
+     */
+    public function scopeUsers($query)
+    {
 
         $query->where('user_id', '=', Auth::id());
     }
 
-    public function scopeUnpublished($query) {
+    /**
+     * @param $query
+     */
+    public function scopeUnpublished($query)
+    {
 
         $query->where('published_at', '>', Carbon::now());
 
     }
 
-    public function scopeToday($query) {
+    /**
+     * @param $query
+     */
+    public function scopeToday($query)
+    {
 
         $query->where('date', '=', Carbon::today());
 
     }
 
-    public function setRawAttribute($body) {
+    /**
+     * @param $body
+     */
+    public function setRawAttribute($body)
+    {
 
         $this->attributes['body'] = htmlspecialchars_decode($body);
 
     }
 
-    public function user() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
 
         return $this->belongsTo(\Itway\Models\User::class);
 
     }
 
-    public function body() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function body()
+    {
 
         return $this->hasMany(\Itway\Models\PostBody::class);
 
@@ -130,22 +175,24 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
     }
 
     /**
- * poll attachment
- *
- * @return \Illuminate\Database\Eloquent\Relations\MorphMany
- */
+     * poll attachment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function poll()
     {
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
+
     /**
      * @param $query
      * @return mixed
      */
     public function scopeDrafted($query)
     {
-        return $query->where('published_at', '!=' , null);
+        return $query->where('published_at', '!=', null);
     }
+
     /**
      * @param $query
      * @param $id
@@ -157,9 +204,26 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
     }
 
 
+    /**
+     * @return mixed
+     */
     public function getBody()
     {
         $body = PostBody::where('post_id', $this->id)->select('body')->first();
         return $body;
+    }
+
+    /**
+     * rewrite the taggable trait function
+     * @return mixed
+     */
+    public static function existingTags()
+    {
+        return Tagged::distinct()
+            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
+            ->where('taggable_type', '=', (new static)->getMorphClass())
+            ->orderBy('count', 'desc')
+            ->take(8)
+            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
     }
 }

@@ -32,5 +32,6 @@ return array (
     'more' => 'Больше',
     'search' => 'Поиск',
     'create-event' => 'Создать Событие',
-    'user-event' => 'Ваши события'
+    'user-event' => 'Ваши события',
+    'events' => 'События'
 );

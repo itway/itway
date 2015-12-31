@@ -503,126 +503,6 @@ _init = (o) ->
         return
       return
 
-
-  ### Layout
-  # ======
-  # Fixes the layout height in case min-height fails.
-  #
-  # @type Object
-  # @usage $.ItwayIO.layout.activate()
-  #        $.ItwayIO.layout.fix()
-  #        $.ItwayIO.layout.fixSidebar()
-  ###
-
-  $.ItwayIO.layout =
-    activate: ->
-      _this = this
-      _this.fix()
-      _this.fixSidebar()
-      $(window, '.container.wrapper').resize ->
-        _this.fix()
-        _this.fixSidebar()
-        return
-      return
-    fix: ->
-#Get window height and the wrapper height
-      neg = $('#navigation').outerHeight() + $('#footer').outerHeight()
-      window_height = $(window).height()
-      sidebar_height = $('.sidebar').height()
-      #Set the min-height of the content and sidebar based on the
-      #the height of the document.
-      if $('body').hasClass('fixed')
-        $('.content-wrapper, .right-side').css 'min-height', window_height - $('#footer').outerHeight()
-      else
-        postSetWidth = undefined
-        if window_height >= sidebar_height
-          $('.content-wrapper, .right-side').css 'min-height', window_height - neg
-          postSetWidth = window_height - neg
-        else
-          $('.content-wrapper, .right-side').css 'min-height', sidebar_height
-          postSetWidth = sidebar_height
-        #Fix for the control sidebar height
-        controlSidebar = $($.ItwayIO.options.controlSidebarOptions.selector)
-        if typeof controlSidebar != 'undefined'
-          if controlSidebar.height() > postSetWidth
-            $('.content-wrapper, .right-side').css 'min-height', controlSidebar.height()
-      return
-    fixSidebar: ->
-#Make sure the body tag has the .fixed class
-      if !$('body').hasClass('fixed')
-        if typeof $.fn.slimScroll != 'undefined'
-          $('.sidebar').slimScroll(destroy: true).height 'auto'
-        return
-      else if typeof $.fn.slimScroll == 'undefined' and console
-        console.error 'Error: the fixed layout requires the slimscroll plugin!'
-      #Enable slimscroll for fixed layout
-      if $.ItwayIO.options.sidebarSlimScroll
-        if typeof $.fn.slimScroll != 'undefined'
-#Destroy if it exists
-          $('.sidebar').slimScroll(destroy: true).height 'auto'
-          #Add slimscroll
-          $('.sidebar').slimscroll
-            height: $(window).height() - $('#navigation').height() + 'px'
-            color: 'rgba(0,0,0,0.2)'
-            size: '3px'
-      return
-
-  ### PushMenu()
-  # ==========
-  # Adds the push menu functionality to the sidebar.
-  #
-  # @type Function
-  # @usage: $.ItwayIO.pushMenu("[data-toggle='offcanvas']")
-  ###
-
-  $.ItwayIO.pushMenu =
-    activate: (toggleBtn) ->
-#Get the screen sizes
-      screenSizes = $.ItwayIO.options.screenSizes
-      #Enable sidebar toggle
-      $(toggleBtn).on 'click', (e) ->
-        e.preventDefault()
-        console.log 'notifier clicked'
-        #Enable sidebar push menu
-        if $(window).width() > screenSizes.sm - 1
-          $('body').toggleClass 'sidebar-collapse'
-        else
-          if $('body').hasClass('sidebar-open')
-            $('body').removeClass 'sidebar-open'
-            $('body').removeClass 'sidebar-collapse'
-          else
-            $('body').addClass 'sidebar-open'
-        return
-      $('.content-wrapper').click ->
-#Enable hide menu when clicking on the content-wrapper on small screens
-        if $(window).width() <= screenSizes.sm - 1 and $('body').hasClass('sidebar-open')
-          $('body').removeClass 'sidebar-open'
-        return
-      #Enable expand on hover for sidebar mini
-      if $.ItwayIO.options.sidebarExpandOnHover or $('body').hasClass('fixed') and $('body').hasClass('sidebar-mini')
-        @expandOnHover()
-      return
-    expandOnHover: ->
-      _this = this
-      screenWidth = $.ItwayIO.options.screenSizes.sm - 1
-      #Expand sidebar on hover
-      $('.main-sidebar').hover (->
-        if $('body').hasClass('sidebar-mini') and $('body').hasClass('sidebar-collapse') and $(window).width() > screenWidth
-          _this.expand()
-        return
-      ), ->
-        if $('body').hasClass('sidebar-mini') and $('body').hasClass('sidebar-expanded-on-hover') and $(window).width() > screenWidth
-          _this.collapse()
-        return
-      return
-    expand: ->
-      $('body').removeClass('sidebar-collapse').addClass 'sidebar-expanded-on-hover'
-      return
-    collapse: ->
-      if $('body').hasClass('sidebar-expanded-on-hover')
-        $('body').removeClass('sidebar-expanded-on-hover').addClass 'sidebar-collapse'
-      return
-
   ### Tree()
   # ======
   # Converts the sidebar into a multilevel
@@ -671,87 +551,6 @@ _init = (o) ->
       return
     return
 
-  ### ControlSidebar
-  # ==============
-  # Adds functionality to the right sidebar
-  #
-  # @type Object
-  # @usage $.ItwayIO.controlSidebar.activate(options)
-  ###
-
-  $.ItwayIO.controlSidebar =
-    activate: ->
-      #Get the object
-      _this = this
-      #Update options
-      o = $.ItwayIO.options.controlSidebarOptions
-      #Get the sidebar
-      sidebar = $(o.selector)
-      #The toggle button
-      btn = $(o.toggleBtnSelector)
-      #Listen to the click event
-      btn.on 'click', (e) ->
-        e.preventDefault()
-        #If the sidebar is not open
-        if !sidebar.hasClass('control-sidebar-open') and !$('body').hasClass('control-sidebar-open')
-#Open the sidebar
-          _this.open sidebar, o.slide
-          $(this).addClass 'active'
-        else
-          _this.close sidebar, o.slide
-          $(this).removeClass 'active'
-        return
-      #If the body has a boxed layout, fix the sidebar bg position
-      bg = $('.control-sidebar-bg')
-      _this._fix bg
-      #If the body has a fixed layout, make the control sidebar fixed
-      if $('body').hasClass('fixed')
-        _this._fixForFixed sidebar
-      else
-#If the content height is less than the sidebar's height, force max height
-        if $('.content-wrapper, .right-side').height() < sidebar.height()
-          _this._fixForContent sidebar
-      return
-    open: (sidebar, slide) ->
-      _this = this
-      #Slide over content
-      if slide
-        sidebar.addClass 'control-sidebar-open'
-      else
-#Push the content by adding the open class to the body instead
-#of the sidebar itself
-        $('body').addClass 'control-sidebar-open'
-      return
-    close: (sidebar, slide) ->
-      if slide
-        sidebar.removeClass 'control-sidebar-open'
-      else
-        $('body').removeClass 'control-sidebar-open'
-      return
-    _fix: (sidebar) ->
-      _this = this
-      neg = $('#navigation').outerHeight()
-      if $('body').hasClass('layout-boxed')
-        sidebar.css 'position', 'absolute'
-        sidebar.height($(window).height() / 2 - neg).css 'overflow-y': 'auto'
-        $(window).resize ->
-          _this._fix sidebar
-          return
-      else
-        sidebar.css
-          'position': 'fixed'
-          'height': 'auto'
-      return
-    _fixForFixed: (sidebar) ->
-      sidebar.css
-        'position': 'fixed'
-        'max-height': '100%'
-        'overflow': 'auto'
-        'padding-bottom': '50px'
-      return
-    _fixForContent: (sidebar) ->
-      $('.content-wrapper, .right-side').css 'min-height', sidebar.height()
-      return
 
   ### BoxWidget
   # =========
@@ -911,40 +710,18 @@ $ ->
   $.ItwayIO.search.activate()
 
   # start of handling events and sockets
-  #Activate the layout maker
-  $.ItwayIO.layout.activate()
   #Activate messenger functionality
   $.ItwayIO.messenger.activate()
 
   $.ItwayIO.imageLoad.activate()
   #Enable sidebar tree view controls
-  $.ItwayIO.tree '.sidebar'
-  #Enable control sidebar
-  if o.enableControlSidebar
-    $.ItwayIO.controlSidebar.activate()
-  #Add slimscroll to navbar dropdown
-  #if (typeof $.fn.slimscroll != 'undefined') {
-  #    $(".control-sidebar-bg").slimscroll({
-  #        height: $(window).height() - o.navbarMenuHeight,
-  #        alwaysVisible: false,
-  #    }).css("width", "230px");
-  #}
-  #Add slimscroll to navbar dropdown
+
   if o.navbarMenuSlimscroll and typeof $.fn.slimscroll != 'undefined'
     $('.navbar .menu').slimscroll(
       height: o.navbarMenuHeight
       alwaysVisible: false
       size: o.navbarMenuSlimscrollWidth).css 'width', '100%'
-  #Activate sidebar push menu
-  if o.sidebarPushMenu
-    $.ItwayIO.pushMenu.activate o.sidebarToggleSelector
-  #//Activate Bootstrap tooltip
-  #if (o.enableBSToppltip) {
-  #    $('body').tooltip({
-  #        selector: o.BSTooltipSelector
-  #    });
-  #}
-  #Activate box widget
+   #Activate box widget
   if o.enableBoxWidget
     $.ItwayIO.boxWidget.activate()
   #Activate fast click

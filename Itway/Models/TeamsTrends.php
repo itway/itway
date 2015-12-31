@@ -14,6 +14,7 @@ class TeamsTrends extends Model implements Transformable
     protected $fillable = ['team_id', 'trend'];
 
     protected $table = "teams_trends";
+
     public $timestamps = false;
 
     public function team() {

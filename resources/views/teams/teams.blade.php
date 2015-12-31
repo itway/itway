@@ -56,7 +56,7 @@
                                             <span class="title">owner:</span>
 
                                             <div class="team-owner-name">
-                                                <a href="@foreach($team->ownerId() as $ownerId){{App::getLocale()."/user/".$ownerId}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
+                                                <a href="@foreach($team->ownerId() as $ownerId){{url(App::getLocale()."/user/".$ownerId)}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
                                             </div>
                                         </div>
                                     </div>
@@ -76,13 +76,13 @@
                                             class="icon-remove_red_eye"></i></span>
                                 <span class="button">
                                     <a class="text-left text-primary"
-                                       href="{{ url(App::getLocale().'/team/'.$team->id.'#disqus_thread') }}"
+                                       href="{{ url(App::getLocale().'teams/team/'.$team->id.'#disqus_thread') }}"
                                        data-disqus-identifier="{{$team->id}}">0</a>
                                     <i class="icon-comment"></i>
                                 </span>
                                     </nav>
                                     <a class="read-slot button button-dark"
-                                       href="{{url(App::getLocale().'/team/'.$team->id)}}">jump
+                                       href="{{route('itway::teams::team', $currentTeam->id)}}">visit
                                         to team</a>
                             <span class="slot-time pull-left"><i
                                         class="icon-access_time text-warning"></i>{{$team->created_at->diffForHumans()}}</span>

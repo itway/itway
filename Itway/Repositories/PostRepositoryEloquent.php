@@ -2,30 +2,28 @@
 
 namespace Itway\Repositories;
 
-use Itway\Validation\Poll\PollFormRequest;
-use Itway\Validation\Post\PostsUpdateFormRequest;
-use RepositoryLab\Repository\Eloquent\BaseRepository;
-use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Models\Post;
-use Itway\Validation\Post\PostsFormRequest;
-use Auth;
-use Itway\Commands\CreatePostCommand;
-use Lang;
-use Illuminate\Support\Str;
-use Toastr;
 use App;
-use Itway\Uploader\ImageTrait;
+use Auth;
+use Illuminate\Support\Str;
+use Itway\Commands\CreatePostCommand;
+use Itway\Models\Post;
 use Itway\Uploader\ImageContract;
-use Itway\Contracts\Bannable\Bannable;
-use Itway\Traits\Banable;
+use Itway\Uploader\ImageTrait;
+use Itway\Validation\Poll\PollFormRequest;
+use Itway\Validation\Post\PostsFormRequest;
+use Itway\Validation\Post\PostsUpdateFormRequest;
+use Lang;
+use RepositoryLab\Repository\Criteria\RequestCriteria;
+use RepositoryLab\Repository\Eloquent\BaseRepository;
+use Toastr;
+
 /**
  * Class PostRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract, Bannable
+class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract
 {
     use ImageTrait;
-    use Banable;
 
     /**
      * Specify Model class name
@@ -72,6 +70,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
     {
         return $this->getModel()->latest('published_at')->published()->localed()->paginate();
     }
+
     /** fetch all USERS' paginated, published and localed posts */
     public function getAllUsers()
     {
@@ -187,4 +186,26 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
 
     }
 
+    /**
+     * ban or unban instance
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function banORunBan($id)
+    {
+        try {
+            $instance = $this->find($id);
+            if ($instance->banned === 0) {
+                \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = true;
+            } else {
+                \Toastr::info(trans('unbans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
+                $instance->banned = false;
+            }
+            $instance->update();
+        } catch (\Exception $e) {
+            return response("Error appeared. Maybe model doesn't have banned field" . $e->getMessage(), $e->getCode());
+        }
+    }
 }

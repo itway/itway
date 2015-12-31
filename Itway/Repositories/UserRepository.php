@@ -17,4 +17,6 @@ interface UserRepository extends RepositoryInterface
     public function getAll();
     public function updateSettingsCountry($instance, $country);
     public function getUserTeam($user);
+    public function banORunBan($id);
+
 }

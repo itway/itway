@@ -2,26 +2,22 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-use Itway\Components\teamwork\Teamwork\Traits\UserHasTeams;
-use Carbon\Carbon;
-use File;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Itway\Traits\Searchable;
-use Itway\Models\Picture;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Request;
 use Itway\Components\Messenger\Traits\Messagable;
+use Itway\Components\teamwork\Teamwork\Traits\UserHasTeams;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Model implements Transformable, AuthenticatableContract, CanResetPasswordContract, SluggableInterface
 {
@@ -29,13 +25,13 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     use Authenticatable, CanResetPassword, SoftDeletes;
     use SluggableTrait;
     use UserHasTeams;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use EntrustUserTrait;
     use Messagable;
 
     protected $sluggable = array(
         'build_from' => 'name',
-        'save_to'    => 'slug',
+        'save_to' => 'slug',
     );
 
     /**
@@ -49,7 +45,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     protected $dates = ['deleted_at'];
 
-    const IMAGEPath =  'images/users/';
+    const IMAGEPath = 'images/users/';
 
 //    protected $searchable = [
 //        'columns' => [
@@ -76,7 +72,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'photo', 'provider','locale', 'provider_id','bio','location','Google','Facebook','Github','Twitter', 'banned', 'country', 'country_name'];
+    protected $fillable = ['name', 'email', 'password', 'photo', 'provider', 'locale', 'provider_id', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter', 'banned', 'country', 'country_name'];
 
     /**
      * @return boolean
@@ -103,18 +99,19 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     public function getRememberToken()
     {
-          return $this->remember_token;
+        return $this->remember_token;
     }
 
     public function setRememberToken($value)
     {
-          $this->remember_token = $value;
+        $this->remember_token = $value;
     }
 
     public function getRememberTokenName()
     {
         return 'remember_token';
     }
+
     /**
      * Hash the users password
      *
@@ -130,7 +127,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @param $query
      */
-    public function scopeUniqueEmail($query) {
+    public function scopeUniqueEmail($query)
+    {
 
         $query->where('email', '=', \Auth::user('email'));
     }
@@ -140,7 +138,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @param Request $request
      */
-    public function getLocaledAtAttribute (Request $request) {
+    public function getLocaledAtAttribute(Request $request)
+    {
 
         $this->attributes['locale'] = $request->getLocale();
     }
@@ -165,11 +164,13 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     {
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
+
     /**
      * scope for localed user
      * @param $query
      */
-    public function scopeLocaled($query) {
+    public function scopeLocaled($query)
+    {
 
         $query->where('locale', '=', Lang::getLocale());
     }
@@ -177,7 +178,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     /**
      * @param $query
      */
-    public function scopeUsers($query) {
+    public function scopeUsers($query)
+    {
 
         $query->where('user_id', '=', Auth::id());
     }
@@ -185,25 +187,29 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function  posts() {
+    public function  posts()
+    {
 
         return $this->hasMany(\Itway\Models\Post::class);
 
     }
 
-    public function events() {
+    public function events()
+    {
 
         return $this->hasMany(\Itway\Models\Event::class);
 
     }
 
-    public function eventUsers () {
+    public function eventUsers()
+    {
 
         return $this->belongsTo(\Itway\Models\EventUsers::class);
 
     }
 
-    public function isAdmin() {
+    public function isAdmin()
+    {
 
         return false;
 

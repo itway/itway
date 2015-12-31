@@ -21,5 +21,6 @@ interface PostRepository extends RepositoryInterface
     public function getAll();
     public function getAllUsers();
     public function bindPoll(PollFormRequest $request, $post);
+    public function banORunBan($id);
 
 }

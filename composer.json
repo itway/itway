@@ -13,7 +13,6 @@
         "intervention/imagecache": "~2.3.3",
         "barryvdh/laravel-ide-helper": "~2.0.6",
         "zizaco/entrust": "dev-laravel-5",
-        "rtconner/laravel-tagging": "~1.0.7",
         "predis/predis": "^1.0.3",
         "cviebrock/image-validator": "2.0.0",
         "codezero/mailer": "^1.0",
@@ -33,7 +32,8 @@
         "intervention/image": "^2.3",
         "spatie/laravel-analytics": "^1.2",
         "nilsenj/toastr-5.1-laravel": "dev-master",
-        "camroncade/timezone": "dev-master"
+        "camroncade/timezone": "dev-master",
+        "rtconner/laravel-tagging": "~2.0.6"
 
     },
     "require-dev": {

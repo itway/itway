@@ -1,7 +1,7 @@
 <div id="search" class="search">
     <div class="container">
         <button class="close"><i class="icon-close"></i></button>
-        {!!Form::open(['method'=>'post','url'=>route('search'), 'class'=> 'l-10 m-10 s-10 xs-10 pull-left','style'=>'text-align:center'])!!}
+        {!!Form::open(['method'=>'post','url'=>route('search'), 'class'=> 'l-10 m-10 s-10 xs-10 pull-left','style'=>'text-align:center;padding-bottom: 0;margin-bottom: 0;height: 50px;overflow: hidden;'])!!}
         <input type="search" name="q" class="search-input pull-left" placeholder="Search for...">
         <button type="submit" class="button button-search-apply rounded pull-left"><i class="icon-search"></i></button>
         {!! Form::close() !!}

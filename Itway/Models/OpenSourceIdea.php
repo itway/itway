@@ -2,7 +2,9 @@
 
 namespace Itway\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 
@@ -39,13 +41,13 @@ class OpenSourceIdea extends Model implements Transformable
 
     public function scopeLocaled($query) {
 
-        $query->where('locale', '=', Lang::getLocale());
+        $query->where('locale', '=', \Lang::getLocale());
     }
 
 
     public function scopeUsers($query) {
 
-        $query->where('user_id', '=', Auth::id());
+        $query->where('user_id', '=', \Auth::id());
     }
 
     public function scopeUnpublished($query) {

@@ -32,5 +32,6 @@ return array (
     'more' => 'More',
     'search' => 'Search',
     'create-event' => 'Create Event',
-    'user-event' => 'User Events'
+    'user-event' => 'User Events',
+    'events' => 'Events'
     );

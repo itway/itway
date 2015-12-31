@@ -20,26 +20,24 @@ class LikeController extends Controller
     {
 
         if (Auth::user()) {
-            $class_name = "\\Itway\\Models\\". ucfirst($class_name);
+            $class_name = "\\Itway\\Models\\" . ucfirst($class_name);
 
             $object = $class_name::find($object_id);
 
             if ($object->liked(Auth::user())) {
 
 
-                    if ($object->dislike(\Auth::user()))
+                if ($object->dislike(\Auth::user()))
 
-                        $type = "disliked";
+                    $type = "disliked";
 
-                    else {
+                else {
 
-                        $type = "error";
-                    }
-
-                    return \Response::json([$type, $object->getLikeCount()]);
+                    $type = "error";
                 }
 
-             else {
+                return \Response::json([$type, $object->getLikeCount()]);
+            } else {
                 if ($object->like(\Auth::user()))
 
                     $type = "liked";
@@ -51,14 +49,13 @@ class LikeController extends Controller
                 return \Response::json([$type, $object->getLikeCount(), trans("messages.liked")]);
 
             }
+        } else {
+
+            Toastr::warning("please login or register to LIKE or DISLIKE!", $title = "login required", $options = []);
+            return \Response::json("error");
+
         }
-        else {
 
-                Toastr::warning("please login or register to LIKE or DISLIKE!", $title = "login required", $options = []);
-                return \Response::json("error");
-
-            }
-
-            }
+    }
 
 }

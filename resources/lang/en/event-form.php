@@ -7,5 +7,12 @@
  */
 return [
 
-    'select-tags' => 'Event tags'
+    'select-tags' => 'Event tags',
+    'tabs' => [
+        'main' => 'Main',
+        'optional' => 'Optional',
+        'logo' => 'Event Logo',
+        'speakers' => 'Event speakers'
+    ]
+
 ];

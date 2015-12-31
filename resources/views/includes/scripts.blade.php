@@ -58,6 +58,9 @@
                         .closest('.message')
                         .transition('fade');
             });
+    $('.lang-choose')
+            .dropdown();
+
     $('.navigation .ui.dropdown')
             .dropdown({
                 on: 'hover'
@@ -68,8 +71,8 @@
             });
     $('.ui.dropdown.item.pointing')
             .dropdown();
-    $('.ui.dropdown.item')
-            .dropdown();
+    // using context
+
     var drop = $('.ui.inline.dropdown');
     drop.dropdown({transition: 'drop'});
     var cloned = drop.find('.item.block.active.selected').clone();

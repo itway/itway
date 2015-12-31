@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-12-27.
+    * Generated on 2015-12-28.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -58,9 +58,6 @@ namespace PHPSTORM_META {
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
-            'Itway\Models\User' instanceof \Itway\Models\User,
-            'Itway\Models\Team' instanceof \Itway\Models\Team,
-            'Itway\Models\Event' instanceof \Itway\Models\Event,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -237,9 +234,6 @@ namespace PHPSTORM_META {
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
-            'Itway\Models\User' instanceof \Itway\Models\User,
-            'Itway\Models\Team' instanceof \Itway\Models\Team,
-            'Itway\Models\Event' instanceof \Itway\Models\Event,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -416,9 +410,6 @@ namespace PHPSTORM_META {
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
-            'Itway\Models\User' instanceof \Itway\Models\User,
-            'Itway\Models\Team' instanceof \Itway\Models\Team,
-            'Itway\Models\Event' instanceof \Itway\Models\Event,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -595,9 +586,6 @@ namespace PHPSTORM_META {
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
-            'Itway\Models\User' instanceof \Itway\Models\User,
-            'Itway\Models\Team' instanceof \Itway\Models\Team,
-            'Itway\Models\Event' instanceof \Itway\Models\Event,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,

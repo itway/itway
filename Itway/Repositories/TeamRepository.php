@@ -21,5 +21,7 @@ interface TeamRepository extends RepositoryInterface
     public function getAll();
     public function bindPoll(PollFormRequest $request, $team);
     public function banORunBan($id);
+    public function getCurrentTeam();
+    public function isTeamMember($team_id, $currentTeam_id);
 
 }

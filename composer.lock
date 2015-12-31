@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3668db65cc58536fb0b082f1d6aeaf22",
-    "content-hash": "2fbe054cc14acd6b8a90b239932150f1",
+    "hash": "1d06da6bfcd7c1e2d049a0b7cea1468b",
+    "content-hash": "9a767a8a59a2762913353678e90764cd",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2452,22 +2452,22 @@
         },
         {
             "name": "rtconner/laravel-tagging",
-            "version": "1.0.7",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rtconner/laravel-tagging.git",
-                "reference": "f73b5642f9f83ed2610dbc463540a8f13a361fdc"
+                "reference": "283220d4ab02c8bea04c0e2ec191f0e4ac937841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rtconner/laravel-tagging/zipball/f73b5642f9f83ed2610dbc463540a8f13a361fdc",
-                "reference": "f73b5642f9f83ed2610dbc463540a8f13a361fdc",
+                "url": "https://api.github.com/repos/rtconner/laravel-tagging/zipball/283220d4ab02c8bea04c0e2ec191f0e4ac937841",
+                "reference": "283220d4ab02c8bea04c0e2ec191f0e4ac937841",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.3.0"
+                "illuminate/database": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -2501,7 +2501,7 @@
                 "tagging",
                 "tags"
             ],
-            "time": "2015-05-29 22:55:08"
+            "time": "2015-11-28 22:33:16"
         },
         {
             "name": "ruflin/elastica",

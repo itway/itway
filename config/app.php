@@ -146,7 +146,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-        Conner\Tagging\TaggingServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
         Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
         nilsenj\Toastr\ToastrServiceProvider::class,
         Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
