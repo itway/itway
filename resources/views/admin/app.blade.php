@@ -10,12 +10,10 @@
                 <div class="row">
                     <div class="sidebar">
                         @include('admin.partials.sidebar')
-
                     </div>
                 </div>
             </div>
             <div class="l-9 m-8 s-12 xs-12" style="padding-right: 0;">
-
                 @include('flash::message')
                 @include('includes.errors')
                 @yield('content')

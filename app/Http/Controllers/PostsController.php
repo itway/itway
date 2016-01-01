@@ -24,7 +24,13 @@ use nilsenj\Toastr\Facades\Toastr;
 class PostsController extends Controller
 {
 
+    /**
+     * @var PostRepository
+     */
     private $repository;
+    /**
+     * @var TagsBuilder
+     */
     private $tags;
 
 
@@ -77,6 +83,10 @@ class PostsController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getPageBody($id)
     {
         $body = $this->repository->getModel()->findOrFail($id)->body()->first();
@@ -146,13 +156,11 @@ class PostsController extends Controller
             if (Auth::user() && Auth::user()->id === $postUser) {
 
                 $createdByUser = true;
-
-                return view('posts.single', compact('post', 'createdByUser', 'countUserPosts', 'modelName'));
             } else {
                 $createdByUser = false;
-
-                return view('posts.single', compact('post', 'createdByUser', 'countUserPosts', 'modelName'));
             }
+            return view('posts.single', compact('post', 'createdByUser', 'countUserPosts', 'modelName'));
+
         } catch (ModelNotFoundException $e) {
 
             return $this->redirectNotFound();
@@ -161,6 +169,10 @@ class PostsController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|Response
+     */
     public function userPosts(Request $request)
     {
         try {
@@ -174,7 +186,7 @@ class PostsController extends Controller
             if ($countUserPosts === 0) {
 
                 if ($request->ajax()) {
-                    Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
+                    return response()->json(['error_message' => trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle')]);
                 } else {
                     Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
                     return redirect()->back();

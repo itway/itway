@@ -13,7 +13,11 @@
                 <a class="item {!! Active::pattern(App::getLocale().'/events/user-events', 'active selected') !!} red"
                    href="{{route('itway::events::user-events')}}"><i
                             class="icon-event"></i> {{ trans('navigation.user-event') }}
-                    <div class="ui red tiny label">0</div>
+                    <div class="ui red tiny label">
+                        @if(isset($countUserEvents))
+                            {{$countUserEvents}}
+                            @endif
+                    </div>
                 </a>
             @endif
             <a class="item {!! Active::pattern(App::getLocale().'/', 'active selected') !!} brown" href="{{url(App::getLocale().'/teams')}}"></a>

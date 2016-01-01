@@ -9,7 +9,7 @@
                    href="{{ url(App::getLocale().'/user/settings/'.Auth::id()) }}"><i
                             class="icon-cogs"></i> {{ trans('navigation.Settings') }}</a>
                 <div class="right menu">
-                    @if(isset($currentTeam))
+                    @if(!is_null($currentTeam))
                         <a class="item {!! Active::pattern(App::getLocale().'/teams/team/'.$currentTeam->id, 'active selected') !!} brown"
                            href="{{route('itway::teams::team', $currentTeam->id)}}"><i
                                     class="icon-group"></i> Team: <span class="text-info"> - {{$currentTeam->name}} </span>

@@ -28,6 +28,18 @@
             </div>
         </div>
     </div>
+    <div class="two fields">
+        <div class="field">
+            <span class="label titl">#{{trans('event-form.event-format')}}</span>
+            {!!Form::select('event_format', config('event-formats'), null,
+            ["id"=>"event_format",
+            "class"=>"ui event-format-list fluid search normal selection dropdown"])!!}
+        </div>
+        <div class="field">
+            <span class="label titl">#{{trans('event-form.event-timezone')}}</span>
+            {!!$timezoneBuilder!!}
+        </div>
+    </div>
     <div class="field">
         <div class="preamble-block">
             <span class="label titl">{{trans('event-form.preamble')}}</span>

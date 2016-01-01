@@ -16,7 +16,7 @@
 
     <div class="bg-white" style="">
 
-    {!! Form::model( $eventInstance = new Itway\Models\Event(), ['url' => App::getLocale().'/event/store', 'class' => 'ui form', 'id' => 'event-form', 'files' => true ] ) !!}
+    {!! Form::model( $eventInstance = new Itway\Models\Event(), ['url' => App::getLocale().'/events/store', 'class' => 'ui form', 'id' => 'event-form', 'files' => true ] ) !!}
 
     @include('events.event-form', ['submitButton' => 'Create Team', $event=null])
 

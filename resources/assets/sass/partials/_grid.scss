@@ -13,10 +13,10 @@
   @include container-fixed;
 
   @media (min-width: $screen-s-min) {
-    width: $container-s;
+    width: 100%;
   }
   @media (min-width: $screen-m-min) {
-    width: $container-m;
+    width: 100%;
   }
   @media (min-width: $screen-l-min) {
     width: $container-l;

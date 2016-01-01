@@ -12,7 +12,14 @@ class CreateEventsDescriptionTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('events_description', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('events_id')->unsigned();
+            $table->longText('description');
+            $table->softDeletes();
+            $table->foreign('events_id')->references('id')->on('events')->onDelete('cascade');
+        });
     }
 
     /**
@@ -22,6 +29,9 @@ class CreateEventsDescriptionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('events_description', function(Blueprint $table) {
+            $table->dropForeign('events_description_events_id_foreign');
+            $table->dropSoftDeletes();
+        });
     }
 }

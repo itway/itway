@@ -1,6 +1,4 @@
 #### * Itway web-app for iy guys, web-devs, managers, teams
-
-1.
 **	expected fuctionality:**
 > - ######Teams
 > - ######Users account && profile
@@ -12,9 +10,8 @@
 > - ######Admin pannel
 > - ######In Consideration TaskBoard
 
-____
+___
 App is made with a help of Laravel PHP Framework
-
 The basic goal is to create a really scalable app based on Laravel with all the interesting stuff!
 If you like Laravel framework and want to show people what you can build please **join**
 ___
@@ -38,9 +35,9 @@ gulp
 ```
 ####   Official Documentation
 Documentation doesn't exist... The app is in deep development process (not even a prototype)
-...
 **Please if you have an idea how to make all that interesting features  write an issue**
 ---
+
 ####  Contributing
 Want to contribute or make something amazing connect to
 ####me
@@ -49,8 +46,6 @@ Want to contribute or make something amazing connect to
 ###or
 if you have an idea or a problem create an issue
 app is looking for a guys with real interest to Laravel framework
-&& who wants to build something helpful and amazing
-
 ---
 ###### Security Vulnerabilities
 If you discover a security vulnerability within this app, please send an e-mail to Nilsenj at nikoleivan@gmail.com.

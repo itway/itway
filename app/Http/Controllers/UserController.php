@@ -122,7 +122,7 @@ class UserController extends Controller
             $tags = $user->tagNames();
             $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
             $countUserPosts = $this->postrepo->countUserPosts();
-            $currentTeam = $this->repository->getUserTeam($user);
+            $currentTeam = $user->currentTeam;
 
             return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'currentTeam'));
 

@@ -1,14 +1,24 @@
 #editormd {
   z-index: 20;
+  border-radius: 0!important;
+  overflow: visible;
+  border: 1px solid #dddddd !important;
+  font-family: 'Roboto Condensed', 'Source Sans Pro',sans-serif;
+
   .editormd-menu>li {
     margin: 0;
     padding: 2px;
     display: inline-block;
     position: relative;
     a {
-      color: #404b58;
+      border: 1px solid #ddd;
+      i {
+        color: $primary-color;
+        padding: 5px 8px;
+      }
     }
   }
+
   .editormd-toolbar {
     width: 100%;
     min-height: 37px;
@@ -25,18 +35,59 @@
       width: 100%;
     }
   }
+  .editormd-code-block-dialog {
+    top: 0!important;
+  }
+  .CodeMirror-linenumber {
+   background: #eee!important;
+    color: $info-color!important;
+  }
+  .CodeMirror-hscrollbar {
+    visibility: hidden;
+  }
+
+  .CodeMirror pre {
+    font-size: 14px;
+    padding: 0 0px;
+    padding-top: 5px;
+    line-height: 1.4rem;
+    /* margin-top: 0.75rem; */
+    margin-bottom: 0;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-family: 'Source Sans Pro', 'Roboto Condensed', sans-serif;
+    width: 100%;
+    letter-spacing: initial;
+    word-spacing: 0px;
+  }
 }
 
-//.CodeMirror-scroll {
-//  display: block!important;
-//  width: 100%!important;
-//  .CodeMirror-sizer {
-//    width: 100%!important;
-//  }
-//}
+.CodeMirror-scroll {
+  display: block!important;
+  width: 100%!important;
+  .CodeMirror-sizer {
+    width: 90%!important;
+  }
+}
+
+.CodeMirror-gutters {
+  height: inherit!important;
+  background: transparent!important;
+  border: none!important;
+}
+
 .editormd-dialog {
   height: auto!important;
 }
 .editormd-preview-container {
-  padding: 10px;
+  padding: 10px!important;
+}
+.editormd-preview {
+  border-bottom: 1px solid #dddddd !important;
+
+}
+.CodeMirror.cm-s-default.CodeMirror-wrap {
+  border-bottom: 1px solid #dddddd !important;
 }

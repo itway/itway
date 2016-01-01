@@ -14,7 +14,7 @@ Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
             'as' => 'index'
         ]);
 
-    Route::get('show/{id}', [
+    Route::get('event/{id}', [
         'as' => 'show',
         'uses' => 'EventsController@show'
     ]);
@@ -49,6 +49,10 @@ Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
         'uses' => 'EventsController@store',
         'as' => 'store',
         'middleware' => 'auth'
+    ]);
+    Route::get('getPageBody/{id}',[
+        'uses' => 'EventsController@getPageBody',
+        'as' => 'getPageBody'
     ]);
     Route::get('/tags/{slug}', ['uses' => 'EventsController@tags', 'as' => 'team-tags']);
 

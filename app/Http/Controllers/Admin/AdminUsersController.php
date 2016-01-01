@@ -63,7 +63,9 @@ class AdminUsersController extends Controller
         $users = $this->repository->paginate();
         $no = $users->firstItem();
         $countUserPosts = $this->postrepo->countUserPosts();
-        return view('admin.users.index', compact('users', 'no', 'countUserPosts'));
+        $currentTeam = \Auth::user()->currentTeam;
+
+        return view('admin.users.index', compact('users', 'no', 'countUserPosts', 'currentTeam'));
     }
 
     /**
@@ -75,7 +77,9 @@ class AdminUsersController extends Controller
     {
         $roles = Role::all()->lists('name', 'id');
         $countUserPosts = $this->postrepo->countUserPosts();
-        return view('admin.users.create', compact('roles', 'countUserPosts'));
+        $currentTeam = \Auth::user()->currentTeam;
+
+        return view('admin.users.create', compact('roles', 'countUserPosts', 'currentTeam'));
     }
 
     /**
@@ -108,8 +112,9 @@ class AdminUsersController extends Controller
 
             $role = $this->repository->getRole($user);
             $countUserPosts = $this->postrepo->countUserPosts();
+            $currentTeam = $user->currentTeam;
 
-            return view('admin.users.show', compact('user', 'role', 'countUserPosts'));
+            return view('admin.users.show', compact('user', 'role', 'countUserPosts','currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -131,8 +136,10 @@ class AdminUsersController extends Controller
             $roles = Role::all()->lists('name', 'id');
 
             $role = $this->repository->getRole($user);
+            $currentTeam = $user->currentTeam;
 
-            return view('admin.users.edit', compact('user', 'roles', 'role'));
+
+            return view('admin.users.edit', compact('user', 'roles', 'role', 'currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 

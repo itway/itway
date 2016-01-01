@@ -29,8 +29,13 @@
 
   }
   .search-result {
-    background: whitesmoke;
-    overflow-y: auto;
+    background: #eee;
+    position: fixed;
+    width: 100%;
+    top: 55px;
+    left: 0;
+    height: calc(100vh - 55px);
+
     & > span {
       padding: 10px 0px 10px 10px;
       display: block;

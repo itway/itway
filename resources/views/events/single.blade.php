@@ -12,8 +12,6 @@
     @include('events.site-btns')
 @endsection
 @section('content')
-
-
     <div class="single-event">
         <div class="head">
             <div class="first-line">
@@ -28,7 +26,7 @@
                                 <span class="tags">
                                     @foreach($event->tagNames() as $tags)
 
-                                        <a class="tag-name" href="{{url(App::getLocale().'/blog/tags/'.$tags)}}"><span>#</span>{{$tags}}</a>
+                                        <a class="tag-name" href="{{url(App::getLocale().'/events/tags/'.$tags)}}"><span>#</span>{{$tags}}</a>
 
                                     @endforeach
                                 </span>
@@ -37,12 +35,12 @@
 
             </div>
             <div class="header-title">
-                <h4 class="text-center"><strong>{{$event->title}}</strong></h4>
+                <h4 class="text-center"><strong>{{$event->name}}</strong></h4>
             </div>
 
             <div class="time text-center">
 
-                <span class="event-time"><i class="icon-clock-o"></i>{{$event->published_at->diffForHumans()}}</span>
+                <span class="event-time"><i class="icon-clock-o"></i>{{$event->created_at->diffForHumans()}}</span>
 
             </div>
             <div class="l-12 m-12 s-12 xs-12 text-center">
@@ -53,7 +51,7 @@
                 </nav>
                 @if($createdByUser === true)
                     <span class="your-event">{{trans('messages.yourevent')}}</span>
-                    <a class="button button-primary" href="{{asset(App::getLocale().'/blog/edit/'.$event->id)}}">{{trans('messages.youreventBTN')}}</a>
+                    <a class="button button-primary" href="{{asset(App::getLocale().'/events/edit/'.$event->id)}}">{{trans('messages.youreventBTN')}}</a>
                     <span class="text-muted"> or </span>
                     @include('events.destroy')
 
@@ -181,7 +179,7 @@
             $.get("{{route('itway::events::getPageBody', $event->id)}}", function(md){
 
                 testEditor = editormd.markdownToHTML("event-body", {
-                    markdown        : md['body'] ,//+ "\r\n" + $("#append-test").text(),
+                    markdown        : md['description']['description'] ,//+ "\r\n" + $("#append-test").text(),
                     htmlDecode      : "style,script,iframe",  // you can filter tags decode
                     tocm            : true,    // Using [TOCM]
                     height:"100%",
@@ -194,10 +192,6 @@
             }).done(function(e) {
                 $("#event-body").find(".loader").remove();
             });
-
-
         });
     </script>
-    @endsection
-
-@stop
+@endsection

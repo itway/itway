@@ -129,9 +129,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
     {
         $teams = [];
         foreach ($user->teams()->get() as $key => $team) {
-            $teams[$key] = $team;
+            if(!is_null($team)) {
+                $teams[$key] = $team;
+            }
+            else $teams = null;
         }
-        return $team;
+        return $teams;
     }
 
     /**

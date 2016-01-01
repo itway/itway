@@ -16,6 +16,10 @@ use Itway\Traits\Likeable as LikeableTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 
+/**
+ * Class Event
+ * @package Itway\Models
+ */
 class Event extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TransformableTrait;
@@ -24,39 +28,45 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
 
+    /**
+     * @var string
+     */
     protected $table = "events";
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
-        'description',
+        'preamble',
         'time',
         'date',
         'user_id',
-        'organizer',
-        'organizer_link',
         'event_photo',
         'event_format',
-        'address',
-        'country',
-        'country_name',
-        'event_invite',
+        'timezone',
         'locale',
-        'max_people_number',
-        'published_at',
         'today',
-        'banned'];
+        'youtube_link',
+        'banned'
+    ];
+
     /**
      * @var array
      */
     protected $sluggable = array(
-        'build_from' => 'title',
+        'build_from' => 'name',
         'save_to' => 'slug'
     );
     /**
      * @var array
      */
-    protected $dates = ['published_at'];
+    protected $dates = ['created_at'];
 
+
+    /**
+     *
+     */
     public function eventSpeekers()
     {
         $this->hasMany(EventSpeekers::class, 'events_id');
@@ -68,7 +78,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     public function description()
     {
 
-        return $this->hasMany(\Itway\Models\EventsDescription::class);
+        return $this->hasMany(\Itway\Models\EventsDescription::class, 'events_id');
 
     }
 
@@ -82,13 +92,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
 
-    public function setPublishedAtAttribute($date)
-    {
-
-        $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
-
-    }
-
+    /**
+     * @param Request $request
+     */
     public function getLocaledAtAttribute(Request $request)
     {
 
@@ -96,6 +102,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    /**
+     * @param Request $request
+     */
     public function setLocaledAtAttribute(Request $request)
     {
 
@@ -103,13 +112,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    public function scopePublished($query)
-    {
-
-        $query->where('published_at', '<=', Carbon::now());
-
-    }
-
+    /**
+     * @param $query
+     */
     public function scopeLocaled($query)
     {
 
@@ -117,6 +122,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    /**
+     * @param $query
+     */
     public function scopeUsers($query)
     {
 
@@ -124,12 +132,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    public function scopeUnpublished($query)
-    {
-
-        $query->where('published_at', '>', Carbon::now());
-    }
-
+    /**
+     * @param $query
+     */
     public function scopeToday($query)
     {
 
@@ -137,6 +142,19 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    /**
+     * @param $query
+     */
+    public function scopeTodayEvent($query)
+    {
+
+        $query->where('date', '=', Carbon::today());
+
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
 
@@ -144,18 +162,20 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function picture()
     {
         return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
-
     /**
-     * @param $query
      * @return mixed
      */
-    public function scopeDrafted($query)
+    public function getDescription()
     {
-        return $query->where('published_at', '!=', null);
+        $body = EventsDescription::where('events_id', $this->id)->select('description')->first();
+        return $body;
     }
 
     /**

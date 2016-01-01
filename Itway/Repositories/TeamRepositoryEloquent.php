@@ -4,6 +4,7 @@ namespace Itway\Repositories;
 
 use Auth;
 use Countries;
+use Illuminate\Support\Str;
 use Itway\Commands\CreateTeamCommand;
 use Itway\Models\Team;
 use Itway\Uploader\ImageContract;

@@ -2,19 +2,17 @@
 
 namespace Itway\Repositories;
 
-use RepositoryLab\Repository\Eloquent\BaseRepository;
-use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Models\Event;
-use Itway\Validation\Event\EventRequest;
-use Itway\Commands\CreateEventCommand;
 use App;
-use Lang;
 use Auth;
+use Itway\Commands\CreateEventCommand;
+use Itway\Models\Event;
 use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
+use Itway\Validation\Event\EventRequest;
+use Lang;
+use RepositoryLab\Repository\Criteria\RequestCriteria;
+use RepositoryLab\Repository\Eloquent\BaseRepository;
 
-use Itway\Contracts\Bannable\Bannable;
-use Itway\Traits\Banable;
 /**
  * Class EventRepositoryEloquent
  * @package namespace Itway\Repositories;
@@ -22,6 +20,7 @@ use Itway\Traits\Banable;
 class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract
 {
     use ImageTrait;
+
     /**
      * Specify Model class name
      *
@@ -32,19 +31,15 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
         return Event::class;
     }
 
-/**
+    /**
      * @var array
      */
     protected $fieldSearchable = [
-    'name' => '=',
-    'description' => 'like',
-    'time' => 'like', 
-    'date' => 'like', 
-    'organizer' => '=', 
-    'place' => 'like', 
-    'max_people_number' => '=', 
-    'organizer_link' => 'like',
-    'today' =>'='
+        'name' => '=',
+        'description' => 'like',
+        'time' => 'like',
+        'date' => 'like',
+        'today' => 'like'
     ];
 
     /**
@@ -55,13 +50,8 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-//    public function createEvent(EventRequest $request, $image) {
-//
-//
-//
-//    }
 
-     /**
+    /**
      * get the model instance
      *
      * @return mixed
@@ -73,15 +63,16 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
         return new $model;
     }
 
-    /** fetch all paginated, published and localed events */
+    /** fetch all paginated, created_at and localed events */
     public function getAll()
     {
-        return $this->getModel()->latest('published_at')->published()->localed()->paginate();
+        return $this->getModel()->latest('created_at')->localed()->paginate();
     }
-    /** fetch all users paginated, published and localed events */
+
+    /** fetch all users paginated, created_at and localed events */
     public function getAllUsers()
     {
-        return $this->getModel()->latest('published_at')->published()->localed()->users()->paginate();
+        return $this->getModel()->latest('created_at')->localed()->users()->paginate();
     }
 
 
@@ -93,35 +84,37 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
      * @param $image
      * @return mixed
      */
-    public function createEvent(EventRequest $request, $image){
+    public function createEvent(EventRequest $request, $image)
+    {
 
         $event = $this->dispatcher->dispatch(
             new CreateEventCommand(
                 $request->name,
+                $request->preamble,
                 $request->description,
                 $request->time,
                 $request->date,
+                $request->timezone,
                 $request->event_format,
-                $request->organizer,
-                $request->place,
-                $request->max_people_number,
-                $request->organizer_link,
-                $request->published_at,
-                $request->localed = Lang::locale()
+                $request->youtube_link,
+                Auth::user()->id,
+                $request->localed = Lang::locale(),
+                $request->tags_list
             ));
-
-        $this->bindImage($image, $event);
+        if (!is_null($image)) {
+            $this->bindImageTo($image, $event, "event_photo");
+        }
 
         return $event;
     }
-
 
     /**
      * return the number of user's events
      *
      * @return mixed
      */
-    public function countUserEvents(){
+    public function countUserEvents()
+    {
 
         return $this->getModel()->where('user_id', '=', Auth::id())->count();
 
@@ -131,9 +124,10 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
      *
      * @return mixed
      */
-    public function todayEvents(){
+    public function todayEvents()
+    {
 
-        return $this->getModel()->latest('published_at')->published()->today()->count();
+        return $this->getModel()->latest('created_at')->today()->count();
 
     }
 

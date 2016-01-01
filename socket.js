@@ -7,7 +7,7 @@ var Redis = require('ioredis');
 var redis = new Redis({port: 6379, host: '127.0.0.1', db: 0});
 
 
-redis.subscribe('test-channel', function(err, count) {
+redis.subscribe('test-channel', function (err, count) {
 
 });
 
@@ -24,18 +24,21 @@ redis.subscribe('chat.messages', function (err, count) {
 redis.subscribe('chat-connected', function (err, count) {
 
 });
-redis.subscribe('post-created', function(err, count) {
+redis.subscribe('post-created', function (err, count) {
+
+});
+redis.subscribe('event-created', function (err, count) {
 
 });
 
-redis.subscribe('user-registered', function(err, count) {
+redis.subscribe('user-registered', function (err, count) {
 
 });
 
 /***
  Redis Events
  ***/
-redis.on('message', function(channel, message) {
+redis.on('message', function (channel, message) {
 
     var result = JSON.parse(message);
 
@@ -50,9 +53,9 @@ var userCount = 0,
 /***
  Socket.io Connection Event
  ***/
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
 
-    socket.emit('welcome',  { message: 'Welcome! Realtime Chat Server running at http://127.0.0.1:3000/'} );
+    socket.emit('welcome', {message: 'Welcome! Realtime Chat Server running at http://127.0.0.1:3000/'});
 
     /***
      Socket.io Events
@@ -61,41 +64,41 @@ io.on('connection', function(socket) {
     userCount++;
 
 
-    io.sockets.emit('userCount', { userCount: userCount });
+    io.sockets.emit('userCount', {userCount: userCount});
 
     socket.on('storeClientInfo', function (data) {
 
-        var clientInfo = new Object();
-        clientInfo.customId         = data.customId;
-        clientInfo.clientId     = socket.id;
+        var clientInfo = {};
+        clientInfo.customId = data.customId;
+        clientInfo.clientId = socket.id;
         users.push(clientInfo);
 
         io.sockets.emit('userJoined', {users: users});
 
     });
 
-    socket.on('disconnect', function(data) {
+    socket.on('disconnect', function (data) {
         userCount--;
-        io.sockets.emit('userCount', { userCount: userCount });
+        io.sockets.emit('userCount', {userCount: userCount});
         //users.splice(users.indexOf(client), 1);
-        for( var i=0, len=users.length; i<len; ++i ){
+        for (var i = 0, len = users.length; i < len; ++i) {
             var c = users[i];
 
-            if(c.clientId == socket.id){
-                users.splice(i,1);
+            if (c.clientId == socket.id) {
+                users.splice(i, 1);
                 break;
             }
         }
         io.sockets.emit('userJoined', {users: users});
     });
 
-    socket.on('join', function(data) {
+    socket.on('join', function (data) {
 
         console.log(data);
 
         socket.join(data.room);
 
-        socket.emit('joined', { message: 'Joined room: ' + data.room });
+        socket.emit('joined', {message: 'Joined room: ' + data.room});
     });
 });
 
@@ -156,15 +159,15 @@ redis.monitor(function (err, monitor) {
     monitor.on('monitor', function (time, args) {
         console.log('Time Received: ' + time);
 
-        for(var i=0; i<=args.length; i++){
+        for (var i = 0; i <= args.length; i++) {
 
-            console.log('argument: '+ i + args[i]);
+            console.log('argument: ' + i + args[i]);
 
         }
     });
 });
 
-http.listen(6378, function(){
+http.listen(6378, function () {
     console.log('Listening on Port 6378');
 });
 

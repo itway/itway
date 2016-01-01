@@ -5,19 +5,28 @@ namespace itway\Events;
 use itway\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Itway\Models\User;
+use Itway\Models\Event as Ev;
 
-class EventWasCreatedEvent extends Event
+class EventWasCreatedEvent extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
+    public $event;
+
+    public $user;
+
     /**
-     * Create a new event instance.
-     *
-     * @return void
+     * EventWasCreatedEvent constructor.
+     * @param \Itway\Models\Event $event
+     * @param User $user
      */
-    public function __construct()
+    public function __construct(Ev $event, User $user)
     {
-        //
+
+        $this->event = $event;
+        $this->user = $user;
+
     }
 
     /**
@@ -27,6 +36,6 @@ class EventWasCreatedEvent extends Event
      */
     public function broadcastOn()
     {
-        return [];
+        return ['event-created'];
     }
 }

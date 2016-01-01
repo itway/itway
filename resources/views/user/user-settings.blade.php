@@ -42,7 +42,6 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_email')}} </h5>
 
-
                                 {!! Form::email('email', null, array( 'class' => 'input input-line', 'id' => 'email', 'placeholder' => 'введите ваш email')) !!}
 
                                 <div class="pull-right">
@@ -235,19 +234,6 @@
             onMaxCount: function (count, countable, counter) {
             }
         });
-        //        $('#preamble').simplyCountable({
-        //            counter:            '#counter2',
-        //            countType:          'characters',
-        //            maxCount:           300,
-        //            strictMax:          true,
-        //            countDirection:     'down',
-        //            safeClass:          'safe',
-        //            overClass:          'over',
-        //            thousandSeparator:  ',',
-        //            onOverCount:        function(count, countable, counter){},
-        //            onSafeCount:        function(count, countable, counter){},
-        //            onMaxCount:         function(count, countable, counter){}
-        //        });
         var tag_options = {
             "no-duplicate": true,
             "no-duplicate-callback": window.alert,

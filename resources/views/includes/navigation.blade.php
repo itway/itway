@@ -1,15 +1,14 @@
 <div class="container-fluid nav-main">
+<div class="container" style="overflow: visible; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0">
     <div class="l-12 xs-12" style="padding: 0 0">
         <div class="ui small menu">
-            <a class="item" href="{{ url('/') }}"><img src="{{ url('/iw-logo3.png') }}" alt="Itway.io"></a>
-            <div class="left menu">
-                @include('includes.nav-drop')
-                @include('includes.admin-nav-link')
-            </div>
+            <a class="item" href="{{ url('/') }}"><img class="logo" src="{{ url('/itway-landing.png') }}" alt="Itway.io"></a>
             <div class="center item" id="nav">
                 @yield('navigation.buttons')
             </div>
             <div class="right menu">
+                @include('includes.nav-drop')
+                @include('includes.admin-nav-link')
                 @if (Auth::guest())
                     @include('includes.language-chooser')
                     <a class="item" href="{{ url('/auth/login') }}">Login</a>
@@ -34,4 +33,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

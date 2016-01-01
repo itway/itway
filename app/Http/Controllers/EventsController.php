@@ -2,6 +2,7 @@
 
 namespace itway\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Itway\components\Country\CountryBuilder;
@@ -11,8 +12,9 @@ use itway\Http\Requests;
 use Itway\Models\Event;
 use Itway\Models\User;
 use Itway\Repositories\EventRepository;
+use Itway\Validation\Event\EventRequest;
 use nilsenj\Toastr\Facades\Toastr;
-
+use App;
 class EventsController extends Controller
 {
     private $repository;
@@ -43,7 +45,7 @@ class EventsController extends Controller
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(route("itway::events::index"))->with(Toastr::error('Event Not Found!', $title = 'team might be deleted or banned', $options = []));
+        return redirect()->to(route("itway::events::index"))->with(Toastr::error('Event Not Found!', $title = 'event might be deleted or banned', $options = []));
     }
 
     /**
@@ -96,25 +98,74 @@ class EventsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param EventRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        //
+        try {
+
+            $image = \Input::hasFile('image') ? \Input::file('image') : null;
+
+            $event = $this->repository->createEvent($request, $image);
+
+            Toastr::success(trans('messages.yourEventCreated'), $title = $event->name, $options = []);
+
+            return redirect()->to(App::getLocale() . '/events/event/' . $event->id);
+        }
+        catch (\Exception $e) {
+
+            $this->redirectError('Error Appeared in the process of creation...');
+        }
+    }
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getPageBody($id)
+    {
+        $body = $this->repository->getModel()->findOrFail($id)->description()->first();
+
+        return response()->json(['description' => $body]);
     }
 
+
+
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $slug
+     * @param Event $eventdata
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($slug, Event $eventdata)
+
     {
-        //
+        try {
+            $event = $eventdata->findBySlugOrId($slug);
+
+            $event->view();
+
+            $eventUser = $event->user_id;
+
+            $countUserEvents = $this->repository->countUserEvents();
+
+            $modelName = $this->repository->getModelName();
+
+            if (!Auth::guest() && Auth::user()->id === $eventUser) {
+
+                $createdByUser = true;
+
+            } else {
+                $createdByUser = false;
+
+            }
+            return view('events.single', compact('event', 'createdByUser', 'countUserEvents', 'modelName'));
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
     }
 
     /**

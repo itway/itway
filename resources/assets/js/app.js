@@ -734,7 +734,7 @@
     },
     search: {
       searchBTN: $('#search button'),
-      searchResult: $('.search-result')
+      searchResult: $('.search-result #search-result-body')
     },
     colors: {
       lightBlue: '#3c8dbc',

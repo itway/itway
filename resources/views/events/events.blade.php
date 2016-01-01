@@ -10,7 +10,7 @@
 @if(count($events)=== 0 )
 @include('errors.nothing')
 @else
-  @include('includes.tag-side', [$tags, $tags_title = trans("event.event-tags")])
+  @include('includes.tag-side', [$tags, $tags_title = trans("event.event-tags"), $base = 'events'])
     <div class="slots l-9 m-9 s-9 xs-9">
             @foreach(array_chunk($events->getCollection()->all(), 1) as $row)
                 <div class="row" >
@@ -20,35 +20,17 @@
                             <div class="slot-info-block l-6  m-6  s-6 xs-6">
                                 <div class="slot-event">
                                 <span class="title text-grey">event:  </span>
-                                <img class="logo" src="{!! asset('images/events/' . $event->logo_bg) !!}" alt="{{ $event->name }}"/>
+                                <img class="logo" src="{!! asset('images/events/' . $event->event_photo) !!}" alt="{{ $event->name }}"/>
                                 <div class="name">
                                     <a href="{{asset(App::getLocale().'/events/'.$event->id)}}">{{ $event->name }}</a>
-                                </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="trend-block">
-                                <span class="title">trends: </span>
-                                @foreach($event->trendNames() as $trend)
-                                    <li class="pull-right trend">
-                                        <a class="trend-name" href="{{url(App::getLocale().'/trend/'.$trend)}}">
-                                            <span>
-                                                <b class="text-success">_</b>
-                                            </span>{{$trend}}</a>
-                                    </li>
-                                @endforeach
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="slot-country">
-                                <span class="title">country: </span>
-                                <div class="country-block">
-                                    <i class="{{strtolower($event->country)}} flag"></i>{{$event->country_name}}
                                 </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="event-owner">
                                     <span class="title">owner:</span>
                                     <div class="event-owner-name">
-                                        <a href="@foreach($event->ownerId() as $ownerId){{App::getLocale()."/user/".$ownerId}}@endforeach">@foreach($event->ownerName() as $owner){{$owner}}@endforeach</a>
+                                        <a href="{{url(App::getLocale()."/user/".$event->user_id)}}">
+                                            {{\Itway\Models\User::find($event->user_id)->name}}</a>
                                     </div>
                                 </div>
                                 </div>

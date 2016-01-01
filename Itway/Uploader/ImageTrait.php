@@ -44,10 +44,10 @@ trait ImageTrait
 
     /**
      * bind image to instance
-     *
      * @param $image
      * @param $instance
      * @param $field
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function bindImageTo($image, $instance, $field)
     {
@@ -66,6 +66,7 @@ trait ImageTrait
 
             }
             else {
+
                 $this->uploader->upload($image, $this->getImagePathFromConfig())->save($this->getImagePathFromConfig());
 
                 $instance[$field] = $this->uploader->getFilename();
@@ -75,7 +76,7 @@ trait ImageTrait
             }
         } catch (\ErrorException $e) {
 
-            throwException($e . 'Specify the image path  or field');
+            return response($e->getMessage(), $e->getCode());
 
         }
     }

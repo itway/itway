@@ -12,8 +12,14 @@
             </li>
         </div>
         <div class="clearfix"></div>
-        <div class="l-9 m-9 s-9 xs-9">
-            <div class="search-result"></div>
+        <div class="container-fluid">
+            <div class="search-result" style="">
+                <div class="container">
+                    <div class="l-9 m-12 s-12 xs-12" id="search-result-body" style="padding-left: 0;">
+                        <h1 class="text-center text-warning">search for something ...</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
