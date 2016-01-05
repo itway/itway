@@ -2,16 +2,21 @@
 
 namespace Itway\Models;
 
-use Conner\Tagging\Model\Tagged;
-use Itway\Components\teamwork\Teamwork\TeamworkTeam;
-use Illuminate\Support\Facades\Lang;
-use Carbon\Carbon;
-use \Illuminate\Http\Request;
 use Auth;
+use Carbon\Carbon;
+use Conner\Tagging\Model\Tagged;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
+use Itway\Components\teamwork\Teamwork\TeamworkTeam;
+use Itway\Uploader\ImageTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Team extends TeamworkTeam
+class Team extends TeamworkTeam implements HasMedia
 {
-    protected $fillable = ['name', 'slug', 'locale', 'logo_bg', 'banned', 'date'];
+    use HasMediaTrait;
+    use ImageTrait;
+    protected $fillable = ['name', 'slug', 'locale', 'banned', 'date'];
     /**
      * @var array
      */
@@ -19,14 +24,15 @@ class Team extends TeamworkTeam
         'build_from' => 'name',
         'save_to' => 'slug'
     );
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
-    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
-        return $this->belongsToMany(config( 'teamwork.team_model' ),config( 'teamwork.team_user_table' ), 'user_id', 'team_id' );
+        return $this->belongsToMany(config('teamwork.team_model'), config('teamwork.team_user_table'), 'user_id', 'team_id');
     }
+
     /**
      * poll attachment
      *
@@ -36,8 +42,6 @@ class Team extends TeamworkTeam
     {
         return $this->morphMany(\Itway\Models\Poll::class, 'pollable');
     }
-
-    const IMAGEPath = 'images/teams/';
     /**
      * @param Request $request
      */
@@ -50,14 +54,17 @@ class Team extends TeamworkTeam
     {
         return $this->hasMany(\Itway\Models\TeamsTrends::class, "team_id");
     }
+
     public function getLocaledAtAttribute(Request $request)
     {
         $this->attributes['locale'] = $request->getLocale();
     }
+
     public function scopeCreatedAt($query)
     {
         $query->where('created_at', '<=', Carbon::now());
     }
+
     /**
      * @param $query
      */
@@ -65,6 +72,7 @@ class Team extends TeamworkTeam
     {
         $query->where('locale', '=', Lang::getLocale());
     }
+
     /**
      * @param $query
      */
@@ -72,6 +80,7 @@ class Team extends TeamworkTeam
     {
         $query->where('owner_id', '=', Auth::id());
     }
+
     /**
      * @param $query
      */
@@ -90,6 +99,7 @@ class Team extends TeamworkTeam
     {
         return $query->where($id)->orWhere('slug', '=', $id);
     }
+
     public function trendNames()
     {
         $trendNames = array();
@@ -101,6 +111,7 @@ class Team extends TeamworkTeam
 
         return $trendNames;
     }
+
     public function ownerName()
     {
         $ownerNames = array();
@@ -111,6 +122,7 @@ class Team extends TeamworkTeam
         }
         return $ownerNames;
     }
+
     public function ownerId()
     {
         $ownerIds = array();
@@ -120,6 +132,7 @@ class Team extends TeamworkTeam
         }
         return $ownerIds;
     }
+
     public function getOwner()
     {
         $ownArr = [];
@@ -129,6 +142,7 @@ class Team extends TeamworkTeam
         }
         return $ownArr;
     }
+
     public function getUsers()
     {
         $usersArr = [];
@@ -150,6 +164,6 @@ class Team extends TeamworkTeam
             ->where('taggable_type', '=', (new static)->getMorphClass())
             ->orderBy('count', 'desc')
             ->take(8)
-            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
+            ->get(array('tag_slug as slug', 'tagging_tags.count as count'));
     }
 }

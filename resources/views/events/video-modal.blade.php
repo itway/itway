@@ -6,10 +6,10 @@
     <p class="form-group modal-form">
         <i class="icon-youtube"></i>
         @if($model && $model->youtube_link)
-            <input type="text" class="input input-line" name="youtube-link"
+            <input type="text" class="input {{isset($hidden) ? "hidden" : null}} input-line" name="youtube-link"
                    value="https://www.youtube.com/watch?v={{$model->youtube_link}}"/>
         @else
-            <input type="text" class="input input-line" name="youtube-link"/>
+            <input type="text" class="input {{isset($hidden) ? "hidden" : null}} input-line" name="youtube-link"/>
         @endif
     </p>
     <br>

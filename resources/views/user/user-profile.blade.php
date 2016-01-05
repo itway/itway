@@ -21,8 +21,7 @@
 @include('user.user-partial')
         </div>
 
-
-@stop
+@overwrite
 @section('styles-add')
     @endsection
 @section('scripts-add')

@@ -99,7 +99,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="text-center">
-        {!! Form::submit('Create event', ['class' => 'button button-primary'])!!}
+        {!! Form::submit(trans('forms.create'), ['class' => 'button button-primary'])!!}
     </div>
 </div>
 @include('events.create-event-scripts')

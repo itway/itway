@@ -5,7 +5,7 @@
     <?php  $name = ''; ?>
     <?php  $msg = "";  ?>
 
-@endsection
+@overwrite
 
 @section('content')
     <div class="chat l-12 m-12 s-12 xs-12">
@@ -59,6 +59,8 @@
             </div>
         </div>
     </div>
+@overwrite
+
 @section("scripts-add")
     <script>
 
@@ -66,4 +68,4 @@
                 user_id = "{!! $userId !!}";
 
     </script>
-@endsection
+@overwrite

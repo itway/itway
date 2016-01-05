@@ -1,17 +1,16 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Itway\Models\User;
-use Itway\Models\Role;
-use Itway\Models\Permission;
+
 class AdminSeeder extends Seeder
 {
 
     /**
-
      */
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
@@ -24,19 +23,37 @@ class AdminSeeder extends Seeder
         Model::unguard();
 
 
+        $user = User::UpdateOrCreate([
+            'name' => 'admin',
+
+            'email' => 'admin@admin.com',
+
+            'password' => 'admin'
+        ]);
+
+        $user->attachRole(1);
 
         $user = User::UpdateOrCreate([
-                'name' => 'admin',
+            'name' => 'nikole',
 
-                'email' => 'admin@admin.com',
+            'email' => 'nikole@nikole.com',
 
-                'password' => 'admin1111'
-            ]);
+            'password' => 'nikole'
+        ]);
 
-            $user->attachRole(1);
+        $user->attachRole(2);
 
+        $user = User::UpdateOrCreate([
+            'name' => 'nil',
 
-        }
+            'email' => 'nil@nil.com',
+
+            'password' => 'nil'
+        ]);
+
+        $user->attachRole(3);
+}
+
 
 //    /**
 //     * @param $user
@@ -45,9 +62,9 @@ class AdminSeeder extends Seeder
 //
 //    }
 
-    /**
-     * @param $user
-     */
+/**
+ * @param $user
+ */
 //    public function deleteAdmin($userAdmin) {
 //
 //        $this->rolesAndPermissions->deleteAdminAccess($userAdmin);

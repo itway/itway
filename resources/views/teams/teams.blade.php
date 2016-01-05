@@ -1,15 +1,11 @@
-{{--ul.teams>li*4>.title+img.team-image+nav.button-nav-team.button-group-vertical>a.button.button-info{share}*4+p.team-text{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt eos facere quaerat repellat? A ad alias aspernatur cum, dicta in ipsum iusto labore maiores, optio recusandae sed, totam voluptatibus!}+a.read-team.button.button-dark{read-more}--}}
-
 @extends('app')
 @section('sitelocation')
     <?php  $name = 'Tm'; ?>
     <?php  $msg = "Team";  ?>
-@endsection
+@overwrite
 @section('content')
-
     @include('teams.site-btns')
     <div class="generic-block">
-
         @if(count($teams)=== 0 )
             @include('errors.nothing')
         @else
@@ -22,8 +18,8 @@
                                 <div class="slot">
                                     <div class="slot-info-block l-6  m-6  s-6 xs-6">
                                         <div class="slot-team">
-                                            <span class="title text-grey">team:  </span>
-                                            <img class="logo" src="{!! asset('images/teams/' . $team->logo_bg) !!}"
+                                            <span class="title text-grey">{{trans('teams.team')}}  </span>
+                                            <img class="logo" src="{!! url($team->getLogo())!!}"
                                                  alt="{{ $team->name }}"/>
 
                                             <div class="name">
@@ -32,7 +28,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="trend-block">
-                                            <span class="title">trends: </span>
+                                            <span class="title">{{trans('teams.trends')}} </span>
                                             @foreach($team->trendNames() as $trend)
                                                 <li class="pull-right trend">
                                                     <a class="trend-name"
@@ -45,7 +41,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="slot-country">
-                                            <span class="title">country: </span>
+                                            <span class="title">{{trans('teams.country')}} </span>
 
                                             <div class="country-block">
                                                 <i class="{{strtolower($team->country)}} flag"></i>{{$team->country_name}}
@@ -53,8 +49,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="team-owner">
-                                            <span class="title">owner:</span>
-
+                                            <span class="title">{{trans('teams.owner')}} </span>
                                             <div class="team-owner-name">
                                                 <a href="@foreach($team->ownerId() as $ownerId){{url(App::getLocale()."/user/".$ownerId)}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
                                             </div>
@@ -82,8 +77,7 @@
                                 </span>
                                     </nav>
                                     <a class="read-slot button button-dark"
-                                       href="{{route('itway::teams::team', $currentTeam->id)}}">visit
-                                        to team</a>
+                                       href="{{route('itway::teams::team', $team->id)}}">{{trans('teams.visit')}}</a>
                             <span class="slot-time pull-left"><i
                                         class="icon-access_time text-warning"></i>{{$team->created_at->diffForHumans()}}</span>
                                 </div>
@@ -103,7 +97,7 @@
             @endif
         @endif
     </div>
-@endsection
+@overwrite
 @section('scripts-add')
     <script>
         var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
@@ -116,4 +110,4 @@
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-@endsection
+@overwrite

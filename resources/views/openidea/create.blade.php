@@ -8,9 +8,7 @@
 
 @section('navigation.buttons')
     @include('openideas.site-btns')
-@endsection
-
-
+@overwrite
 @section('content')
 
 
@@ -23,5 +21,5 @@
     {!! Form::close() !!}
         <div class="clearfix"></div>
     </div>
+@overwrite
 
-@endsection

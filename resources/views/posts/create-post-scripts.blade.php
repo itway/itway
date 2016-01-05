@@ -130,4 +130,4 @@
                     maxSelections: 3
                 });
     </script>
-@endsection
+@overwrite

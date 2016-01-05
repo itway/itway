@@ -5,7 +5,7 @@
     <?php  $name = ''; ?>
     <?php  $msg = "";  ?>
 
-@endsection
+@overwrite
 
 @section('content')
 
@@ -58,5 +58,5 @@
         </div>
 
     @endif
+@overwrite
 
-@endsection

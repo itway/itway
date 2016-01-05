@@ -888,3 +888,10 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/youtube-dialog.js.map
+
+(function() {
+
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/youtube-enhance.js.map

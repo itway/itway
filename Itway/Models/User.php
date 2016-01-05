@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Request;
 use Itway\Components\Messenger\Traits\Messagable;
 use Itway\Components\teamwork\Teamwork\Traits\UserHasTeams;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class User extends Model implements Transformable, AuthenticatableContract, CanResetPasswordContract, SluggableInterface
+class User extends Model implements Transformable, AuthenticatableContract, CanResetPasswordContract, SluggableInterface, HasMedia
 {
     use TransformableTrait;
     use Authenticatable, CanResetPassword, SoftDeletes;
@@ -28,6 +31,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     use \Conner\Tagging\Taggable;
     use EntrustUserTrait;
     use Messagable;
+    use HasMediaTrait;
+    use ImageTrait;
 
     protected $sluggable = array(
         'build_from' => 'name',
@@ -44,8 +49,6 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     protected $guarded = ['id'];
 
     protected $dates = ['deleted_at'];
-
-    const IMAGEPath = 'images/users/';
 
 //    protected $searchable = [
 //        'columns' => [
@@ -72,7 +75,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'photo', 'provider', 'locale', 'provider_id', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter', 'banned', 'country', 'country_name'];
+    protected $fillable = ['name', 'email', 'password', 'provider', 'locale', 'provider_id', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter', 'banned', 'country', 'country_name'];
 
     /**
      * @return boolean
@@ -142,17 +145,6 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     {
 
         $this->attributes['locale'] = $request->getLocale();
-    }
-
-
-    /**
-     * attach image
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
     /**

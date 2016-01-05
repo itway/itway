@@ -1,7 +1,7 @@
 @extends('admin/app')
 @section('navigation.buttons')
     @include('teams.site-btns')
-@endsection
+@overwrite
 @if(count($teams)=== 0 )
     @include('errors.nothing')
 @else
@@ -120,7 +120,7 @@
     <div class="text-center">
         {!! (new Itway\Models\Pagination($teams))->render() !!}
     </div>
-@endsection
+@overwrite
 @endif
 @section('scripts-add')
     <script>
@@ -134,5 +134,4 @@
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-
-@endsection
+@overwrite

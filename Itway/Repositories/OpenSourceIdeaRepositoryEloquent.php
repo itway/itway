@@ -15,7 +15,7 @@ use Itway\Traits\Banable;
  * Class OpenSourceIdeaRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, ImageContract, Bannable
+class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, Bannable
 {
     use ImageTrait, Banable;
     /**

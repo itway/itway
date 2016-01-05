@@ -12,11 +12,11 @@
                 </a>
             @endif
             @if(!Auth::guest())
-                @if(isset($currentTeam))
+                @if(!is_null($currentTeam))
                     <a class="item {!! Active::pattern(App::getLocale().'/teams/team/'.$currentTeam->id, 'active selected') !!} brown"
                        href="{{route('itway::teams::team', $currentTeam->id)}}"><i
                                 class="icon-group"></i> Team: <span class="text-info"> - {{$currentTeam->name}} </span>
-                        <img class="avatar" style="margin-left: 10px" src="{!! asset('images/teams/' . $currentTeam->logo_bg) !!}"
+                        <img class="avatar" style="margin-left: 10px" src="{!! url($currentTeam->getLogo())!!}"
                              alt="{{ $currentTeam->name }}"/>
                     </a>
                 @else
@@ -26,8 +26,6 @@
 
                 @endif
             @endif
-            <a class="item {!! Active::pattern(App::getLocale().'/', 'active selected') !!} brown"
-               href="{{url(App::getLocale().'/teams')}}"></a>
         </div>
     </div>
-@endsection
+@overwrite

@@ -1330,7 +1330,10 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .submenu .container{margin-top:0!important;margin-bottom:0!important;-webkit-align-content:center!important;-ms-flex-line-pack:center!important;align-content:center!important;-webkit-box-align:center!important;-webkit-align-items:center!important;-ms-flex-align:center!important;align-items:center!important}
 .slots{display:inline-block;margin-bottom:0!important;margin-top:0!important;padding:0;float:left;position:relative}
 .slots .slot{box-sizing:border-box;list-style-type:none;background-color:#f8f8f8;box-shadow:0 0 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);display:inline-block;padding:5px 10px;overflow:hidden;word-break:break-all;width:100%}
-.slots .slot .slot-title{color:#4b626d;font-size:16px;padding:5px;font-weight:700;background-color:#f8f8f8;word-wrap:break-word;margin-right:0;z-index:1}
+.slots .slot .slot-title{color:#4b626d;font-size:20px;padding:5px;font-weight:700;background-color:#f8f8f8;word-wrap:break-word;margin-right:0;z-index:1;text-align:center}
+.slots .slot .slot-title-name{color:#795548;font-size:18px;border-bottom:1px solid #795548;font-weight:700;background-color:#f8f8f8;word-wrap:break-word;margin-right:0;padding-left:2px;z-index:1;display:inline-block}
+.slots .slot .slot-title-event{border-bottom:1px solid #CDDC39;font-weight:700;background-color:#f8f8f8;word-wrap:break-word;margin-right:0;z-index:1;display:block;top:0}
+.slots .slot .slot-title-event i{font-size:20px;color:#CDDC39}
 .slots .slot .title{font-size:12px;font-weight:700;padding:inherit;padding-right:5px;line-height:inherit;color:#9E9E9E}
 .slots .slot .slot-image{text-align:left;margin-top:15px}
 .slots .slot .button-nav-slot{text-align:center}
@@ -1339,7 +1342,9 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .slots .slot .button-nav-slot .button span{line-height:inherit;height:100%;display:block;float:left;padding-right:3px}
 .slots .slot .slot-text{font-size:18px;margin-top:10px}
 .slots .slot .read-slot{margin-top:10px;float:right}
-.slots .slot .slot-time{margin-top:10px}
+.slots .slot .slot-date,.slots .slot .slot-time,.slots .slot .slot-timezone{margin-top:10px;font-weight:700;border-right:2px solid #999;padding-left:5px;padding-right:5px}
+.slots .slot .slot-timezone{padding-right:0;border-right:0}
+.slots .slot .slot-timezone i{color:#9E9E9E}
 .slots .tag-block{float:right}
 .slots .slot-author,.slots .slot-team{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex}
 .slots .slot-author .title,.slots .slot-team .title{font-size:12px;font-weight:700;padding:inherit;padding-right:5px;line-height:inherit;color:#9E9E9E}

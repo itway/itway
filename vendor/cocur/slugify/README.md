@@ -8,7 +8,7 @@ cocur/slugify
 [![Code Coverage](http://img.shields.io/coveralls/cocur/slugify.svg?style=flat)](https://coveralls.io/r/cocur/slugify)
 [![Monthly Downloads](http://img.shields.io/packagist/dm/cocur/slugify.svg?style=flat)](https://packagist.org/packages/cocur/slugify)
 
-Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe with the help of 
+Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe with the help of
 [many great contributors](https://github.com/cocur/slugify/graphs/contributors).
 
 
@@ -17,8 +17,8 @@ Features
 
 - Removes all special characters from a string.
 - Provides custom replacements for German, French, Spanish, Russian, Ukrainian, Polish, Czech, Latvian, Greek,
-Esperanto¹, Arabian, Vietnamese and Burmese special characters. Instead of removing these characters, Slugify
-approximates them (e.g., `ae` replaces `ä`).
+Esperanto¹, Arabian, Vietnamese, Burmese, Danish and Georgian special characters. Instead of removing these characters,
+Slugify approximates them (e.g., `ae` replaces `ä`).
 - No external dependencies.
 - PSR-4 compatible.
 - Compatible with PHP >= 5.3.3 and [HHVM](http://hhvm.com).
@@ -78,19 +78,29 @@ $slugify->activateRuleset('esperanto');
 echo $slugify->slugify('serĉi manĝi'); // sercxi-mangxi
 ```
 
-You can add rulesets by using `Slugify::addRuleset()` and retrieve all rulesets with `Slugify::getRuleset()`.
+You can add rulesets by using `Slugify::addRuleset()` and retrieve all rulesets with `Slugify::getRulesets()`.
 
 ### Further Customization
 
-You can also change the regular expression that is used to replace characters with the separator.
+You can also change the regular expression that is used to replace characters with the separator. If you pass `null`
+the default regular expression is used.
 
 ```php
-$slugify = new Slugify('/([^a-z0-9]|-)+/');
+$slugify = new Slugify('/([^A-Za-z0-9]|-)+/');
 // or
-$slugify->setRegExp('/([^a-z0-9]|-)+/');
+$slugify->setRegExp('/([^A-Za-z0-9]|-)+/');
 ```
 
 *(The regular expression used in the example above is the default one.)*
+
+The constructor also takes an options array. Currently you can disable converting the string to lowercase.
+
+```php
+$slugify = new Slugify(null, array('lowercase' => false));
+$slugify->slugify('Hello World'); // -> "Hello-World"
+```
+
+Options can also be set using the `setOptions()` method.
 
 ### Contributing
 
@@ -178,7 +188,7 @@ Slugify extension using a closure:
 ),
 ```
 
-You can find more information about registering extensions in the 
+You can find more information about registering extensions in the
 [Twig documentation](http://twig.sensiolabs.org/doc/advanced.html#creating-an-extension).
 
 ### Silex
@@ -351,6 +361,25 @@ $latte->addFilter('slugify', array(new SlugifyHelper(Slugify::create()), 'slugif
 Changelog
 ---------
 
+### Version 1.4 (29 September 2015)
+
+- [#75](https://github.com/cocur/slugify/pull/75) Remove a duplicate array entry (by [irfanevrens](https://github.com/irfanevrens))
+- [#76](https://github.com/cocur/slugify/pull/76) Add support for Georgian (by [TheGIBSON](https://github.com/TheGIBSON))
+- [#77](https://github.com/cocur/slugify/pull/77) Fix Danish transliterations (by [kafoso](https://github.com/kafoso))
+
+### Version 1.3 (2 September 2015)
+
+- [#70](https://github.com/cocur/slugify/pull/70) Add missing superscript and subscript digits (by [BlueM](https://github.com/BlueM))
+- [#71](https://github.com/cocur/slugify/pull/71) Improve Greek language support (by [kostaspt](https://github.com/kostaspt))
+- [#72](https://github.com/cocur/slugify/pull/72) Improve Silex integration (by [CarsonF](https://github.com/CarsonF))
+- [#73](https://github.com/cocur/slugify/pull/73) Improve Russian language support (by [akost](https://github.com/akost))
+
+### Version 1.2 (2 July 2015)
+
+- Add integration for [Plum](https://github.com/plumphp/plum) (by [florianeckerstorfer](https://github.com/florianeckerstorfer))
+- [#64](https://github.com/cocur/slugify/pull/64) Fix Nette integration (by [lookyman](https://github.com/lookyman))
+- Add option to not convert slug to lowercase (by [florianeckerstorfer](https://github.com/florianeckerstorfer) and [GDmac](https://github.com/GDmac))
+
 ### Version 1.1 (18 March 2015)
 
 - [#54](https://github.com/cocur/slugify/pull/54) Add support for Burmese characters (by [lovetostrike](https://github.com/lovetostrike))
@@ -435,6 +464,26 @@ Authors
 - [Ivo Bathke](https://github.com/ivoba)
 - [Marchenko Alexandr](http://mac-blog.org.ua)
 - And many [great contributors](https://github.com/cocur/slugify/graphs/contributors)
+
+> Slugify is a project of [Cocur](http://cocur.co). You can contact us on Twitter:
+> [**@cocurco**](https://twitter.com/cocurco)
+
+
+Support
+-------
+
+If you need support you can ask on [Twitter](https://twitter.com/cocurco) (well, only if your question is short) or you
+can join our chat on Gitter.
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cocur/slugify)
+
+In case you want to support the development of Slugify you can help us with providing additional transliterations or
+inform us if a transliteration is wrong. We would highly appreciate it if you can send us directly a Pull Request on
+Github. If you have never contributed to a project on Github we are happy to help you. Just ask on Twitter or directly
+join our Gitter.
+
+You always can help me (Florian, the original developer and maintainer) out by 
+[sending me an Euro or two](https://paypal.me/florianec/2).
 
 
 License

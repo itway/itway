@@ -70,14 +70,12 @@ class CreateUserCommand  extends Command implements SelfHandling
 
             ]);
 
-
         } else {
 
 
             $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
-                'photo' => $this->photo,
                 'provider' => $this->provider,
                 'provider_id' => $this->provider_id,
                 'password' => $this->password,
@@ -85,6 +83,8 @@ class CreateUserCommand  extends Command implements SelfHandling
 
             ]);
         }
+
+        $user->bindLogoFromURL($this->photo, $user);
 
         event(new UserWasCreatedEvent($user));
 

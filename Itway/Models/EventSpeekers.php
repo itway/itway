@@ -2,27 +2,28 @@
 
 namespace Itway\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use RepositoryLab\Repository\Contracts\Transformable;
-use RepositoryLab\Repository\Traits\TransformableTrait;
-use Itway\Models\Event;
 use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+use Illuminate\Contracts\Cookie;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Itway\Models\Picture;
-use Carbon\Carbon;
-use Cviebrock\EloquentSluggable\SluggableTrait;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Contracts\Cookie;
+use Itway\Uploader\ImageTrait;
+use RepositoryLab\Repository\Contracts\Transformable;
+use RepositoryLab\Repository\Traits\TransformableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class EventSpeekers extends Model implements Transformable, SluggableInterface, Likeable
+class EventSpeekers extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\TaggableTrait;
+    use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
+    use ImageTrait;
+    use HasMediaTrait;
 
 
     protected $fillable = [
@@ -31,7 +32,6 @@ class EventSpeekers extends Model implements Transformable, SluggableInterface, 
         'name',
         'description',
         'slug',
-        'speeker_logo',
         'speeker_link',
         'speeker_company',
         'speeker_skills'];
@@ -44,6 +44,7 @@ class EventSpeekers extends Model implements Transformable, SluggableInterface, 
         'build_from' => 'title',
         'save_to' => 'slug'
     );
+
     public function event()
     {
         $this->belongsTo(Event::class, 'events_id', 'id');

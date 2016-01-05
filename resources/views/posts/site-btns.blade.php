@@ -15,7 +15,6 @@
                 <div class="ui red tiny label">{{$countUserPosts}}</div>
             </a>
         @endif
-        <a class="item brown" href="{{url(App::getLocale().'/blog/post{id}')}}" >reading post</a>
     </div>
 </div>
 @endsection

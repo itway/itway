@@ -1,6 +1,5 @@
 @extends('admin/app')
 
-
 @section('content')
     <span class="admin-head-title">
         Change user settings
@@ -10,5 +9,4 @@
     <div class="admin-block">
         @include('admin.users.form', array('model' => $user) + compact('role'))
     </div>
-
-@endsection
+@overwrite

@@ -50,7 +50,10 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
      */
     public function addRuleAddsRule()
     {
-        $this->slugify->addRule('X', 'y');
+        $this->assertInstanceOf(
+            'Cocur\Slugify\Slugify',
+            $this->slugify->addRule('X', 'y')
+        );
         $this->assertEquals('y', $this->slugify->slugify('X'));
     }
 
@@ -61,7 +64,10 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
      */
     public function addRulesAddsMultipleRules()
     {
-        $this->slugify->addRules(array('x' => 'y', 'a' => 'b'));
+        $this->assertInstanceOf(
+            'Cocur\Slugify\Slugify',
+            $this->slugify->addRules(array('x' => 'y', 'a' => 'b'))
+        );
         $this->assertEquals('yb', $this->slugify->slugify('xa'));
     }
 
@@ -71,7 +77,10 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
      */
     public function activateRulesetActivatesTheGivenRuleset()
     {
-        $this->slugify->activateRuleset('esperanto');
+        $this->assertInstanceOf(
+            'Cocur\Slugify\Slugify',
+            $this->slugify->activateRuleset('esperanto')
+        );
 
         $this->assertEquals(
             'sercxi-mangxi-hxirurgio-jxurnalo-sxuo-malgraux',
@@ -96,7 +105,10 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
      */
     public function addRulesetGetRulesets()
     {
-        $this->slugify->addRuleset('foo', array('k' => 'key'));
+        $this->assertInstanceOf(
+            'Cocur\Slugify\Slugify',
+            $this->slugify->addRuleset('foo', array('k' => 'key'))
+        );
 
         $this->assertCount(2, $this->slugify->getRulesets());
     }
@@ -120,7 +132,10 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
         $expected = 'file-name.tar.gz';
 
         $this->assertNotEquals($expected, $this->slugify->slugify($actual));
-        $this->slugify->setRegExp('/([^a-z0-9.]|-)+/');
+        $this->assertInstanceOf(
+            'Cocur\Slugify\Slugify',
+            $this->slugify->setRegExp('/([^a-z0-9.]|-)+/')
+        );
         $this->assertEquals($expected, $this->slugify->slugify($actual));
     }
 
@@ -134,6 +149,35 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
         $expected = 'file-name.tar.gz';
 
         $this->slugify = new Slugify('/([^a-z0-9.]|-)+/');
+        $this->assertEquals($expected, $this->slugify->slugify($actual));
+    }
+
+    /**
+     * @test
+     * @covers Cocur\Slugify\Slugify::__construct()
+     * @covers Cocur\Slugify\Slugify::slugify()
+     */
+    public function doNotConvertToLowercase()
+    {
+        $actual = 'File Name';
+        $expected = 'File-Name';
+
+        $this->slugify = new Slugify(null, array('lowercase' => false));
+        $this->assertEquals($expected, $this->slugify->slugify($actual));
+    }
+
+    /**
+     * @test
+     * @covers Cocur\Slugify\Slugify::setOptions()
+     */
+    public function setOptionsSetsOptions()
+    {
+        $actual = 'File Name';
+        $expected = 'File-Name';
+
+        $this->slugify = new Slugify();
+        $this->slugify->setOptions(array('lowercase' => false));
+
         $this->assertEquals($expected, $this->slugify->slugify($actual));
     }
 
@@ -153,12 +197,12 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
             array('Á À á à É È é è Ó Ò ó ò Ñ ñ Ú Ù ú ù', 'a-a-a-a-e-e-e-e-o-o-o-o-n-n-u-u-u-u'),
             array('Â â Ê ê Ô ô Û û', 'a-a-e-e-o-o-u-u'),
             array('Â â Ê ê Ô ô Û 1', 'a-a-e-e-o-o-u-1'),
-            array('°¹²³@', '0123at'),
-            array('Mórë thån wørds', 'more-than-words'),
+            array('°¹²³⁴⁵⁶⁷⁸⁹@₀₁₂₃₄₅₆₇₈₉', '0123456789at0123456789'),
+            array('Mórë thån wørds', 'more-thaan-woerds'),
             array('Блоґ їжачка', 'blog-jizhachka'),
             array('фильм', 'film'),
             array('драма', 'drama'),
-            array('ελληνικά', 'ellenika'),
+            array('Ύπαρξη Αυτής η Σκουληκομυρμηγκότρυπα', 'iparxi-autis-i-skoulikomirmigkotripa'),
             array('C’est du français !', 'c-est-du-francais'),
             array('هذه هي اللغة العربية', 'hthh-hy-llgh-laarby'),
             array('مرحبا العالم', 'mrhb-laa-lm'),
@@ -167,7 +211,8 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
             array('Nguyễn Đăng Khoa', 'nguyen-dang-khoa'),
             array('နှစ်သစ်ကူးတွင် သတ္တဝါတွေ စိတ်ချမ်းသာ ကိုယ်ကျန်းမာ၍ ကောင်းခြင်း အနန္တနှင့် ပြည့်စုံကြပါစေ', 'nhitthitkutwin-thttwatwe-seikkhyaantha-koekyaanmaywae-kaungkhyin-anntnhin-pyisonkypase'),
             array('Zażółć żółcią gęślą jaźń', 'zazolc-zolcia-gesla-jazn'),
-            array('Mężny bądź chroń pułk twój i sześć flag', 'mezny-badz-chron-pulk-twoj-i-szesc-flag')
+            array('Mężny bądź chroń pułk twój i sześć flag', 'mezny-badz-chron-pulk-twoj-i-szesc-flag'),
+            array('ერთი ორი სამი ოთხი ხუთი', 'erti-ori-sami-otkhi-khuti')
         );
     }
 }

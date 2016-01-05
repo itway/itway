@@ -18,7 +18,6 @@ class CreateCounterTable extends Migration
             $table->string('class_name');
             $table->integer('object_id');
             $table->integer('view_counter');
-
             $table->index('class_name');
             $table->index('object_id');
             $table->timestamps();

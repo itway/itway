@@ -74,14 +74,12 @@ class EloquentUserRepository implements UserContract {
      * @return mixed
      */
     protected function dispatchUser($data){
-        // dd($data['password']);
         $user =  $this->dispatcher->dispatch(
             new CreateUserCommand(
                 $data['name'],
                 $data['email'],
                 $data['password'],
                 null
-
             ));
 
         $user->attachRole(3);
@@ -98,7 +96,6 @@ class EloquentUserRepository implements UserContract {
      */
     public function checkIfUserNeedsUpdating($data, $user, $provider) {
         $socialData = [
-            'photo' => $data->avatar,
             'email' => $data->email,
             'name' => $data->name,
             'provider' => $provider,
@@ -106,7 +103,6 @@ class EloquentUserRepository implements UserContract {
 
         ];
         $dbData = [
-            'photo' => $user->photo,
             'email' => $user->email,
             'name' => $user->name,
             'provider' => $user->provider,
@@ -115,7 +111,6 @@ class EloquentUserRepository implements UserContract {
 
         $differences = array_diff($socialData, $dbData);
         if (! empty($differences)) {
-            $user->photo = $data->avatar;
             $user->email = $data->email;
             $user->name = $data->name;
             $user->password = $user->password;

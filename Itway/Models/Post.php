@@ -12,24 +12,29 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
-use Itway\Contracts\Bannable\Bannable;
 use Itway\Contracts\Likeable\Likeable;
-use Itway\Traits\Banable;
 use Itway\Traits\Likeable as LikeableTrait;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 /**
  * Class Post
  * @package Itway\Models
  */
-class Post extends Model implements Transformable, SluggableInterface, Likeable
+class Post extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
+    use HasMediaTrait;
+    use ImageTrait;
+
+
     /**
      * @var array
      */
@@ -46,7 +51,6 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
         'user_id',
         'slug',
         'preamble',
-        'image',
         'body',
         'published_at',
         'comment_count',
@@ -61,11 +65,6 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
      * @var array
      */
     protected $dates = ['published_at'];
-
-    /**
-     *
-     */
-    const IMAGEPath = 'images/posts/';
 
     /**
      * @param $date
@@ -164,15 +163,6 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    /**
-     * picture attachment
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
-    }
 
     /**
      * poll attachment

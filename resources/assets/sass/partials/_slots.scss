@@ -21,13 +21,40 @@
 
     .slot-title {
       color: darken($primary-color, 10%);
-      font-size: $font-size-base*0.8;
+      font-size: $font-size-base*1;
       padding: 5px 5px;
       font-weight: bold;
       background-color: #f8f8f8;
       word-wrap: break-word;
       margin-right: 0px;
       z-index: 1;
+      text-align: center;
+    }
+    .slot-title-name {
+      color: $brown-color;
+      font-size: $font-size-base*0.9;
+      border-bottom: 1px solid $brown-color;
+      font-weight: bold;
+      background-color: #f8f8f8;
+      word-wrap: break-word;
+      margin-right: 0px;
+      padding-left: 2px;
+      z-index: 1;
+      display: inline-block;
+    }
+    .slot-title-event {
+      i{
+        font-size: $font-size-base*1;
+        color: $lime-color;
+      }
+      border-bottom: 1px solid $lime-color;
+      font-weight: bold;
+      background-color: #f8f8f8;
+      word-wrap: break-word;
+      margin-right: 0px;
+      z-index: 1;
+      display: block;
+      top: 0;
     }
     .title {
       font-size: 12px;
@@ -70,6 +97,23 @@
     }
     .slot-time {
       margin-top: 10px;
+      font-weight: bold;
+      padding-left: 5px;
+      border-right: 2px solid $github;
+    }
+    .slot-date, .slot-time, .slot-timezone {
+      margin-top: 10px;
+      font-weight: bold;
+      border-right: 2px solid $github;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .slot-timezone {
+      padding-right: 0;
+      border-right: 0;
+      i {
+        color: $grey-color;
+      }
     }
   }
   .tag-block {

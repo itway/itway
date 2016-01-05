@@ -1,12 +1,12 @@
 <?php
 
-namespace  Itway\Commands;
+namespace Itway\Commands;
 
-use itway\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Itway\Models\Team;
-use itway\Events\TeamWasCreatedEvent;
 use Illuminate\Support\Facades\Auth;
+use itway\Events\TeamWasCreatedEvent;
+use Itway\Models\Team;
+use itway\Commands\Command;
 
 class CreateTeamCommand extends Command implements SelfHandling
 {

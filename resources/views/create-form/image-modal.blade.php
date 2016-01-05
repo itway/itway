@@ -4,11 +4,9 @@
     <p>
     <div class="description">
         <label for="photoUpload" class="filelabel custom-file-input">
-            @if(isset($model) && $model->picture())
+            @if(isset($model) && !empty($model->getMedia('images')->first()))
                 <div class="photo-block">
-                    @foreach($picture as $pic)
-                        <img style="" src="{!! asset('images/posts/' . $pic->path) !!}">
-                    @endforeach
+                        <img style="" src="{!! url($model->getImage()) !!}" alt="">
                 </div>
             @else
                 <div class="photo-block"></div>

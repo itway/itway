@@ -22,7 +22,6 @@ class CreateEventsTable extends Migration
             $table->string('locale');
             $table->string('time');
             $table->string('date');
-            $table->string('event_photo')->nullable();
             $table->string('youtube_link')->nullable();
             $table->string('timezone');
             $table->string('event_format');

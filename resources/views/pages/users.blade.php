@@ -117,14 +117,14 @@
 
 
 
-@stop
+@overwrite
 @section('styles-add')
     {{--<link rel="stylesheet" href="{{asset('dist\components\tab.css')}}"/>--}}
-@endsection
+@overwrite
 @section('scripts-add')
     {{--<script src="{{asset('dist/components/tab.min.js')}}"></script>--}}
     <script>
         //        $('.nav-tabs li a').tab();
     </script>
-@endsection
+@overwrite
 @endif

@@ -17,7 +17,7 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  * Class EventRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class EventRepositoryEloquent extends BaseRepository implements EventRepository, ImageContract
+class EventRepositoryEloquent extends BaseRepository implements EventRepository
 {
     use ImageTrait;
 
@@ -49,7 +49,6 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-
 
     /**
      * get the model instance
@@ -102,7 +101,7 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository,
                 $request->tags_list
             ));
         if (!is_null($image)) {
-            $this->bindImageTo($image, $event, "event_photo");
+            $this->bindImage($image, $event);
         }
 
         return $event;

@@ -10,7 +10,7 @@
 @endsection
 @section('navigation.buttons')
     @include('openideas.site-btns')
-@endsection
+@overwrite
 @section('content')
 
 
@@ -152,12 +152,12 @@
 
 
     </script>
-@endsection
+@overwrite
 @section('styles-add')
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.preview.css')}}">
 
-@endsection
+@overwrite
 @section('scripts-add')
 
     <script src="http://www.itway.io/dist/vendor/editor.md/lib/marked.min.js"></script>
@@ -202,4 +202,4 @@
 
         });
     </script>
-    @endsection
+@overwrite

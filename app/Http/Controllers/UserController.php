@@ -8,6 +8,7 @@ use Input;
 use Itway\components\Country\CountryBuilder;
 use itway\Http\Requests;
 use Itway\Models\User;
+use Itway\Repositories\EventRepository;
 use Itway\Repositories\PostRepository;
 use Itway\Repositories\UserRepository;
 use Itway\Validation\User\UserPhotoRequest;
@@ -20,12 +21,14 @@ class UserController extends Controller
     private $repository;
     private $postrepo;
     private $country;
+    private $eventrepo;
 
-    public function __construct(UserRepository $repository, PostRepository $postrepo, CountryBuilder $country)
+    public function __construct(UserRepository $repository, PostRepository $postrepo, CountryBuilder $country, EventRepository $eventrepo)
     {
         $this->repository = $repository;
         $this->postrepo = $postrepo;
         $this->country = $country;
+        $this->eventrepo = $eventrepo;
     }
 
     /**
@@ -91,15 +94,16 @@ class UserController extends Controller
             } else {
                 $owner = false;
             }
-            if ($user->picture()) {
-
-                $picture = $user->picture()->get();
+            if ($user->getMedia('logo')->first()) {
+                $pictures = $user->getMedia('logo');
+                $picture = $pictures[0]->getPath();
             }
             $notFromProfile = false;
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $user->currentTeam;
+            $countUserEvents = $this->eventrepo->countUserEvents();
 
-            return view('user.user-profile', compact('user', 'picture', 'notFromProfile', 'countUserPosts', 'owner', 'currentTeam'));
+            return view('user.user-profile', compact('user', 'picture', 'notFromProfile', 'countUserPosts', 'countUserEvents', 'owner', 'currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -123,8 +127,9 @@ class UserController extends Controller
             $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $user->currentTeam;
+            $countUserEvents = $this->eventrepo->countUserEvents();
 
-            return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'currentTeam'));
+            return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'countUserEvents', 'currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -199,7 +204,7 @@ class UserController extends Controller
             // upload image
             $image = \Input::file('photo');
 
-            $this->repository->bindImage($image, $user);
+            $user->bindLogoImage($image, $user);
 
             Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
 
@@ -221,7 +226,9 @@ class UserController extends Controller
             $users = User::withAnyTag([$slug])->paginate(8);
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $this->repository->getUserTeam($user);
-            return view('pages.users', compact('users', 'countUserPosts', 'currentTeam'));
+            $countUserEvents = $this->eventrepo->countUserEvents();
+
+            return view('pages.users', compact('users', 'countUserPosts', 'currentTeam', 'countUserEvents'));
 
         }
         else {

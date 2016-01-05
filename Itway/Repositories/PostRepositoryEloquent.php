@@ -7,7 +7,6 @@ use Auth;
 use Illuminate\Support\Str;
 use Itway\Commands\CreatePostCommand;
 use Itway\Models\Post;
-use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use Itway\Validation\Poll\PollFormRequest;
 use Itway\Validation\Post\PostsFormRequest;
@@ -21,7 +20,7 @@ use Toastr;
  * Class PostRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PostRepositoryEloquent extends BaseRepository implements PostRepository, ImageContract
+class PostRepositoryEloquent extends BaseRepository implements PostRepository
 {
     use ImageTrait;
 
@@ -105,8 +104,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
     }
 
     /**
-     * TODO code smells refactor needs refactor
-     *
      * @param PostsUpdateFormRequest $request
      * @param $post
      * @param $image
@@ -123,7 +120,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, I
 
             $data['user_id'] = \Auth::id();
             $data['slug'] = Str::slug($data['title']);
-            if ($image && $post->picture()) {
+            if ($image) {
                 $this->bindImage($image, $post);
             }
             $post->update($data);

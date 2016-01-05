@@ -20,7 +20,6 @@
                     </div>
                 </a>
             @endif
-            <a class="item {!! Active::pattern(App::getLocale().'/', 'active selected') !!} brown" href="{{url(App::getLocale().'/teams')}}"></a>
         </div>
     </div>
-@endsection
+@overwrite

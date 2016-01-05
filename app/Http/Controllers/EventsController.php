@@ -202,12 +202,40 @@ class EventsController extends Controller
         //
     }
 
-    public function personalEvents($id)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function personalEvents(Request $request)
     {
+        try {
 
-        $user = User::findBySlugOrId($id);
+            $events = $this->repository->getAllUsers();
 
-        $this->repository->getModel()->where('user_id', $user->id)->first();
+            $countUserEvents = $this->repository->countUserEvents();
+
+            $tags = $this->repository->getModel()->existingTags();
+
+            if ($countUserEvents === 0) {
+
+                if ($request->ajax()) {
+                    return response()->json(['error_message' => trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle')]);
+                } else {
+                    Toastr::warning(trans('messages.noPostsFound'), $title = trans('messages.noPostsFoundTitle'), $options = []);
+                    return redirect()->back();
+                }
+            } else {
+                if ($request->ajax()) {
+                    return view('events.dynamic-events', compact('events', 'countUserEvents', 'tags'));
+                } else {
+                    return view('events.events', compact('events', 'countUserEvents', 'tags'));
+                }
+            }
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+        }
 
     }
 

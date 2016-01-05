@@ -2,7 +2,7 @@
 @section('title')
     - {{$post->title}}
 @endsection
-@section('meta-image') @if($post->picture()->exists()) @foreach($post->picture()->get() as $picture){!! asset('images/posts/' . $picture->path) !!}@endforeach @else http://www.itway.io/itway-landing.png @endif @endsection
+@section('meta-image') @if(!empty($post->getMedia('images')->first())) {{$picture}} @else http://www.itway.io/itway-landing.png @endif @endsection
 @section('meta-description'){{$post->preamble}}@endsection
 @section('sitelocation')
     <?php  $name = "Bl"; ?>
@@ -10,10 +10,8 @@
 @endsection
 @section('navigation.buttons')
     @include('posts.site-btns')
-@endsection
+@overwrite
 @section('content')
-
-
     <div class="single-post">
         <div class="head">
             <div class="first-line">
@@ -57,20 +55,18 @@
         <div class="line clearfix"></div>
         <div class="image-area">
             <div class="presc-wrapper">
-                @if($post->picture()->exists())
+                @if(!empty($post->getMedia('images')->first()))
                     <div class="l-6 m-6 s-6 xs-10"  style="line-height: 1.875rem;
     padding-top: 0.83333rem;
     padding-bottom: 0.83333rem;">
                         <div class="thumbnail" style="border-color: transparent; background: transparent; max-height: 450px;padding: 0; overflow: hidden">
-                            @foreach($post->picture()->get() as $picture)
-                            <img  class="img-responsive" src="{!! asset('images/posts/' . $picture->path) !!}">
-                                @endforeach
+                            <img  class="img-responsive" src="{!! url($picture) !!}">
                             </div>
                         </div>
                     {{--</div>--}}
                 @endif
 
-                @if($post->picture()->exists())
+                @if(!empty($post->getMedia('images')->first()))
                         <div class="prescription l-6 m-6 s-6 xs-10">
                             <h3>
                                 <blockquote>
@@ -143,11 +139,11 @@
 
 
     </script>
-@endsection
+@overwrite
 @section('styles-add')
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/vendor/editor.md/css/editormd.preview.css')}}">
-@endsection
+@overwrite
 @section('scripts-add')
 
     <script src="http://www.itway.io/dist/vendor/editor.md/lib/marked.min.js"></script>
@@ -184,8 +180,6 @@
             }).done(function(e) {
                 $("#post-body").find(".loader").remove();
             });
-
-
         });
     </script>
-    @endsection
+@overwrite

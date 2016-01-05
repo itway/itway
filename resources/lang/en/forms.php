@@ -7,5 +7,14 @@
  */
 return [
     'select-country' => 'Select Country',
-    'tag-default' => 'Choose tag(s)'
+    'tag-default' => 'Choose tag(s)',
+    'change' => 'Change',
+    'select' => 'Select',
+    'see' => 'See',
+    'readMore' => 'Read More',
+    'update' => 'Update',
+    'create' => 'Create',
+    'else' => 'Else',
+    'more' => 'More',
+    'add' => 'Add'
 ];

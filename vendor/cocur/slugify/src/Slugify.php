@@ -23,24 +23,41 @@ namespace Cocur\Slugify;
  */
 class Slugify implements SlugifyInterface
 {
-    const LOWERCASE_NUMBERS_DASHES = '/([^a-z0-9]|-)+/';
+    const LOWERCASE_NUMBERS_DASHES = '/([^A-Za-z0-9]|-)+/';
 
     /** @var array */
     protected $rules = array(
-        // Numeric characters
+        // Numeric characters, superscript
+        '°' => 0,
         '¹' => 1,
         '²' => 2,
         '³' => 3,
+        '⁴' => 4,
+        '⁵' => 5,
+        '⁶' => 6,
+        '⁷' => 7,
+        '⁸' => 8,
+        '⁹' => 9,
+        // Numeric characters, subscript
+        '₀' => 0,
+        '₁' => 1,
+        '₂' => 2,
+        '₃' => 3,
+        '₄' => 4,
+        '₅' => 5,
+        '₆' => 6,
+        '₇' => 7,
+        '₈' => 8,
+        '₉' => 9,
 
         // Latin
-        '°' => 0,
         'æ' => 'ae',
         'ǽ' => 'ae',
         'À' => 'A',
         'Á' => 'A',
         'Â' => 'A',
         'Ã' => 'A',
-        'Å' => 'A',
+        'Å' => 'AA',
         'Ǻ' => 'A',
         'Ă' => 'A',
         'Ǎ' => 'A',
@@ -50,7 +67,7 @@ class Slugify implements SlugifyInterface
         'á' => 'a',
         'â' => 'a',
         'ã' => 'a',
-        'å' => 'a',
+        'å' => 'aa',
         'ǻ' => 'a',
         'ă' => 'a',
         'ǎ' => 'a',
@@ -123,7 +140,7 @@ class Slugify implements SlugifyInterface
         'Ǒ' => 'O',
         'Ő' => 'O',
         'Ơ' => 'O',
-        'Ø' => 'O',
+        'Ø' => 'OE',
         'Ǿ' => 'O',
         'Œ' => 'OE',
         'ò' => 'o',
@@ -134,7 +151,7 @@ class Slugify implements SlugifyInterface
         'ǒ' => 'o',
         'ő' => 'o',
         'ơ' => 'o',
-        'ø' => 'o',
+        'ø' => 'oe',
         'ǿ' => 'o',
         'º' => 'o',
         'œ' => 'oe',
@@ -205,9 +222,9 @@ class Slugify implements SlugifyInterface
         'Г' => 'G',
         'Х' => 'H',
         'И' => 'I',
-        'Й' => 'J',
-        'Я' => 'Ja',
-        'Ю' => 'Ju',
+        'Й' => 'Y',
+        'Я' => 'Ya',
+        'Ю' => 'Yu',
         'К' => 'K',
         'Л' => 'L',
         'М' => 'M',
@@ -238,9 +255,9 @@ class Slugify implements SlugifyInterface
         'г' => 'g',
         'х' => 'h',
         'и' => 'i',
-        'й' => 'j',
-        'я' => 'ja',
-        'ю' => 'ju',
+        'й' => 'y',
+        'я' => 'ya',
+        'ю' => 'yu',
         'к' => 'k',
         'л' => 'l',
         'м' => 'm',
@@ -346,13 +363,52 @@ class Slugify implements SlugifyInterface
         'ż' => 'z',
 
         // Greek
+        'ΑΥ' => 'AU',
+        'Αυ' => 'Au',
+        'ΟΥ' => 'OU',
+        'Ου' => 'Ou',
+        'ΕΥ' => 'EU',
+        'Ευ' => 'Eu',
+        'ΕΙ' => 'I',
+        'Ει' => 'I',
+        'ΟΙ' => 'I',
+        'Οι' => 'I',
+        'ΥΙ' => 'I',
+        'Υι' => 'I',
+        'ΑΎ' => 'AU',
+        'Αύ' => 'Au',
+        'ΟΎ' => 'OU',
+        'Ού' => 'Ou',
+        'ΕΎ' => 'EU',
+        'Εύ' => 'Eu',
+        'ΕΊ' => 'I',
+        'Εί' => 'I',
+        'ΟΊ' => 'I',
+        'Οί' => 'I',
+        'ΎΙ' => 'I',
+        'Ύι' => 'I',
+        'ΥΊ' => 'I',
+        'Υί' => 'I',
+        'αυ' => 'au',
+        'ου' => 'ou',
+        'ευ' => 'eu',
+        'ει' => 'i',
+        'οι' => 'i',
+        'υι' => 'i',
+        'αύ' => 'au',
+        'ού' => 'ou',
+        'εύ' => 'eu',
+        'εί' => 'i',
+        'οί' => 'i',
+        'ύι' => 'i',
+        'υί' => 'i',
         'Α' => 'A',
-        'Β' => 'B',
+        'Β' => 'V',
         'Γ' => 'G',
         'Δ' => 'D',
         'Ε' => 'E',
         'Ζ' => 'Z',
-        'Η' => 'E',
+        'Η' => 'I',
         'Θ' => 'Th',
         'Ι' => 'I',
         'Κ' => 'K',
@@ -365,25 +421,27 @@ class Slugify implements SlugifyInterface
         'Ρ' => 'R',
         'Σ' => 'S',
         'Τ' => 'T',
-        'Υ' => 'Y',
-        'Φ' => 'Ph',
+        'Υ' => 'I',
+        'Φ' => 'F',
         'Χ' => 'Ch',
         'Ψ' => 'Ps',
         'Ω' => 'O',
+        'Ά' => 'A',
+        'Έ' => 'E',
+        'Ή' => 'I',
+        'Ί' => 'I',
+        'Ό' => 'O',
+        'Ύ' => 'I',
         'Ϊ' => 'I',
-        'Ϋ' => 'Y',
-        'ά' => 'a',
-        'έ' => 'e',
-        'ή' => 'e',
-        'ί' => 'i',
-        'ΰ' => 'Y',
+        'Ϋ' => 'I',
+        'ϒ' => 'I',
         'α' => 'a',
-        'β' => 'b',
+        'β' => 'v',
         'γ' => 'g',
         'δ' => 'd',
         'ε' => 'e',
         'ζ' => 'z',
-        'η' => 'e',
+        'η' => 'i',
         'θ' => 'th',
         'ι' => 'i',
         'κ' => 'k',
@@ -397,19 +455,23 @@ class Slugify implements SlugifyInterface
         'ς' => 's',
         'σ' => 's',
         'τ' => 't',
-        'υ' => 'y',
-        'φ' => 'ph',
+        'υ' => 'i',
+        'φ' => 'f',
         'χ' => 'ch',
         'ψ' => 'ps',
         'ω' => 'o',
-        'ϊ' => 'i',
-        'ϋ' => 'y',
+        'ά' => 'a',
+        'έ' => 'e',
+        'ή' => 'i',
+        'ί' => 'i',
         'ό' => 'o',
-        'ύ' => 'y',
+        'ύ' => 'i',
+        'ϊ' => 'i',
+        'ϋ' => 'i',
+        'ΰ' => 'i',
         'ώ' => 'o',
-        'ϐ' => 'b',
+        'ϐ' => 'v',
         'ϑ' => 'th',
-        'ϒ' => 'Y',
 
         /* Arabic */
         'أ' => 'a',
@@ -532,6 +594,41 @@ class Slugify implements SlugifyInterface
         'Ỵ' => 'Y',
         'Ỷ' => 'Y',
         'Ỹ' => 'Y',
+
+        /* Georgian */
+        'ა' => 'a',
+        'ბ' => 'b',
+        'გ' => 'g',
+        'დ' => 'd',
+        'ე' => 'e',
+        'ვ' => 'v',
+        'ზ' => 'z',
+        'თ' => 't',
+        'ი' => 'i',
+        'კ' => 'k',
+        'ლ' => 'l',
+        'მ' => 'm',
+        'ნ' => 'n',
+        'ო' => 'o',
+        'პ' => 'p',
+        'ჟ' => 'zh',
+        'რ' => 'r',
+        'ს' => 's',
+        'ტ' => 't',
+        'უ' => 'u',
+        'ფ' => 'f',
+        'ქ' => 'k',
+        'ღ' => 'gh',
+        'ყ' => 'q',
+        'შ' => 'sh',
+        'ჩ' => 'ch',
+        'ც' => 'ts',
+        'ძ' => 'dz',
+        'წ' => 'ts',
+        'ჭ' => 'ch',
+        'ხ' => 'kh',
+        'ჯ' => 'j',
+        'ჰ' => 'h',
 
         // burmese consonants
         'က'     => 'k',
@@ -676,13 +773,18 @@ class Slugify implements SlugifyInterface
     /** @var string */
     protected $regExp;
 
+    /** @var array */
+    protected $options = array('lowercase' => true);
+
     /**
      *
      * @param string $regExp
+     * @param array  $options
      */
-    public function __construct($regExp = self::LOWERCASE_NUMBERS_DASHES)
+    public function __construct($regExp = null, array $options = array())
     {
-        $this->regExp = $regExp;
+        $this->regExp  = $regExp ? $regExp : self::LOWERCASE_NUMBERS_DASHES;
+        $this->options = array_merge($this->options, $options);
     }
 
     /**
@@ -695,9 +797,11 @@ class Slugify implements SlugifyInterface
      */
     public function slugify($string, $separator = '-')
     {
-        $string = strtolower(strtr($string, $this->rules));
+        $string = strtr($string, $this->rules);
+        if ($this->options['lowercase']) {
+            $string = strtolower($string);
+        }
         $string = preg_replace($this->regExp, $separator, $string);
-        $string = strtolower($string);
 
         return trim($string, $separator);
     }
@@ -791,14 +895,27 @@ class Slugify implements SlugifyInterface
     }
 
     /**
-     * Static method to create new instance of {@see Slugify}.
-     *
-     * @param string $regExp The regular expression to be applied to strings when calling slugify
+     * @param array $options
      *
      * @return Slugify
      */
-    public static function create($regExp = self::LOWERCASE_NUMBERS_DASHES)
+    public function setOptions(array $options)
     {
-        return new static($regExp);
+        $this->options = array_merge($this->options, $options);
+
+        return $this;
+    }
+
+    /**
+     * Static method to create new instance of {@see Slugify}.
+     *
+     * @param string $regExp  The regular expression to be applied to strings when calling slugify
+     * @param array  $options
+     *
+     * @return Slugify
+     */
+    public static function create($regExp = null, array $options = array())
+    {
+        return new static($regExp, $options);
     }
 }

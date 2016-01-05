@@ -7,7 +7,6 @@ use Countries;
 use Illuminate\Support\Str;
 use Itway\Commands\CreateTeamCommand;
 use Itway\Models\Team;
-use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use Itway\Validation\Poll\PollFormRequest;
 use Itway\Validation\Team\TeamRequest;
@@ -20,7 +19,7 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  * Class TeamRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, ImageContract
+class TeamRepositoryEloquent extends BaseRepository implements TeamRepository
 {
     use ImageTrait;
 
@@ -95,7 +94,7 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
                 $this->getCountriesByValue($request->country)
             ));
         if (!is_null($logo)) {
-            $this->bindImageTo($logo, $team, "logo_bg");
+            $this->bindLogoImage($logo, $team);
         }
         if (!is_null($request->trend)) {
             $this->bindTrend($request->trend, $team);
@@ -121,27 +120,16 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository, I
         $data['slug'] = Str::slug($data['name']);
 
         if ($logo) {
-
             // upload logo image
-
-            if (!is_null($team->logo_bg)) {
-
-                $this->bindImageTo($logo, $team, "logo_bg");
-            }
-
-            $team->update($data);
-
-            $team->untag();
-
-            $team->tag($request->input('tags_list'));
-        } else {
-            $team->update($data);
-
-            $team->untag();
-
-            $team->tag($request->input('tags_list'));
+            $this->bindLogoImage($logo, $team);
         }
+        $team->update($data);
+
+        $team->untag();
+
+        $team->tag($request->input('tags_list'));
     }
+
 
     /**
      * count users in a team

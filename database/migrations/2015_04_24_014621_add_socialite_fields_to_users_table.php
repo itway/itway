@@ -15,7 +15,6 @@ class AddSocialiteFieldsToUsersTable extends Migration {
     {
         Schema::table('users', function(Blueprint $table)
         {
-            $table->string('photo')->nullable();
             $table->string('provider')->before('created_at')->nullable();
             $table->string('provider_id')->after('provider')->unique()->nullable();
         });
@@ -29,7 +28,7 @@ class AddSocialiteFieldsToUsersTable extends Migration {
     {
         Schema::table('users', function(Blueprint $table)
         {
-            $table->dropColumn('photo', 'provider', 'provider_id');
+            $table->dropColumn('provider', 'provider_id');
         });
     }
 

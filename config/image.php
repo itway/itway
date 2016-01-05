@@ -21,7 +21,7 @@ return array(
     'user' => 'images/users/',
     'teamworkteam' => 'images/teams/',
     'team' => 'images/teams/',
-    'event' => 'imags/events/',
+    'event' => 'images/events/',
     'opensourceidea' => 'images/opensourceidea/',
     'chat' => 'images/chat/',
     'taskboard' => 'images/taskboard/',

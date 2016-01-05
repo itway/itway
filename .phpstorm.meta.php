@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-12-31.
+    * Generated on 2016-01-04.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -62,6 +62,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -106,6 +107,8 @@ namespace PHPSTORM_META {
             'countries' instanceof \Webpatser\Countries\Countries,
             'command.countries.migration' instanceof \Webpatser\Countries\MigrationCommand,
             'timezone' instanceof \Camroncade\Timezone\Timezone,
+            'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
+            'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -248,6 +251,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -292,6 +296,8 @@ namespace PHPSTORM_META {
             'countries' instanceof \Webpatser\Countries\Countries,
             'command.countries.migration' instanceof \Webpatser\Countries\MigrationCommand,
             'timezone' instanceof \Camroncade\Timezone\Timezone,
+            'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
+            'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -434,6 +440,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -478,6 +485,8 @@ namespace PHPSTORM_META {
             'countries' instanceof \Webpatser\Countries\Countries,
             'command.countries.migration' instanceof \Webpatser\Countries\MigrationCommand,
             'timezone' instanceof \Camroncade\Timezone\Timezone,
+            'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
+            'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -620,6 +629,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -664,6 +674,8 @@ namespace PHPSTORM_META {
             'countries' instanceof \Webpatser\Countries\Countries,
             'command.countries.migration' instanceof \Webpatser\Countries\MigrationCommand,
             'timezone' instanceof \Camroncade\Timezone\Timezone,
+            'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
+            'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,

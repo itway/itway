@@ -13,7 +13,7 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  * Class UserRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository, ImageContract
+class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
     use ImageTrait;
 
@@ -105,24 +105,24 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository, I
      */
     public function getUserPhoto($user)
     {
-        if (!empty($user->picture()->get()->all())) {
+        if (!empty($user->getMedia('logo')->first())) {
 
-            $picture = $user->picture()->get()->first()->path;
+            $pictures = $user->getMedia('logo');
+            $picture = $pictures[0]->getUrl();
 
-            return url(config('image.usersDESTINATION') . $picture);
+            return url($picture);
         } else {
 
-            if ($user->photo) {
+            if (!empty($user->getMedia('images')->first())) {
 
-                return $user->photo;
+                $pictures = $user->getMedia('images');
+                $picture = $pictures[0]->getUrl();
+                return url($picture);
 
             } else {
-
                 return url('images/' . config('image.missingUserPhoto'));
-
             }
         }
-
     }
 
     public function getUserTeam($user)

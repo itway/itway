@@ -2,7 +2,7 @@
 @extends('admin/app')
 @section('navigation.buttons')
     @include('user.site-btns')
-@endsection
+@overwrite
 
 @if(count($users)=== 0 )
 
@@ -73,7 +73,7 @@
         {!! (new Itway\Models\Pagination($users))->render() !!}
     </div>
 @endif
-@endsection
+@overwrite
 @section('scripts-add')
     <script>
         var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
@@ -87,4 +87,4 @@
         }());
     </script>
 
-@endsection
+@overwrite

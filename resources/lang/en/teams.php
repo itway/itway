@@ -6,6 +6,11 @@
  * Time: 6:38
  */
 return [
-    "team-tags"  => "Teams' tags"
+    "team-tags"  => "Teams' tags",
+    "team" => "team:",
+    "trends" => "trends:",
+    "country" => "country:",
+    "owner" => "owner:",
+    "visit" => "Visit team"
 
 ];

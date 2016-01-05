@@ -8,9 +8,9 @@
 
 namespace Itway\Uploader;
 
-use File;
-use Itway\Models\Picture;
-use Toastr;
+use Intervention\Image\Facades\Image;
+use League\Flysystem\Exception;
+
 trait ImageTrait
 {
 
@@ -23,92 +23,165 @@ trait ImageTrait
     public function bindImage($image, $instance)
     {
 
-        $this->uploader->upload($image, $this->getImagePathFromConfig())->save($this->getImagePathFromConfig());
+        if ($instance->getMedia('images')->count() !== 0) {
 
-        if ($instance->picture()->count() !== 0) {
-
-            $picture = $instance->picture()->get() ;
-
-            foreach($picture as $pic) {
-
-                $this->deleteImage($pic->path);
-            }
-            $instance->picture()->delete();
+            $instance->clearMediaCollection('images');
         }
-
-        $picture = Picture::create(['path' => $this->uploader->getFilename()]);
-
-        $instance->picture()->save($picture);
+//        $image = $this->resizeImage($image);
+        $instance->addMedia($image)->toCollection('images');
 
     }
 
     /**
-     * bind image to instance
+     * @param $images
+     * @param $instance
+     */
+    public function bindImageS($images, $instance)
+    {
+        foreach ($images as $image) {
+            if ($instance->getMedia('images')->count() !== 0) {
+
+                $instance->clearMediaCollection('images');
+            }
+//            $image = $this->resizeImage($image);
+            $instance->addMedia($image)->toCollection('images');
+        }
+    }
+
+    /**
+     * bindLogoImage
      * @param $image
      * @param $instance
-     * @param $field
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function bindImageTo($image, $instance, $field)
+    public function bindLogoImage($image, $instance)
+    {
+        try {
+
+            if ($instance->getMedia('logo')->count() !== 0) {
+
+                $instance->clearMediaCollection('logo');
+            }
+//            $image = $this->makeLogo($image);
+
+            $instance->addMedia($image)->toCollection('logo');
+
+        } catch (Exception $e) {
+            return response()->json('error', $e->getCode());
+        }
+    }
+
+    /**
+     * bind logo from url
+     *
+     * @param $url
+     * @param $instance
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function bindLogoFromURL($url, $instance)
+    {
+        try {
+
+            if ($instance->getMedia('logo')->count() !== 0) {
+
+                $instance->clearMediaCollection('logo');
+            }
+            $instance->addMediaFromUrl($url)
+                ->toCollection('logo');
+
+        } catch (Exception $e) {
+            return response()->json('error', $e->getCode());
+        }
+    }
+
+    /**
+     * bind image from url
+     * @param $url
+     * @param $instance
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function bindImageFromURL($url, $instance)
+    {
+        try {
+
+            if ($instance->getMedia('images')->count() !== 0) {
+
+                $instance->clearMediaCollection('images');
+            }
+            $instance->addMediaFromUrl($url)
+                ->toCollection('images');
+
+        } catch (Exception $e) {
+
+            return response()->json('error', $e->getCode());
+
+        }
+    }
+
+    /**
+     * bind multiple images from array of urls
+     * @param array $urls
+     * @param $instance
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function bindImageSFromURL(array $urls, $instance)
     {
         try {
 
 
-            if (!is_null($instance[$field])) {
+            if ($instance->getMedia('images')->count() !== 0) {
 
-                $this->deleteImage($instance[$field]);
-
-                $this->uploader->upload($image, $this->getImagePathFromConfig())->save($this->getImagePathFromConfig());
-
-                $instance->update([
-                    $instance[$field] => $this->uploader->getFilename()
-                ]);
-
+                $instance->clearMediaCollection('images');
             }
-            else {
-
-                $this->uploader->upload($image, $this->getImagePathFromConfig())->save($this->getImagePathFromConfig());
-
-                $instance[$field] = $this->uploader->getFilename();
-
-                $instance->save();
-
+            foreach ($urls as $url) {
+                $instance->addMediaFromUrl($url)
+                    ->toCollection('images');
             }
-        } catch (\ErrorException $e) {
+        } catch (Exception $e) {
 
-            return response($e->getMessage(), $e->getCode());
+            return response()->json('error', $e->getCode());
 
         }
     }
 
+    /**
+     * get image
+     * @return mixed
+     */
+    public function getImage() {
+        $pictures = $this->getMedia('images');
+        $picture = $pictures[0]->getUrl();
+        return $picture;
+    }
 
     /**
-     * @param $file
-     * @return bool
+     * get logo image
+     * @return mixed
      */
-    public function deleteImage($file)
+    public function getLogo() {
+        $pictures = $this->getMedia('logo');
+        $picture = $pictures[0]->getUrl();
+        return $picture;
+    }
+
+    private function thumbImage($file)
     {
-        $filepath = $this->image_path($file);
-
-        if (file_exists($filepath)) {
-
-            File::delete($filepath);
-
-            return true;
+        $height = Image::make($file)->height();
+        $width = Image::make($file)->width();
+        $aspect = $height / $width;
+        if ($aspect > 1) {
+            $image = Image::make($file)->resize(450 / $aspect, 450);
+        } else if ($aspect < 1) {
+            $image = Image::make($file)->resize(450, 450 * $aspect);
+        } else {
+            $image = Image::make($file)->resize(450, 450);
         }
-        return false;
+        return $image;
     }
 
-    /**
-     * @param $file
-     * @return string
-     */
-    public function image_path($file)
-    {
-        $imagePath = $this->getImagePathFromConfig();
+    private function makeLogo($file) {
 
-        return public_path("{$imagePath}{$file}");
+        $image = Image::make($file)->fit(150);
+        return $image;
     }
-
-
 }

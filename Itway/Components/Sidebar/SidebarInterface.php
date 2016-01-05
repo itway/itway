@@ -12,5 +12,7 @@ interface SidebarInterface{
 
 	public function getLastTeams();
 
+	public function getLastEvents();
+
 	public function formLastModelsCollection();
 }

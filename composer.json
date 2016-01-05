@@ -33,7 +33,8 @@
         "spatie/laravel-analytics": "^1.2",
         "nilsenj/toastr-5.1-laravel": "dev-master",
         "camroncade/timezone": "dev-master",
-        "rtconner/laravel-tagging": "~2.0.6"
+        "rtconner/laravel-tagging": "~2.0.6",
+        "spatie/laravel-medialibrary": "^3.11"
 
     },
     "require-dev": {

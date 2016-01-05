@@ -152,6 +152,12 @@ class PostsController extends Controller
             $countUserPosts = $this->repository->countUserPosts();
 
             $modelName = $this->repository->getModelName();
+            if (!empty($post->getMedia('images')->first())) {
+
+                $pictures = $post->getMedia('images');
+                $picture = $pictures[0]->getUrl();
+
+            }
 
             if (Auth::user() && Auth::user()->id === $postUser) {
 
@@ -159,7 +165,7 @@ class PostsController extends Controller
             } else {
                 $createdByUser = false;
             }
-            return view('posts.single', compact('post', 'createdByUser', 'countUserPosts', 'modelName'));
+            return view('posts.single', compact('post', 'createdByUser', 'countUserPosts', 'modelName', 'picture'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -182,6 +188,7 @@ class PostsController extends Controller
             $countUserPosts = $this->repository->countUserPosts();
 
             $tags = $this->repository->getModel()->existingTags();
+
 
             if ($countUserPosts === 0) {
 
@@ -223,19 +230,13 @@ class PostsController extends Controller
 
             $tags = $post->tagNames();
 
-            if ($post->picture()) {
-
-                $picture = $post->picture()->get();
-
-            }
-
             $body = $post->getBody();
 
             flash()->info(trans('messages.createLang'));
 
             $tagsBuilder = $this->tags->tagsTechMultipleSelect("choose" . trans('post-form.tags'), $tags);
 
-            return view('posts.edit', compact('post', 'tags', 'body', 'picture', 'countUserPosts', 'tagsBuilder'));
+            return view('posts.edit', compact('post', 'tags', 'body', 'countUserPosts', 'tagsBuilder'));
 
         } catch (ModelNotFoundException $e) {
 

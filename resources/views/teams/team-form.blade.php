@@ -4,14 +4,9 @@
     <div class="l-12 m-12 s-12 create-form">
         <div class="description">
             <label for="photoUpload" class="filelabel filelabel-team custom-file-input">
-                @if(isset($team) && $team->picture())
+                @if(isset($team) && !empty($team->getMedia('images')->first()))
                     <div class="photo-block">
-                        <div class="thumbnail" style='background: #ffffff'>
-                            @foreach($picture as $pic)
-                                <img class="img-responsive" style=""
-                                     src="{!! asset('images/teams/' . $pic->path) !!}">
-                            @endforeach
-                        </div>
+                        <img style="" src="{!!  url($model->getImage())  !!}" alt="">
                     </div>
                 @else
                     <div class="photo-block"></div>
@@ -54,7 +49,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="" style="text-align: center">
-            {!! Form::submit('Create team', ['class' => 'confirm button button-primary'])!!}
+            {!! Form::submit(trans('forms.create'), ['class' => 'confirm button button-primary'])!!}
         </div>
     </div>
     {!! Form::close() !!}

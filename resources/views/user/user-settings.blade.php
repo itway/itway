@@ -27,7 +27,7 @@
                                 <h5 class="text-info ">{{trans('profile.alter_user_fullname')}}</h5>
                                 {!! Form::text('name',  $user->name  ,array( 'class' => 'input input-line', 'id' => 'fullname', 'placeholder' => 'пожалуйста введите имя и фамилию')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 {!! Form::email('email', null, array( 'class' => 'input input-line', 'id' => 'email', 'placeholder' => 'введите ваш email')) !!}
 
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
 
@@ -63,7 +63,7 @@
 
                                 {!! Form::password('password' ,array( 'class' => 'input input-line', 'id' => 'password', 'placeholder' => 'введите ваш пароль')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                 {!! $countryBuilder !!}
                             </div>
                             <div class="pull-right">
-                                {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                             </div>
                         </div>
                         </div>
@@ -97,7 +97,7 @@
 
                                 {!! Form::text('Google', null, array( 'class' => 'input input-line', 'id' => 'linkToGoogle', 'placeholder' => 'введите ваш google аккаунт')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
 
                                 {!! Form::text('Twitter',  null, array( 'class' => 'input input-line', 'id' => 'linkToTwitter', 'placeholder' => 'введите ваш twitter аккаунт')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' ))!!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' ))!!}
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
 
                                 {!! Form::text('Facebook',  null, array( 'class' => 'input input-line', 'id' => 'linkToFacebook', 'placeholder' => 'введите ваш facebook аккаунт')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}</div>
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}</div>
                             </div>
 
                         </div>
@@ -151,7 +151,7 @@
 
                                 {!! Form::text('Github', null, array( 'class' => 'input input-line', 'id' => 'linkToGithub', 'placeholder' => 'введите ваш github аккаунт')) !!}
                                 <div class="pull-right">
-                                    {!! Form::submit('Изменить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
 
                                 </div>
 
@@ -172,7 +172,7 @@
                                 <div data-tags-input-name="tags_list" id="tagBox"></div>
                                 <div class="pull-right">
 
-                                    {!! Form::submit('Добавить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.add'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
 
@@ -201,7 +201,7 @@
 
                                 <div class="pull-right">
 
-                                    {!! Form::submit('Добавить', array( 'class' => 'button button-default' )) !!}
+                                    {!! Form::submit(trans('forms.add'), array( 'class' => 'button button-default' )) !!}
                                 </div>
 
                             </div>
@@ -211,7 +211,7 @@
                 </div>
             </div>
         </div>
-@stop
+@overwrite
 @section('styles-add')
     {{--<link rel="stylesheet" href="{{asset('dist\components\tab.css')}}"/>--}}
 @endsection
@@ -258,5 +258,5 @@
         var fullname = $('#fullname').focus();
 
     </script>
-@endsection
+@overwrite
 @endif

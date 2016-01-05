@@ -13,21 +13,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
-
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 /**
  * Class Event
  * @package Itway\Models
  */
-class Event extends Model implements Transformable, SluggableInterface, Likeable
+class Event extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
-
+    use HasMediaTrait;
+    use ImageTrait;
     /**
      * @var string
      */
@@ -42,7 +45,6 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         'time',
         'date',
         'user_id',
-        'event_photo',
         'event_format',
         'timezone',
         'locale',
@@ -162,13 +164,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
-    }
+
     /**
      * @return mixed
      */

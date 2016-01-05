@@ -12,7 +12,6 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
     @endif
     @if($modelName == "teams" && count($modelElement) > 0)
@@ -21,17 +20,32 @@
             @foreach($modelElement as $team)
                 <div class="white-bordered side-item">
                     <a class="" href="{!!route('itway::teams::show', $team->id) !!}"> {{$team->name}}</a>
-                    <img class="logo" src="{!! asset('images/teams/' . $team->logo_bg) !!}"
+                    <img class="logo" src="{!! url($team->getLogo()) !!}"
                          alt="{{ $team->name }}"/>
                     <div class="author">author:
                         <small>
                             <a href="@foreach($team->ownerId() as $ownerId){{url(App::getLocale()."/user/".$ownerId)}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
                         </small>
                     </div>
-
                 </div>
             @endforeach
-
+        </div>
+    @endif
+    @if($modelName == "events" && count($modelElement) > 0)
+        <div class="sidebar-block">
+            <h5 class="text-center text-info">{{trans('sidebar.events')}}</h5>
+            @foreach($modelElement as $event)
+                <div class="white-bordered side-item">
+                    <a class="" href="{!!route('itway::events::show', $event->id) !!}"> {{$event->name}}</a>
+                    <img class="logo" src="{!! url($event->getLogo()) !!}"
+                         alt="{{ $event->name }}"/>
+                    <div class="author">author:
+                        <small>
+                            <a href="{{asset(App::getLocale().'/user/'.$event->user->id)}}">{{ $event->user->name }}</a>
+                        </small>
+                    </div>
+                </div>
+            @endforeach
         </div>
     @endif
 @endforeach

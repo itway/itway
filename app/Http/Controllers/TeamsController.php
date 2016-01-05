@@ -79,11 +79,9 @@ class TeamsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
-
         $teams = $this->repository->getAll();
-
         $tags = $this->repository->getModel()->existingTags();
-        $currentTeam = $this->repository->getCurrentTeam();
+        $currentTeam = $this->repository->getModel()->currentTeam;
 
         return view('teams.teams', compact('teams', 'tags', 'currentTeam'));
     }
@@ -101,7 +99,7 @@ class TeamsController extends Controller
 
         $tagsBuilder = $this->tags->tagsTechMultipleSelect(trans('team-form.select-tags'));
         $tagsTrendBuilder = $this->tags->tagsTrendsMultipleSelect(trans('team-form.select-trend-tags'));
-        $currentTeam = $this->repository->getCurrentTeam();
+        $currentTeam = $this->repository->getModel()->currentTeam;
 
         flash()->info(trans('messages.createTeam'));
 
@@ -115,7 +113,7 @@ class TeamsController extends Controller
     public function show($id)
     {
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->repository->getCurrentTeam();
+        $currentTeam = $this->repository->getModel()->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
         return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
@@ -170,7 +168,7 @@ class TeamsController extends Controller
     {
 
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->repository->getCurrentTeam();
+        $currentTeam = $this->repository->getModel()->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
         return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
@@ -188,8 +186,9 @@ class TeamsController extends Controller
 
         $teams = Team::withAnyTag([$slug])->latest('created_at')->paginate(8);
         $tags = $this->repository->getModel()->existingTags();
+        $currentTeam = $this->repository->getModel()->currentTeam;
 
-        return view('teams.teams', compact('teams', 'tags'));
+        return view('teams.teams', compact('teams', 'tags','currentTeam'));
     }
 
     /**

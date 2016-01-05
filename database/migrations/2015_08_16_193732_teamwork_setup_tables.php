@@ -40,7 +40,6 @@ class TeamworkSetupTables extends Migration
             $table->string('locale');
             $table->timestamp('date')->default(Carbon::today());
             $table->boolean('banned')->default(false);
-            $table->string('logo_bg');
             $table->string('country');
             $table->string('country_name');
             $table->softDeletes();

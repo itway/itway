@@ -8,4 +8,4 @@
     <div class="admin-block">
         @include('admin.users.form')
     </div>
-@endsection
+@overwrite

@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/nag.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/card.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/message.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/progress.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/loader.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/flag.min.css')}}">
 <link href="{{asset("dist/css/main.css")}}" rel="stylesheet">

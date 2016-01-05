@@ -22,10 +22,10 @@
                         </div>
 
                     @endif
-                    <a class="item {!! Active::pattern(App::getLocale().'/events/user-events', 'active selected') !!} red"
+                    <a class="item {!! Active::pattern(App::getLocale().'/events/user-events', 'active selected') !!} cyan"
                        href="{{route('itway::events::user-events')}}"><i
                                 class="icon-event"></i> {{ trans('navigation.user-event') }}
-                        <div class="ui green tiny label">0</div>
+                        <div class="ui cyan tiny label">{{$countUserEvents}}</div>
                     </a>
                     <a class="item {!! Active::pattern(App::getLocale().'/blog/user-posts', 'active selected') !!} red" href="{{url(App::getLocale().'/blog/user-posts')}}">
                         <i class="icon-pencil"></i> {{ trans('navigation.User-Posts') }}

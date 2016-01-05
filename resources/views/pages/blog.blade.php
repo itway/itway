@@ -5,5 +5,5 @@
 @endsection
 @section('content')
     @include('posts.posts')
-@endsection
+@overwrite
 

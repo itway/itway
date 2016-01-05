@@ -9,22 +9,23 @@ use Illuminate\Contracts\Cookie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Lang;
-use Itway\Contracts\Bannable\Bannable;
 use Itway\Contracts\Likeable\Likeable;
-use Itway\Traits\Banable;
 use Itway\Traits\Likeable as LikeableTrait;
+use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Poll extends Model implements Transformable, SluggableInterface, Likeable, Bannable
+class Poll extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
     use \Conner\Tagging\Taggable;
-    use \Itway\Traits\ViewCounterTrait, LikeableTrait, Banable;
-
+    use \Itway\Traits\ViewCounterTrait, LikeableTrait;
+    use HasMediaTrait;
+    use ImageTrait;
 
     protected $table = "poll";
 
@@ -34,9 +35,6 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
         'build_from' => 'name',
         'save_to' => 'slug'
     );
-
-    const IMAGEPath = 'images/polls/';
-
 
     /**
      * @var array
@@ -60,13 +58,6 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
     {
         return $this->morphTo();
     }
-
-
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
-    }
-
 
     /**
      * @param $date
@@ -128,25 +119,4 @@ class Poll extends Model implements Transformable, SluggableInterface, Likeable,
 
     }
 
-    public static function deleteImage($file)
-    {
-        $filepath = self::image_path($file);
-
-        if (file_exists($filepath)) {
-
-            File::delete($filepath);
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @param $file
-     * @return string
-     */
-    public static function image_path($file)
-    {
-        $imagePath = self::IMAGEPath;
-        return public_path("{$imagePath}{$file}");
-    }
 }
