@@ -114,3 +114,12 @@
     top: -.225em!important;
   }
 }
+
+.ui.label>img {
+  width: auto!important;
+  vertical-align: middle;
+  height: 1.6666em!important;
+  margin-right: 5px;
+  border: 1px solid;
+  border-radius: 2px;
+}

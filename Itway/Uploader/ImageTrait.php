@@ -163,18 +163,40 @@ trait ImageTrait
         $picture = $pictures[0]->getUrl();
         return $picture;
     }
+    public function registerMediaConversions()
+    {
+        // Perform a resize and filter on images from the images- and anotherCollection collections
+        // and save them as png files.
+        $this->addMediaConversion('thumb')
+            ->setManipulations(['w' => 368, 'h' => 232,'filt' => 'greyscale', 'fm' => 'png'])
+            ->performOnCollections('images', 'anotherCollection')
+            ->nonQueued();
+
+        // Perform a resize and sharpen on every collection
+        $this->addMediaConversion('adminThumb')
+            ->setManipulations(['w' => 50, 'h' => 50, 'sharp'=> 15])
+            ->performOnCollections('*');
+
+        // Perform a resize on every collection
+        $this->addMediaConversion('big')
+            ->setManipulations(['w' => 500, 'h' => 500]);
+    }
 
     private function thumbImage($file)
     {
         $height = Image::make($file)->height();
         $width = Image::make($file)->width();
         $aspect = $height / $width;
+        $image = [];
         if ($aspect > 1) {
-            $image = Image::make($file)->resize(450 / $aspect, 450);
+            $image->width = 450 / $aspect;
+            $image->height =  450;
         } else if ($aspect < 1) {
-            $image = Image::make($file)->resize(450, 450 * $aspect);
+            $image->width = 450;
+            $image->height =   450 * $aspect;
         } else {
-            $image = Image::make($file)->resize(450, 450);
+            $image->width = 450;
+            $image->height =   450;
         }
         return $image;
     }

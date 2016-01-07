@@ -82,6 +82,14 @@
                    name="date">
         </div>
     </div>
+    <div class="two fields">
+        <div class="field">
+            <input type="text" placeholder="type the city if exists" class="input-line" name="city">
+        </div>
+        <div class="field">
+            <input type="text" class="input-line" placeholder="type invite url if exists"  name="invite">
+        </div>
+    </div>
     <div class="field">
         <div class="btns-block">
             <span class="label titl text-center">{{trans('event-form.attach')}}</span>
@@ -91,6 +99,7 @@
             @include('events.image-modal', [$model = isset($event) ? $event : null])
             @include('events.video-modal', [$model = isset($event) ? $event : null])
             @include('events.poll-modal', [$model = isset($event) ? $event : null])
+            @include('events.speakers-modal', [$model = isset($event) ? $event : null])
             <div class="clearfix"></div>
             {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
             <div class="clearfix"></div>

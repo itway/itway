@@ -18,6 +18,7 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+
 /**
  * Class Event
  * @package Itway\Models
@@ -50,7 +51,9 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         'locale',
         'today',
         'youtube_link',
-        'banned'
+        'banned',
+        'city',
+        'invite'
     ];
 
     /**
@@ -65,13 +68,17 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      */
     protected $dates = ['created_at'];
 
+    public function eventSpeakers()
+    {
+        $this->hasMany(\Itway\Models\EventSpeakers::class, 'events_id');
+    }
 
     /**
-     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function eventSpeekers()
+    public function eventSubscribers()
     {
-        $this->hasMany(EventSpeekers::class, 'events_id');
+        return $this->belongsToMany(\Itway\Models\User::class, 'event_subscribers', 'events_id', 'user_id');
     }
 
     /**
@@ -164,14 +171,13 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 
     }
 
-
     /**
      * @return mixed
      */
     public function getDescription()
     {
-        $body = EventsDescription::where('events_id', $this->id)->select('description')->first();
-        return $body;
+        $description = EventsDescription::where('events_id', $this->id)->select('description')->first();
+        return $description;
     }
 
     /**

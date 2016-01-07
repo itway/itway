@@ -48,7 +48,7 @@ initialize: ->
 resolveWithTime: ->
   _this = this
   _this.o.input.keyup (e) ->
-    if (e.keyCode == 13 and $(e.target).val().length > 5 and $.ItwayIO.cValidator.ytVidId(_this.o.input.val())) or ($(e.target).val().length > 5 && $.ItwayIO.cValidator.githubLNK(_this.o.input.val()))
+    if (e.keyCode == 13 and $(e.target).val().length > 5 and $.ItwayIO.cValidator.githubLNK(_this.o.input.val())) or ($(e.target).val().length > 5 && $.ItwayIO.cValidator.githubLNK(_this.o.input.val()))
       if _this.o.dialog.find('.github-input-success').length >= 1
         _this.o.dialog.find('.github-input-success').remove()
       _this.o.dialog.find(".text-danger").remove()

@@ -30,6 +30,9 @@ redis.subscribe('post-created', function (err, count) {
 redis.subscribe('event-created', function (err, count) {
 
 });
+redis.subscribe('event-updated', function (err, count) {
+
+});
 
 redis.subscribe('user-registered', function (err, count) {
 

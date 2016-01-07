@@ -4,6 +4,7 @@ use App;
 use Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Input;
 use Itway\components\Country\CountryBuilder;
 use itway\Http\Requests;
@@ -127,6 +128,7 @@ class UserController extends Controller
             $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $user->currentTeam;
+
             $countUserEvents = $this->eventrepo->countUserEvents();
 
             return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'countUserEvents', 'currentTeam'));
@@ -137,6 +139,10 @@ class UserController extends Controller
         }
     }
 
+    public function queryUser($query) {
+
+           return $this->repository->queryUserWithLogo($query);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -171,7 +177,6 @@ class UserController extends Controller
                 $this->repository->updateSettingsCountry($user, $country);
 
             }
-
             $user->update($request->all());
 
             return redirect()->back();
@@ -209,6 +214,7 @@ class UserController extends Controller
             Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
 
             return redirect()->back();
+
         } else return $this->redirectError();
 
     }

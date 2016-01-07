@@ -208,7 +208,7 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository
     public function banORunBan($id)
     {
         try {
-            $instance = $this->find($id);
+            $instance = $this->getModel()->find($id);
             if ($instance->banned === 0) {
                 \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
                 $instance->banned = true;

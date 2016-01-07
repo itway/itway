@@ -11,7 +11,7 @@ return [
     | the team if it is in a different namespace.
     |
     */
-    'team_model' => Itway\Components\teamwork\Teamwork\TeamworkTeam::class,
+    'team_model' => Itway\Models\Team::class,
 
     /*
     |--------------------------------------------------------------------------

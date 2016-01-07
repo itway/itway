@@ -12,7 +12,8 @@ return [
         'main' => 'Main',
         'optional' => 'Optional',
         'logo' => 'Event Logo',
-        'speakers' => 'Event speakers'
-    ]
+        'speakers' => 'Event speakers',
+    ],
+    'add-speakers' => 'Add registered event speakers'
 
 ];

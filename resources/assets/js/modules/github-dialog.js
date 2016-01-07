@@ -53,7 +53,7 @@
       var _this;
       _this = this;
       return _this.o.input.keyup(function(e) {
-        if ((e.keyCode === 13 && $(e.target).val().length > 5 && $.ItwayIO.cValidator.ytVidId(_this.o.input.val())) || ($(e.target).val().length > 5 && $.ItwayIO.cValidator.githubLNK(_this.o.input.val()))) {
+        if ((e.keyCode === 13 && $(e.target).val().length > 5 && $.ItwayIO.cValidator.githubLNK(_this.o.input.val())) || ($(e.target).val().length > 5 && $.ItwayIO.cValidator.githubLNK(_this.o.input.val()))) {
           if (_this.o.dialog.find('.github-input-success').length >= 1) {
             _this.o.dialog.find('.github-input-success').remove();
           }

@@ -47,6 +47,7 @@ Route::group(['prefix' => $locale, 'middleware' => ['locale', 'checkBannedUser']
     });
 });
 
+
 Route::get('banned/{id}', ['uses' => 'UserController@banned']);
 
 
@@ -63,6 +64,7 @@ Route::post('/getAllExistingTags', ['as' => 'getAllExistingTags', 'uses' => 'Sea
 //end socialite
 
 // ROUTES FOR AJAX CALLS
+Route::get('user/{query}', ['uses' => 'UserController@queryUser', 'as' => 'search-user']);
 Route::get('queryCountries/{query}', ['uses' => 'CountriesController@queryCountry', 'as' => 'query-country']);
 Route::get('chat/{user_id}/rooms', ['uses' => 'ChatController@getUsersConversations', 'as' => 'users-room-get']);
 Route::get('chat/conversations', ['uses' => 'ChatController@getConversations', 'as' => 'room-get']);

@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-01-04.
+    * Generated on 2016-01-07.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -94,7 +94,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
-            'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
             'Itway\Commands\CreateOpenSourceIdeaCommand' instanceof \Itway\Commands\CreateOpenSourceIdeaCommand,
             'Itway\Commands\UpdateOpenSourceIdeaCommand' instanceof \Itway\Commands\UpdateOpenSourceIdeaCommand,
             'Itway\Commands\CreateChatCommand' instanceof \Itway\Commands\CreateChatCommand,
@@ -283,7 +282,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
-            'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
             'Itway\Commands\CreateOpenSourceIdeaCommand' instanceof \Itway\Commands\CreateOpenSourceIdeaCommand,
             'Itway\Commands\UpdateOpenSourceIdeaCommand' instanceof \Itway\Commands\UpdateOpenSourceIdeaCommand,
             'Itway\Commands\CreateChatCommand' instanceof \Itway\Commands\CreateChatCommand,
@@ -472,7 +470,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
-            'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
             'Itway\Commands\CreateOpenSourceIdeaCommand' instanceof \Itway\Commands\CreateOpenSourceIdeaCommand,
             'Itway\Commands\UpdateOpenSourceIdeaCommand' instanceof \Itway\Commands\UpdateOpenSourceIdeaCommand,
             'Itway\Commands\CreateChatCommand' instanceof \Itway\Commands\CreateChatCommand,
@@ -661,7 +658,6 @@ namespace PHPSTORM_META {
             'Itway\Presenters\ChatPresenter' instanceof \Itway\Presenters\ChatPresenter,
             'Itway\Presenters\TaskBoardPresenter' instanceof \Itway\Presenters\TaskBoardPresenter,
             'Itway\Commands\UpdateUserCommand' instanceof \Itway\Commands\UpdateUserCommand,
-            'Itway\Commands\UpdateEventCommand' instanceof \Itway\Commands\UpdateEventCommand,
             'Itway\Commands\CreateOpenSourceIdeaCommand' instanceof \Itway\Commands\CreateOpenSourceIdeaCommand,
             'Itway\Commands\UpdateOpenSourceIdeaCommand' instanceof \Itway\Commands\UpdateOpenSourceIdeaCommand,
             'Itway\Commands\CreateChatCommand' instanceof \Itway\Commands\CreateChatCommand,

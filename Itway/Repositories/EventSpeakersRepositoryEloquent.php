@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Itway\Models\Event;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
-use Itway\Repositories\EventSpeekersRepository;
-use Itway\Models\EventSpeekers;
+use Itway\Repositories\EventSpeakersRepository;
+use Itway\Models\EventSpeakers;
 
 /**
  * Class EventSpeekersRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class EventSpeekersRepositoryEloquent extends BaseRepository implements EventSpeekersRepository
+class EventSpeakersRepositoryEloquent extends BaseRepository implements EventSpeakersRepository
 {
     /**
      * Specify Model class name
@@ -22,12 +22,12 @@ class EventSpeekersRepositoryEloquent extends BaseRepository implements EventSpe
      */
     public function model()
     {
-        return EventSpeekers::class;
+        return EventSpeakers::class;
     }
 
     public function getModel()
     {
-        $model = EventSpeekers::class;
+        $model = EventSpeakers::class;
 
         return new $model;
     }
@@ -40,7 +40,7 @@ class EventSpeekersRepositoryEloquent extends BaseRepository implements EventSpe
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function getEventSpeeker($event_id)
+    public function getEventSpeaker($event_id)
     {
 
         try {

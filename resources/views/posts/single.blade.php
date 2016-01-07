@@ -12,11 +12,11 @@
     @include('posts.site-btns')
 @overwrite
 @section('content')
-    <div class="single-post">
+    <div class="single">
         <div class="head">
             <div class="first-line">
                 <div class="l-4 m-4 s-4 xs-4">
-                    <div class="post-author pull-left">
+                    <div class="single-author pull-left">
                         <img class="avatar" src="@include('includes.user-image', $user = $post->user)" alt=""/>
 
                         <div class="name"><a href="{{asset(App::getLocale().'/user/'.$post->user->id)}}"> {{ $post->user->name }} </a></div>
@@ -35,10 +35,10 @@
                 <h4 class="text-center"><strong>{{$post->title}}</strong></h4>
             </div>
             <div class="time text-center">
-                <span class="post-time"><i class="icon-clock-o"></i>{{$post->published_at->diffForHumans()}}</span>
+                <span class="single-time"><i class="icon-clock-o"></i>{{$post->published_at->diffForHumans()}}</span>
             </div>
             <div class="l-12 m-12 s-12 xs-12 text-center">
-                <nav class="button-nav-post button-group-horizontal">
+                <nav class="button-nav-single button-group-horizontal">
                     <a class="button" href=""><i class="icon-vk text-vk"></i></a>
                     <a class="button" href=""><i class="icon-facebook text-facebook"></i></a>
                     <a class="button" href=""><i class="icon-google text-google"></i></a>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="editormd post-text" id="post-body">
+        <div class="editormd single-text" id="single-body">
             <div class="ui active centered large inline loader"></div>
         </div>
         <h3></h3>
@@ -111,7 +111,7 @@
 
     <div class="row">
         <div class="l-12 m-12">
-            <div id="disqus_thread" class="bg-white single-post"></div>
+            <div id="disqus_thread" class="bg-white single"></div>
             <script type="text/javascript">
                 var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
                 var disqus_identifier = 'post#{{$post->id}}';
@@ -162,7 +162,7 @@
     <script>
         $(function() {
             $.get("{{route('itway::posts::getPageBody', $post->id)}}", function(md){
-                testEditor = editormd.markdownToHTML("post-body", {
+                testEditor = editormd.markdownToHTML("single-body", {
                     markdown        : md['body']['body'],//+ "\r\n" + $("#append-test").text(),
                     htmlDecode      : "style,script,iframe",  // you can filter tags decode
                     //toc             : false,
@@ -178,7 +178,7 @@
                     sequenceDiagram : true
                 });
             }).done(function(e) {
-                $("#post-body").find(".loader").remove();
+                $("#single-body").find(".loader").remove();
             });
         });
     </script>

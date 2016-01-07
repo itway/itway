@@ -8,6 +8,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Itway\Components\teamwork\Teamwork\Traits\TeamworkTeamTrait;
 use Itway\Contracts\Likeable\Likeable;
@@ -23,6 +24,7 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
     use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
+
 
     protected $fillable = ['name', 'slug', 'locale', 'logo_bg', 'banned', 'date'];
 
@@ -40,7 +42,6 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
      * @var string
      */
     protected $table;
-    const IMAGEPath = 'images/teams/';
 
     /**
      * @param Request $request
@@ -50,16 +51,6 @@ class TeamworkTeam extends Model implements Transformable, SluggableInterface, L
 
         $this->attributes['locale'] = $request->getLocale();
 
-    }
-
-    /**
-     * picture attachment
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function picture()
-    {
-        return $this->morphMany(\Itway\Models\Picture::class, 'imageable');
     }
 
     /**

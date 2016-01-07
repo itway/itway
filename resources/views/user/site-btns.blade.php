@@ -9,25 +9,28 @@
                    href="{{ url(App::getLocale().'/user/settings/'.Auth::id()) }}"><i
                             class="icon-cogs"></i> {{ trans('navigation.Settings') }}</a>
                 <div class="right menu">
-                    @if(!is_null($currentTeam))
-                        <a class="item {!! Active::pattern(App::getLocale().'/teams/team/'.$currentTeam->id, 'active selected') !!} brown"
-                           href="{{route('itway::teams::team', $currentTeam->id)}}"><i
-                                    class="icon-group"></i> Team: <span class="text-info"> - {{$currentTeam->name}} </span>
-                            <img class="avatar" style="margin-left: 10px" src="{!! asset('images/teams/' . $currentTeam->logo_bg) !!}"
-                                 alt="{{ $currentTeam->name }}"/>
-                        </a>
-                    @else
-                        <div class="item brown"><i
-                                    class="icon-group"></i> Team: <span class="text-brown"> - No team </span>
-                        </div>
+                    @if(!Auth::guest())
+                        @if(!is_null($currentTeam))
+                            <a class="item {!! Active::pattern(App::getLocale().'/teams/team/'.$currentTeam->id, 'active selected') !!} brown"
+                               href="{{route('itway::teams::team', $currentTeam->id)}}"><i
+                                        class="icon-group"></i> Team: <span class="text-info"> - {{$currentTeam->name}} </span>
+                                <img class="avatar" style="margin-left: 10px" src="{!! url($currentTeam->getLogo())!!}"
+                                     alt="{{ $currentTeam->name }}"/>
+                            </a>
+                        @else
+                            <div class="item brown"><i
+                                        class="icon-group"></i> Team: <span class="text-brown"> - No team </span>
+                            </div>
 
+                        @endif
                     @endif
                     <a class="item {!! Active::pattern(App::getLocale().'/events/user-events', 'active selected') !!} cyan"
                        href="{{route('itway::events::user-events')}}"><i
                                 class="icon-event"></i> {{ trans('navigation.user-event') }}
                         <div class="ui cyan tiny label">{{$countUserEvents}}</div>
                     </a>
-                    <a class="item {!! Active::pattern(App::getLocale().'/blog/user-posts', 'active selected') !!} red" href="{{url(App::getLocale().'/blog/user-posts')}}">
+                    <a class="item {!! Active::pattern(App::getLocale().'/blog/user-posts', 'active selected') !!} red"
+                       href="{{url(App::getLocale().'/blog/user-posts')}}">
                         <i class="icon-pencil"></i> {{ trans('navigation.User-Posts') }}
                         <div class="ui red tiny label">{{$countUserPosts}}</div>
                     </a>

@@ -2,8 +2,6 @@
 
 namespace Itway\Models;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Cookie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,49 +13,54 @@ use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class EventSpeekers extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
+class EventSpeakers extends Model implements Transformable, Likeable, HasMedia
 {
     use TransformableTrait;
-    use SluggableTrait, SoftDeletes;
+    use SoftDeletes;
     use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
     use ImageTrait;
     use HasMediaTrait;
 
+    protected $table = "event_speakers";
 
     protected $fillable = [
         'events_id',
-        'user_id',
+        'user_slug',
         'name',
         'description',
         'slug',
-        'speeker_link',
-        'speeker_company',
-        'speeker_skills'];
+        'speaker_link',
+        'speaker_company',
+        'speaker_description'
+    ];
+    public $timestamps = false;
 
-    protected $table = "event_speekers";
+    protected $hidden = ['id', 'events_id'];
+
     /**
-     * @var array
+     *
      */
-    protected $sluggable = array(
-        'build_from' => 'title',
-        'save_to' => 'slug'
-    );
-
     public function event()
     {
-        $this->belongsTo(Event::class, 'events_id', 'id');
+        $this->belongsTo(\Itway\Models\Event::class);
     }
 
+    /**
+     * @return Model|\Illuminate\Support\Collection|null
+     */
     public function fromSiteSpeekers()
     {
-        if (!is_null($this->user_id)) {
-            $users = User::findBySlugOrIdOrFail($this->user_id);
+        if (!is_null($this->user_slug)) {
+            $users = User::findBySlugOrIdOrFail($this->user_slug);
             return $users;
         } else return null;
     }
 
+    /**
+     * @return bool
+     */
     public function isFromSite()
     {
         if (!is_null($this->user_id)) {

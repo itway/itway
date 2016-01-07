@@ -5,10 +5,12 @@ namespace Itway\Repositories;
 use App;
 use Auth;
 use Itway\Commands\CreateEventCommand;
+use Itway\Commands\UpdateEventCommand;
 use Itway\Models\Event;
-use Itway\Uploader\ImageContract;
+use Itway\Models\EventSpeakers;
 use Itway\Uploader\ImageTrait;
 use Itway\Validation\Event\EventRequest;
+use Itway\Validation\Event\UpdateEventRequest;
 use Lang;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
@@ -85,7 +87,6 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
      */
     public function createEvent(EventRequest $request, $image)
     {
-
         $event = $this->dispatcher->dispatch(
             new CreateEventCommand(
                 $request->name,
@@ -96,6 +97,8 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
                 $request->timezone,
                 $request->event_format,
                 $request->youtube_link,
+                $request->city,
+                $request->invite,
                 Auth::user()->id,
                 $request->localed = Lang::locale(),
                 $request->tags_list
@@ -103,8 +106,101 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
         if (!is_null($image)) {
             $this->bindImage($image, $event);
         }
+        if (!is_null($request->speakers)) {
+            $this->bindSpeakers($event, trim($request->speakers));
+        }
+        return $event;
+    }
+
+    /**
+     * @param UpdateEventRequest $request
+     * @param $image
+     */
+    public function updateEvent(UpdateEventRequest $request, $image)
+    {
+
+        $event = $this->dispatcher->dispatch(
+            new UpdateEventCommand(
+                $request->name,
+                $request->preamble,
+                $request->description,
+                $request->time,
+                $request->date,
+                $request->timezone,
+                $request->event_format,
+                $request->youtube_link,
+                $request->city,
+                $request->invite,
+                Auth::user()->id,
+                $request->localed = Lang::locale(),
+                $request->tags_list
+            ));
+        if (!is_null($image)) {
+            $this->bindImage($image, $event);
+        }
+        if (!is_null($request->speakers)) {
+            $this->unBindSpeakers($event);
+            $this->bindSpeakers($event, trim($request->speakers));
+        }
 
         return $event;
+    }
+
+    /**
+     * @param $event
+     * @param $speakers
+     */
+    public function bindSpeakers($event, $speakers)
+    {
+        $speakers = explode(',', $speakers);
+        foreach ($speakers as $speaker) {
+            EventSpeakers::create(['events_id' => $event->id,
+                    'user_slug' => $speaker
+                ]);
+            }
+    }
+
+    /**
+     * @param $event
+     */
+    public function unBindSpeakers($event)
+    {
+        EventSpeakers::where('events_id', $event->id)->delete();
+    }
+
+    /**
+     * @param $event
+     * @param $speakers
+     */
+    public function updateSpeakers($event, $speakers)
+    {
+        $speakers = explode(',', $speakers);
+
+        foreach ($speakers as $speaker) {
+            if (!empty($speaker)) {
+                EventSpeakers::where('events_id', $event->id)->update(['user_slug' => $speaker]);
+            }
+        }
+    }
+
+    /**
+     * @param $event
+     * @param $subscriberID
+     */
+    public function bindSubscriber($event, $subscriberID)
+    {
+        $event->eventSubscribers()->attach($subscriberID);
+
+    }
+
+    /**
+     * @param $event
+     * @param $subscriberID
+     */
+    public function unBindSubscriber($event, $subscriberID)
+    {
+        $event->eventSubscribers()->detach($subscriberID);
+
     }
 
     /**
@@ -118,6 +214,7 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
         return $this->getModel()->where('user_id', '=', Auth::id())->count();
 
     }
+
     /**
      * return the number of today's events
      *

@@ -8,6 +8,7 @@ use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
+use Illuminate\Support\Facades\Response;
 
 /**
  * Class UserRepositoryEloquent
@@ -27,6 +28,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return User::class;
     }
 
+    /**
+     * @var array
+     */
     protected $fieldSearchable = [
         'name' => '=',
         'email' => 'like',
@@ -47,6 +51,11 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
+    /**
+     * @param $instance
+     * @param $country
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateSettingsCountry($instance, $country)
     {
 
@@ -125,6 +134,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         }
     }
 
+    /**
+     * @param $user
+     * @return array|null
+     */
     public function getUserTeam($user)
     {
         $teams = [];
@@ -138,6 +151,64 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
+     * @param $query
+     * @return mixed
+     */
+    public function queryUserWithLogo($query) {
+
+        if (strlen($query) >= 2) {
+
+            $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('slug', 'name')->get('slug', 'name');
+            $users = [];
+            foreach($usersCol as $item => $user) {
+                $users[$item] = $user;
+                $users[$item]['value'] = $user->slug;
+                $users[$item]['name'] = "<img src=".view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug))."/>". User::findBySlugOrFail($user->slug)->name;
+            }
+            return Response::json(['success' => 'true', 'results' => $users]);
+        }
+
+        else return Response::json(['success' => 'false']);
+    }
+
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function queryUser($query) {
+        if (strlen($query) >= 2) {
+            $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter','country', 'country_name')->get('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter','country', 'country_name');
+            $users = [];
+            foreach($usersCol as $item => $user) {
+                $users[$item] = $user;
+                $users[$item]['logo'] = "<img src=".view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug))."/>". User::findBySlugOrFail($user->slug)->name;
+            }
+            return Response::json(['success' => 'true', 'results' => $users]);
+        }
+
+        else return Response::json(['success' => 'false']);
+    }
+
+    /**
+     * @param $query
+     * @param array $parameters
+     * @return mixed
+     */
+    public function queryUserWith($query, array $parameters) {
+        if (strlen($query) >= 2) {
+            $selectString = implode(",", $parameters);
+            $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('name', $selectString)->get('name', $selectString);
+            $users = [];
+            foreach($usersCol as $item => $user) {
+                $users[$item] = $user;
+            }
+            return Response::json(['success' => 'true', 'results' => $users]);
+        }
+
+        else return Response::json(['success' => 'false']);
+    }
+    /**
      * @param $country
      * @return mixed
      */
@@ -147,6 +218,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return $result->name;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getAllExcept($id)
     {
         return $this->getModel()->where('id', '<>', $id)->get();
@@ -160,7 +235,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function banORunBan($id)
     {
         try {
-            $instance = $this->find($id);
+            $instance = $this->getModel()->find($id);
             if ($instance->banned === 0) {
                 \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
                 $instance->banned = true;

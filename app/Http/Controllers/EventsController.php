@@ -2,6 +2,7 @@
 
 namespace itway\Http\Controllers;
 
+use App;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,11 +11,11 @@ use Itway\components\Tags\TagsBuilder;
 use Itway\components\Timezone\TimezoneBuilder;
 use itway\Http\Requests;
 use Itway\Models\Event;
-use Itway\Models\User;
 use Itway\Repositories\EventRepository;
 use Itway\Validation\Event\EventRequest;
+use Itway\Validation\Event\UpdateEventRequest;
 use nilsenj\Toastr\Facades\Toastr;
-use App;
+
 class EventsController extends Controller
 {
     private $repository;
@@ -112,12 +113,12 @@ class EventsController extends Controller
             Toastr::success(trans('messages.yourEventCreated'), $title = $event->name, $options = []);
 
             return redirect()->to(App::getLocale() . '/events/event/' . $event->id);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
 
             $this->redirectError('Error Appeared in the process of creation...');
         }
     }
+
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
@@ -128,7 +129,6 @@ class EventsController extends Controller
 
         return response()->json(['description' => $body]);
     }
-
 
 
     /**
@@ -171,24 +171,56 @@ class EventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function edit($id)
+
     {
-        //
+        try {
+            $event = $this->repository->getModel()->findBySlugOrId($id);
+            $countUserEvents = $this->repository->countUserEvents();
+
+            $tags = $event->tagNames();
+
+            $description = $event->getDescription();
+
+            flash()->info(trans('messages.createLang'));
+
+            $tagsBuilder = $this->tags->tagsTechMultipleSelect("choose" . trans('event-form.tags'), $tags);
+
+            return view('events.edit', compact('event', 'tags', 'description', 'countUserEvents', 'tagsBuilder'));
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateEventRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEventRequest $request, $id)
     {
-        //
+        try {
+            $event = $this->repository->getModel()->findBySlugOrId($id);
+            $image = \Input::file('image');
+            $this->repository->updateEvent($request, $image);
+            $updatedEvent = $event->id;
+
+            Toastr::success(trans('messages.yourEventUpdated'), $title = $event->name, $options = []);
+
+            return redirect()->to(App::getLocale() . '/events/event/' . $updatedEvent);
+
+        } catch (ModelNotFoundException $e) {
+            return $this->redirectError();
+        }
     }
 
     /**

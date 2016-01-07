@@ -24,6 +24,4 @@ class EventUsers extends Model implements Transformable
     	$this->hasMany(User::class, 'user_id', 'id');
 
     }
-
-
 }

@@ -131,5 +131,15 @@
         });
         var datepicker = $(".date");
         datepicker.pickadate({format: "yyyy-mm-dd"});
+        $('.speakersdrop')
+                .dropdown({
+                    minCharacters: 2,
+                    allowAdditions: false,
+                    maxSelections: 5,
+                    apiSettings: {
+                        url: 'http://www.itway.io/user/{query}'
+                    }
+                })
+        ;
     </script>
 @endsection

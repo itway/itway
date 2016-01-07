@@ -11,6 +11,7 @@ use Itway\Components\teamwork\Teamwork\Exceptions\UserNotInTeamException;
 use itway\Http\Requests;
 use Itway\Models\Team;
 use Itway\Repositories\TeamRepository;
+use Itway\Repositories\UserRepository;
 use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
 use nilsenj\Toastr\Facades\Toastr;
@@ -34,6 +35,10 @@ class TeamsController extends Controller
      * @var TagsBuilder
      */
     private $tags;
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
 
     /**
      * TeamsController constructor.
@@ -41,12 +46,13 @@ class TeamsController extends Controller
      * @param CountryBuilder $country
      * @param TagsBuilder $tags
      */
-    public function __construct(TeamRepository $repository, CountryBuilder $country, TagsBuilder $tags)
+    public function __construct(TeamRepository $repository, CountryBuilder $country, TagsBuilder $tags, UserRepository $userRepository)
     {
         $this->middleware('auth', ['only' => ['create', 'show', 'team', 'invite', 'edit', 'update', 'switchTeam', 'store']]);
         $this->repository = $repository;
         $this->country = $country;
         $this->tags = $tags;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -81,8 +87,12 @@ class TeamsController extends Controller
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
         $teams = $this->repository->getAll();
         $tags = $this->repository->getModel()->existingTags();
-        $currentTeam = $this->repository->getModel()->currentTeam;
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
 
+        } else {
+            $currentTeam = null;
+        }
         return view('teams.teams', compact('teams', 'tags', 'currentTeam'));
     }
 
@@ -99,7 +109,7 @@ class TeamsController extends Controller
 
         $tagsBuilder = $this->tags->tagsTechMultipleSelect(trans('team-form.select-tags'));
         $tagsTrendBuilder = $this->tags->tagsTrendsMultipleSelect(trans('team-form.select-trend-tags'));
-        $currentTeam = $this->repository->getModel()->currentTeam;
+        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
 
         flash()->info(trans('messages.createTeam'));
 
@@ -113,7 +123,7 @@ class TeamsController extends Controller
     public function show($id)
     {
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->repository->getModel()->currentTeam;
+        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
         return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
@@ -168,7 +178,7 @@ class TeamsController extends Controller
     {
 
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->repository->getModel()->currentTeam;
+        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
 
         return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
@@ -188,7 +198,7 @@ class TeamsController extends Controller
         $tags = $this->repository->getModel()->existingTags();
         $currentTeam = $this->repository->getModel()->currentTeam;
 
-        return view('teams.teams', compact('teams', 'tags','currentTeam'));
+        return view('teams.teams', compact('teams', 'tags', 'currentTeam'));
     }
 
     /**

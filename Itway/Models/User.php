@@ -168,6 +168,13 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function eventSubscribers()
+    {
+        return $this->belongsToMany(\Itway\Models\Event::class,'event_subscribers', 'user_id', 'event_id');
+    }
+    /**
      * @param $query
      */
     public function scopeUsers($query)

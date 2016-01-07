@@ -20,9 +20,12 @@ class CreateEventCommand extends Command implements SelfHandling
     public $user_id;
     public $localed;
     public $tags_list;
+    public $city;
+    public $invite;
+
 
     public function __construct(
-        $name, $preamble, $description, $time, $date, $timezone, $event_format, $youtube_link=null, $user_id, $localed, $tags_list)
+        $name, $preamble, $description, $time, $date, $timezone, $event_format, $youtube_link=null, $city=null, $invite=null, $user_id, $localed, $tags_list)
     {
         $this->name = $name;
         $this->preamble = $preamble;
@@ -35,6 +38,8 @@ class CreateEventCommand extends Command implements SelfHandling
         $this->user_id = $user_id;
         $this->localed = $localed;
         $this->tags_list = $tags_list;
+        $this->city =$city;
+        $this->invite = $invite;
     }
 
     /**
@@ -51,7 +56,9 @@ class CreateEventCommand extends Command implements SelfHandling
             'timezone' => $this->timezone,
             'event_format' => $this->event_format,
             'youtube_link' =>$this->youtube_link,
-            'locale' => $this->localed
+            'locale' => $this->localed,
+            'city' => $this->city,
+            'invite' => $this->invite
 
         ]);
 

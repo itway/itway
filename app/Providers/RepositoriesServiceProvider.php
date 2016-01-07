@@ -23,7 +23,7 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $repos = ['User', 'Post', 'Team', 'Event', 'Poll', 'OpenSourceIdea', 'Chat', 'TaskBoard'];
+        $repos = ['User', 'Post', 'EventSpeakers', 'Team', 'Event', 'Poll', 'OpenSourceIdea', 'Chat', 'TaskBoard'];
         foreach($repos as $repo) {
             $this->app->bind(
                 "Itway\\Repositories\\{$repo}Repository",

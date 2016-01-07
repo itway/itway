@@ -28,6 +28,7 @@ class ModelsServiceProvider extends ServiceProvider
             'Post',
             'Team',
             'Event',
+            'EventSpeakers',
             'Poll',
             'OpenSourceIdea',
             'Chat',

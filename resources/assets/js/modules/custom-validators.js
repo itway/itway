@@ -28,6 +28,13 @@
         false;
       }
     },
+    speakersNotEmpty: function(value) {
+      if (value.length >= 2) {
+        return value;
+      } else {
+        return false;
+      }
+    },
     githubLNKre: function(opts) {
       var baseUrls;
       opts = opts || {};
