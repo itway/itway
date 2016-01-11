@@ -1,4 +1,4 @@
-.admim {
+.admin {
   .ui.cards>.card {
     margin: 0 10px .5em!important;
     float: none;
@@ -21,13 +21,10 @@
 
   }
   .admin-head-title {
-    position: absolute;
-    top: -25px;
     left: 10px;
     font-size: 14px !important;
     padding: 3px 0 !important;
     color: #FAFAFA !important;
-    width: 97%;
     b {
       float: right;
       font-size: 18px;
@@ -39,5 +36,9 @@
         border: 1px solid $info-color;
       }
     }
+  }
+  .admin-segment {
+    border-radius: 0!important;
+    box-shadow: none;
   }
 }

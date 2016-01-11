@@ -1,7 +1,7 @@
 @foreach($sidebar as $modelName => $modelElement)
     @if($modelName == "posts" && count($modelElement) > 0)
         <div class="sidebar-block">
-            <h5 class="text-center text-info">{{trans('sidebar.blog')}}</h5>
+            <h5 class="text-center text-info"><i class="icon-pencil"></i> {{trans('sidebar.blog')}}</h5>
             @foreach($modelElement as $post)
                 <div class="white-bordered side-item">
                     <a class="" href="{!! route('itway::posts::show', $post->id) !!}">{{$post->title}}</a>
@@ -19,7 +19,7 @@
     @endif
     @if($modelName == "teams" && count($modelElement) > 0)
         <div class="sidebar-block">
-            <h5 class="text-center text-info">{{trans('sidebar.teams')}}</h5>
+            <h5 class="text-center text-info"><i class="icon-group"></i> {{trans('sidebar.teams')}}</h5>
             @foreach($modelElement as $team)
                 <div class="white-bordered side-item">
                     <a class="" href="{!!route('itway::teams::show', $team->id) !!}"> {{$team->name}}</a>
@@ -38,7 +38,7 @@
     @endif
     @if($modelName == "events" && count($modelElement) > 0)
         <div class="sidebar-block">
-            <h5 class="text-center text-info">{{trans('sidebar.events')}}</h5>
+            <h5 class="text-center text-info"><i class="icon-event"></i> {{trans('sidebar.events')}}</h5>
             @foreach($modelElement as $event)
                 <div class="white-bordered side-item">
                     <a class="" href="{!!route('itway::events::show', $event->id) !!}"> {{$event->name}}</a>

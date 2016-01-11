@@ -1,6 +1,7 @@
 @include('admin.partials.head')
 <body class="layout-boxed sidebar-mini skin-black">
 @include('includes.navigation')
+@yield('subnav')
 <div class="container wrapper">
     <div class="content-wrapper">
         <div class="clearfix"></div>

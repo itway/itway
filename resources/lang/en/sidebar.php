@@ -12,5 +12,6 @@ return array(
     'idea' => 'Recent opensource ideas',
     'job' => 'Recent jobs',
     'teams' => 'Recent teams',
-    'events' => 'Recent events'
+    'events' => 'Recent events',
+    'speakers' => 'Event Speakers'
 );

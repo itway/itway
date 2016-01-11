@@ -180,7 +180,11 @@
     line-height: 32px;
   }
 }
-
+.date {
+  margin-top: 10px;
+  color: $grey-color;
+  font-size: 10px;
+}
 .trend-block {
   .trend {
     padding: 3px;

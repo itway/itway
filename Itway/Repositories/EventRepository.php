@@ -93,5 +93,10 @@ interface EventRepository extends RepositoryInterface
      */
     public function unBindSubscriber($event, $subscriberID);
 
+    /**
+     * @param $eventID
+     * @return mixed
+     */
+    public function getSpeakers($eventID);
 
 }

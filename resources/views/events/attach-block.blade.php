@@ -16,7 +16,7 @@
         <input name="youtube_link" hidden="" class="hidden" data-youtube-id="youtube-input"
                value="{{$model->youtube_link}}">
     @endif
-    <a class="speakers button button-defaut" title="click to attach youtube video link" href="#speakers">
+    <a class="speakers button button-defaut" title="click to attach speakers" href="#speakers">
         <i class="icon-person_add"></i>
     </a>
 

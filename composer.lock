@@ -2157,16 +2157,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
                 "shasum": ""
             },
             "require": {
@@ -2201,7 +2201,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-10 14:48:13"
+            "time": "2016-01-06 13:31:20"
         },
         {
             "name": "patchwork/utf8",
@@ -2903,16 +2903,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.11.3",
+            "version": "3.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "dfae8e69d01ed890dbb85811e3ca5d674eb0d966"
+                "reference": "1b5997ed2126dc8da939dbea64ebe9f0bd08c094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/dfae8e69d01ed890dbb85811e3ca5d674eb0d966",
-                "reference": "dfae8e69d01ed890dbb85811e3ca5d674eb0d966",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/1b5997ed2126dc8da939dbea64ebe9f0bd08c094",
+                "reference": "1b5997ed2126dc8da939dbea64ebe9f0bd08c094",
                 "shasum": ""
             },
             "require": {
@@ -2920,7 +2920,7 @@
                 "illuminate/console": "^5.1",
                 "illuminate/database": "^5.1",
                 "illuminate/support": "^5.1",
-                "php": ">=5.5.0",
+                "php": "^5.5|^7.0",
                 "spatie/laravel-glide": "^2.2.4",
                 "spatie/pdf-to-image": "^1.0",
                 "spatie/string": "^2.0"
@@ -2959,7 +2959,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2015-12-21 18:55:51"
+            "time": "2016-01-10 00:01:24"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -4648,12 +4648,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "fbd6ab259240880e3a2bb2dc8e6f0c1a89521cfa"
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fbd6ab259240880e3a2bb2dc8e6f0c1a89521cfa",
-                "reference": "fbd6ab259240880e3a2bb2dc8e6f0c1a89521cfa",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a3a86aa50ebfe180ac5943cce90a40262041bbdf",
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf",
                 "shasum": ""
             },
             "require": {
@@ -4711,7 +4711,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-06 21:56:48"
+            "time": "2016-01-10 18:11:58"
         },
         {
             "name": "doctrine/instantiator",

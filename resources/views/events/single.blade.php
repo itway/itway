@@ -5,8 +5,8 @@
 @section('meta-image') @if(!empty($event->getMedia('images')->first())) {{$event->getImage()}} @else http://www.itway.io/itway-landing.png @endif @endsection
 @section('meta-description'){{$event->preamble}}@endsection
 @section('sitelocation')
-    <?php  $name = "TT"; ?>
-    <?php  $msg = "Team"; ?>
+    <?php  $name = "Ev"; ?>
+    <?php  $msg = "Event"; ?>
 @endsection
 @include('events.site-btns')
 @section('sidebar-add')
@@ -204,5 +204,17 @@
                 $("#single-body").find(".loader").remove();
             });
         });
+        $('.speakers-block .menu .item')
+                .tab({
+                    context: $('.speakers-block')
+                })
+        ;
+        $('.speakers-tab .item')
+                .popup({
+                    hoverable: true,
+                    variation: 'inverted',
+                    position: 'left center'
+                })
+        ;
     </script>
 @overwrite

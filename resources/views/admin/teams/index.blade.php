@@ -2,20 +2,16 @@
 @section('navigation.buttons')
     @include('teams.site-btns')
 @overwrite
-@if(count($teams)=== 0 )
-    @include('errors.nothing')
-@else
 @section('content')
-    <span class="admin-head-title">
-        The number of teams ({!! \Itway\Models\Team::all()->count() !!})
-        &middot;
-        <b class="pull-right">{!! link_to_route('admin::teams::create', 'Add new team') !!}</b>
-    </span>
     <div class="row admin-block">
         <div class="xs-12">
             <div class="block branding">
                 <div class="header">
-                    <h3 class="title text-center">The list of teams</h3>
+                    <h3 class="title text-center"> The number of teams ({!! \Itway\Models\Team::all()->count() !!})
+                        &middot;
+                        The list of teams
+                        <span class="admin-head-title"><b class="pull-right">{!! link_to_route('admin::teams::create', 'Add new team') !!}</b></span>
+                    </h3>
                     <div class="block-tools">
                         <form action="#" method="get" class="input-group">
                             <input type="text" name="q" class="input input-l inline" placeholder="Search">
@@ -113,6 +109,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @if(count($teams)=== 0 )
+                        @include('admin.partials.nothing')
+                    @endif
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>
@@ -121,7 +120,6 @@
         {!! (new Itway\Models\Pagination($teams))->render() !!}
     </div>
 @overwrite
-@endif
 @section('scripts-add')
     <script>
         var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';

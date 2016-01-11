@@ -6,24 +6,51 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use Itway\components\Country\CountryBuilder;
+use Itway\components\Tags\TagsBuilder;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
 use Itway\Models\Team;
 use Itway\Repositories\TeamRepository;
+use Itway\Repositories\UserRepository;
 use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
 use nilsenj\Toastr\Facades\Toastr;
 
 class AdminTeamsController extends Controller
 {
+
+    /**
+     * @var TeamRepository
+     */
     private $repository;
+    /**
+     * @var CountryBuilder
+     */
+    private $country;
+    /**
+     * @var TagsBuilder
+     */
+    private $tags;
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
 
-    public function __construct(TeamRepository $repository)
+    /**
+     * TeamsController constructor.
+     * @param TeamRepository $repository
+     * @param CountryBuilder $country
+     * @param TagsBuilder $tags
+     */
+    public function __construct(TeamRepository $repository, CountryBuilder $country, TagsBuilder $tags, UserRepository $userRepository)
     {
+        $this->middleware('auth', ['only' => ['create', 'show', 'team', 'invite', 'edit', 'update', 'switchTeam', 'store']]);
         $this->repository = $repository;
-
+        $this->country = $country;
+        $this->tags = $tags;
+        $this->userRepository = $userRepository;
     }
-
     /**
      * Redirect not found.
      *
@@ -42,12 +69,18 @@ class AdminTeamsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
+        $tags = $this->repository->getModel()->existingTags();
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
 
+        } else {
+            $currentTeam = null;
+        }
         $teams = $this->repository->paginate();
 
         $no = $teams->firstItem();
 
-        return view('admin.teams.index', compact('teams', 'no'));
+        return view('admin.teams.index', compact('teams', 'tags', 'currentTeam', 'no'));
     }
 
 

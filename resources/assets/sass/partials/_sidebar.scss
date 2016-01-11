@@ -475,3 +475,28 @@
     color: #FFFFFF;
   }
 }
+.sidebar-block {
+  .ui.secondary.menu{
+    margin: 0 auto!important;
+    line-height: 1!important;
+    min-height: inherit!important;
+    a:hover {
+      text-decoration: none!important;
+    }
+  }
+  .pointing {
+    border-bottom: none!important;
+    padding-bottom: 0px;
+  }
+  .ui.segment {
+    margin: 0.2rem 0!important;
+    padding: 0.25em .5em!important;
+    border-radius: 0!important;
+  }
+  .item {
+    padding: .35714286em 0.64285714em!important;
+  }
+  .links-user-block {
+    background-color: transparent;
+  }
+}

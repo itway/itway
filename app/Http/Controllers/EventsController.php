@@ -149,6 +149,7 @@ class EventsController extends Controller
             $countUserEvents = $this->repository->countUserEvents();
 
             $modelName = $this->repository->getModelName();
+            $speakers = $this->repository->getSpeakers($event->id);
 
             if (!Auth::guest() && Auth::user()->id === $eventUser) {
 
@@ -158,7 +159,7 @@ class EventsController extends Controller
                 $createdByUser = false;
 
             }
-            return view('events.single', compact('event', 'createdByUser', 'countUserEvents', 'modelName'));
+            return view('events.single', compact('event', 'createdByUser', 'countUserEvents', 'modelName', 'speakers'));
 
         } catch (ModelNotFoundException $e) {
 

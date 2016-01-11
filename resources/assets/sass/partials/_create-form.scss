@@ -107,8 +107,8 @@
   padding: .333em 1em;
   font-size: .8rem;
   &:before {
-    width: .45em;
-    height: .45em;
+    width: 0;
+    height: 0;
   }
   &.left:before {
     top: -.225em!important;

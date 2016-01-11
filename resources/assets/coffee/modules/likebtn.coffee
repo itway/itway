@@ -9,7 +9,7 @@ $.ItwayIO.likeBTN =
     class_name: $("#like button").attr("data_class_name")
     object_id: $("#like button").attr("data_object_id")
     label: $("#like .label")
-    redirectIFerror: window.location.host+"/auth/login"
+    redirectIFerror: APP_URL + "/auth/login"
   activate: () ->
     _this = this
     if _this.o.formID.length != 0

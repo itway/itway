@@ -8,6 +8,7 @@ use Itway\Commands\CreateEventCommand;
 use Itway\Commands\UpdateEventCommand;
 use Itway\Models\Event;
 use Itway\Models\EventSpeakers;
+use Itway\Models\User;
 use Itway\Uploader\ImageTrait;
 use Itway\Validation\Event\EventRequest;
 use Itway\Validation\Event\UpdateEventRequest;
@@ -181,6 +182,19 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
                 EventSpeakers::where('events_id', $event->id)->update(['user_slug' => $speaker]);
             }
         }
+    }
+
+
+    public function getSpeakers($eventID)
+    {
+        $speakersData = EventSpeakers::where('events_id', $eventID)->select('user_slug')->get('user_slug');
+        $speakers = [];
+
+        foreach($speakersData as $key => $speaker) {
+            $speakers[$key] = User::findBySlugOrFail($speaker->user_slug);
+        }
+
+        return view('includes.speakers', compact('speakers'));
     }
 
     /**

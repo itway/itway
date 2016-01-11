@@ -5,10 +5,12 @@ namespace itway\Http\Controllers\Admin;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
+use Itway\components\Country\CountryBuilder;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
 use Itway\Models\Role;
 use Itway\Models\User;
+use Itway\Repositories\EventRepository;
 use Itway\Repositories\PostRepository;
 use Itway\Repositories\UserRepository;
 use Itway\Validation\User\UsersFormRequest;
@@ -29,19 +31,17 @@ class AdminUsersController extends Controller
      * @var PostRepository
      */
     private $postrepo;
+    private $country;
+    private $eventrepo;
 
-    /**
-     * AdminUsersController constructor.
-     * @param UserRepository $repository
-     * @param PostRepository $postrepo
-     */
-    public function __construct(UserRepository $repository, PostRepository $postrepo)
+
+    public function __construct(UserRepository $repository, PostRepository $postrepo, CountryBuilder $country, EventRepository $eventrepo)
     {
         $this->repository = $repository;
         $this->postrepo = $postrepo;
-
+        $this->country = $country;
+        $this->eventrepo = $eventrepo;
     }
-
     /**
      * Redirect not found.
      *
@@ -60,12 +60,25 @@ class AdminUsersController extends Controller
     {
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
 
+        $user = User::findBySlugOrId(\Auth::user()->id);
+        if (\Auth::user()->id == $user->id) {
+            $owner = true;
+        } else {
+            $owner = false;
+        }
+        if ($user->getMedia('logo')->first()) {
+            $pictures = $user->getMedia('logo');
+            $picture = $pictures[0]->getPath();
+        }
+        $notFromProfile = false;
+        $countUserEvents = $this->eventrepo->countUserEvents();
+
         $users = $this->repository->paginate();
         $no = $users->firstItem();
         $countUserPosts = $this->postrepo->countUserPosts();
         $currentTeam = \Auth::user()->currentTeam;
 
-        return view('admin.users.index', compact('users', 'no', 'countUserPosts', 'currentTeam'));
+        return view('admin.users.index', compact('users', 'no', 'user', 'picture', 'notFromProfile', 'countUserPosts','countUserEvents', 'owner', 'currentTeam'));
     }
 
     /**

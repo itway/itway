@@ -52,6 +52,8 @@ return array (
     'yourPostUpdated' => 'Ваш пост изменен',
     'noPostsFoundTitle' => 'посты не найдены',
     'noPostsFound' => 'пожалуйста создайте хотя бы один!',
+    'yourevent' => 'Это ваше слбытие. Для того что бы изменить жмите',
+    'youreventBTN' => 'change event',
     'noQuizzesFoundTitle' => 'ваши опросы не найдены',
     'noQuizzesFound' => 'пожалуйста создайте хотя бы один!',
     'yourPhotoUpdated' => 'Фото вашего профиля обновлено!',

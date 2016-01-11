@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/progress.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/loader.min.css')}}">
 <link rel="stylesheet" href="{{asset('dist/semantic/dist/components/flag.min.css')}}">
+<link rel="stylesheet" href="{{asset('dist/semantic/dist/components/statistic.min.css')}}">
 <link href="{{asset("dist/css/main.css")}}" rel="stylesheet">
 <script src="{{ asset('dist/vendor/jquery/dist/jquery.min.js') }}"></script>
 @yield('styles-add')

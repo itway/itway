@@ -4,7 +4,6 @@ namespace Itway\Models;
 
 use Illuminate\Contracts\Cookie;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
 use Itway\Uploader\ImageTrait;
@@ -16,7 +15,6 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 class EventSpeakers extends Model implements Transformable, Likeable, HasMedia
 {
     use TransformableTrait;
-    use SoftDeletes;
     use \Conner\Tagging\Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;

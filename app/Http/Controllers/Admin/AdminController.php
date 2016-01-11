@@ -6,15 +6,21 @@ use Illuminate\Http\Request;
 
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
+use Itway\Repositories\EventRepository;
 use Itway\Repositories\PostRepository;
+use Itway\Repositories\TeamRepository;
 
 class AdminController extends Controller
 {
     private $postRepository;
+    private $eventRepository;
+    private $teamRepository;
 
-    public function __construct(PostRepository $postRepository){
+    public function __construct(PostRepository $postRepository, EventRepository $eventRepository, TeamRepository $teamRepository){
 
         $this->postRepository = $postRepository;
+        $this->eventRepository = $eventRepository;
+        $this->teamRepository = $teamRepository;
 
     }
     /**
@@ -25,8 +31,10 @@ class AdminController extends Controller
     public function index()
     {
         $countTodayPosts = $this->postRepository->todayPosts();
+        $countTodayEvents = $this->eventRepository->todayEvents();
+        $countTodayTeams = $this->teamRepository->todayTeams();
 
-        return view('admin.dashboard', compact('countTodayPosts'));
+        return view('admin.dashboard', compact('countTodayPosts', 'countTodayEvents', 'countTodayTeams'));
     }
 
     /**
