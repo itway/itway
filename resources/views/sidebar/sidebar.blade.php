@@ -6,7 +6,7 @@
                 <div class="white-bordered side-item">
                     <a class="" href="{!! route('itway::posts::show', $post->id) !!}">{{$post->title}}</a>
                     @if( !empty($post->getMedia('images')->first()) )
-                        <img class="logo" src="{!! url($post->getLogo()) !!}"
+                        <img class="logo" src="{!! url($post->getImage()) !!}"
                              alt="{{ $post->name }}"/>
                     @endif
                     <div class="author">author:

@@ -97,7 +97,7 @@ return [
     |
     */
 
-    'log' => 'single',
+    'log' => 'daily',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,7 +178,9 @@ return [
         Webpatser\Countries\CountriesServiceProvider::class,
         Camroncade\Timezone\TimezoneServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-         ],
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+
+    ],
 
     /*
     |--------------------------------------------------------------------------

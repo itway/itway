@@ -2,7 +2,7 @@
 <section class="content">
     <div class="row">
         <h4 class="ui horizontal divider header">
-            <i class="icon-users icon"></i>
+            <i class="icon-users icon text-twitter"></i>
             Users Info
         </h4>
         <div class="ui segment admin-segment">
@@ -36,7 +36,7 @@
             </div>
         </div>
         <h4 class="ui horizontal divider header">
-            <i class="icon-view_list icon"></i>
+            <i class="icon-view_list icon text-brown"></i>
             Instances Info
         </h4>
         <div class="ui segment admin-segment">

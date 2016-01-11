@@ -64,7 +64,7 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
     /**
      * @var array
      */
-    protected $dates = ['published_at'];
+    protected $dates = ['published_at', 'date'];
 
     /**
      * @param $date
@@ -75,7 +75,12 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
 
     }
+    public function setDateAttribute($date)
+    {
 
+        $this->attributes['date'] = Carbon::today();
+
+    }
     /**
      * @param Request $request
      */

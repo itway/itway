@@ -29,7 +29,7 @@
       }
     },
     speakersNotEmpty: function(value) {
-      if (value.length >= 2) {
+      if (value && value.length >= 2) {
         return value;
       } else {
         return false;

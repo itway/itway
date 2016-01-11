@@ -80,34 +80,7 @@
  */
 
 (function() {
-  $.ItwayIO.createToggler = {
-    o: {
-      host: 'http://' + window.location.hostname,
-      togglerInput: $("#create-instance"),
-      instance: $("#create-instance").attr("data-instance"),
-      organizer_link: $("[name='organizer_link']"),
-      warningTempl: "<div class=\"text-danger\">OOPS something went wrong.</div>",
-      dialogTempl: "<div class=\"\"> <i class=\"icon-plus_one\"></i> </div>"
-    },
-    initialize: function() {
-      var _this;
-      return _this = this;
-    },
-    resolve: function() {
-      var _this;
-      return _this = this;
-    },
-    stop: function() {
-      var _this;
-      return _this = this;
-    },
-    resolveAddon: function() {
-      var _this;
-      return _this = this;
-    }
-  };
 
-  $.ItwayIO.createToggler.initialize();
 
 }).call(this);
 
@@ -144,7 +117,7 @@
       }
     },
     speakersNotEmpty: function(value) {
-      if (value.length >= 2) {
+      if (value && value.length >= 2) {
         return value;
       } else {
         return false;
@@ -284,6 +257,37 @@
 }).call(this);
 
 //# sourceMappingURL=coffee-sourcemaps/event-dialog.js.map
+
+
+/*
+  events functionality
+ */
+
+(function() {
+  $.ItwayIO.envents = {
+    initialize: function() {
+      var _this;
+      return _this = this;
+    },
+    resolve: function() {
+      var _this;
+      return _this = this;
+    },
+    stop: function() {
+      var _this;
+      return _this = this;
+    },
+    resolveAddon: function() {
+      var _this;
+      return _this = this;
+    }
+  };
+
+  $.ItwayIO.envents.initialize();
+
+}).call(this);
+
+//# sourceMappingURL=coffee-sourcemaps/events.js.map
 
 
 /*

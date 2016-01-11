@@ -1264,7 +1264,8 @@ select{border:1px solid #607D8B;border-radius:2px;color:#484848;outline:0;box-sh
 .control-sidebar-light .control-sidebar-menu>li>a:hover{background:#f4f4f5}
 .control-sidebar-light .control-sidebar-menu>li>a .menu-info>p{color:#5e5e5e}
 .sidebar-admin{background:#f8f8f8;padding:0 0 5px;font-size:20px;margin-left:0}
-.sidebar-menu{background:#f8f8f8;display:block;position:relative;height:auto}
+.sidebar-menu{background:#f8f8f8;display:block;position:relative;height:auto;padding:5px;margin-bottom:0;margin-top:0}
+.sidebar-menu li{border-bottom:1px solid #dfdfdf;padding:5px}
 .sidebar .user-title{display:block;width:100%!important;text-align:center}
 .sidebar .user-title p{padding-right:10px;display:inline;font-size:medium;position:absolute;right:2px;top:5px}
 .sidebar .user-title h4{position:relative;padding-top:5px;padding-bottom:10px;background-color:#455A64;color:#FFF}
@@ -1802,6 +1803,7 @@ form h3.label{padding-left:10px;color:#607D8B}
 .admin .admin-head-title b{float:right;font-size:18px;background-color:#fff;padding:0 10px;border:1px solid #000}
 .admin .admin-head-title b:active,.admin .admin-head-title b:hover{color:#03A9F4!important;border:1px solid #03A9F4}
 .admin .admin-segment{border-radius:0!important;box-shadow:none}
+.admin .divider.header{color:#9E9E9E;font-size:smaller;padding-top:10px}
 .chat{display:block;position:relative;width:100%;height:auto;background-color:#f8f8f8}
 .chat .chat-input{display:block;width:100%;margin-top:5px!important;margin-bottom:0!important}
 .chat .ui.menu{background:0 0;box-shadow:none;border:none;display:inline;margin:0!important;padding-left:0}

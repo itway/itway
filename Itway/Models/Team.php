@@ -12,11 +12,24 @@ use Itway\Uploader\ImageTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
+/**
+ * Class Team
+ * @package Itway\Models
+ */
 class Team extends TeamworkTeam implements HasMedia
 {
     use HasMediaTrait;
     use ImageTrait;
+    /**
+     * @var array
+     */
     protected $fillable = ['name', 'slug', 'locale', 'banned', 'date'];
+    /**
+     * @var array
+     */
+    protected $dates = [
+        'date'
+    ];
     /**
      * @var array
      */
@@ -31,6 +44,16 @@ class Team extends TeamworkTeam implements HasMedia
     public function users()
     {
         return $this->belongsToMany(config('teamwork.team_model'), config('teamwork.team_user_table'), 'user_id', 'team_id');
+    }
+
+    /**
+     * @param $date
+     */
+    public function setDateAttribute($date)
+    {
+
+        $this->attributes['date'] = Carbon::today();
+
     }
 
     /**
@@ -55,11 +78,17 @@ class Team extends TeamworkTeam implements HasMedia
         return $this->hasMany(\Itway\Models\TeamsTrends::class, "team_id");
     }
 
+    /**
+     * @param Request $request
+     */
     public function getLocaledAtAttribute(Request $request)
     {
         $this->attributes['locale'] = $request->getLocale();
     }
 
+    /**
+     * @param $query
+     */
     public function scopeCreatedAt($query)
     {
         $query->where('created_at', '<=', Carbon::now());
@@ -100,6 +129,9 @@ class Team extends TeamworkTeam implements HasMedia
         return $query->where($id)->orWhere('slug', '=', $id);
     }
 
+    /**
+     * @return array
+     */
     public function trendNames()
     {
         $trendNames = array();
@@ -112,6 +144,9 @@ class Team extends TeamworkTeam implements HasMedia
         return $trendNames;
     }
 
+    /**
+     * @return array
+     */
     public function ownerName()
     {
         $ownerNames = array();
@@ -123,6 +158,9 @@ class Team extends TeamworkTeam implements HasMedia
         return $ownerNames;
     }
 
+    /**
+     * @return array
+     */
     public function ownerId()
     {
         $ownerIds = array();
@@ -133,6 +171,9 @@ class Team extends TeamworkTeam implements HasMedia
         return $ownerIds;
     }
 
+    /**
+     * @return array
+     */
     public function getOwner()
     {
         $ownArr = [];
@@ -143,6 +184,9 @@ class Team extends TeamworkTeam implements HasMedia
         return $ownArr;
     }
 
+    /**
+     * @return array
+     */
     public function getUsers()
     {
         $usersArr = [];

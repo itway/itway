@@ -66,8 +66,11 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     /**
      * @var array
      */
-    protected $dates = ['created_at'];
+    protected $dates = ['created_at', 'today'];
 
+    /**
+     *
+     */
     public function eventSpeakers()
     {
         $this->hasMany(\Itway\Models\EventSpeakers::class, 'events_id');
@@ -81,6 +84,15 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
         return $this->belongsToMany(\Itway\Models\User::class, 'event_subscribers', 'events_id', 'user_id');
     }
 
+    /**
+     * @param $date
+     */
+    public function setTodayAttribute($date)
+    {
+
+        $this->attributes['today'] = Carbon::today();
+
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

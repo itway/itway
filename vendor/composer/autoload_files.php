@@ -19,6 +19,10 @@ return array(
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/spatie/string/src/string_functions.php',
+    $vendorDir . '/arcanedev/support/constants.php',
+    $vendorDir . '/arcanedev/support/helpers.php',
     $vendorDir . '/illuminate/html/helpers.php',
     $vendorDir . '/laracasts/flash/src/Laracasts/Flash/functions.php',
+    $vendorDir . '/arcanedev/log-viewer/constants.php',
+    $vendorDir . '/arcanedev/log-viewer/helpers.php',
 );

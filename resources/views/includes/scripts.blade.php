@@ -44,7 +44,7 @@
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.js")}}"></script>
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.date.js")}}"></script>
 <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
-<script src="{{ asset('dist/js/modules/modules.min.js') }}"></script>
+<script src="{{ asset('dist/js/modules/modules.js') }}"></script>
 <script>
     $('#example1').progress();
     $('.cookie.nag')

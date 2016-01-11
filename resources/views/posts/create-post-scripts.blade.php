@@ -10,7 +10,6 @@
             font-size: 12px;
             font-weight: normal;
         }
-
         [href="#top"] .fa {
             margin-left: 8px;
             font-size: 1.4em;

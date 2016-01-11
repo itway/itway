@@ -21,7 +21,7 @@ $.ItwayIO.cValidator =
   # with options, e.g., the ability
   # to specify multiple GHE domains.
   speakersNotEmpty: (value) ->
-    if value.length >= 2 then value else false
+    if (value && value.length >= 2) then value else false
 
   githubLNKre: (opts) ->
     opts = opts or {}

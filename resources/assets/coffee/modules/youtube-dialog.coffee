@@ -18,7 +18,7 @@ o:
 
 initialize: ->
   _this = this
-  if _this.o.dialog.length >=1
+  if _this.o.dialog.length >= 1
     _this.resolveWithTime()
     ### if resolve link is youtube link it returns the link else returns false ###
     ytId =  $.ItwayIO.cValidator.ytVidId(_this.o.input.val())

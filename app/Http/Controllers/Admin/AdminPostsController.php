@@ -5,23 +5,46 @@ namespace itway\Http\Controllers\Admin;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
+use Itway\components\Tags\TagsBuilder;
 use itway\Http\Requests;
 use itway\Http\Controllers\Controller;
 use Itway\Repositories\PostRepository;
 use Itway\Repositories\UserRepository;
 use Itway\Models\Post;
 use nilsenj\Toastr\Facades\Toastr;
+use App;
+use Conner\Tagging\Model\Tag;
 
 class AdminPostsController extends Controller
 {
     private $userRepository;
     private $postRepository;
+    private $tags;
 
-    public function __construct(UserRepository $userRepository, PostRepository $postRepository)
+    public function __construct(UserRepository $userRepository, PostRepository $postRepository, TagsBuilder $tags)
     {
         $this->userRepository = $userRepository;
         $this->postRepository = $postRepository;
+        $this->tags = $tags;
+    }
+    /**
+     * Redirect not found.
+     *
+     * @return Response
+     */
+    protected function redirectNotFound()
+    {
+        return redirect()->to(App::getLocale() . '/blog')->with(Toastr::error('Post Not Found!', $title = 'the post might be deleted or banned', $options = []));
+    }
 
+    /**
+     * redirect error
+     * @param null $code
+     * @return mixed
+     */
+    protected function redirectError($code = null)
+    {
+        return redirect()->to(App::getLocale() . '/blog')->with(Toastr::error("Error appeared!", $title = isset($code) ? $code : null, $options = []));
     }
 
     /**
@@ -76,12 +99,31 @@ class AdminPostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  string $slug
+     * @return Response
      */
-    public function edit($id)
+    public function edit($slug)
+
     {
-        //
+        try {
+            $post = $this->postRepository->getModel()->findBySlugOrId($slug);
+
+            $countUserPosts = $this->postRepository->countUserPosts();
+
+            $tags = $post->tagNames();
+
+            $body = $post->getBody();
+
+            $tagsBuilder = $this->tags->tagsTechMultipleSelect("choose" . trans('post-form.tags'), $tags);
+
+            return view('admin.posts.edit', compact('post', 'tags', 'body', 'countUserPosts', 'tagsBuilder'));
+
+        } catch (ModelNotFoundException $e) {
+
+            return $this->redirectNotFound();
+
+        }
+
     }
 
     /**
@@ -106,7 +148,16 @@ class AdminPostsController extends Controller
     {
         //
     }
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getPageBody($id)
+    {
+        $body = $this->postRepository->getModel()->findOrFail($id)->body()->first();
 
+        return response()->json(['body' => $body]);
+    }
     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
