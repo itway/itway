@@ -31,16 +31,17 @@ Route::group(['prefix' => 'idea-show', 'as' => 'idea-show::'], function(){
     Route::get('edit/{id}', [
         'uses' => 'OpenSourceIdeaController@edit',
         'as' => 'edit',
-        'middleware' => 'IsUsersOrAdminPost'
+        'middleware' => ['auth','IsUsersOrAdminOpenSource']
     ]);
     Route::patch('update/{id}', [
         'uses' => 'OpenSourceIdeaController@update',
-        'as' => 'update'
+        'as' => 'update',
+        'middleware' => ['auth','IsUsersOrAdminOpenSource']
     ]);
     Route::delete('delete/{id}', [
         'uses' => 'OpenSourceIdeaController@destroy',
         'as' => 'delete',
-        'middleware' => 'IsUsersOrAdminPost'
+        'middleware' => ['auth','IsUsersOrAdminOpenSource']
     ]);
     Route::post('store', [
         'uses' => 'OpenSourceIdeaController@store',

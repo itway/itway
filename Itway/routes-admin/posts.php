@@ -6,18 +6,14 @@
  * Time: 11:19 PM
  */
 Route::group(['prefix' => 'posts', 'as' => 'posts::'], function(){
-
     Route::get('/', [
         'uses' => 'Admin\AdminPostsController@index',
         'as' => 'index'
-
     ]);
     Route::get('create', [
         'uses' => 'Admin\AdminPostsController@create',
         'as' => 'create'
-
     ]);
-
     Route::get('edit/{id}', [
         'uses' => 'Admin\AdminPostsController@edit',
         'as' => 'edit'

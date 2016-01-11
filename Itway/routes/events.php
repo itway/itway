@@ -33,17 +33,18 @@ Route::group(array('prefix' => 'events', 'as' => 'events::'), function () {
     Route::get('edit/{id}', [
         'uses' => 'EventsController@edit',
         'as' => 'edit',
-        'middleware' => ['auth']
+        'middleware' => ['auth', 'IsUsersOrAdminEvent']
     ]);
 
     Route::patch('update/{id}', [
         'uses' => 'EventsController@update',
         //'middleware' => 'shouldBeUnique',
-        'as' => 'update', 'middleware' => ['IsUsers', 'auth']
+        'as' => 'update', 'middleware' => ['IsUsersOrAdminEvent', 'auth']
     ]);
     Route::delete('delete/{id}', [
         'uses' => 'EventsController@destroy',
-        'as' => 'delete', 'middleware' => ['auth','IsUsers']
+        'as' => 'delete',
+        'middleware' => ['auth', 'IsUsersOrAdminEvent']
     ]);
     Route::post('store', [
         'uses' => 'EventsController@store',

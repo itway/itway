@@ -22,17 +22,17 @@ Route::group(['prefix' => 'teams', 'as' => 'teams::'], function () {
     Route::get('edit/{id}', [
         'uses' => 'TeamsController@edit',
         'as' => 'edit',
-        'middleware' => 'IsUsersOrAdminTeam'
+        'middleware' => ['auth', 'IsUsersOrAdminTeamOwner']
     ]);
     Route::patch('update/{id}', [
         'uses' => 'TeamsController@update',
         'as' => 'update',
-        'middleware' => 'IsUsersOrAdminTeam'
+        'middleware' => ['auth', 'IsUsersOrAdminTeamOwner']
     ]);
     Route::delete('delete/{id}', [
         'uses' => 'TeamsController@destroy',
         'as' => 'delete',
-        'middleware' => 'IsUsersOrAdminTeam'
+        'middleware' => ['auth', 'IsUsersOrAdminTeamOwner']
     ]);
     Route::post('store', [
         'uses' => 'TeamsController@store',
