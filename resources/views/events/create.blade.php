@@ -1,8 +1,8 @@
 @extends('app')
 @section('sitelocation')
 
-    <?php  $name = 'CT'; ?>
-    <?php  $msg = "CreateTeam";  ?>
+    <?php  $name = 'Ev'; ?>
+    <?php  $msg = "Event";  ?>
 
 @endsection
 
