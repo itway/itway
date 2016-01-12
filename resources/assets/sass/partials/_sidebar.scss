@@ -501,9 +501,16 @@
   }
   .item {
     padding: .35714286em 0.64285714em!important;
+    span.icon {
+      font-size: 20px;
+    }
   }
   .links-user-block {
     background-color: transparent;
+    padding: 5px;
+    a {
+      padding: 0 0;
+    }
   }
   .tags {
     a {

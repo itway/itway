@@ -128,7 +128,6 @@ class UserController extends Controller
             $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $user->currentTeam;
-
             $countUserEvents = $this->eventrepo->countUserEvents();
 
             return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'countUserEvents', 'currentTeam'));
@@ -231,11 +230,10 @@ class UserController extends Controller
             $user = Auth::user();
             $users = User::withAnyTag([$slug])->paginate(8);
             $countUserPosts = $this->postrepo->countUserPosts();
-            $currentTeam = $this->repository->getUserTeam($user);
+            $currentTeam = $user->currentTeam;
             $countUserEvents = $this->eventrepo->countUserEvents();
 
             return view('pages.users', compact('users', 'countUserPosts', 'currentTeam', 'countUserEvents'));
-
         }
         else {
             Toastr::warning('You are not logged in', $title = 'please try login first');
