@@ -1897,7 +1897,7 @@ body::-webkit-scrollbar{width:12px}
 .ui.message.error{border-bottom:3px solid #F44336;background-color:#a94442!important;border-radius:0!important}
 .ui.message.error .close{color:#fff}
 .ui.message .close{top:.58575em!important}
-.ui.message .header{color:#fff!important}
+.ui.message .header{font-family:"Source Sans Pro",icomoon,sans-serif!important;font-size:24px!important}
 .ui.message p{margin:0!important}
 .ui.message .error-small-header{color:#fff!important}
 .create-form{display:block;margin-top:10px;padding-bottom:20px}

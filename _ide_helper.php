@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.28 (LTS) on 2016-01-11.
+ * Generated for Laravel 5.1.28 (LTS) on 2016-01-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12759,88 +12759,6 @@ namespace {
     }
 
 
-    class Flash extends \Laracasts\Flash\Flash{
-        
-        /**
-         * Flash an information message.
-         *
-         * @param string $message
-         * @static 
-         */
-        public static function info($message){
-            return \Laracasts\Flash\FlashNotifier::info($message);
-        }
-        
-        /**
-         * Flash a success message.
-         *
-         * @param string $message
-         * @return $this 
-         * @static 
-         */
-        public static function success($message){
-            return \Laracasts\Flash\FlashNotifier::success($message);
-        }
-        
-        /**
-         * Flash an error message.
-         *
-         * @param string $message
-         * @return $this 
-         * @static 
-         */
-        public static function error($message){
-            return \Laracasts\Flash\FlashNotifier::error($message);
-        }
-        
-        /**
-         * Flash a warning message.
-         *
-         * @param string $message
-         * @return $this 
-         * @static 
-         */
-        public static function warning($message){
-            return \Laracasts\Flash\FlashNotifier::warning($message);
-        }
-        
-        /**
-         * Flash an overlay modal.
-         *
-         * @param string $message
-         * @param string $title
-         * @return $this 
-         * @static 
-         */
-        public static function overlay($message, $title = 'Notice'){
-            return \Laracasts\Flash\FlashNotifier::overlay($message, $title);
-        }
-        
-        /**
-         * Flash a general message.
-         *
-         * @param string $message
-         * @param string $level
-         * @return $this 
-         * @static 
-         */
-        public static function message($message, $level = 'info'){
-            return \Laracasts\Flash\FlashNotifier::message($message, $level);
-        }
-        
-        /**
-         * Add an "important" flash to the session.
-         *
-         * @return $this 
-         * @static 
-         */
-        public static function important(){
-            return \Laracasts\Flash\FlashNotifier::important();
-        }
-        
-    }
-
-
     class Image extends \Intervention\Image\Facades\Image{
         
         /**
@@ -15699,6 +15617,88 @@ namespace {
          */
         public static function routeParam($routeName, $params, $activeClass = 'active', $inactiveClass = ''){
             return \Itway\components\ActiveItem\Active::routeParam($routeName, $params, $activeClass, $inactiveClass);
+        }
+        
+    }
+
+
+    class Flash extends \Itway\Components\Flash\Flash{
+        
+        /**
+         * Flash an information message.
+         *
+         * @param string $message
+         * @static 
+         */
+        public static function info($message){
+            return \Itway\Components\Flash\FlashNotifier::info($message);
+        }
+        
+        /**
+         * Flash a success message.
+         *
+         * @param string $message
+         * @return $this 
+         * @static 
+         */
+        public static function success($message){
+            return \Itway\Components\Flash\FlashNotifier::success($message);
+        }
+        
+        /**
+         * Flash an error message.
+         *
+         * @param string $message
+         * @return $this 
+         * @static 
+         */
+        public static function error($message){
+            return \Itway\Components\Flash\FlashNotifier::error($message);
+        }
+        
+        /**
+         * Flash a warning message.
+         *
+         * @param string $message
+         * @return $this 
+         * @static 
+         */
+        public static function warning($message){
+            return \Itway\Components\Flash\FlashNotifier::warning($message);
+        }
+        
+        /**
+         * Flash an overlay modal.
+         *
+         * @param string $message
+         * @param string $title
+         * @return $this 
+         * @static 
+         */
+        public static function overlay($message, $title = 'Notice'){
+            return \Itway\Components\Flash\FlashNotifier::overlay($message, $title);
+        }
+        
+        /**
+         * Flash a general message.
+         *
+         * @param string $message
+         * @param string $level
+         * @return $this 
+         * @static 
+         */
+        public static function message($message, $level = 'info'){
+            return \Itway\Components\Flash\FlashNotifier::message($message, $level);
+        }
+        
+        /**
+         * Add an "important" flash to the session.
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function important(){
+            return \Itway\Components\Flash\FlashNotifier::important();
         }
         
     }

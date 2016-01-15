@@ -142,7 +142,6 @@ return [
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
@@ -179,6 +178,7 @@ return [
         Camroncade\Timezone\TimezoneServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Itway\Components\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -230,7 +230,6 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
-        'Flash'    =>  Laracasts\Flash\Flash::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Toastr' => nilsenj\Toastr\Facades\Toastr::class,
@@ -240,6 +239,7 @@ return [
         'Countries' => Webpatser\Countries\CountriesFacade::class,
         'Teamwork' => \Itway\Components\teamwork\Teamwork\Facades\Teamwork::class,
         'Active' => Itway\components\ActiveItem\Facades\Active::class,
+        'Flash' => Itway\Components\Flash\Flash::class,
     ],
 
 ];

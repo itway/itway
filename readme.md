@@ -26,6 +26,7 @@ ___
 
 ```bash
 composer update
+php artisan vendor:publish
 php artisan migrate
 php artisan db:seed
 node socket.js

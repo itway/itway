@@ -1,4 +1,4 @@
-<?php namespace Laracasts\Flash;
+<?php namespace Itway\Components\Flash;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -14,4 +14,4 @@ class Flash extends Facade {
         return 'flash';
     }
 
-} 
+}

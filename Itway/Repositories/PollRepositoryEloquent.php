@@ -4,7 +4,6 @@ namespace Itway\Repositories;
 
 use Auth;
 use Itway\Commands\CreatePollCommand;
-use Itway\Contracts\Bannable\Bannable;
 use Itway\Models\Poll;
 use Itway\Models\PollOptions;
 use Itway\Traits\Banable;
@@ -18,9 +17,9 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  * Class PollRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class PollRepositoryEloquent extends BaseRepository implements PollRepository, Bannable
+class PollRepositoryEloquent extends BaseRepository implements PollRepository
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
 
     /**
      * Specify Model class name

@@ -2,7 +2,6 @@
 
 namespace Itway\Repositories;
 
-use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
@@ -15,9 +14,9 @@ use Itway\Traits\Banable;
  * Class OpenSourceIdeaRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository, Bannable
+class OpenSourceIdeaRepositoryEloquent extends BaseRepository implements OpenSourceIdeaRepository
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
     /**
      * Specify Model class name
      *

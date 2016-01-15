@@ -13,6 +13,7 @@ use Itway\Uploader\ImageTrait;
 use Itway\Validation\Event\EventRequest;
 use Itway\Validation\Event\UpdateEventRequest;
 use Lang;
+use Prophecy\Comparator\Factory;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 

@@ -2,9 +2,7 @@
 
 namespace Itway\Repositories;
 
-use Itway\Contracts\Bannable\Bannable;
 use Itway\Models\JobHunt;
-use Itway\Traits\Banable;
 use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
@@ -13,9 +11,8 @@ use RepositoryLab\Repository\Eloquent\BaseRepository;
  * Class JobHuntRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class JobHuntRepositoryEloquent extends BaseRepository implements JobHuntRepository, Bannable
+class JobHuntRepositoryEloquent extends BaseRepository implements JobHuntRepository
 {
-    use Banable;
     use ImageTrait;
 
     /**

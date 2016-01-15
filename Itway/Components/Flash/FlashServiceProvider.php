@@ -1,4 +1,4 @@
-<?php namespace Laracasts\Flash;
+<?php namespace Itway\Components\Flash;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,15 +20,13 @@ class FlashServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'Laracasts\Flash\SessionStore',
-            'Laracasts\Flash\LaravelSessionStore'
+            'Itway\Components\Flash\SessionStore',
+            'Itway\Components\Flash\LaravelSessionStore'
         );
-
         $this->app->singleton('flash', function () {
-            return $this->app->make('Laracasts\Flash\FlashNotifier');
+            return $this->app->make('Itway\Components\Flash\FlashNotifier');
         });
     }
-
     /**
      * Bootstrap the application events.
      *
@@ -36,10 +34,10 @@ class FlashServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'flash');
+        $this->loadViewsFrom(__DIR__ . '/views', 'flash');
 
         $this->publishes([
-            __DIR__ . '/../../views' => base_path('resources/views/vendor/flash')
+            __DIR__ . '/views' => base_path('resources/views/components/flash')
         ]);
     }
 

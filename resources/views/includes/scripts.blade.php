@@ -25,14 +25,14 @@
 <script src="{{ asset('/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/vendor/socket.io-client/socket.io.js') }}"></script>
 <script src="{{ asset('dist/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
-<script src="{{ asset('dist/vendor/jquery.address/jquery.address-1.5.js') }}"></script>
+<script src="{{ asset('dist/vendor/jquery-address/src/jquery.address.js') }}"></script>
 <script src="{{ asset('dist/vendor/underscore/underscore-min.js') }}"></script>
 <script src="{{ asset('dist/vendor/kreate.js/dist/kreate.min.js') }}"></script>
 <script src="{{asset('dist\semantic\dist\components\api.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\transition.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\visibility.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dropdown.min.js')}}"></script>
-<script src="{{asset('dist/vendor/semantic-ui-tab/tab.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\tab.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\form.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\checkbox.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\dimmer.min.js')}}"></script>

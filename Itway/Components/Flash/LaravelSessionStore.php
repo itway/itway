@@ -1,4 +1,4 @@
-<?php namespace Laracasts\Flash;
+<?php namespace Itway\Components\Flash;
 
 use Illuminate\Session\Store;
 

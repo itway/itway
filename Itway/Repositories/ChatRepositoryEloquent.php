@@ -2,22 +2,19 @@
 
 namespace Itway\Repositories;
 
-use Itway\Uploader\ImageContract;
 use Itway\Uploader\ImageTrait;
 use RepositoryLab\Repository\Eloquent\BaseRepository;
 use RepositoryLab\Repository\Criteria\RequestCriteria;
 use Itway\Repositories\ChatRepository;
 use Itway\Models\Chat;
-
-use Itway\Contracts\Bannable\Bannable;
-use Itway\Traits\Banable;
 /**
  * Class ChatRepositoryEloquent
  * @package namespace Itway\Repositories;
  */
-class ChatRepositoryEloquent extends BaseRepository implements ChatRepository, ImageContract, Bannable
+class ChatRepositoryEloquent extends BaseRepository implements ChatRepository
 {
-    use ImageTrait, Banable;
+    use ImageTrait;
+
     /**
      * Specify Model class name
      *

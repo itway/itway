@@ -139,7 +139,6 @@ class TeamsController extends Controller
 
         $logo = \Input::hasFile('logo') ? \Input::file('logo') : null;
         $team = $this->repository->createTeam($request, $logo);
-
         Toastr::success(trans('messages.yourTeamCreated'), $title = $team->name, $options = []);
 
         return redirect()->to(App::getLocale() . '/teams/team/' . $team->id);

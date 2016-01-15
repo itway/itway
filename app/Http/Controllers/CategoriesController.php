@@ -4,6 +4,7 @@ namespace itway\Http\Controllers;
 
 use Illuminate\Http\Request;
 use itway\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class CategoriesController extends Controller
 {

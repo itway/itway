@@ -4,13 +4,13 @@
 
 First, pull in the package through Composer.
 
-Run `composer require laracasts/flash`
+Run `composer require Itway\Components\Flash`
 
 And then, if using Laravel 5, include the service provider within `config/app.php`.
 
 ```php
 'providers' => [
-    'Laracasts\Flash\FlashServiceProvider'
+    'Itway\Components\Flash\FlashServiceProvider'
 ];
 ```
 
@@ -18,7 +18,7 @@ And, for convenience, add a facade alias to this same file at the bottom:
 
 ```php
 'aliases' => [
-    'Flash' => 'Laracasts\Flash\Flash'
+    'Flash' => 'Itway\Components\Flash\Flash'
 ];
 ```
 
@@ -149,5 +149,3 @@ return Redirect::home();
 ```
 
 ![https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/overlay.png](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/overlay.png)
-
-> [Learn exactly how to build this very package on Laracasts!](https://laracasts.com/lessons/flexible-flash-messages)
