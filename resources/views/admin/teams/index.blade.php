@@ -38,11 +38,10 @@
                                 <td>{!! $no !!}</td>
                                 <td>
                                     <div class="slot-team">
-                                        <img class="logo" src="{!! asset('images/teams/' . $team->logo_bg) !!}"
-                                             alt="{{ $team->name }}"/>
-
+                                      <img class="logo" src="{!! url($team->getLogo())!!}"
+                                           alt="{{ $team->name }}"/>
                                         <div class="name">
-                                            <a href="{{asset(App::getLocale().'/teams/'.$team->id)}}">{{ $team->name }}</a>
+                                            <a href="{{asset(App::getLocale().'/teams/team/'.$team->id)}}">{{ $team->name }}</a>
                                         </div>
                                     </div>
                                 </td>
@@ -52,7 +51,6 @@
                                         <div class="team-author l-6  m-6  s-6 xs-6">
                                             <img class="avatar" src="@include('includes.user-image', $user = $user)"
                                                  alt="{{ $user->name }}"/>
-
                                             <div class="name">
                                                 <a href="{{asset(App::getLocale().'/user/'.$user->id)}}">{{ $user->name }}</a>
                                             </div>
@@ -62,7 +60,7 @@
                                 <td>
                                     @foreach($team->trendNames() as $trend)
                                         <span class="trend">
-                                            <a class="trend-name" href="{{url(App::getLocale().'/trend/'.$trend)}}">
+                                            <a class="trend-name" href="{{url(App::getLocale().'/teams/trend/'.$trend)}}">
                                             <span><b class="text-success">_</b></span>{{$trend}}</a>
                                         </span>
                                         <div class="clearfix"></div>
@@ -89,7 +87,7 @@
                                 </td>
                                 <td>
                                     <a class="read-team text-default" target="_blank"
-                                       href="{{url(App::getLocale().'/teams/'.$team->id)}}">read-more</a>
+                                       href="{{url(App::getLocale().'/teams/team/'.$team->id)}}">view</a>
                                 </td>
                                 <td class="text-center">
                                     <a href="{!! route('admin::teams::edit', $team->id) !!}">change</a>

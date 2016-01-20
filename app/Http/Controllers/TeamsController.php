@@ -115,7 +115,6 @@ class TeamsController extends Controller
 
         return view('teams.create', compact('tags', 'countryBuilder', 'tagsBuilder', 'tagsTrendBuilder', 'currentTeam'));
     }
-
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -125,9 +124,12 @@ class TeamsController extends Controller
         $team = Team::findBySlugOrId($id);
         $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
-
-        return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
-
+        if (!Auth::guest() && Auth::user()->id === $team->ownerId()) {
+            $createdByUser = true;
+        } else {
+            $createdByUser = false;
+        }
+        return view('teams.single', compact('team', 'teamMember', 'currentTeam', 'createdByUser'));
     }
 
     /**
@@ -136,11 +138,9 @@ class TeamsController extends Controller
      */
     public function store(TeamRequest $request)
     {
-
         $logo = \Input::hasFile('logo') ? \Input::file('logo') : null;
         $team = $this->repository->createTeam($request, $logo);
         Toastr::success(trans('messages.yourTeamCreated'), $title = $team->name, $options = []);
-
         return redirect()->to(App::getLocale() . '/teams/team/' . $team->id);
     }
 
@@ -179,8 +179,12 @@ class TeamsController extends Controller
         $team = Team::findBySlugOrId($id);
         $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
         $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
-
-        return view('teams.single', compact('team', 'teamMember', 'currentTeam'));
+        if (!Auth::guest() && Auth::user()->id === $team->ownerId()) {
+            $createdByUser = true;
+        } else {
+            $createdByUser = false;
+        }
+        return view('teams.single', compact('team', 'teamMember', 'currentTeam', 'createdByUser'));
 
     }
 
@@ -284,7 +288,6 @@ class TeamsController extends Controller
             Auth::user()->switchTeam($team_id);
             // Or remove a team association at all
 //                Auth::user()->switchTeam( null );
-
         } catch (UserNotInTeamException $e) {
             return $this->redirectError('Given team is not allowed for the you...');
         }
