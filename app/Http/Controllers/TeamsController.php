@@ -16,7 +16,6 @@ use Itway\Validation\Team\TeamRequest;
 use Itway\Validation\Team\UpdateTeamRequest;
 use nilsenj\Toastr\Facades\Toastr;
 use Teamwork;
-
 /**
  * Class TeamsController
  * @package itway\Http\Controllers
@@ -39,7 +38,6 @@ class TeamsController extends Controller
      * @var UserRepository
      */
     private $userRepository;
-
     /**
      * TeamsController constructor.
      * @param TeamRepository $repository
@@ -54,7 +52,6 @@ class TeamsController extends Controller
         $this->tags = $tags;
         $this->userRepository = $userRepository;
     }
-
     /**
      * Redirect not found.
      *
@@ -255,8 +252,6 @@ class TeamsController extends Controller
         {
             Teamwork::denyInvite($invite);
         } else return $this->redirectError('No invites found...');
-
-
     }
 
     /**
@@ -289,7 +284,7 @@ class TeamsController extends Controller
             // Or remove a team association at all
 //                Auth::user()->switchTeam( null );
         } catch (UserNotInTeamException $e) {
-            return $this->redirectError('Given team is not allowed for the you...');
+            return $this->redirectError('Given team is not allowed for you...');
         }
     }
 }

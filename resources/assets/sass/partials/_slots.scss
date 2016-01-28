@@ -63,6 +63,8 @@
       line-height: inherit;
       padding-right: 5px;
       color: $grey-color;
+      width: 30%;
+      float: left;
     }
 
     .slot-image {
@@ -115,6 +117,10 @@
         color: $grey-color;
       }
     }
+    .trend-name{
+          display: inline-flex;
+          padding-right: 5px;
+    }
   }
   .tag-block {
     //padding: 10px;
@@ -160,12 +166,10 @@
   .logo {
     width:32px;
     height:32px;
-
   }
-
 }
 .slot-team .name {
-  float: left;
+  float: inherit;
 }
 .slot-country {
   .country-block {

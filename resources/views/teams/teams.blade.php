@@ -21,7 +21,6 @@
                                             <span class="title text-grey">{{trans('teams.team')}}  </span>
                                             <img class="logo" src="{!! url($team->getLogo())!!}"
                                                  alt="{{ $team->name }}"/>
-
                                             <div class="name">
                                                 <a href="{{asset(App::getLocale().'/teams/'.$team->id)}}">{{ $team->name }}</a>
                                             </div>
@@ -29,17 +28,18 @@
                                         <div class="clearfix"></div>
                                         <div class="trend-block">
                                             <span class="title">{{trans('teams.trends')}} </span>
-                                            @foreach($team->trendNames() as $trend)
-                                                <li class="pull-right trend">
-                                                    <a class="trend-name"
+
+                                              @foreach($team->trendNames() as $trend)
+                                                <a class="trend-name"
                                                        href="{{url(App::getLocale().'/trend/'.$trend)}}">
-                                            <span>
-                                                <b class="text-success">_</b>
-                                            </span>{{$trend}}</a>
-                                                </li>
+                                                  <span>
+                                                      <b>_</b>
+                                                  </span>
+                                                  {{$trend}}
+                                                </a>
                                             @endforeach
                                         </div>
-                                        <div class="clearfix"></div>
+                                     <div class="clearfix"></div>
                                         <div class="slot-country">
                                             <span class="title">{{trans('teams.country')}} </span>
 

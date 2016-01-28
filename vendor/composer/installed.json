@@ -495,52 +495,6 @@
         ]
     },
     {
-        "name": "mtdowling/cron-expression",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mtdowling/cron-expression.git",
-            "reference": "fd92e883195e5dfa77720b1868cf084b08be4412"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/fd92e883195e5dfa77720b1868cf084b08be4412",
-            "reference": "fd92e883195e5dfa77720b1868cf084b08be4412",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*"
-        },
-        "time": "2015-01-11 23:07:46",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Cron": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
-            }
-        ],
-        "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
-        "keywords": [
-            "cron",
-            "schedule"
-        ]
-    },
-    {
         "name": "monolog/monolog",
         "version": "1.17.2",
         "version_normalized": "1.17.2.0",
@@ -703,118 +657,6 @@
             "s3",
             "sftp",
             "storage"
-        ]
-    },
-    {
-        "name": "symfony/polyfill-util",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-util.git",
-            "reference": "4271c55cbc0a77b2641f861b978123e46b3da969"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/4271c55cbc0a77b2641f861b978123e46b3da969",
-            "reference": "4271c55cbc0a77b2641f861b978123e46b3da969",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2015-11-04 20:28:58",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Util\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony utilities for portability of PHP codes",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compat",
-            "compatibility",
-            "polyfill",
-            "shim"
-        ]
-    },
-    {
-        "name": "symfony/polyfill-php56",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-php56.git",
-            "reference": "e2e77609a9e2328eb370fbb0e0d8b2000ebb488f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/e2e77609a9e2328eb370fbb0e0d8b2000ebb488f",
-            "reference": "e2e77609a9e2328eb370fbb0e0d8b2000ebb488f",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "symfony/polyfill-util": "~1.0"
-        },
-        "time": "2015-12-18 15:10:25",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Php56\\": ""
-            },
-            "files": [
-                "bootstrap.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compatibility",
-            "polyfill",
-            "portable",
-            "shim"
         ]
     },
     {
@@ -1188,71 +1030,6 @@
         "keywords": [
             "framework",
             "laravel"
-        ]
-    },
-    {
-        "name": "arcanedev/log-viewer",
-        "version": "3.7.4",
-        "version_normalized": "3.7.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ARCANEDEV/LogViewer.git",
-            "reference": "55c940954cf49f3dcad38b8dd84a26f88f34aedc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/55c940954cf49f3dcad38b8dd84a26f88f34aedc",
-            "reference": "55c940954cf49f3dcad38b8dd84a26f88f34aedc",
-            "shasum": ""
-        },
-        "require": {
-            "arcanedev/support": "~3.0",
-            "php": ">=5.5.9",
-            "psr/log": "~1.0"
-        },
-        "require-dev": {
-            "phpunit/phpcov": "~2.0",
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2016-01-03 19:21:19",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.7.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Arcanedev\\LogViewer\\": "src/"
-            },
-            "files": [
-                "constants.php",
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "ARCANEDEV",
-                "email": "arcanedev.maroc@gmail.com",
-                "homepage": "https://github.com/arcanedev-maroc",
-                "role": "Developer"
-            }
-        ],
-        "description": "Provides a Log Viewer for Laravel 5",
-        "homepage": "https://github.com/ARCANEDEV/LogViewer",
-        "keywords": [
-            "arcanedev",
-            "arcanesoft",
-            "laravel",
-            "log",
-            "log viewer",
-            "log-viewer",
-            "logviewer"
         ]
     },
     {
@@ -1778,66 +1555,6 @@
             "psr-7",
             "request",
             "response"
-        ]
-    },
-    {
-        "name": "guzzlehttp/psr7",
-        "version": "1.2.1",
-        "version_normalized": "1.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/guzzle/psr7.git",
-            "reference": "4d0bdbe1206df7440219ce14c972aa57cc5e4982"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/4d0bdbe1206df7440219ce14c972aa57cc5e4982",
-            "reference": "4d0bdbe1206df7440219ce14c972aa57cc5e4982",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0",
-            "psr/http-message": "~1.0"
-        },
-        "provide": {
-            "psr/http-message-implementation": "1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2015-11-03 01:34:55",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "GuzzleHttp\\Psr7\\": "src/"
-            },
-            "files": [
-                "src/functions_include.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
-            }
-        ],
-        "description": "PSR-7 message implementation",
-        "keywords": [
-            "http",
-            "message",
-            "stream",
-            "uri"
         ]
     },
     {
@@ -2395,70 +2112,6 @@
             "json",
             "league",
             "rest"
-        ]
-    },
-    {
-        "name": "league/glide",
-        "version": "0.3.5",
-        "version_normalized": "0.3.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/glide.git",
-            "reference": "57a10a4b8049f9efb7debb5cfd9718f897e205d3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/glide/zipball/57a10a4b8049f9efb7debb5cfd9718f897e205d3",
-            "reference": "57a10a4b8049f9efb7debb5cfd9718f897e205d3",
-            "shasum": ""
-        },
-        "require": {
-            "intervention/image": "~2.1",
-            "league/flysystem": "~1.0",
-            "php": ">=5.4",
-            "symfony/http-foundation": "~2.3",
-            "symfony/http-kernel": "~2.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9",
-            "phpunit/php-token-stream": ">=1.3.0",
-            "phpunit/phpunit": "~4.4"
-        },
-        "time": "2015-05-22 23:35:09",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "0.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "League\\Glide\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Reinink",
-                "email": "jonathan@reinink.ca",
-                "homepage": "http://reinink.ca"
-            }
-        ],
-        "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
-        "homepage": "https://github.com/thephpleague/glide",
-        "keywords": [
-            "ImageMagick",
-            "editing",
-            "gd",
-            "image",
-            "imagick",
-            "league",
-            "manipulation",
-            "processing"
         ]
     },
     {
@@ -3243,58 +2896,6 @@
         ]
     },
     {
-        "name": "spatie/pdf-to-image",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/spatie/pdf-to-image.git",
-            "reference": "f0492e95fb0da51d90943a4104772f2575441706"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/f0492e95fb0da51d90943a4104772f2575441706",
-            "reference": "f0492e95fb0da51d90943a4104772f2575441706",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*",
-            "scrutinizer/ocular": "~1.1"
-        },
-        "time": "2015-07-03 12:24:35",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Spatie\\PdfToImage\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Freek Van der Herten",
-                "email": "freek@spatie.be",
-                "homepage": "https://spatie.be",
-                "role": "Developer"
-            }
-        ],
-        "description": "Convert a pdf to an image",
-        "homepage": "https://github.com/spatie/pdf-to-image",
-        "keywords": [
-            "convert",
-            "image",
-            "pdf",
-            "pdf-to-image",
-            "spatie"
-        ]
-    },
-    {
         "name": "spatie/laravel-glide",
         "version": "2.2.8",
         "version_normalized": "2.2.8.0",
@@ -3338,68 +2939,6 @@
         ],
         "description": "A Glide Service Provider for Laravel",
         "homepage": "https://github.com/spatie/laravel-glide"
-    },
-    {
-        "name": "spatie/laravel-medialibrary",
-        "version": "3.12.2",
-        "version_normalized": "3.12.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/spatie/laravel-medialibrary.git",
-            "reference": "1b5997ed2126dc8da939dbea64ebe9f0bd08c094"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/1b5997ed2126dc8da939dbea64ebe9f0bd08c094",
-            "reference": "1b5997ed2126dc8da939dbea64ebe9f0bd08c094",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/bus": "^5.1",
-            "illuminate/console": "^5.1",
-            "illuminate/database": "^5.1",
-            "illuminate/support": "^5.1",
-            "php": "^5.5|^7.0",
-            "spatie/laravel-glide": "^2.2.4",
-            "spatie/pdf-to-image": "^1.0",
-            "spatie/string": "^2.0"
-        },
-        "require-dev": {
-            "doctrine/dbal": "^2.5.2",
-            "mockery/mockery": "^0.9.4",
-            "orchestra/testbench": "^3.0",
-            "phpunit/phpunit": "^4.0",
-            "scrutinizer/ocular": "^1.1"
-        },
-        "time": "2016-01-10 00:01:24",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Spatie\\MediaLibrary\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Freek Van der Herten",
-                "email": "freek@spatie.be",
-                "homepage": "https://murze.be",
-                "role": "Developer"
-            }
-        ],
-        "description": "Associate files with Eloquent models",
-        "homepage": "https://github.com/spatie/laravel-medialibrary",
-        "keywords": [
-            "cms",
-            "laravel",
-            "laravel-medialibrary",
-            "media",
-            "spatie"
-        ]
     },
     {
         "name": "symfony/filesystem",
@@ -4087,12 +3626,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/dbal.git",
-            "reference": "5f0dfd29ed807e4dacba0ae69c70300ded8050c3"
+            "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/dbal/zipball/5f0dfd29ed807e4dacba0ae69c70300ded8050c3",
-            "reference": "5f0dfd29ed807e4dacba0ae69c70300ded8050c3",
+            "url": "https://api.github.com/repos/doctrine/dbal/zipball/625dd63568e386e11c01022c22e50adc2a8a7af6",
+            "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6",
             "shasum": ""
         },
         "require": {
@@ -4106,7 +3645,7 @@
         "suggest": {
             "symfony/console": "For helpful console commands such as SQL execution and import of files."
         },
-        "time": "2016-01-12 14:43:14",
+        "time": "2016-01-23 14:29:18",
         "bin": [
             "bin/doctrine-dbal"
         ],
@@ -5411,49 +4950,6 @@
         ]
     },
     {
-        "name": "potsky/laravel-localization-helpers",
-        "version": "v1.3.2",
-        "version_normalized": "1.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/potsky/laravel-localization-helpers.git",
-            "reference": "58fdb66f47fb8fdd2ba1050f19f19d42a34ea78d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/potsky/laravel-localization-helpers/zipball/58fdb66f47fb8fdd2ba1050f19f19d42a34ea78d",
-            "reference": "58fdb66f47fb8fdd2ba1050f19f19d42a34ea78d",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": ">=4.1",
-            "php": ">=5.3.0"
-        },
-        "time": "2015-12-25 12:35:08",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/migrations"
-            ],
-            "psr-0": {
-                "Potsky\\LaravelLocalizationHelpers\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-3.0+"
-        ],
-        "authors": [
-            {
-                "name": "Potsky",
-                "email": "potsky@me.com",
-                "homepage": "http://www.potsky.com"
-            }
-        ],
-        "description": "An artisan command package for easy translation management"
-    },
-    {
         "name": "symfony/console",
         "version": "v2.7.9",
         "version_normalized": "2.7.9.0",
@@ -6192,67 +5688,6 @@
         ]
     },
     {
-        "name": "arcanedev/support",
-        "version": "3.7.0",
-        "version_normalized": "3.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ARCANEDEV/Support.git",
-            "reference": "48c2ea0395d6c6cc3f11e42626c9312400fdb722"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/48c2ea0395d6c6cc3f11e42626c9312400fdb722",
-            "reference": "48c2ea0395d6c6cc3f11e42626c9312400fdb722",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/filesystem": "~5.0",
-            "illuminate/support": "~5.0",
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "phpunit/phpcov": "~2.0",
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2016-01-14 21:01:28",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Arcanedev\\Support\\": "src/"
-            },
-            "files": [
-                "constants.php",
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "ARCANEDEV",
-                "email": "arcanedev.maroc@gmail.com",
-                "homepage": "https://github.com/arcanedev-maroc"
-            }
-        ],
-        "description": "ARCANEDEV Support Helpers",
-        "homepage": "https://github.com/ARCANEDEV/Support",
-        "keywords": [
-            "arcanedev",
-            "arcanesoft",
-            "laravel",
-            "support"
-        ]
-    },
-    {
         "name": "symfony/class-loader",
         "version": "v2.8.2",
         "version_normalized": "2.8.2.0",
@@ -6356,5 +5791,570 @@
         ],
         "description": "Symfony Yaml Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "spatie/pdf-to-image",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "git@github.com:spatie/pdf-to-image.git",
+            "reference": "d992e85202338dcc67da06e4f0f70b0398706e2d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/d992e85202338dcc67da06e4f0f70b0398706e2d",
+            "reference": "d992e85202338dcc67da06e4f0f70b0398706e2d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*",
+            "scrutinizer/ocular": "~1.1"
+        },
+        "time": "2016-01-22 08:45:28",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spatie\\PdfToImage\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Freek Van der Herten",
+                "email": "freek@spatie.be",
+                "homepage": "https://spatie.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "Convert a pdf to an image",
+        "homepage": "https://github.com/spatie/pdf-to-image",
+        "keywords": [
+            "convert",
+            "image",
+            "pdf",
+            "pdf-to-image",
+            "spatie"
+        ]
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.2.2",
+        "version_normalized": "1.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+            "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-01-23 01:23:02",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "PSR-7 message implementation",
+        "keywords": [
+            "http",
+            "message",
+            "stream",
+            "uri"
+        ]
+    },
+    {
+        "name": "league/glide",
+        "version": "0.3.6",
+        "version_normalized": "0.3.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/glide.git",
+            "reference": "e45a4b536924956e1b20f5d023800557d466eda7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/glide/zipball/e45a4b536924956e1b20f5d023800557d466eda7",
+            "reference": "e45a4b536924956e1b20f5d023800557d466eda7",
+            "shasum": ""
+        },
+        "require": {
+            "intervention/image": "~2.1",
+            "league/flysystem": "~1.0",
+            "php": ">=5.4",
+            "symfony/http-foundation": "~2.3|~3.0",
+            "symfony/http-kernel": "~2.3|~3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9",
+            "phpunit/php-token-stream": ">=1.3.0",
+            "phpunit/phpunit": "~4.4"
+        },
+        "time": "2016-01-25 13:35:12",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "League\\Glide\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Reinink",
+                "email": "jonathan@reinink.ca",
+                "homepage": "http://reinink.ca"
+            }
+        ],
+        "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
+        "homepage": "https://github.com/thephpleague/glide",
+        "keywords": [
+            "ImageMagick",
+            "editing",
+            "gd",
+            "image",
+            "imagick",
+            "league",
+            "manipulation",
+            "processing"
+        ]
+    },
+    {
+        "name": "mtdowling/cron-expression",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mtdowling/cron-expression.git",
+            "reference": "c9ee7886f5a12902b225a1a12f36bb45f9ab89e5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
+            "reference": "c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-01-26 21:23:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cron": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+        "keywords": [
+            "cron",
+            "schedule"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-util",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-util.git",
+            "reference": "8de62801aa12bc4dfcf85eef5d21981ae7bb3cc4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/8de62801aa12bc4dfcf85eef5d21981ae7bb3cc4",
+            "reference": "8de62801aa12bc4dfcf85eef5d21981ae7bb3cc4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2016-01-20 09:13:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Util\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony utilities for portability of PHP codes",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compat",
+            "compatibility",
+            "polyfill",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-php56",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php56.git",
+            "reference": "4d891fff050101a53a4caabb03277284942d1ad9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/4d891fff050101a53a4caabb03277284942d1ad9",
+            "reference": "4d891fff050101a53a4caabb03277284942d1ad9",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "symfony/polyfill-util": "~1.0"
+        },
+        "time": "2016-01-20 09:13:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php56\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "spatie/laravel-medialibrary",
+        "version": "3.14.0",
+        "version_normalized": "3.14.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/spatie/laravel-medialibrary.git",
+            "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
+            "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/bus": "^5.1|^5.2",
+            "illuminate/console": "^5.1|^5.2",
+            "illuminate/database": "^5.1|^5.2",
+            "illuminate/support": "^5.1|^5.2",
+            "php": "^5.5|^7.0",
+            "spatie/laravel-glide": "^2.2.4",
+            "spatie/pdf-to-image": "^1.0",
+            "spatie/string": "^2.0"
+        },
+        "require-dev": {
+            "doctrine/dbal": "^2.5.2",
+            "mockery/mockery": "^0.9.4",
+            "orchestra/testbench": "^3.0",
+            "phpunit/phpunit": "^4.0",
+            "scrutinizer/ocular": "^1.1"
+        },
+        "time": "2016-01-28 16:01:46",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spatie\\MediaLibrary\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Freek Van der Herten",
+                "email": "freek@spatie.be",
+                "homepage": "https://murze.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "Associate files with Eloquent models",
+        "homepage": "https://github.com/spatie/laravel-medialibrary",
+        "keywords": [
+            "cms",
+            "laravel",
+            "laravel-medialibrary",
+            "media",
+            "spatie"
+        ]
+    },
+    {
+        "name": "arcanedev/support",
+        "version": "3.7.3",
+        "version_normalized": "3.7.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ARCANEDEV/Support.git",
+            "reference": "c48e8256c401088532da229046edae98cfdf2ea0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/c48e8256c401088532da229046edae98cfdf2ea0",
+            "reference": "c48e8256c401088532da229046edae98cfdf2ea0",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/filesystem": "~5.0",
+            "illuminate/support": "~5.0",
+            "php": ">=5.5.9"
+        },
+        "require-dev": {
+            "phpunit/phpcov": "~2.0|~3.0",
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-01-21 21:31:01",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Arcanedev\\Support\\": "src/"
+            },
+            "files": [
+                "constants.php",
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ARCANEDEV",
+                "email": "arcanedev.maroc@gmail.com",
+                "homepage": "https://github.com/arcanedev-maroc"
+            }
+        ],
+        "description": "ARCANEDEV Support Helpers",
+        "homepage": "https://github.com/ARCANEDEV/Support",
+        "keywords": [
+            "arcanedev",
+            "arcanesoft",
+            "laravel",
+            "support"
+        ]
+    },
+    {
+        "name": "arcanedev/log-viewer",
+        "version": "3.7.7",
+        "version_normalized": "3.7.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ARCANEDEV/LogViewer.git",
+            "reference": "4e133d8f35fd748c2bc9a923782a347e82120f49"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/4e133d8f35fd748c2bc9a923782a347e82120f49",
+            "reference": "4e133d8f35fd748c2bc9a923782a347e82120f49",
+            "shasum": ""
+        },
+        "require": {
+            "arcanedev/support": "~3.0",
+            "php": ">=5.5.9",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "phpunit/phpcov": "~2.0|~3.0",
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-01-25 11:52:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.7.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Arcanedev\\LogViewer\\": "src/"
+            },
+            "files": [
+                "constants.php",
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ARCANEDEV",
+                "email": "arcanedev.maroc@gmail.com",
+                "homepage": "https://github.com/arcanedev-maroc",
+                "role": "Developer"
+            }
+        ],
+        "description": "Provides a Log Viewer for Laravel 5",
+        "homepage": "https://github.com/ARCANEDEV/LogViewer",
+        "keywords": [
+            "arcanedev",
+            "arcanesoft",
+            "laravel",
+            "log",
+            "log viewer",
+            "log-viewer",
+            "logviewer"
+        ]
+    },
+    {
+        "name": "potsky/laravel-localization-helpers",
+        "version": "v1.3.3",
+        "version_normalized": "1.3.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/potsky/laravel-localization-helpers.git",
+            "reference": "4d7a749824a4e74aaf6cfb1165f91affaed680bf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/potsky/laravel-localization-helpers/zipball/4d7a749824a4e74aaf6cfb1165f91affaed680bf",
+            "reference": "4d7a749824a4e74aaf6cfb1165f91affaed680bf",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": ">=4.1",
+            "php": ">=5.3.0"
+        },
+        "time": "2016-01-19 16:36:04",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/migrations"
+            ],
+            "psr-0": {
+                "Potsky\\LaravelLocalizationHelpers\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0+"
+        ],
+        "authors": [
+            {
+                "name": "Potsky",
+                "email": "potsky@me.com",
+                "homepage": "http://www.potsky.com"
+            }
+        ],
+        "description": "An artisan command package for easy translation management"
     }
 ]
