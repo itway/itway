@@ -75,7 +75,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a class="text-warning"
-                                       href="{!! route('admin::posts::ban', $post->id) !!}"> @if($post->banned === 0)
+                                       href="{!! route('admin::posts::ban', $post->id) !!}"> @if($post->banned === false)
                                             ban @else unban @endif</a>
                                 </td>
                                 <td class="text-center">

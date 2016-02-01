@@ -93,7 +93,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a class="text-warning"
-                                       href="{!! route('admin::teams::ban', $team->id) !!}"> @if($team->banned === 0)
+                                       href="{!! route('admin::teams::ban', $team->id) !!}"> @if($team->banned === false)
                                             ban @else unban @endif</a>
                                 </td>
                                 <td class="text-center">

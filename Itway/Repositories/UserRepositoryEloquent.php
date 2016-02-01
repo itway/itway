@@ -236,7 +236,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         try {
             $instance = $this->getModel()->find($id);
-            if ($instance->banned === 0) {
+            if ($instance->banned === false) {
                 \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
                 $instance->banned = true;
             } else {

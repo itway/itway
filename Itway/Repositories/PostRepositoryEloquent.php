@@ -192,7 +192,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     {
         try {
             $instance = $this->find($id);
-            if ($instance->banned === 0) {
+            if ($instance->banned === false) {
                 \Toastr::warning(trans('bans.' . strtolower($this->getModelName())), $title = $instance->title, $options = []);
                 $instance->banned = true;
             } else {

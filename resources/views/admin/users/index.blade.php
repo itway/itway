@@ -1,4 +1,5 @@
-﻿@extends('admin/app')
+﻿
+@extends('admin/app')
 @section('navigation.buttons')
     @include('admin.users.site-btns')
 @overwrite
@@ -48,7 +49,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a class="text-warning"
-                                       href="{!! route('admin::users::ban', $user->id) !!}"> @if($user->banned === 0)
+                                       href="{!! route('admin::users::ban', $user->id) !!}"> @if($user->banned === false)
                                             ban @else unban @endif</a>
                                 </td>
                                 <td class="text-center">
