@@ -238,7 +238,7 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
     public function todayEvents()
     {
 
-        return $this->getModel()->latest('created_at')->today()->count();
+        return $this->getModel()->groupBy('created_at')->latest('created_at')->today()->count();
 
     }
 

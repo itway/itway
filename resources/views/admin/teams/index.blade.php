@@ -47,7 +47,6 @@
                                 </td>
                                 <td>
                                     @foreach($team->getUsers() as $user)
-                                        <a href="{{App::getLocale()."/user/".$user->id}}">{{$user->name}}</a>
                                         <div class="team-author l-6  m-6  s-6 xs-6">
                                             <img class="avatar" src="@include('includes.user-image', $user = $user)"
                                                  alt="{{ $user->name }}"/>

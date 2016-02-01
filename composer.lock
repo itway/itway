@@ -2236,16 +2236,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
                 "shasum": ""
             },
             "require": {
@@ -2280,7 +2280,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-06 13:31:20"
+            "time": "2016-01-29 16:19:52"
         },
         {
             "name": "patchwork/utf8",
@@ -2982,16 +2982,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.14.0",
+            "version": "3.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd"
+                "reference": "8852f1839605e308e2d82c5c3e797539c8444336"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
-                "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/8852f1839605e308e2d82c5c3e797539c8444336",
+                "reference": "8852f1839605e308e2d82c5c3e797539c8444336",
                 "shasum": ""
             },
             "require": {
@@ -3038,7 +3038,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-01-28 16:01:46"
+            "time": "2016-01-29 08:11:10"
         },
         {
             "name": "spatie/pdf-to-image",

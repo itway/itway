@@ -27,3 +27,30 @@ if ( ! function_exists('flash')) {
     }
 
 }
+
+function determineActiveDBandResolveUp($migrationClass) {
+
+    if (env('database.default') == 'mysql') {
+
+        return $migrationClass::mySQLDB();
+
+    }
+
+    if (config('database.default') == 'pgsql') {
+
+        return $migrationClass::postgreSQL();
+    }
+}
+
+
+function determineActiveDBandResolveDown($migrationClass) {
+
+    if (config('database.default') == 'mysql') {
+        return $migrationClass::downmySQLDB();
+    }
+
+    if (config('database.default') == 'pgsql') {
+
+        return $migrationClass::downpostgreSQL();
+    }
+}

@@ -34,7 +34,7 @@ class AdminPostsController extends Controller
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(App::getLocale() . '/blog')->with(Toastr::error('Post Not Found!', $title = 'the post might be deleted or banned', $options = []));
+        return redirect()->to(App::getLocale() . '/admin/blog')->with(Toastr::error('Post Not Found!', $title = 'the post might be deleted or banned', $options = []));
     }
 
     /**
@@ -44,7 +44,7 @@ class AdminPostsController extends Controller
      */
     protected function redirectError($code = null)
     {
-        return redirect()->to(App::getLocale() . '/blog')->with(Toastr::error("Error appeared!", $title = isset($code) ? $code : null, $options = []));
+        return redirect()->to(App::getLocale() . '/admin/blog')->with(Toastr::error("Error appeared!", $title = isset($code) ? $code : null, $options = []));
     }
 
     /**
@@ -56,7 +56,6 @@ class AdminPostsController extends Controller
         $this->postRepository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
         $posts = $this->postRepository->paginate();
         $no = $posts->firstItem();
-
         $countUserPosts = $this->postRepository->countUserPosts();
 
 

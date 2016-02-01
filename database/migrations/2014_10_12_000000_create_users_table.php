@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->string('locale');
+            $table->string('locale')->nullable();
             $table->string('slug')->nullable();
             $table->text('bio')->nullable();
             $table->string('location')->nullable();
@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('Github')->unique()->nullable();
             $table->string('Twitter')->unique()->nullable();
             $table->boolean('banned')->default(false);
-            $table->string('country');
-            $table->string('country_name');
+            $table->string('country')->nullable();
+            $table->string('country_name')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

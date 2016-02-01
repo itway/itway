@@ -241,5 +241,4 @@ return [
         'Active' => Itway\components\ActiveItem\Facades\Active::class,
         'Flash' => Itway\Components\Flash\Flash::class,
     ],
-
 ];

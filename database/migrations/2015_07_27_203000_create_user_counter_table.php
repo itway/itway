@@ -15,12 +15,10 @@ class CreateUserCounterTable extends Migration
         Schema::create('user_counter', function($table)
         {
             $table->increments('id');
-
             $table->string('class_name');
             $table->integer('object_id');
             $table->integer('user_id');
             $table->string('action');
-
             $table->timestamps();
             $table->index('class_name');
             $table->index('object_id');

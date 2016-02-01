@@ -71,10 +71,13 @@ class AdminTeamsController extends Controller
         $this->repository->pushCriteria(app('RepositoryLab\Repository\Criteria\RequestCriteria'));
         $tags = $this->repository->getModel()->existingTags();
         if(!Auth::guest()) {
+
             $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
 
         } else {
+
             $currentTeam = null;
+
         }
         $teams = $this->repository->paginate();
 

@@ -396,56 +396,6 @@
         ]
     },
     {
-        "name": "paragonie/random_compat",
-        "version": "1.1.5",
-        "version_normalized": "1.1.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/paragonie/random_compat.git",
-            "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
-            "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*|5.*"
-        },
-        "suggest": {
-            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-        },
-        "time": "2016-01-06 13:31:20",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/random.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Paragon Initiative Enterprises",
-                "email": "security@paragonie.com",
-                "homepage": "https://paragonie.com"
-            }
-        ],
-        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
-        "keywords": [
-            "csprng",
-            "pseudorandom",
-            "random"
-        ]
-    },
-    {
         "name": "nesbot/carbon",
         "version": "1.21.0",
         "version_normalized": "1.21.0.0",
@@ -6127,68 +6077,6 @@
         ]
     },
     {
-        "name": "spatie/laravel-medialibrary",
-        "version": "3.14.0",
-        "version_normalized": "3.14.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/spatie/laravel-medialibrary.git",
-            "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
-            "reference": "3e926cbce34de9503e868ec20fb5bc4b4ed536fd",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/bus": "^5.1|^5.2",
-            "illuminate/console": "^5.1|^5.2",
-            "illuminate/database": "^5.1|^5.2",
-            "illuminate/support": "^5.1|^5.2",
-            "php": "^5.5|^7.0",
-            "spatie/laravel-glide": "^2.2.4",
-            "spatie/pdf-to-image": "^1.0",
-            "spatie/string": "^2.0"
-        },
-        "require-dev": {
-            "doctrine/dbal": "^2.5.2",
-            "mockery/mockery": "^0.9.4",
-            "orchestra/testbench": "^3.0",
-            "phpunit/phpunit": "^4.0",
-            "scrutinizer/ocular": "^1.1"
-        },
-        "time": "2016-01-28 16:01:46",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Spatie\\MediaLibrary\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Freek Van der Herten",
-                "email": "freek@spatie.be",
-                "homepage": "https://murze.be",
-                "role": "Developer"
-            }
-        ],
-        "description": "Associate files with Eloquent models",
-        "homepage": "https://github.com/spatie/laravel-medialibrary",
-        "keywords": [
-            "cms",
-            "laravel",
-            "laravel-medialibrary",
-            "media",
-            "spatie"
-        ]
-    },
-    {
         "name": "arcanedev/support",
         "version": "3.7.3",
         "version_normalized": "3.7.3.0",
@@ -6356,5 +6244,117 @@
             }
         ],
         "description": "An artisan command package for easy translation management"
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "1.1.6",
+        "version_normalized": "1.1.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
+            "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2016-01-29 16:19:52",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
+        "name": "spatie/laravel-medialibrary",
+        "version": "3.14.1",
+        "version_normalized": "3.14.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/spatie/laravel-medialibrary.git",
+            "reference": "8852f1839605e308e2d82c5c3e797539c8444336"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/8852f1839605e308e2d82c5c3e797539c8444336",
+            "reference": "8852f1839605e308e2d82c5c3e797539c8444336",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/bus": "^5.1|^5.2",
+            "illuminate/console": "^5.1|^5.2",
+            "illuminate/database": "^5.1|^5.2",
+            "illuminate/support": "^5.1|^5.2",
+            "php": "^5.5|^7.0",
+            "spatie/laravel-glide": "^2.2.4",
+            "spatie/pdf-to-image": "^1.0",
+            "spatie/string": "^2.0"
+        },
+        "require-dev": {
+            "doctrine/dbal": "^2.5.2",
+            "mockery/mockery": "^0.9.4",
+            "orchestra/testbench": "^3.0",
+            "phpunit/phpunit": "^4.0",
+            "scrutinizer/ocular": "^1.1"
+        },
+        "time": "2016-01-29 08:11:10",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spatie\\MediaLibrary\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Freek Van der Herten",
+                "email": "freek@spatie.be",
+                "homepage": "https://murze.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "Associate files with Eloquent models",
+        "homepage": "https://github.com/spatie/laravel-medialibrary",
+        "keywords": [
+            "cms",
+            "laravel",
+            "laravel-medialibrary",
+            "media",
+            "spatie"
+        ]
     }
 ]

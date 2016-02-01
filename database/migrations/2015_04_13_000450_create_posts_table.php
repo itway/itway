@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration {
 			$table->text('preamble');
       		$table->string('slug');
       		$table->string('locale');
-      		$table->integer('comment_count')->unsigned();
+      		$table->integer('comment_count')->unsigned()->default(0);
 			$table->string('youtube_link')->nullable();
 			$table->string('github_link')->nullable();
 			$table->timestamps();
@@ -32,7 +32,6 @@ class CreatePostsTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
-
 	/**
 	 * Reverse the migrations.
 	 *

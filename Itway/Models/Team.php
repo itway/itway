@@ -190,9 +190,16 @@ class Team extends TeamworkTeam implements HasMedia
     public function getUsers()
     {
         $usersArr = [];
-        $users = $this->users()->get();
-        foreach ($users as $user) {
-            $usersArr[] = $user;
+
+        if ($this->users()->count() != 1) {
+            $users = $this->users()->get();
+            foreach ($users as $user) {
+                $usersArr[] = $user;
+            }
+        } else {
+            foreach ($this->ownerId() as $ownerId) {
+                $usersArr[] = User::findBySlugOrId($ownerId);
+            }
         }
         return $usersArr;
     }

@@ -24,6 +24,8 @@ ___
 > 4. create .env file from .example.env file insert your config for db, mailer, facebook, google, github
 > 5. run
 
+*by default the file env has DB_CONNECTION=mysql you can change it to pgsql to operate the PostgreSQL DB
+by now it supports two versions of DB.*
 ```bash
 composer update
 php artisan vendor:publish

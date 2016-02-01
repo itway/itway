@@ -178,8 +178,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
      */
     public function todayPosts()
     {
-
-        return $this->getModel()->latest('published_at')->published()->today()->count();
+        return $this->getModel()->groupBy('published_at')->latest('published_at')->published()->today()->count();
 
     }
 
