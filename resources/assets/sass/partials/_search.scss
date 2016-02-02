@@ -26,10 +26,11 @@
     display: inline;
     width: auto;
     margin-top: 0%;
+    margin-right: 20px;
 
   }
   .search-result {
-    background: #eee;
+    background: rgba(238,238,238, .9);
     position: fixed;
     width: 100%;
     top: 55px;
@@ -42,10 +43,11 @@
     }
 
     .tag-name {
-
-      padding: 10px 0 10px 0;
+      padding: 2px 0;
+      overflow: visible;
       .text-warning {
         background: white;
+        margin-right: 0!important;
       }
 
     }

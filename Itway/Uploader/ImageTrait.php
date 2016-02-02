@@ -70,6 +70,20 @@ trait ImageTrait
             return response()->json('error', $e->getCode());
         }
     }
+    public function unbindLogoImage($instance)
+    {
+        try {
+
+            if ($instance->getMedia('logo')->count() !== 0) {
+
+                $instance->clearMediaCollection('logo');
+            }
+
+        } catch (Exception $e) {
+            return response()->json('error', $e->getCode());
+        }
+    }
+
 
     /**
      * bind logo from url

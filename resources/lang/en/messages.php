@@ -65,6 +65,7 @@ Generated via "php artisan localization:missing" at 2015/04/03 12:09:48
     'liked' => 'liked',
     'yourQuizCreated' => 'Your poll has been created',
     'banned' => 'banned!',
-    'unbanned' => 'unbanned!'
-
+    'unbanned' => 'unbanned!',
+    'TeamExistsUser' => 'Sorry but you already have a team! IF you are SURE you can <b>LEAVE</b> the TEAM & Join another one',
+    'TeamExistsAdmin' => 'Sorry but you already have a team! IF you are SURE you can <b>DELETE</b> or <b>DELEGATE</b> the TEAM & Join another one'
 );

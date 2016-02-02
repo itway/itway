@@ -41,5 +41,6 @@ class Kernel extends HttpKernel
         'IsUsersOrAdminOpenSource' => \itway\Http\Middleware\IsUsersOrAdminOpenSource::class,
         'IsUsersOrAdminTeamOwner' => \itway\Http\Middleware\IsUsersOrAdminTeamOwner::class,
         'IsUsers' => \itway\Http\Middleware\IsUsers::class,
+        'UserShouldHaveOneTeam' =>  \itway\Http\Middleware\UserShouldHaveOneTeam::class,
     ];
 }

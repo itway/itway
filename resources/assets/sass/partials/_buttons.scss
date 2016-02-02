@@ -316,3 +316,10 @@ input[type="submit"].href, button.href{
     text-decoration: underline;
   }
 }
+
+.button-small-card {
+  padding: 0;
+  line-height: 1;
+  margin: auto;
+  color: $danger-color;
+}

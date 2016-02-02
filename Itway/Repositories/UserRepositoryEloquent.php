@@ -142,10 +142,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         $teams = [];
         foreach ($user->teams()->get() as $key => $team) {
-            if(!is_null($team)) {
+            if (!is_null($team)) {
                 $teams[$key] = $team;
-            }
-            else $teams = null;
+            } else $teams = null;
         }
         return $teams;
     }
@@ -154,21 +153,20 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      * @param $query
      * @return mixed
      */
-    public function queryUserWithLogo($query) {
+    public function queryUserWithLogo($query)
+    {
 
         if (strlen($query) >= 2) {
 
             $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('slug', 'name')->get('slug', 'name');
             $users = [];
-            foreach($usersCol as $item => $user) {
+            foreach ($usersCol as $item => $user) {
                 $users[$item] = $user;
                 $users[$item]['value'] = $user->slug;
-                $users[$item]['name'] = "<img src=".view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug))."/>". User::findBySlugOrFail($user->slug)->name;
+                $users[$item]['name'] = "<img src=" . view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug)) . "/>" . User::findBySlugOrFail($user->slug)->name;
             }
             return Response::json(['success' => 'true', 'results' => $users]);
-        }
-
-        else return Response::json(['success' => 'false']);
+        } else return Response::json(['success' => 'false']);
     }
 
 
@@ -176,18 +174,17 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      * @param $query
      * @return mixed
      */
-    public function queryUser($query) {
+    public function queryUser($query)
+    {
         if (strlen($query) >= 2) {
-            $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter','country', 'country_name')->get('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter','country', 'country_name');
+            $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter', 'country', 'country_name')->get('name', 'slug', 'email', 'locale', 'bio', 'location', 'Google', 'Facebook', 'Github', 'Twitter', 'country', 'country_name');
             $users = [];
-            foreach($usersCol as $item => $user) {
+            foreach ($usersCol as $item => $user) {
                 $users[$item] = $user;
-                $users[$item]['logo'] = "<img src=".view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug))."/>". User::findBySlugOrFail($user->slug)->name;
+                $users[$item]['logo'] = "<img src=" . view('includes.user-image')->with('user', User::findBySlugOrFail($user->slug)) . "/>" . User::findBySlugOrFail($user->slug)->name;
             }
             return Response::json(['success' => 'true', 'results' => $users]);
-        }
-
-        else return Response::json(['success' => 'false']);
+        } else return Response::json(['success' => 'false']);
     }
 
     /**
@@ -195,19 +192,19 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      * @param array $parameters
      * @return mixed
      */
-    public function queryUserWith($query, array $parameters) {
+    public function queryUserWith($query, array $parameters)
+    {
         if (strlen($query) >= 2) {
             $selectString = implode(",", $parameters);
             $usersCol = User::orderBy('name', 'asc')->where('name', 'LIKE', '%' . $query . '%')->select('name', $selectString)->get('name', $selectString);
             $users = [];
-            foreach($usersCol as $item => $user) {
+            foreach ($usersCol as $item => $user) {
                 $users[$item] = $user;
             }
             return Response::json(['success' => 'true', 'results' => $users]);
-        }
-
-        else return Response::json(['success' => 'false']);
+        } else return Response::json(['success' => 'false']);
     }
+
     /**
      * @param $country
      * @return mixed
@@ -226,6 +223,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         return $this->getModel()->where('id', '<>', $id)->get();
     }
+
     /**
      * ban or unban instance
      *

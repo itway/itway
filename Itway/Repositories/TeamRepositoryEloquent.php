@@ -179,6 +179,11 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository
         }
     }
 
+    public function unbindTrend($team)
+    {
+            $team->trends()->delete();
+    }
+
     /**
      * return the number of today's teams
      *
@@ -197,6 +202,33 @@ class TeamRepositoryEloquent extends BaseRepository implements TeamRepository
     {
         $result = Countries::orderBy('name', 'asc')->where('iso_3166_2', strtoupper($country))->select('name')->first();
         return $result->name;
+    }
+
+    /**
+     * delete team && attached trends && attached tags
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteAll($id)
+    {
+        try {
+            $team = $this->getModel()->find($id);
+
+            $this->unbindTrend($team);
+            $this->unbindLogoImage($team);
+            $team->untag();
+
+            foreach($team->getUsers() as $user) {
+                $user->current_team_id = null;
+                $user->save();
+            }
+
+            $this->delete($id);
+
+        } catch (\Exception $e) {
+            return response("error appeared " . $e->getMessage(), $e->getCode());
+        }
     }
 
     /**

@@ -1040,6 +1040,7 @@ input[type=button].button-block,input[type=reset].button-block,input[type=submit
 .nav-buttons .button.rounded{padding:5px 10px;border-radius:50%}
 button.href,input[type=submit].href{border:none;text-align:center;padding:0;margin:0 auto;background:0 0;outline:0}
 button.href:hover,input[type=submit].href:hover{text-decoration:underline}
+.button-small-card{padding:0;line-height:1;margin:auto;color:#F44336}
 .button-lime{color:#FFF;background-color:#d2e04f;border-color:#CDDC39}
 .button-lime.active,.button-lime.focus,.button-lime:active,.button-lime:focus,.button-lime:hover,.open>.button-lime.dropdown-toggle{color:#FFF;background-color:#c6d626;border-color:#b2c022}
 .button-lime.active,.button-lime:active,.open>.button-lime.dropdown-toggle{background-image:none}
@@ -1779,11 +1780,11 @@ form h3.label{padding-left:10px;color:#607D8B}
 .poll-form-block .options-block a.button.remove i{color:#F44336}
 .poll-form-block .options-block a.button.add_new i{color:#4CAF50}
 #search{position:fixed;top:0;left:0;width:100%;height:55px;padding-bottom:5px;background-color:#404b58;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;-webkit-transform:translate(0,-100%) scale(0,0);transform:translate(0,-100%) scale(0,0);opacity:0}
-#search .tag-line-btn{display:inline;width:auto;margin-top:0}
-#search .search-result{background:#eee;position:fixed;width:100%;top:55px;left:0;height:calc(100vh - 55px)}
+#search .tag-line-btn{display:inline;width:auto;margin-top:0;margin-right:20px}
+#search .search-result{background:rgba(238,238,238,.9);position:fixed;width:100%;top:55px;left:0;height:calc(100vh - 55px)}
 #search .search-result>span{padding:10px 0 10px 10px;display:block}
-#search .search-result .tag-name{padding:10px 0}
-#search .search-result .tag-name .text-warning{background:#fff}
+#search .search-result .tag-name{padding:2px 0;overflow:visible}
+#search .search-result .tag-name .text-warning{background:#fff;margin-right:0!important}
 #search .search-result ul{display:block;margin:0 auto;padding-left:0;background:0 0!important}
 #search .search-result ul li{display:block;background:rgba(255,255,255,.9);padding-bottom:12px;padding-left:10px;border-bottom:1px solid rgba(128,128,128,.9)}
 #search .search-result ul li a{display:block;width:100%;height:100%;padding:1% 0 1% 1%}

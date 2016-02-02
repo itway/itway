@@ -2,14 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df5e8b5c-92a3-4cfb-991d-157329b9ed48" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/openidea/destroy.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/teams/alreadyexists.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/teams/destroy.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/1/40503e20-0aab-4663-aa3f-c8cf035c68d6_6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/1/51eea837-62db-4fbf-99d3-0894e7e82ea3_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/1/picture" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/4/51eea837-62db-4fbf-99d3-0894e7e82ea3_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/5/51eea837-62db-4fbf-99d3-0894e7e82ea3_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/media/5/picture" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/EventRepositoryEloquent.php" afterPath="$PROJECT_DIR$/Itway/Repositories/EventRepositoryEloquent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php" afterPath="$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Models/Team.php" afterPath="$PROJECT_DIR$/Itway/Models/Team.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/TeamRepository.php" afterPath="$PROJECT_DIR$/Itway/Repositories/TeamRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php" afterPath="$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Repositories/UserRepositoryEloquent.php" afterPath="$PROJECT_DIR$/Itway/Repositories/UserRepositoryEloquent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/Uploader/ImageTrait.php" afterPath="$PROJECT_DIR$/Itway/Uploader/ImageTrait.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Itway/routes/teams.php" afterPath="$PROJECT_DIR$/Itway/routes/teams.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TeamsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeamsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/css/main.css" afterPath="$PROJECT_DIR$/public/dist/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/dist/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_buttons.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_buttons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_search.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_search.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/partials/_slots.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/partials/_slots.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/ru/messages.php" afterPath="$PROJECT_DIR$/resources/lang/ru/messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/search.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
     </list>
     <ignored path="itway.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,64 +52,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostRepositoryEloquent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php">
+      <file leaf-file-name="TeamsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeamsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.11111">
-              <caret line="203" column="40" selection-start-line="203" selection-start-column="40" selection-end-line="203" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventRepositoryEloquent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Itway/Repositories/EventRepositoryEloquent.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.925926">
-              <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/teams/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.296296">
-              <caret line="95" column="120" selection-start-line="95" selection-start-column="120" selection-end-line="95" selection-end-column="120" />
+            <state vertical-scroll-proportion="-2.3333333">
+              <caret line="177" column="36" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="36" />
               <folding>
-                <element signature="e#4527#4555#0#HTML" expanded="true" />
-                <element signature="e#4634#4674#0#HTML" expanded="true" />
+                <element signature="e#41#49#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/posts/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-54.185184">
-              <caret line="77" column="115" selection-start-line="77" selection-start-column="115" selection-end-line="77" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/users/index.blade.php">
+      <file leaf-file-name="PostRepositoryEloquent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.7037037">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="152" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -97,38 +77,82 @@
       <file leaf-file-name="TeamRepositoryEloquent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.703704">
-              <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="29" />
+            <state vertical-scroll-proportion="-10.851851">
+              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRepositoryEloquent.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Itway/Repositories/UserRepositoryEloquent.php">
+      <file leaf-file-name="Team.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Itway/Models/Team.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.446319">
-              <caret line="238" column="43" selection-start-line="238" selection-start-column="43" selection-end-line="238" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.68712574">
+              <caret line="206" column="26" selection-start-line="206" selection-start-column="26" selection-end-line="206" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/readme.md">
+      <file leaf-file-name="TeamRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Repositories/TeamRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.851852">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state vertical-scroll-proportion="-14.777778">
+              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/database.php">
+      <file leaf-file-name="ImageTrait.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Itway/Uploader/ImageTrait.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-33.074074">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+            <state vertical-scroll-proportion="-11.481482">
+              <caret line="72" column="35" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alreadyexists.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/teams/alreadyexists.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.6190476">
+              <caret line="40" column="63" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="63" />
+              <folding>
+                <element signature="e#650#673#0#HTML" expanded="true" />
+                <element signature="e#1036#1062#0#HTML" expanded="true" />
+                <element signature="e#4378#4416#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_buttons.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_buttons.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.74074">
+              <caret line="323" column="22" selection-start-line="323" selection-start-column="22" selection-end-line="323" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/lang/en/messages.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3333333">
+              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_icons.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_icons.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.6296296">
+              <caret line="592" column="15" selection-start-line="592" selection-start-column="1" selection-end-line="592" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -154,22 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Itway/routes/idea-show.php" />
-        <option value="$PROJECT_DIR$/Itway/routes/events.php" />
-        <option value="$PROJECT_DIR$/Itway/routes/blog.php" />
-        <option value="$PROJECT_DIR$/Itway/routes/job-hunting.php" />
-        <option value="$PROJECT_DIR$/Itway/routes/teams.php" />
-        <option value="$PROJECT_DIR$/Itway/routes/user.php" />
-        <option value="$PROJECT_DIR$/Itway/routes-admin/posts.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/IsUsersOrAdminEvent.php" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/partials/_sidebar.scss" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/partials/_profile.scss" />
-        <option value="$PROJECT_DIR$/Itway/Repositories/ChatRepositoryEloquent.php" />
-        <option value="$PROJECT_DIR$/Itway/Repositories/JobHuntRepositoryEloquent.php" />
-        <option value="$PROJECT_DIR$/Itway/Repositories/OpenSourceIdeaRepositoryEloquent.php" />
-        <option value="$PROJECT_DIR$/Itway/Repositories/PollRepositoryEloquent.php" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/Itway/Components/Flash/Flash.php" />
@@ -190,21 +198,37 @@
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/database/migrations/2015_07_27_203000_create_user_counter_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_04_13_000450_create_posts_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminPostsController.php" />
         <option value="$PROJECT_DIR$/Itway/Models/Post.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminTeamsController.php" />
-        <option value="$PROJECT_DIR$/Itway/Models/Team.php" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
         <option value="$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php" />
         <option value="$PROJECT_DIR$/Itway/Repositories/EventRepositoryEloquent.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php" />
+        <option value="$PROJECT_DIR$/resources/views/teams/teamAlreadyExists.blade.php" />
         <option value="$PROJECT_DIR$/Itway/Repositories/UserRepositoryEloquent.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/partials/_search.scss" />
+        <option value="$PROJECT_DIR$/Itway/routes/teams.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/UserShouldHaveOneTeam.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/partials/_slots.scss" />
+        <option value="$PROJECT_DIR$/resources/lang/ru/messages.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/teams/destroy.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" />
+        <option value="$PROJECT_DIR$/Itway/Uploader/ImageTrait.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TeamsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/teams/alreadyexists.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/partials/_buttons.scss" />
+        <option value="$PROJECT_DIR$/resources/lang/en/messages.php" />
+        <option value="$PROJECT_DIR$/Itway/Repositories/TeamRepository.php" />
+        <option value="$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php" />
+        <option value="$PROJECT_DIR$/Itway/Models/Team.php" />
       </list>
     </option>
   </component>
@@ -215,6 +239,82 @@
     <gulpfiles>
       <GulpfileState>
         <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+        <tasks>
+          <GulpTaskState>
+            <task-name>add-scripts</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>add-vendor-scripts</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="connect" />
+              <dependency value="connect-assets" />
+              <dependency value="fonts-source-pro" />
+              <dependency value="fonts" />
+              <dependency value="sass" />
+              <dependency value="minify-css" />
+              <dependency value="coffee-main" />
+              <dependency value="coffee-secondary" />
+              <dependency value="add-scripts" />
+              <dependency value="add-vendor-scripts" />
+              <dependency value="script-modules" />
+              <dependency value="watch" />
+            </dependencies>
+            <task-name>all</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>autoprefix</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>coffee-main</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>coffee-secondary</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>connect</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>connect-assets</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="connect" />
+              <dependency value="connect-assets" />
+              <dependency value="fonts-source-pro" />
+              <dependency value="sass" />
+              <dependency value="minify-css" />
+              <dependency value="coffee-main" />
+              <dependency value="coffee-secondary" />
+              <dependency value="add-scripts" />
+              <dependency value="script-modules" />
+              <dependency value="watch" />
+            </dependencies>
+            <task-name>default</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>fonts</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>fonts-source-pro</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>minify-css</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>publish</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>sass</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>script-modules</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>watch</task-name>
+          </GulpTaskState>
+        </tasks>
       </GulpfileState>
     </gulpfiles>
   </component>
@@ -329,7 +429,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openidea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,10 +496,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -398,16 +538,18 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="posts" />
+              <option name="myItemId" value="Itway" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -421,19 +563,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="Itway" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -447,21 +581,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itway" />
+              <option name="myItemId" value="Itway" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="Repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,6 +600,94 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,16 +723,16 @@
     <property name="js-jscs-nodeInterpreter" value="E:\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.21645446" />
-    <property name="SearchEverywhereHistoryKey" value="URE&#9;null&#9;null&#10;TER&#9;null&#9;null&#10;Team&#9;null&#9;null&#10;admin/&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/views/admin&#10;ERElo&#9;null&#9;null&#10;data&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/config/database.php&#10;app&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/config/app.php&#10;composer.json&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/composer.json&#10;navigation.&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/views/includes/navigation.blade.php&#10;_profi&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_profile.scss&#10;scri&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/scripts.blade.php&#10;Event&#9;null&#9;null&#10;Post&#9;null&#9;null&#10;sideba&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_sidebar.scss&#10;admin&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_admin.scss&#10;_icons&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_icons.scss&#10;_admin&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_admin.scss&#10;like&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/coffee/modules/likebtn.coffee&#10;scripts&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/scripts.blade.php&#10;sidebar&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/sidebar/sidebar.blade.php&#10;messages.php&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/lang/ru/messages.php&#10;single&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/events/single.blade.php&#10;user-pa&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/user/user-partial.blade.php&#10;_i&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_icons.scss&#10;styles.b&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/styles.blade.php&#10;sidebar.php&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/lang/ru/sidebar.php&#10;side&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/sidebar/sidebar.blade.php&#10;User&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/User.php&#10;ECon&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/app/Http/Controllers/EventsController.php&#10;Eve&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;events&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/events/events.blade.php&#10;eventSpeekers&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/EventSpeekers.php&#10;ERepos&#9;null&#9;null&#10;ERE&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;Even&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/Event.php&#10;Ev&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;teams&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/teams/teams.blade.php&#10;_icon&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_icons.scss&#10;UserEl&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/UserRepositoryEloquent.php&#10;_iw&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_iw-drop.scss&#10;createform&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_create-form.scss&#10;posts&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/posts/posts.blade.php&#10;Image&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Uploader/ImageTrait.php&#10;single.&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/posts/single.blade.php&#10;UsC&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/app/Http/Controllers/UserController.php&#10;UserR&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/UserRepositoryEloquent.php&#10;user-im&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/user-image.blade.php&#10;PRE&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/PostRepositoryEloquent.php&#10;scr&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/scripts.blade.php&#10;styles&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/styles.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="Team&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/Itway/Models/Team.php&#10;TRe&#9;null&#9;null&#10;messa&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/lang/en/messages.php&#10;_button&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/assets/sass/partials/_buttons.scss&#10;_icons&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/assets/sass/partials/_icons.scss&#10;PostsCon&#9;null&#9;null&#10;ECon&#9;null&#9;null&#10;_text&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/assets/sass/partials/_text-colors.scss&#10;messages&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/lang/ru/messages.php&#10;messages.&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/lang/en/messages.php&#10;_sea&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/assets/sass/partials/_search.scss&#10;URE&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/Itway/Repositories/UserRepositoryEloquent.php&#10;TC&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/app/Http/Controllers/TeamsController.php&#10;TER&#9;null&#9;null&#10;admin/&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/views/admin&#10;ERElo&#9;null&#9;null&#10;data&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/config/database.php&#10;app&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/config/app.php&#10;composer.json&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/composer.json&#10;navigation.&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway/resources/views/includes/navigation.blade.php&#10;_profi&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_profile.scss&#10;scri&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/scripts.blade.php&#10;Event&#9;null&#9;null&#10;Post&#9;null&#9;null&#10;sideba&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_sidebar.scss&#10;admin&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_admin.scss&#10;_admin&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_admin.scss&#10;like&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/coffee/modules/likebtn.coffee&#10;scripts&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/scripts.blade.php&#10;sidebar&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/sidebar/sidebar.blade.php&#10;messages.php&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/lang/ru/messages.php&#10;single&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/events/single.blade.php&#10;user-pa&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/user/user-partial.blade.php&#10;_i&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_icons.scss&#10;styles.b&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/includes/styles.blade.php&#10;sidebar.php&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/lang/ru/sidebar.php&#10;side&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/sidebar/sidebar.blade.php&#10;User&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/User.php&#10;Eve&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;events&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/events/events.blade.php&#10;eventSpeekers&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/EventSpeekers.php&#10;ERepos&#9;null&#9;null&#10;ERE&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;Even&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Models/Event.php&#10;Ev&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/EventRepositoryEloquent.php&#10;teams&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/views/teams/teams.blade.php&#10;_icon&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_icons.scss&#10;UserEl&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/Itway/Repositories/UserRepositoryEloquent.php&#10;_iw&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_iw-drop.scss&#10;createform&#9;FILE&#9;file://C:/Users/Ivan/Desktop/itway.io/resources/assets/sass/partials/_create-form.scss" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ivan\Desktop\itway\resources\views\openidea" />
+      <recent name="C:\Users\Ivan\Desktop\itway\resources\views\teams" />
       <recent name="C:\Users\Ivan\Desktop\itway\Itway\Components\Flash\views" />
       <recent name="C:\Users\Ivan\Desktop\itway\resources\views\components" />
       <recent name="C:\Users\Ivan\Desktop\itway\resources\views\vendor\log-viewer" />
-      <recent name="C:\Users\Ivan\Desktop\itway\resources\views\vendor\flash" />
-      <recent name="C:\Users\Ivan\Desktop\itway\Itway\Components\Flash" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.itway">
@@ -582,15 +794,15 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2414163" sideWeight="0.56970507" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20362474" sideWeight="0.4302949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20362474" sideWeight="0.5737299" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13272922" sideWeight="0.42627013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5042644" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16301969" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16199377" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26583594" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24922119" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -659,273 +871,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Itway/Components/Flash/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54992765">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Components/Flash/FlashServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7149059">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vhosts-httpd-ex.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.037037">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Components/Flash/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.052054796">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-99.92593">
-          <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34609494">
-          <caret line="3332" column="31" selection-start-line="3332" selection-start-column="31" selection-end-line="3332" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.555555">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_091959_charify_countries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.185184">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="38" />
-          <folding>
-            <marker date="1454356049946" expanded="true" signature="324:451" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="482:607" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="638:763" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="794:920" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="951:1081" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="1259:1389" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="1420:1548" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="1579:1707" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="1738:1867" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="1898:2031" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="2207:2367" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="2398:2554" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="2585:2741" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="2772:2930" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="2961:3127" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="3308:3471" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="3502:3661" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="3692:3851" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="3882:4043" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="4074:4243" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="4343:4459" placeholder="ALTER TABLE ${DB::getTablePrefix()}..." />
-            <marker date="1454356049946" expanded="true" signature="4355:4425" placeholder="/** * Revers..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Helpers/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_09_08_230323_create_likes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.148148">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_16_193732_teamwork_setup_tables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-60.51852">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_27_203000_create_user_counter_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.37037">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.666667">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_24_014621_add_socialite_fields_to_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_13_000450_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.740741">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_27_122804_create_threads_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_27_122846_create_messages_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.666667">
-          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_27_122922_create_participants_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_27_123052_add_nullable_to_last_read_in_participants_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.481482">
-          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
-          <folding>
-            <marker date="1454356042657" expanded="true" signature="299:460" placeholder="ALTER TABLE `${DB::getTablePrefix()}participants`..." />
-            <marker date="1454356042657" expanded="true" signature="548:636" placeholder="ALTER TABLE participants..." />
-            <marker date="1454356042657" expanded="true" signature="650:713" placeholder="UPDATE parti..." />
-            <marker date="1454356042657" expanded="true" signature="995:1101" placeholder="UPDATE ON pa..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_27_123127_alter_last_read_in_participants_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.148148">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-            <marker date="1454356042665" expanded="true" signature="292:412" placeholder="ALTER TABLE `${DB::getTablePrefix()}participants`..." />
-            <marker date="1454356042665" expanded="true" signature="493:582" placeholder="ALTER TABLE ${DB::getTablePrefix()}participants..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_10_062523_create_events_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_10_062743_create_event_speakers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_000732_create_opensourceidea_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_001504_create_opensourceidea_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_091958_setup_countries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.925926">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_24_223520_create_poll_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_24_223537_create_pollOptions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.259259">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_24_223617_create_poll_user_answers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_12_06_102303_create_teams_trends_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.259259">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_12_21_083011_create_post_body_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -982,30 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminTeamsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.3333335">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/teams/single.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.777778">
-          <caret line="21" column="188" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="188" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Models/Team.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="201" column="13" selection-start-line="201" selection-start-column="13" selection-end-line="201" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1030,17 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/teams/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.296296">
-          <caret line="95" column="120" selection-start-line="95" selection-start-column="120" selection-end-line="95" selection-end-column="120" />
-          <folding>
-            <element signature="e#4527#4555#0#HTML" expanded="true" />
-            <element signature="e#4634#4674#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/posts/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-54.185184">
@@ -1057,14 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.11111">
-          <caret line="203" column="40" selection-start-line="203" selection-start-column="40" selection-end-line="203" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Itway/Repositories/EventRepositoryEloquent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.925926">
@@ -1073,26 +975,318 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsUsersOrAdminChat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.703704">
-          <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="29" />
+        <state vertical-scroll-proportion="-19.0">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsUsersOrAdminOpenSource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.777778">
+          <caret line="23" column="31" selection-start-line="19" selection-start-column="8" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teams/single.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.444445">
+          <caret line="32" column="66" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Itway/Repositories/UserRepositoryEloquent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.446319">
-          <caret line="238" column="43" selection-start-line="238" selection-start-column="43" selection-end-line="238" selection-end-column="43" />
+        <state vertical-scroll-proportion="-9.37037">
+          <caret line="234" column="13" selection-start-line="234" selection-start-column="13" selection-end-line="234" selection-end-column="13" />
+          <folding>
+            <element signature="e#38#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.259259">
+          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_search.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.259259">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teams/teams.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.845092">
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_slots.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.925926">
+          <caret line="227" column="14" selection-start-line="227" selection-start-column="14" selection-end-line="227" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/teams/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="56" column="47" selection-start-line="48" selection-start-column="35" selection-end-line="56" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/routes/teams.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.925926">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/UserShouldHaveOneTeam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.703704">
+          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+          <folding>
+            <element signature="e#41#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/ru/messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.925926">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teams/site-btns.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.37037">
+          <caret line="19" column="61" selection-start-line="18" selection-start-column="23" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminTeamsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.592592">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/like-btn.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="18" column="59" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_text-colors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.555555">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AdminSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3333335">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_27_203000_create_user_counter_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.111111">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_09_08_230323_create_likes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_27_202815_create_counter_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.185184">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/events/destroy.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8148148">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/openidea/destroy.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teams/destroy.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="154" selection-start-line="0" selection-start-column="154" selection-end-line="0" selection-end-column="154" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/events/single.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.296297">
+          <caret line="66" column="22" selection-start-line="60" selection-start-column="16" selection-end-line="66" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.074074">
+          <caret line="285" column="5" selection-start-line="272" selection-start-column="3" selection-end-line="285" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9259257">
+          <caret line="226" column="1" selection-start-line="226" selection-start-column="1" selection-end-line="239" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Uploader/ImageTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.481482">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_icons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6296296">
+          <caret line="592" column="15" selection-start-line="592" selection-start-column="1" selection-end-line="592" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/partials/_buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.74074">
+          <caret line="323" column="22" selection-start-line="323" selection-start-column="22" selection-end-line="323" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeamsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3333333">
+          <caret line="177" column="36" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="36" />
+          <folding>
+            <element signature="e#41#49#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Repositories/PostRepositoryEloquent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7037037">
+          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="152" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Repositories/TeamRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.777778">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teams/alreadyexists.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6190476">
+          <caret line="40" column="63" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="63" />
+          <folding>
+            <element signature="e#650#673#0#HTML" expanded="true" />
+            <element signature="e#1036#1062#0#HTML" expanded="true" />
+            <element signature="e#4378#4416#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Repositories/TeamRepositoryEloquent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.851851">
+          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Itway/Models/Team.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68712574">
+          <caret line="206" column="26" selection-start-line="206" selection-start-column="26" selection-end-line="206" selection-end-column="26" />
           <folding />
         </state>
       </provider>

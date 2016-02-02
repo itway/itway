@@ -191,11 +191,17 @@ class Team extends TeamworkTeam implements HasMedia
     {
         $usersArr = [];
 
-        if ($this->users()->count() != 1) {
+        $countUsers = $this->users()->count();
+        if ($countUsers != 1) {
             $users = $this->users()->get();
             foreach ($users as $user) {
                 $usersArr[] = $user;
             }
+
+            foreach ($this->ownerId() as $ownerId) {
+                $usersArr['owner'] = User::findBySlugOrId($ownerId);
+            }
+
         } else {
             foreach ($this->ownerId() as $ownerId) {
                 $usersArr[] = User::findBySlugOrId($ownerId);

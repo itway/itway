@@ -23,5 +23,6 @@ interface TeamRepository extends RepositoryInterface
     public function banORunBan($id);
     public function getCurrentTeam();
     public function isTeamMember($team_id, $currentTeam_id);
+    public function deleteAll($id);
 
 }

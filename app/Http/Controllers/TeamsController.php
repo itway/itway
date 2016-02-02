@@ -106,7 +106,12 @@ class TeamsController extends Controller
 
         $tagsBuilder = $this->tags->tagsTechMultipleSelect(trans('team-form.select-tags'));
         $tagsTrendBuilder = $this->tags->tagsTrendsMultipleSelect(trans('team-form.select-trend-tags'));
-        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
+
+        } else {
+            $currentTeam = null;
+        }
 
         flash()->info(trans('messages.createTeam'));
 
@@ -119,9 +124,15 @@ class TeamsController extends Controller
     public function show($id)
     {
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
-        $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
-        if (!Auth::guest() && Auth::user()->id === $team->ownerId()) {
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
+            $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
+
+        } else {
+            $currentTeam = null;
+        }
+
+        if (!Auth::guest() && Auth::user()->id === head($team->ownerId())) {
             $createdByUser = true;
         } else {
             $createdByUser = false;
@@ -157,15 +168,19 @@ class TeamsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * just deleting events if the event belongs to user or the user is admin
      *
-     * @param  int $id
-     * @return Response
+     * @param $id
+     * @return mixed
      */
     public function destroy($id)
     {
-    }
+        $this->repository->deleteAll($id);
 
+        Toastr::success(Auth::user()->name, $title = 'Your Team deleted successfully! Have a nice day!', $options = []);
+
+        return redirect()->to(App::getLocale() . '/teams');
+    }
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -174,11 +189,22 @@ class TeamsController extends Controller
     {
 
         $team = Team::findBySlugOrId($id);
-        $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
-        $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
-        if (!Auth::guest() && Auth::user()->id === $team->ownerId()) {
-            $createdByUser = true;
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
+            if(!is_null($currentTeam)) {
+                $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
+            }
+            else $teamMember = null;
+
         } else {
+            $currentTeam = null;
+        }
+
+        if (!Auth::guest() && Auth::user()->id === head($team->ownerId())) {
+
+            $createdByUser = true;
+        }
+        else {
             $createdByUser = false;
         }
         return view('teams.single', compact('team', 'teamMember', 'currentTeam', 'createdByUser'));
@@ -196,11 +222,36 @@ class TeamsController extends Controller
 
         $teams = Team::withAnyTag([$slug])->latest('created_at')->paginate(8);
         $tags = $this->repository->getModel()->existingTags();
-        $currentTeam = $this->repository->getModel()->currentTeam;
+        if(!Auth::guest()) {
+            $currentTeam = $this->userRepository->getModel()->find(Auth::user()->id)->currentTeam;
+
+        } else {
+            $currentTeam = null;
+        }
 
         return view('teams.teams', compact('teams', 'tags', 'currentTeam'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function teamAlreadyExists()
+    {
+        $userID = Auth::user()->id;
+        $currentTeam = $this->userRepository->getModel()->find($userID)->currentTeam;
+        $team = Team::findBySlugOrId($currentTeam->id);
+        $tags = $this->repository->getModel()->existingTags();
+        if ($userID === head($team->ownerId())) {
+            $createdByUser = true;
+            flash()->warning(trans('messages.TeamExistsAdmin'));
+
+        } else {
+            $createdByUser = false;
+            flash()->warning(trans('messages.TeamExistsUser'));
+
+        }
+        return view('teams.alreadyexists', compact('team', 'tags', 'currentTeam', 'createdByUser'));
+    }
     /**
      * send an invite
      *
@@ -209,10 +260,8 @@ class TeamsController extends Controller
      */
     public function invite($team_id)
     {
-
         $user = Auth::user();
         $team = Team::find($team_id);
-
         Teamwork::inviteToTeam($user, $team, function ($invite) {
             // Send email to user / let them know that they got invited
         });
@@ -226,7 +275,6 @@ class TeamsController extends Controller
      */
     public function inviteViaEmail(Request $request)
     {
-
         if (!Teamwork::hasPendingInvite($request->email, $request->team)) {
             Teamwork::inviteToTeam($request->email, $request->team, function ($invite) {
                 // Send email to user
@@ -235,7 +283,6 @@ class TeamsController extends Controller
             return $this->redirectError('user already invited...');
         }
     }
-
     /**
      * rejectInvite invite taken from
      * user
@@ -245,9 +292,7 @@ class TeamsController extends Controller
      */
     public function rejectInvite(Request $request)
     {
-
         $invite = Teamwork::getInviteFromDenyToken($request->token); // Returns a TeamworkInvite model or null
-
         if ($invite) // valid token found
         {
             Teamwork::denyInvite($invite);

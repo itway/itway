@@ -225,14 +225,18 @@ class EventsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * just deleting events if the event belongs to user or the user is admin
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return mixed
      */
     public function destroy($id)
     {
-        //
+        $this->repository->deleteAll($id);
+
+        Toastr::success(Auth::user()->name, $title = 'Your Post deleted successfully! Have a nice day!', $options = []);
+
+        return redirect()->to(App::getLocale() . '/events');
     }
 
     /**

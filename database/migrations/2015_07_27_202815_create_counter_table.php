@@ -17,7 +17,7 @@ class CreateCounterTable extends Migration
             $table->increments('id');
             $table->string('class_name');
             $table->integer('object_id');
-            $table->integer('view_counter')->unsigned()->default(0);
+            $table->integer('view_counter')->unsigned()->nullable();
             $table->index('class_name');
             $table->index('object_id');
             $table->timestamps();

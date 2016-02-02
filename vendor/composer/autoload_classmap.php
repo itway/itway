@@ -8583,6 +8583,7 @@ return array(
     'itway\\Http\\Middleware\\LocalUser' => $baseDir . '/app/Http/Middleware/LocalUser.php',
     'itway\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'itway\\Http\\Middleware\\RedirectIfNotAdmin' => $baseDir . '/app/Http/Middleware/RedirectIfNotAdmin.php',
+    'itway\\Http\\Middleware\\UserShouldHaveOneTeam' => $baseDir . '/app/Http/Middleware/UserShouldHaveOneTeam.php',
     'itway\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'itway\\Http\\Requests\\Request' => $baseDir . '/app/Http/Requests/Request.php',
     'itway\\Jobs\\Job' => $baseDir . '/app/Jobs/Job.php',
