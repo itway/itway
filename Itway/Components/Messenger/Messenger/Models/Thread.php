@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
+use Itway\Components\teamwork\Teamwork\TeamworkTeam;
 
 class Thread extends Eloquent
 {
@@ -49,7 +50,18 @@ class Thread extends Eloquent
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function team()
+    {
+
+        return $this->belongsTo(TeamworkTeam::class, 'team_id');
+
+    }
+
+    /**
      * Returns the latest message from a thread
+     *
      * @return mixed
      */
     public function getLatestMessageAttribute()

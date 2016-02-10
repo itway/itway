@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class CreateUsersTable extends Migration
 {
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->boolean('banned')->default(false);
             $table->string('country')->nullable();
             $table->string('country_name')->nullable();
+            $table->timestamp('date')->default(Carbon::today());
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

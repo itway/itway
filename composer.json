@@ -34,7 +34,8 @@
         "camroncade/timezone": "dev-master",
         "rtconner/laravel-tagging": "~2.0.6",
         "spatie/laravel-medialibrary": "^3.11",
-        "arcanedev/log-viewer": "^3.7"
+        "arcanedev/log-viewer": "^3.7",
+        "a6digital/laravel-default-profile-image": "^1.0"
 
     },
     "require-dev": {

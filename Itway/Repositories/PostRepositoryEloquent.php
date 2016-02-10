@@ -51,7 +51,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-
     /**
      * get the model instance
      *
@@ -137,6 +136,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
 
     /**
      * delete post && attached body && attached tags
+     *
      * @param $id
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
@@ -168,7 +168,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
      */
     public function countUserPosts()
     {
-
         return $this->getModel()->where('user_id', '=', Auth::id())->count();
     }
 
@@ -179,7 +178,6 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     public function todayPosts()
     {
         return $this->getModel()->groupBy('published_at')->latest('published_at')->published()->today()->count();
-
     }
 
     /**

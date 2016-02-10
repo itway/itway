@@ -104,7 +104,9 @@ trait ImageTrait
                 ->toCollection('logo');
 
         } catch (Exception $e) {
+
             return response()->json('error', $e->getCode());
+
         }
     }
 
@@ -219,5 +221,24 @@ trait ImageTrait
 
         $image = Image::make($file)->fit(150);
         return $image;
+    }
+
+    /**
+     * @param $user
+     */
+    public function makeDefaultUserImg($user){
+
+        $img = \DefaultProfileImage::create($user->name, 256, '#eee', '#34495e');
+        $img->filename = $user->id;
+        $img->extension = 'png';
+        $imgUser = $img->encode();
+        $folder = $user->id . '-' . str_random(8);
+        $path = public_path(str_finish('tmp_images/' . $folder, '/') . $img->filename);
+        \File::makeDirectory(dirname($path), 0777, true);
+        \Image::make($imgUser)->save($path . '.png');
+        $fileName = $img->filename;
+        $url = url('/tmp_images/' . $folder . '/' . $fileName);
+        $user->bindLogoFromURL($url, $user);
+        \File::deleteDirectory(dirname($path));
     }
 }

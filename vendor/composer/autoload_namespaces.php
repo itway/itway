@@ -31,4 +31,5 @@ return array(
     'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
     'Camroncade\\Timezone\\' => array($vendorDir . '/camroncade/timezone/src'),
+    'A6digital\\Image' => array($vendorDir . '/a6digital/laravel-default-profile-image/src'),
 );

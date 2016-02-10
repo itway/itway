@@ -59,7 +59,7 @@
             </form>
             <div class="line"></div>
             <div class="form-group l-12 text-center">
-                <span class="text-center width100">или ввойдите через</span>
+                <span class="text-center width100">or login with</span>
 
             </div>
             <div class="form-group text-center">

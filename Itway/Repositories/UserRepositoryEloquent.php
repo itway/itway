@@ -94,7 +94,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function getRole($user)
     {
-
         foreach ($user->roles()->get() as $role) {
             {
                 return [$role->id, $role->name];
@@ -106,6 +105,28 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function getAll()
     {
         return $this->getModel()->paginate();
+    }
+
+    /**
+     * return the number of today's posts
+     * @return mixed
+     */
+    public function todayUsers()
+    {
+
+        return $this->getModel()->groupBy('created_at')->latest('created_at')->today()->paginate();
+
+    }
+
+    /**
+     * return the number of today's posts
+     * @return mixed
+     */
+    public function todayUsersCount()
+    {
+
+        return $this->getModel()->groupBy('created_at')->latest('created_at')->today()->count();
+
     }
 
     /**

@@ -179,7 +179,7 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Itway\Components\Flash\FlashServiceProvider::class,
-
+        A6digital\Image\DefaultProfileImageServiceProvider::class,
     ],
 
     /*

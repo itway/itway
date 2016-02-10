@@ -39,7 +39,7 @@ class EventRepositoryEloquent extends BaseRepository implements EventRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'name' => '=',
+        'name' => 'like',
         'description' => 'like',
         'time' => 'like',
         'date' => 'like',

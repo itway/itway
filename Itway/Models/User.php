@@ -21,6 +21,8 @@ use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Carbon\Carbon;
+use Conner\Tagging\Model\Tagged;
 
 class User extends Model implements Transformable, AuthenticatableContract, CanResetPasswordContract, SluggableInterface, HasMedia
 {
@@ -33,6 +35,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     use Messagable;
     use HasMediaTrait;
     use ImageTrait;
+    use \Itway\Traits\ViewCounterTrait;
 
     protected $sluggable = array(
         'build_from' => 'name',
@@ -48,7 +51,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     protected $guarded = ['id'];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at','date'];
 
 //    protected $searchable = [
 //        'columns' => [
@@ -89,6 +92,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
         'Twitter',
         'banned',
         'country',
+        'date',
         'country_name'];
 
     /**
@@ -114,6 +118,25 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * @param $date
+     */
+    public function setDateAttribute($date)
+    {
+
+        $this->attributes['date'] = Carbon::today();
+
+    }
+
+    /**
+     * @param $query
+     */
+    public function scopeToday($query)
+    {
+
+        $query->where('date', '=', Carbon::today());
+
+    }
     public function getRememberToken()
     {
         return $this->remember_token;
@@ -226,6 +249,20 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
         return false;
 
+    }
+
+    /**
+     * rewrite the taggable trait function
+     * @return mixed
+     */
+    public static function existingTags()
+    {
+        return Tagged::distinct()
+            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
+            ->where('taggable_type', '=', (new static)->getMorphClass())
+            ->orderBy('count', 'desc')
+            ->take(8)
+            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
     }
 
 }

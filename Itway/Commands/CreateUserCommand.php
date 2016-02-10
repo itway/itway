@@ -8,6 +8,7 @@
 
 namespace Itway\Commands;
 
+use A6digital\Image\Facades\DefaultProfileImage;
 use itway\Commands\Command;
 
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -16,7 +17,7 @@ use itway\Events\UserWasCreatedEvent;
 use Itway\Models\User;
 use App;
 
-class CreateUserCommand  extends Command implements SelfHandling
+class CreateUserCommand extends Command implements SelfHandling
 {
     public $name,
         $email,
@@ -41,12 +42,12 @@ class CreateUserCommand  extends Command implements SelfHandling
         $photo,
         $provider = null,
         $provider_id = null
-        )
+    )
     {
         $this->name = $name;
         $this->email = $email;
         $this->photo = $photo;
-        $this->provider = $provider ? $provider: null;
+        $this->provider = $provider ? $provider : null;
         $this->provider_id = $provider_id ? $provider_id : null;
         $this->password = $password;
     }
@@ -55,24 +56,19 @@ class CreateUserCommand  extends Command implements SelfHandling
      * @return static
      */
     public function handle()
-
     {
-
-        if(!($this->photo
+        if (!($this->photo
             && $this->provider
-            && $this->provider_id)) {
-
+            && $this->provider_id)
+        ) {
             $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => $this->password,
                 'locale' => App::getLocale()
-
             ]);
-
+            $user->makeDefaultUserImg($user);
         } else {
-
-
             $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
@@ -80,15 +76,13 @@ class CreateUserCommand  extends Command implements SelfHandling
                 'provider_id' => $this->provider_id,
                 'password' => $this->password,
                 'locale' => App::getLocale()
-
             ]);
         }
 
-        $user->bindLogoFromURL($this->photo, $user);
-
+        if (!is_null($this->photo)) {
+            $user->bindLogoFromURL($this->photo, $user);
+        }
         event(new UserWasCreatedEvent($user));
-
         return $user;
     }
-
 }

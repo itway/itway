@@ -33,7 +33,6 @@ class EventSpeakers extends Model implements Transformable, Likeable, HasMedia
         'speaker_company',
         'speaker_description'
     ];
-    public $timestamps = false;
 
     protected $hidden = ['id', 'events_id'];
 

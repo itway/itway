@@ -9,7 +9,7 @@
             <div class="ui three statistics" style="margin-top: 0px">
                 <div class="statistic">
                     <div class="value">
-                        0
+                        {!! $countTodayUsers !!}
                     </div>
                     <div class="label">
                         Today New users

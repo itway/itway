@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-02-01.
+    * Generated on 2016-02-10.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -128,6 +128,7 @@ namespace PHPSTORM_META {
             'arcanedev.log-viewer.commands.stats' instanceof \Arcanedev\LogViewer\Commands\StatsCommand,
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
+            'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
@@ -336,6 +337,7 @@ namespace PHPSTORM_META {
             'arcanedev.log-viewer.commands.stats' instanceof \Arcanedev\LogViewer\Commands\StatsCommand,
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
+            'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
@@ -544,6 +546,7 @@ namespace PHPSTORM_META {
             'arcanedev.log-viewer.commands.stats' instanceof \Arcanedev\LogViewer\Commands\StatsCommand,
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
+            'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
@@ -752,6 +755,7 @@ namespace PHPSTORM_META {
             'arcanedev.log-viewer.commands.stats' instanceof \Arcanedev\LogViewer\Commands\StatsCommand,
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
+            'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,

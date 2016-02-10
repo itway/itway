@@ -115,6 +115,7 @@ class EventsController extends Controller
             return redirect()->to(App::getLocale() . '/events/event/' . $event->id);
         } catch (\Exception $e) {
 
+            return $e;
             $this->redirectError('Error Appeared in the process of creation...');
         }
     }

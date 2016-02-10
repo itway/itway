@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Conner\Tagging\Model\Tagged;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Itway\Components\Messenger\Models\Thread;
 use Itway\Components\teamwork\Teamwork\TeamworkTeam;
 use Itway\Uploader\ImageTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -78,6 +79,10 @@ class Team extends TeamworkTeam implements HasMedia
         return $this->hasMany(\Itway\Models\TeamsTrends::class, "team_id");
     }
 
+    public function thread()
+    {
+        return $this->hasMany(Thread::class, "team_id");
+    }
     /**
      * @param Request $request
      */

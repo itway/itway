@@ -195,6 +195,7 @@ class TeamsController extends Controller
                 $teamMember = $this->repository->isTeamMember($team->id, $currentTeam->id);
             }
             else $teamMember = null;
+            $team->view();
 
         } else {
             $currentTeam = null;

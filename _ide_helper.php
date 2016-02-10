@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.28 (LTS) on 2016-02-01.
+ * Generated for Laravel 5.1.29 (LTS) on 2016-02-10.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11541,7 +11541,7 @@ namespace {
          * @param string $path
          * @param array $data
          * @param array $mergeData
-         * @return \Illuminate\View\View 
+         * @return \Illuminate\Contracts\View\View 
          * @static 
          */
         public static function file($path, $data = array(), $mergeData = array()){
@@ -11566,7 +11566,7 @@ namespace {
          *
          * @param string $view
          * @param mixed $data
-         * @return \Illuminate\View\View 
+         * @return \Illuminate\Contracts\View\View 
          * @static 
          */
         public static function of($view, $data = array()){
@@ -11685,7 +11685,7 @@ namespace {
         /**
          * Call the composer for a given view.
          *
-         * @param \Illuminate\View\View $view
+         * @param \Illuminate\Contracts\View\View $view
          * @return void 
          * @static 
          */
@@ -11696,7 +11696,7 @@ namespace {
         /**
          * Call the creator for a given view.
          *
-         * @param \Illuminate\View\View $view
+         * @param \Illuminate\Contracts\View\View $view
          * @return void 
          * @static 
          */
@@ -15901,6 +15901,24 @@ namespace {
          */
         public static function version(){
             return \Arcanedev\LogViewer\LogViewer::version();
+        }
+        
+    }
+
+
+    class DefaultProfileImage extends \A6digital\Image\Facades\DefaultProfileImage{
+        
+        /**
+         * 
+         *
+         * @param string $name
+         * @param int $size
+         * @return \A6digital\Image\ImageManagerStatic 
+         * @throws Exception
+         * @static 
+         */
+        public static function create($name = '', $size = 512, $background_color = '#666', $text_color = '#FFF', $font_file = '../../../font/OpenSans-Semibold.ttf'){
+            return \A6digital\Image\DefaultProfileImage::create($name, $size, $background_color, $text_color, $font_file);
         }
         
     }

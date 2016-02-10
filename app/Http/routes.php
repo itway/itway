@@ -75,5 +75,10 @@ Route::put('room/{id}', ['as' => 'chat.update', 'uses' => 'ChatController@update
 Route::get('room/{current_thread}/{user_id}', ['uses' => 'ChatController@getMessages', 'as' => 'room-messages-get']);
 Route::get('room/getMessage', ['uses' => 'ChatController@getMessage', 'as' => 'room-message-get']);
 Route::post('room/create-message', ['uses' => 'ChatController@sendMessage', 'as' => 'room-messages-create']);
+Route::get('tmp_images/{folder}/{filename}', function ($folder, $filename)
+{
+    $path = public_path(str_finish('tmp_images/'.$folder, '/') . $filename);
 
+    return Image::make($path.'.png')->response('png');
+});
 // END OF ROUTES FOR AJAX CALLS

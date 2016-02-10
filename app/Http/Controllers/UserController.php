@@ -94,6 +94,7 @@ class UserController extends Controller
                 $owner = true;
             } else {
                 $owner = false;
+                $user->view();
             }
             if ($user->getMedia('logo')->first()) {
                 $pictures = $user->getMedia('logo');

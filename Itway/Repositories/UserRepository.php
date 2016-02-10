@@ -21,5 +21,7 @@ interface UserRepository extends RepositoryInterface
     public function queryUserWithLogo($query);
     public function queryUser($query);
     public function queryUserWith($query, array $parameters);
+    public function todayUsers();
+    public function todayUsersCount();
 
 }

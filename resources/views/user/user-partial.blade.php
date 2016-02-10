@@ -31,11 +31,18 @@
         @if(!empty($user->country))
             <div class="card" style="margin-left: 0">
                 <span class="header text-primary text-center">Country:</span>
+
                 <div class="country-block">
                     <i class="{{strtolower($user->country)}} flag"></i>{{$user->country_name}}
                 </div>
             </div>
         @endif
+        <div class="card" style="margin-left: 0">
+        <h6 class="header text-brown" style="">
+                        <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
+                        views - <span>{{$user->views_count()}}</span>
+                    </h6>
+        </div>
     </div>
 </div>
 
