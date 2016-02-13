@@ -324,7 +324,7 @@ class Connection implements DriverConnection
      */
     public function getDatabasePlatform()
     {
-        if (null === $this->platform) {
+        if (null == $this->platform) {
             $this->detectDatabasePlatform();
         }
 
@@ -349,9 +349,7 @@ class Connection implements DriverConnection
      */
     public function connect()
     {
-        if ($this->_isConnected) {
-            return false;
-        }
+        if ($this->_isConnected) return false;
 
         $driverOptions = isset($this->_params['driverOptions']) ?
             $this->_params['driverOptions'] : array();
@@ -361,6 +359,10 @@ class Connection implements DriverConnection
 
         $this->_conn = $this->_driver->connect($this->_params, $user, $password, $driverOptions);
         $this->_isConnected = true;
+
+        if (null === $this->platform) {
+            $this->detectDatabasePlatform();
+        }
 
         if (false === $this->autoCommit) {
             $this->beginTransaction();
@@ -578,6 +580,8 @@ class Connection implements DriverConnection
             throw InvalidArgumentException::fromEmptyCriteria();
         }
 
+        $this->connect();
+
         $criteria = array();
 
         foreach (array_keys($identifier) as $columnName) {
@@ -645,6 +649,7 @@ class Connection implements DriverConnection
      */
     public function update($tableExpression, array $data, array $identifier, array $types = array())
     {
+        $this->connect();
         $set = array();
 
         foreach ($data as $columnName => $value) {
@@ -677,6 +682,8 @@ class Connection implements DriverConnection
      */
     public function insert($tableExpression, array $data, array $types = array())
     {
+        $this->connect();
+
         if (empty($data)) {
             return $this->executeUpdate('INSERT INTO ' . $tableExpression . ' ()' . ' VALUES ()');
         }
@@ -742,7 +749,6 @@ class Connection implements DriverConnection
         $this->connect();
 
         list($value, $bindingType) = $this->getBindingInfo($input, $type);
-
         return $this->_conn->quote($value, $bindingType);
     }
 
@@ -765,12 +771,14 @@ class Connection implements DriverConnection
      *
      * @param string $statement The SQL statement to prepare.
      *
-     * @return \Doctrine\DBAL\Statement The prepared statement.
+     * @return \Doctrine\DBAL\Driver\Statement The prepared statement.
      *
      * @throws \Doctrine\DBAL\DBALException
      */
     public function prepare($statement)
     {
+        $this->connect();
+
         try {
             $stmt = new Statement($statement, $this);
         } catch (\Exception $ex) {
@@ -1089,7 +1097,7 @@ class Connection implements DriverConnection
      *
      * @param \Closure $func The function to execute transactionally.
      *
-     * @return mixed The value returned by $func
+     * @return void
      *
      * @throws \Exception
      */
@@ -1097,11 +1105,10 @@ class Connection implements DriverConnection
     {
         $this->beginTransaction();
         try {
-            $res = $func($this);
+            $func($this);
             $this->commit();
-            return $res;
         } catch (Exception $e) {
-            $this->rollBack();
+            $this->rollback();
             throw $e;
         }
     }
@@ -1248,6 +1255,9 @@ class Connection implements DriverConnection
     /**
      * Cancels any database changes done during the current transaction.
      *
+     * This method can be listened with onPreTransactionRollback and onTransactionRollback
+     * eventlistener methods.
+     *
      * @throws \Doctrine\DBAL\ConnectionException If the rollback operation failed.
      */
     public function rollBack()
@@ -1265,7 +1275,7 @@ class Connection implements DriverConnection
                 $logger->startQuery('"ROLLBACK"');
             }
             $this->_transactionNestingLevel = 0;
-            $this->_conn->rollBack();
+            $this->_conn->rollback();
             $this->_isRollbackOnly = false;
             if ($logger) {
                 $logger->stopQuery();

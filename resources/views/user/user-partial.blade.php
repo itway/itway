@@ -40,7 +40,9 @@
         <div class="card" style="margin-left: 0">
         <h6 class="header text-brown" style="">
                         <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
-                        views - <span>{{$user->views_count()}}</span>
+                        views - <span>@if(is_null($user->views_count())) 0 @else
+                           $user->views_count()
+                        @endif</span>
                     </h6>
         </div>
     </div>
