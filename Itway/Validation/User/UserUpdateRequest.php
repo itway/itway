@@ -32,10 +32,10 @@ class UserUpdateRequest extends Request
             'password' => 'string|min:8|max:32',
             'location' => 'string|min:3|max:64',
             'country' => 'string|min:2|max:3',
-            'Google' => 'email',
-            'Facebook' => 'url',
-            'Github' => 'url',
-            'Twitter' => 'string|min:3|max:250',
+            'Google' => 'email|unique:users|max:255',
+            'Facebook' => 'url|unique:users|max:255',
+            'Github' => 'url|unique:users|max:255',
+            'Twitter' => 'string|unique:users|min:3|max:255',
         ];
     }
 }

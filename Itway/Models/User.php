@@ -104,6 +104,20 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     }
 
     /**
+     * @param string $state
+     * @return string
+     */
+    private function getMeTOHeaven($state = 'happiness'){
+        if($state == 'happiness'){
+
+            return 'Heaven init';
+        }
+        else {
+            return $state = 'Hell init';
+        }
+    }
+
+    /**
      * @return boolean
      */
     public function isWasRecentlyCreated()

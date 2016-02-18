@@ -1949,16 +1949,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.29",
+            "version": "v5.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7e7ba568ffbc8f3f00778f2e8f41fb92127944fd"
+                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7e7ba568ffbc8f3f00778f2e8f41fb92127944fd",
-                "reference": "7e7ba568ffbc8f3f00778f2e8f41fb92127944fd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
+                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
                 "shasum": ""
             },
             "require": {
@@ -2073,7 +2073,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-02 14:56:40"
+            "time": "2016-02-17 18:00:25"
         },
         {
             "name": "laravel/socialite",
@@ -3236,16 +3236,16 @@
         },
         {
             "name": "rtconner/laravel-tagging",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rtconner/laravel-tagging.git",
-                "reference": "0fedd427458d8cff11404c7e44ff67b15fa680eb"
+                "reference": "f4995f4b93043574fe5032c68e9b41e9a53b8a25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rtconner/laravel-tagging/zipball/0fedd427458d8cff11404c7e44ff67b15fa680eb",
-                "reference": "0fedd427458d8cff11404c7e44ff67b15fa680eb",
+                "url": "https://api.github.com/repos/rtconner/laravel-tagging/zipball/f4995f4b93043574fe5032c68e9b41e9a53b8a25",
+                "reference": "f4995f4b93043574fe5032c68e9b41e9a53b8a25",
                 "shasum": ""
             },
             "require": {
@@ -3287,7 +3287,7 @@
                 "tagging",
                 "tags"
             ],
-            "time": "2016-02-07 18:12:07"
+            "time": "2016-02-15 17:54:58"
         },
         {
             "name": "ruflin/elastica",
@@ -3515,16 +3515,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.14.1",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "8852f1839605e308e2d82c5c3e797539c8444336"
+                "reference": "66f6a28065b304e6b7447370d14c15271b6c909f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/8852f1839605e308e2d82c5c3e797539c8444336",
-                "reference": "8852f1839605e308e2d82c5c3e797539c8444336",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/66f6a28065b304e6b7447370d14c15271b6c909f",
+                "reference": "66f6a28065b304e6b7447370d14c15271b6c909f",
                 "shasum": ""
             },
             "require": {
@@ -3571,7 +3571,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-01-29 08:11:10"
+            "time": "2016-02-17 08:51:22"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -5391,22 +5391,24 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7"
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4745ded9307786b730d7a60df5cb5a6c43cf95f7",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3c91bdf81797d725b14cb62906f9a4ce44235972",
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
+                "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "~2.0",
-                "sebastian/comparator": "~1.1"
+                "sebastian/comparator": "~1.1",
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -5414,7 +5416,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -5447,7 +5449,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-08-13 10:07:40"
+            "time": "2016-02-15 07:46:21"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-02-13.
+    * Generated on 2016-02-18.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -48,6 +48,7 @@ namespace PHPSTORM_META {
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
+            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
@@ -109,6 +110,7 @@ namespace PHPSTORM_META {
             'timezone' instanceof \Camroncade\Timezone\Timezone,
             'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
             'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
+            'command.medialibrary:clear' instanceof \Spatie\MediaLibrary\Commands\ClearCommand,
             'arcanedev.log-viewer.levels' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'Arcanedev\LogViewer\Contracts\LogLevelsInterface' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'arcanedev.log-viewer.styler' instanceof \Arcanedev\LogViewer\Utilities\LogStyler,
@@ -216,7 +218,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -257,6 +258,7 @@ namespace PHPSTORM_META {
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
+            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
@@ -318,6 +320,7 @@ namespace PHPSTORM_META {
             'timezone' instanceof \Camroncade\Timezone\Timezone,
             'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
             'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
+            'command.medialibrary:clear' instanceof \Spatie\MediaLibrary\Commands\ClearCommand,
             'arcanedev.log-viewer.levels' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'Arcanedev\LogViewer\Contracts\LogLevelsInterface' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'arcanedev.log-viewer.styler' instanceof \Arcanedev\LogViewer\Utilities\LogStyler,
@@ -425,7 +428,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
         ],
         \App::make('') => [
             '' == '@',
@@ -466,6 +468,7 @@ namespace PHPSTORM_META {
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
+            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
@@ -527,6 +530,7 @@ namespace PHPSTORM_META {
             'timezone' instanceof \Camroncade\Timezone\Timezone,
             'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
             'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
+            'command.medialibrary:clear' instanceof \Spatie\MediaLibrary\Commands\ClearCommand,
             'arcanedev.log-viewer.levels' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'Arcanedev\LogViewer\Contracts\LogLevelsInterface' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'arcanedev.log-viewer.styler' instanceof \Arcanedev\LogViewer\Utilities\LogStyler,
@@ -634,7 +638,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
         ],
         app('') => [
             '' == '@',
@@ -675,6 +678,7 @@ namespace PHPSTORM_META {
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
+            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
@@ -736,6 +740,7 @@ namespace PHPSTORM_META {
             'timezone' instanceof \Camroncade\Timezone\Timezone,
             'Spatie\MediaLibrary\MediaRepository' instanceof \Spatie\MediaLibrary\MediaRepository,
             'command.medialibrary:regenerate' instanceof \Spatie\MediaLibrary\Commands\RegenerateCommand,
+            'command.medialibrary:clear' instanceof \Spatie\MediaLibrary\Commands\ClearCommand,
             'arcanedev.log-viewer.levels' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'Arcanedev\LogViewer\Contracts\LogLevelsInterface' instanceof \Arcanedev\LogViewer\Utilities\LogLevels,
             'arcanedev.log-viewer.styler' instanceof \Arcanedev\LogViewer\Utilities\LogStyler,
@@ -843,7 +848,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
         ],
     ];
 }

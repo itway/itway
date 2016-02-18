@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.29 (LTS) on 2016-02-13.
+ * Generated for Laravel 5.1.30 (LTS) on 2016-02-18.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -3403,6 +3403,52 @@ namespace {
         }
         
         /**
+         * Find a model by its primary key or return fresh model instance.
+         *
+         * @param mixed $id
+         * @param array $columns
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function findOrNew($id, $columns = array()){
+            return \Illuminate\Database\Eloquent\Builder::findOrNew($id, $columns);
+        }
+        
+        /**
+         * Get the first record matching the attributes or instantiate it.
+         *
+         * @param array $attributes
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function firstOrNew($attributes){
+            return \Illuminate\Database\Eloquent\Builder::firstOrNew($attributes);
+        }
+        
+        /**
+         * Get the first record matching the attributes or create it.
+         *
+         * @param array $attributes
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function firstOrCreate($attributes){
+            return \Illuminate\Database\Eloquent\Builder::firstOrCreate($attributes);
+        }
+        
+        /**
+         * Create or update a record matching the attributes, and fill it with values.
+         *
+         * @param array $attributes
+         * @param array $values
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function updateOrCreate($attributes, $values = array()){
+            return \Illuminate\Database\Eloquent\Builder::updateOrCreate($attributes, $values);
+        }
+        
+        /**
          * Execute the query and get the first result.
          *
          * @param array $columns
@@ -3704,6 +3750,17 @@ namespace {
          */
         public static function getModel(){
             return \Illuminate\Database\Eloquent\Builder::getModel();
+        }
+        
+        /**
+         * Get a fresh instance of a model instance being queried.
+         *
+         * @param array $attributes
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function newModel($attributes = array()){
+            return \Illuminate\Database\Eloquent\Builder::newModel($attributes);
         }
         
         /**
@@ -13657,43 +13714,6 @@ namespace {
         }
         
         /**
-         * Get the first record matching the attributes or create it.
-         *
-         * @param array $attributes
-         * @return static 
-         * @static 
-         */
-        public static function firstOrCreate($attributes){
-            //Method inherited from \Illuminate\Database\Eloquent\Model            
-            return \Webpatser\Countries\Countries::firstOrCreate($attributes);
-        }
-        
-        /**
-         * Get the first record matching the attributes or instantiate it.
-         *
-         * @param array $attributes
-         * @return static 
-         * @static 
-         */
-        public static function firstOrNew($attributes){
-            //Method inherited from \Illuminate\Database\Eloquent\Model            
-            return \Webpatser\Countries\Countries::firstOrNew($attributes);
-        }
-        
-        /**
-         * Create or update a record matching the attributes, and fill it with values.
-         *
-         * @param array $attributes
-         * @param array $values
-         * @return static 
-         * @static 
-         */
-        public static function updateOrCreate($attributes, $values = array()){
-            //Method inherited from \Illuminate\Database\Eloquent\Model            
-            return \Webpatser\Countries\Countries::updateOrCreate($attributes, $values);
-        }
-        
-        /**
          * Begin querying the model.
          *
          * @return \Illuminate\Database\Eloquent\Builder 
@@ -13737,19 +13757,6 @@ namespace {
         public static function all($columns = array()){
             //Method inherited from \Illuminate\Database\Eloquent\Model            
             return \Webpatser\Countries\Countries::all($columns);
-        }
-        
-        /**
-         * Find a model by its primary key or return new static.
-         *
-         * @param mixed $id
-         * @param array $columns
-         * @return \Illuminate\Support\Collection|static 
-         * @static 
-         */
-        public static function findOrNew($id, $columns = array()){
-            //Method inherited from \Illuminate\Database\Eloquent\Model            
-            return \Webpatser\Countries\Countries::findOrNew($id, $columns);
         }
         
         /**
