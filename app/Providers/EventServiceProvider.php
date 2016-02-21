@@ -10,6 +10,8 @@ use itway\Events\PollWasCreated;
 use itway\Listeners\PollWasCreatedListener;
 use itway\Events\TeamWasCreatedEvent;
 use itway\Listeners\TeamWasCreatedListener;
+use itway\Events\EventWasCreatedEvent;
+use itway\Listeners\EventWasCreatedListener;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -24,8 +26,7 @@ class EventServiceProvider extends ServiceProvider {
 		],
 		UserWasCreatedEvent::class => [
 			UserRegisteredListener::class
-		]
-		,
+		],
 		PostWasCreatedEvent::class => [
 			PostWasCreatedListener::class
 		],
@@ -33,8 +34,11 @@ class EventServiceProvider extends ServiceProvider {
 			PollWasCreatedListener::class
 		],
 		TeamWasCreatedEvent::class => [
-				TeamWasCreatedListener::class
-		]
+			TeamWasCreatedListener::class
+		],
+		EventWasCreatedEvent::class => [
+			EventWasCreatedListener::class
+		],
 
 	];
 

@@ -16,10 +16,6 @@ use Illuminate\Support\Str;
  *   <li>current controller</li>
  * </ul>
  *
- * @package    HieuLe\Active
- * @author     Hieu Le <letrunghieu.cse09@gmail.com>
- * @version    2.1.0
- *
  */
 class Active
 {
