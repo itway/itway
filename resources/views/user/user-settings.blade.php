@@ -25,11 +25,14 @@
                         <div class="form-group">
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_fullname')}}</h5>
-                                {!! Form::text('name',  $user->name  ,array( 'class' => 'input input-line', 'id' => 'fullname', 'placeholder' => 'пожалуйста введите имя и фамилию')) !!}
+                                {!! Form::text('name',  $user->name  ,array( 'class' => 'input input-line', 'id' => 'fullname', 'placeholder' => trans("placeholders.profile.fullname"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
+                        </div>
+                        <div class="text-center">
+                            {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -42,13 +45,16 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_email')}} </h5>
 
-                                {!! Form::email('email', null, array( 'class' => 'input input-line', 'id' => 'email', 'placeholder' => 'введите ваш email')) !!}
+                                {!! Form::email('email', null, array( 'class' => 'input input-line', 'id' => 'email', 'placeholder' =>  trans("placeholders.profile.email"))) !!}
 
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
 
+                        </div>
+                        <div class="text-center">
+                            {!! $errors->first('email', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -61,11 +67,14 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_password')}}</h5>
 
-                                {!! Form::password('password' ,array( 'class' => 'input input-line', 'id' => 'password', 'placeholder' => 'введите ваш пароль')) !!}
+                                {!! Form::password('password' ,array( 'class' => 'input input-line', 'id' => 'password', 'placeholder' =>  trans("placeholders.profile.password"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
+                        </div>
+                        <div class="text-center">
+                            {!! $errors->first('password', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -84,6 +93,9 @@
                             </div>
                         </div>
                         </div>
+                        <div class="text-center">
+                            {!! $errors->first('country', '<div class="text-danger">:message</div>') !!}
+                        </div>
                         {!!Form::close()!!}
                     </div>
                 </div>
@@ -95,13 +107,15 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_google')}}</h5>
 
-                                {!! Form::text('Google', null, array( 'class' => 'input input-line', 'id' => 'linkToGoogle', 'placeholder' => 'введите ваш google аккаунт')) !!}
+                                {!! Form::text('Google', null, array( 'class' => 'input input-line', 'id' => 'linkToGoogle', 'placeholder' =>  trans("placeholders.profile.google"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
                                 </div>
                             </div>
                         </div>
-
+                        <div class="text-center">
+                            {!! $errors->first('Google', '<div class="text-danger">:message</div>') !!}
+                        </div>
                         {!!Form::close()!!}
                     </div>
                 </div>
@@ -114,11 +128,15 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_twitter')}}</h5>
 
-                                {!! Form::text('Twitter',  null, array( 'class' => 'input input-line', 'id' => 'linkToTwitter', 'placeholder' => 'введите ваш twitter аккаунт')) !!}
+                                {!! Form::text('Twitter',  null, array( 'class' => 'input input-line', 'id' => 'linkToTwitter', 'placeholder' =>  trans("placeholders.profile.twitter"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' ))!!}
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="text-center">
+                            {!! $errors->first('Twitter', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -131,11 +149,14 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                 <h5 class="text-info ">{{trans('profile.alter_user_facebook')}} </h5>
 
-                                {!! Form::text('Facebook',  null, array( 'class' => 'input input-line', 'id' => 'linkToFacebook', 'placeholder' => 'введите ваш facebook аккаунт')) !!}
+                                {!! Form::text('Facebook',  null, array( 'class' => 'input input-line', 'id' => 'linkToFacebook', 'placeholder' =>  trans("placeholders.profile.Facebook"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}</div>
                             </div>
 
+                        </div>
+                        <div class="text-center">
+                            {!! $errors->first('Facebook', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -149,7 +170,7 @@
                             <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1 ">
                                 <h5 class="text-info ">{{trans('profile.alter_user_github')}} </h5>
 
-                                {!! Form::text('Github', null, array( 'class' => 'input input-line', 'id' => 'linkToGithub', 'placeholder' => 'введите ваш github аккаунт')) !!}
+                                {!! Form::text('Github', null, array( 'class' => 'input input-line', 'id' => 'linkToGithub', 'placeholder' => trans("placeholders.profile.Github"))) !!}
                                 <div class="pull-right">
                                     {!! Form::submit(trans('forms.change'), array( 'class' => 'button button-default' )) !!}
 
@@ -157,7 +178,9 @@
 
                             </div>
                         </div>
-
+                        <div class="text-center">
+                            {!! $errors->first('Github', '<div class="text-danger">:message</div>') !!}
+                        </div>
                         {!!Form::close()!!}
                     </div>
                 </div>
@@ -178,6 +201,10 @@
 
                         </div>
                     </div>
+
+                    <div class="text-center">
+                        {!! $errors->first('tags_list', '<div class="text-danger">:message</div>') !!}
+                    </div>
                     {!!Form::close()!!}
                 </div>
             </div>
@@ -197,7 +224,7 @@
                                 </div>
                                 {!!Form::textarea('bio',  null, ['class'=>'input input-line', 'rows'=> '10',  'id'=>'about-yourself'])!!}
 
-                                <span class="help-block">{{trans('profile.alter_user_bio_bottom')}}</span>
+                                <span class="help-block">{{trans("placeholders.profile.bio")}}</span>
 
                                 <div class="pull-right">
 
@@ -205,6 +232,9 @@
                                 </div>
 
                             </div>
+                        </div>
+                        <div class="text-center">
+                            {!! $errors->first('bio', '<div class="text-danger">:message</div>') !!}
                         </div>
                         {!!Form::close()!!}
                     </div>
@@ -245,7 +275,7 @@
         };
         var tagBox = $("#tagBox");
         tagBox.tagging(tag_options);
-        $('.type-zone').attr('placeholder', 'at least one tag');
+        $('.type-zone').attr('placeholder', "{{trans("placeholders.profile.tag_list")}}");
         @if(Route::currentRouteName() === 'itway::user::settings')
             @include('user.updateFormScript')
         @endif

@@ -5942,6 +5942,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "php-console/php-console",
         "version": "3.1.6",
         "version_normalized": "3.1.6.0",
@@ -6080,6 +6081,8 @@
         ]
     },
     {
+=======
+>>>>>>> origin/master
         "name": "laravel/framework",
         "version": "v5.1.30",
         "version_normalized": "5.1.30.0",
@@ -6267,6 +6270,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "guzzlehttp/psr7",
         "version": "1.2.3",
         "version_normalized": "1.2.3.0",
@@ -6327,6 +6331,8 @@
         ]
     },
     {
+=======
+>>>>>>> origin/master
         "name": "spatie/laravel-medialibrary",
         "version": "3.15.0",
         "version_normalized": "3.15.0.0",
@@ -6451,6 +6457,7 @@
             "spy",
             "stub"
         ]
+<<<<<<< HEAD
     },
     {
         "name": "camroncade/timezone",
@@ -6494,5 +6501,7 @@
         ],
         "description": "Helps manage timezones in Laravel. Includes <select> form builder for timezones.",
         "homepage": "http://www.camroncade.com/managing-timezones-with-laravel/"
+=======
+>>>>>>> origin/master
     }
 ]
