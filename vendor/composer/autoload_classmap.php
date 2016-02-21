@@ -6183,6 +6183,7 @@ return array(
     'League\\Flysystem\\Util' => $vendorDir . '/league/flysystem/src/Util.php',
     'League\\Flysystem\\Util\\ContentListingFormatter' => $vendorDir . '/league/flysystem/src/Util/ContentListingFormatter.php',
     'League\\Flysystem\\Util\\MimeType' => $vendorDir . '/league/flysystem/src/Util/MimeType.php',
+    'League\\Flysystem\\Util\\StreamHasher' => $vendorDir . '/league/flysystem/src/Util/StreamHasher.php',
     'League\\Fractal\\Manager' => $vendorDir . '/league/fractal/src/Manager.php',
     'League\\Fractal\\Pagination\\Cursor' => $vendorDir . '/league/fractal/src/Pagination/Cursor.php',
     'League\\Fractal\\Pagination\\CursorInterface' => $vendorDir . '/league/fractal/src/Pagination/CursorInterface.php',
