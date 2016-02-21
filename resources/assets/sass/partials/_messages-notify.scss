@@ -4,10 +4,14 @@
   box-shadow: none!important;
   &.error {
     border-bottom: 3px solid $red-color;
-    background-color: #a94442!important;
+    color: #a94442!important;
+    background: transparent!important;
     border-radius: 0 !important;
     .close {
-      color: white;
+      color: #a94442;
+    }
+    .error-small-header {
+      color: #a94442!important;
     }
   }
   .close {

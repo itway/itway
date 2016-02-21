@@ -76,3 +76,21 @@
   background-color: $button-default-bg;
   color: $primary-color;
 }
+#profile {
+  .ui.tabular.menu {
+    border-bottom: none!important;
+  }
+  .settings_change_btn {
+    color:$primary-color!important;
+    font-weight: bold!important;
+    border-bottom: none!important;
+    font-size: 22px !important;
+    background: #eee!important;
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+  }
+  .error_line {
+    border-bottom: 3px solid $red-color!important;
+    color: $deeporange-color!important;
+  }
+}

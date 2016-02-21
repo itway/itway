@@ -40,6 +40,7 @@
 <script src="{{asset('dist\semantic\dist\components\search.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\popup.min.js')}}"></script>
 <script src="{{asset('dist\semantic\dist\components\progress.min.js')}}"></script>
+<script src="{{asset('dist\semantic\dist\components\sticky.min.js')}}"></script>
 <script src="{{asset("dist/vendor/remodal/dist/remodal.min.js")}}"></script>
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.js")}}"></script>
 <script src="{{asset("dist/vendor/pickadate/lib/compressed/picker.date.js")}}"></script>

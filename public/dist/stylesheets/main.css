@@ -1768,6 +1768,9 @@ button.toast-close-button{padding:0;cursor:pointer;background:0 0;border:0;-webk
 .user-info-title{font-size:medium}
 .user-info-title.b{font-size:large;font-weight:700}
 .user-tags-block{padding:20px 15px;background-color:#f4f4f4;color:#607D8B}
+#profile .ui.tabular.menu{border-bottom:none!important}
+#profile .settings_change_btn{color:#607D8B!important;font-weight:700!important;border-bottom:none!important;font-size:22px!important;background:#eee!important;margin-bottom:0!important;margin-top:0!important}
+#profile .error_line{border-bottom:3px solid #F44336!important;color:#FF5722!important}
 .checkbox-users{margin:0 auto;text-align:center}
 .author{padding-top:5px}
 .author small{color:#03A9F4}
@@ -1897,8 +1900,9 @@ body::-webkit-scrollbar{width:12px}
 .ui.cards .card>.image{border-radius:0!important}
 .ui.cards .card.fluid{width:100%!important}
 .ui.message{border-radius:0!important;padding:.4em 1.5em!important;box-shadow:none!important}
-.ui.message.error{border-bottom:3px solid #F44336;background-color:#a94442!important;border-radius:0!important}
-.ui.message.error .close{color:#fff}
+.ui.message.error{border-bottom:3px solid #F44336;color:#a94442!important;background:0 0!important;border-radius:0!important}
+.ui.message.error .close{color:#a94442}
+.ui.message.error .error-small-header{color:#a94442!important}
 .ui.message .close{top:.58575em!important}
 .ui.message .header{font-family:"Source Sans Pro",icomoon,sans-serif!important;font-size:14px!important}
 .ui.message p{margin:0!important}
