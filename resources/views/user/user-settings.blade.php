@@ -10,13 +10,13 @@
     @if (!Auth::check())
         {{Redirect::to(URL::previous())}}
     @else
-            {!! Form::model($user,  ['method' => 'PATCH', 'action' => ['UserController@update', $user->id], 'id' => 'changeFullname', 'class' => 'form card-material-lightgrey', 'role' =>  'form']) !!}
+            {!! Form::model($user,  ['method' => 'PATCH', 'action' => ['UserController@update', $user->id], 'id' => 'changeFullname', 'class' => 'form card-material-lightgrey', 'role' =>  'form', 'autocomplete' => 'off']) !!}
 
             <div class="ui l-12 m-12 s-12">
                 <h3 class="title-underlined text-info">{{trans('profile.user_settings')}}</h3>
             </div>
             <div class="l-12 m-12 s-12 ui fluid" id="profile">
-                <div class="ui sticky bottom" style="padding-right: 10px; padding-left: 8px;">
+                <div class="ui sticky bottom" style="padding-right: 14px; padding-left: 10px;">
                     <div class="ui fluid one item tabular menu @if (count($errors) > 0) {!! "error_line" !!} @endif" >
                         {!! Form::submit(trans('forms.change'), array( 'class' => 'item button button-primary settings_change_btn' )) !!}
                     </div>
@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <div class="s-10 xs-10 l-offset-1 m-offset-1 s-offset-1 xs-offset-1">
                                         <h5 class="text-info ">{{trans('profile.alter_user_password')}}</h5>
-                                        {!! Form::password('password' ,array( 'class' => 'input input-line', 'id' => 'password', 'placeholder' =>  trans("placeholders.profile.password"))) !!}
+                                        {!! Form::password('password' ,array( 'class' => 'input input-line', 'autocomplete' =>'off', 'id' => 'password', 'placeholder' =>  trans("placeholders.profile.password"))) !!}
                                     </div>
                                 </div>
                                 <div class="text-center">

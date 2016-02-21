@@ -32,10 +32,10 @@ class UserUpdateRequest extends Request
             'password' => 'string|min:8|max:32',
             'location' => 'string|min:3|max:64',
             'country' => 'string|min:2|max:3',
-            'Google' => 'email|unique:users|max:255',
-            'Facebook' => 'url|unique:users|max:255',
-            'Github' => 'url|unique:users|max:255',
-            'Twitter' => 'string|unique:users|min:3|max:255',
+            'Google' => "email|unique:users,Google, ".Auth::user()->id."|max:255",
+            'Facebook' => "url|unique:users,Facebook, ".Auth::user()->id."|max:255",
+            'Github' => "url|unique:users,Github, ".Auth::user()->id."|max:255",
+            'Twitter' => "string|unique:users,Twitter, ".Auth::user()->id."|min:3|max:255",
         ];
     }
 }

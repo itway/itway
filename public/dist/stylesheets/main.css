@@ -1768,7 +1768,7 @@ button.toast-close-button{padding:0;cursor:pointer;background:0 0;border:0;-webk
 .user-info-title{font-size:medium}
 .user-info-title.b{font-size:large;font-weight:700}
 .user-tags-block{padding:20px 15px;background-color:#f4f4f4;color:#607D8B}
-#profile .ui.tabular.menu{border-bottom:none!important}
+#profile .ui.tabular.menu{border:2px solid #fff!important}
 #profile .settings_change_btn{color:#607D8B!important;font-weight:700!important;border-bottom:none!important;font-size:22px!important;background:#eee!important;margin-bottom:0!important;margin-top:0!important}
 #profile .error_line{border-bottom:3px solid #F44336!important;color:#FF5722!important}
 .checkbox-users{margin:0 auto;text-align:center}
