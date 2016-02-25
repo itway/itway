@@ -68,6 +68,7 @@ class CreateUserCommand extends Command implements SelfHandling
                 'locale' => App::getLocale()
             ]);
             $user->makeDefaultUserImg($user);
+
         } else {
             $user = User::create([
                 'name' => $this->name,

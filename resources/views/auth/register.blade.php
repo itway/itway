@@ -29,6 +29,7 @@
                                value="{{ old('email') }}">
                     </div>
                 </div>
+
                 <div class="text-center">
                     {!! $errors->first('email', '<div class="text-danger">:message</div>') !!}
                 </div>
@@ -41,6 +42,7 @@
                                name="password">
                     </div>
                 </div>
+
                 <div class="text-center">
                     {!! $errors->first('password', '<div class="text-danger">:message</div>') !!}
                 </div>

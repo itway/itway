@@ -1,11 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
-<<<<<<< HEAD
- * Generated for Laravel 5.1.30 (LTS) on 2016-02-20.
-=======
- * Generated for Laravel 5.1.30 (LTS) on 2016-02-18.
->>>>>>> origin/master
+ * Generated for Laravel 5.1.31 (LTS) on 2016-02-25.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -3754,17 +3750,6 @@ namespace {
          */
         public static function getModel(){
             return \Illuminate\Database\Eloquent\Builder::getModel();
-        }
-        
-        /**
-         * Get a fresh instance of a model instance being queried.
-         *
-         * @param array $attributes
-         * @return \Illuminate\Database\Eloquent\Model 
-         * @static 
-         */
-        public static function newModel($attributes = array()){
-            return \Illuminate\Database\Eloquent\Builder::newModel($attributes);
         }
         
         /**

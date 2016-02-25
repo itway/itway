@@ -11,7 +11,6 @@
             <form class="form" role="form" method="POST" action="{{ url('/password/reset') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="token" value="{{ $token }}">
-
                 <div class="form-group">
                     <label class="l-4 m-4 s-4 xs-4 text-center label">E-Mail Address</label>
 
