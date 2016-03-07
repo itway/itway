@@ -15,9 +15,7 @@
                 @if(!is_null($currentTeam))
                     <a class="item {!! Active::pattern(App::getLocale().'/teams/team/'.$currentTeam->id, 'active selected') !!} brown"
                        href="{{route('itway::teams::team', $currentTeam->id)}}"><i
-                                class="icon-group"></i> Team: <span class="text-info"> - {{$currentTeam->name}} </span>
-                        <img class="avatar" style="margin-left: 10px" src="{!! url($currentTeam->getLogo())!!}"
-                             alt="{{ $currentTeam->name }}"/>
+                                class="icon-group"></i> Team: <b class="text-info"> - {{$currentTeam->name}} </b>
                     </a>
                 @else
                     <div class="item brown"><i

@@ -7,7 +7,6 @@
             <h4 class="">{{ Auth::user()->name }} <p class="pull-right">
                     <i class="icon-toggle-on text-success"></i> Online</p></h4>
             <!-- Status -->
-
         </div>
         <div class="clearfix"></div>
 
@@ -36,7 +35,6 @@
             <li><a href="{{ route('log-viewer::dashboard') }}">
                     <i class='text-danger icon-bug_report'></i>
                     <span>LogViewer</span> </a></li>
-
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

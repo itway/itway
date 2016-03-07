@@ -201,14 +201,17 @@ class TeamsController extends Controller
             $currentTeam = null;
         }
 
-        if (!Auth::guest() && Auth::user()->id === head($team->ownerId())) {
+        $ownerId = head($team->ownerId());
+        if (!Auth::guest() && Auth::user()->id === $ownerId) {
 
             $createdByUser = true;
         }
         else {
             $createdByUser = false;
         }
-        return view('teams.single', compact('team', 'teamMember', 'currentTeam', 'createdByUser'));
+        $owner = \Itway\Models\User::findBySlugOrId($ownerId);
+        $team->load('trends','users');
+        return view('teams.single', compact('team', 'teamMember', 'ownerId', 'owner', 'currentTeam', 'createdByUser'));
 
     }
 

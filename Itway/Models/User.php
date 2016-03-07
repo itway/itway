@@ -260,9 +260,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
 
     public function isAdmin()
     {
-
-        return false;
-
+        return $this->hasRole('Admin');
     }
 
     /**
@@ -278,5 +276,4 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
             ->take(8)
             ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
     }
-
 }

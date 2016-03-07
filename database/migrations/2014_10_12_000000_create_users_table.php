@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('slug')->nullable();
             $table->text('bio')->nullable();
             $table->string('location')->nullable();
-            $table->string('Google')->unique()->nullable();
-            $table->string('Facebook')->unique()->nullable();
-            $table->string('Github')->unique()->nullable();
-            $table->string('Twitter')->unique()->nullable();
+            $table->string('Google')->nullable();
+            $table->string('Facebook')->nullable();
+            $table->string('Github')->nullable();
+            $table->string('Twitter')->nullable();
             $table->boolean('banned')->default(false);
             $table->string('country')->nullable();
             $table->string('country_name')->nullable();

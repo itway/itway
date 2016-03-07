@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(itway\User::class, function (Faker\Generator $faker) {
+$factory->define(\Itway\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,

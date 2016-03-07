@@ -64,7 +64,7 @@ return array(
     'Itway\\Components\\Country\\' => array($baseDir . '/Itway/Components/Country/CountryBuilder.php'),
     'Itway\\Components\\ActiveItem\\' => array($baseDir . '/Itway/Components/ActiveItem'),
     'Itway\\' => array($baseDir . '/Itway'),
-    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image', $vendorDir . '/intervention/imagecache/src/Intervention/Image'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/imagecache/src/Intervention/Image', $vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\Html\\' => array($vendorDir . '/illuminate/html'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'GuzzleHttp\\Stream\\' => array($vendorDir . '/guzzlehttp/streams/src'),

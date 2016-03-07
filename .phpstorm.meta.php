@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-02-25.
+    * Generated on 2016-03-07.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -47,7 +47,6 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
-            'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
@@ -131,10 +130,10 @@ namespace PHPSTORM_META {
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
             'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
             'command.clear-compiled' instanceof \Illuminate\Foundation\Console\ClearCompiledCommand,
@@ -257,7 +256,6 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
-            'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
@@ -341,10 +339,10 @@ namespace PHPSTORM_META {
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
             'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
             'command.clear-compiled' instanceof \Illuminate\Foundation\Console\ClearCompiledCommand,
@@ -467,7 +465,6 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
-            'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
@@ -551,10 +548,10 @@ namespace PHPSTORM_META {
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
             'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
             'command.clear-compiled' instanceof \Illuminate\Foundation\Console\ClearCompiledCommand,
@@ -677,7 +674,6 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
-            'command.entrust.classes' instanceof \Zizaco\Entrust\ClassCreatorCommand,
             'Conner\Tagging\Contracts\TaggingUtility' instanceof \Conner\Tagging\Util,
             'toastr' instanceof \nilsenj\Toastr\Toastr,
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
@@ -761,10 +757,10 @@ namespace PHPSTORM_META {
             'Itway\Components\Flash\SessionStore' instanceof \Itway\Components\Flash\LaravelSessionStore,
             'flash' instanceof \Itway\Components\Flash\FlashNotifier,
             'defaultprofileimage' instanceof \A6digital\Image\DefaultProfileImage,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'Cviebrock\ImageValidator\ImageValidator' instanceof \Cviebrock\ImageValidator\ImageValidator,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
             'command.clear-compiled' instanceof \Illuminate\Foundation\Console\ClearCompiledCommand,

@@ -11,7 +11,6 @@
         {{Redirect::to(URL::previous())}}
     @else
             {!! Form::model($user,  ['method' => 'PATCH', 'action' => ['UserController@update', $user->id], 'id' => 'changeFullname', 'class' => 'form card-material-lightgrey', 'role' =>  'form', 'autocomplete' => 'off']) !!}
-
             <div class="ui l-12 m-12 s-12">
                 <h3 class="title-underlined text-info">{{trans('profile.user_settings')}}</h3>
             </div>
@@ -197,7 +196,7 @@
                     </div>
                 </div>
             </div>
-    {!! Form::close() !!}
+            {!! Form::close() !!}
 @overwrite
 @section('styles-add')
     {{--<link rel="stylesheet" href="{{asset('dist\components\tab.css')}}"/>--}}

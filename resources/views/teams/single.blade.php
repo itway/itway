@@ -13,159 +13,130 @@
 @endsection
 @section('content')
     <div class="single-team">
-        <h4 class="ui horizontal divider header">
-            @if(!empty($team->getLogo()))
-                <div class="logo" style="min-width: 80px">
-                    <img class="img-responsive" src="{!! $team->getLogo() !!}">
-                </div>
-            @else
-            @endif
-            <small class="text-info">{{$team->name}}</small>
-        </h4>
-        <div class="ui cards">
-            <div class="card fluid">
-                <div class="content">
-                    <div class="header" style='text-align: center'>
-                        @if($createdByUser)
-                            @include('teams.destroy')
-                            <h4 class="ui horizontal divider header">
-                                <small class="text-warning">or</small>
-                            </h4>
-                            <small class="text-center text-info">
-                                delegate ownership by clicking <i class="text-danger icon-lock_open"></i> to  <small class="text-primary">Team Users</small>
-                            </small>
-                        @endif
-                    </div>
-                    <div class="single-team exists-slot">
-                        <div class="ui six doubling cards">
-                            @foreach($team->getUsers() as $user)
-                                <div class="card">
-                                    <div class="image">
-                                        <img src="@include('includes.user-image', $user)"
-                                             alt="{{ $user->name }}"/>
+        <div class="l-4 m-4 s-6 xs-12">
+            <div class="items">
+                <div class="item">
+                    <div class="ui cards">
+                        <div class="card fluid">
+                            <div class="content">
+                                <div class="team-author pull-left" style="width: 100%;display: inline-block!important;">
+                                    <div class="name" style="display: inline-block;width: 100%!important;">
+                                        <a class="ui tiny image" style="width: 100%!important;"
+                                           href="{{route('itway::teams::show', $team->id)}}">
+                                            @if(!empty($team->getLogo()))
+                                                <img class="img-responsive"
+                                                     style="max-height: 50px!important; margin: 0 auto; padding: inherit;display: block;"
+                                                     src="{!! $team->getLogo() !!}">
+                                                <div class="clearfix"></div>
+                                                <div class="text-center text-info">team - {{$team->name}}</div>
+                                            @else
+                                            @endif
+                                        </a>
+                                        @include("teams.team-like",[$modelName="team", $model = $team])
+                                        @include("teams.team-views",[$modelName="team", $model = $team])
+                                        @include("teams.team-people",[$modelName="team", $model = $team])
                                     </div>
-                                    <div class="extra content">
-                                        <div class="left floated author text-info">
-                                            <button class="button button-default button-small-card"><i class="icon-lock_open"></i></button>
-                                        </div>
-                                        <div class="right floated author">
-                                            <a href="{{asset(App::getLocale().'/user/'.$user->id)}}">{{ $user->name }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="content">
+                        <div class="description">
+                            <div class="ui cards">
+                                <div class="card fluid">
+                                    <div class="content">
+                                        <div class="trend-block" style="width: 100%;display: inline-block!important;">
+                                            <span class="title">{{trans('teams.trends')}} </span>
+
+                                            @foreach($team->trends as $trend)
+                                                <a class="trend-name"
+                                                   href="{{url(App::getLocale().'/trend/'.$trend->trend)}}">
+                                                  <span>
+                                                      <b>_</b>
+                                                  </span>
+                                                    {{$trend->trend}}
+                                                </a>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                        <div class="time text-center">
-                            <span class="team-time"> created <i
-                                        class="icon-access_time text-warning"></i> {{$team->created_at->diffForHumans()}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h4 class="ui horizontal divider header">
-            <i class="icon text-twitter">#</i>
-            Team's tags
-        </h4>
-
-        <div class="ui cards">
-            <div class="card fluid">
-                <div class="content">
-                    <div class="single-team exists-slot">
-                        <div class="text-center tags">
-                                <span class="tags">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="ui cards">
+                                <div class="card fluid">
+                                    <div class="content">
+                                        <div class="single-team exists-slot">
+                                            <div class="trend-block" style="width: 100%;display: inline-block!important;">
+                                                <span class="title">techs: </span>
                                     @foreach($team->tagNames() as $tags)
-                                        <a class="tag-name" href="{{url(App::getLocale().'/teams/tags/'.$tags)}}"><span>#</span>{{$tags}}
+                                        <a class="trend-name" href="{{url(App::getLocale().'/teams/tags/'.$tags)}}"><span>#</span>{{strtolower($tags)}}
                                         </a>
                                     @endforeach
-                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ui cards">
-            <div class="card fluid">
-                <div class="content">
-                    <div class="single-team exists-slot counters text-center">
-                    <span class="text-brown" style="">
-                        <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
-                        views - <span>{{$team->views_count()}}</span>
-                    </span>
-                        <div class="ui horizontal divider">&</div>
-                        <span class="text-success">
-                             <i class="icon-favorite  text-danger "></i> likes - <span>{{$team->getLikeCount()}}</span>
-                        </span>
-                    </div>
-                </div>
+            <div class="ui info message">
+                <i class="icon-star"></i>
+                Team Users
             </div>
-        </div>
-        <div class="head">
-            <div class="first-line">
-                <div class="l-4 m-4 s-4 xs-4">
-                    <div class="team-author pull-left">
-                        {{-- <img class="avatar" src="@include('includes.user-image', $user = $team->user)" alt=""/> --}}
-                        <div class="name">
-                          <a href="@foreach($team->ownerId() as $ownerId){{url(App::getLocale()."/user/".$ownerId)}}@endforeach">@foreach($team->ownerName() as $owner){{$owner}}@endforeach</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-4 m-4 s-4 xs-4 text-center tags">
-                                <span class="tags">
-                                    @foreach($team->tagNames() as $tags)
-                                        <a class="tag-name" href="{{url(App::getLocale().'/teams/tags/'.$tags)}}"><span>#</span>{{$tags}}</a>
-                                    @endforeach
-                                </span>
-                </div>
-                    @include("includes.like-btn",[$modelName="team", $model = $team])
-            </div>
-            <div class="header-title">
-                <h4 class="text-center"><strong>{{$team->title}}</strong></h4>
-            </div>
-            <div class="time text-center">
-                <span class="team-time"><i class="icon-clock-o"></i>{{$team->created_at->diffForHumans()}}</span>
-            </div>
-            <div class="l-12 m-12 s-12 xs-12 text-center">
-                <nav class="button-nav-team button-group-horizontal">
-                    <a class="button" href=""><i class="icon-vk text-vk"></i></a>
-                    <a class="button" href=""><i class="icon-facebook text-facebook"></i></a>
-                    <a class="button" href=""><i class="icon-google text-google"></i></a>
-                </nav>
-                @if($createdByUser === true)
-                    <span class="your-team">{{trans('messages.yourteam')}}</span>
-                    <a class="button button-primary" href="{{asset(App::getLocale().'/blog/edit/'.$team->id)}}">{{trans('messages.yourteamBTN')}}</a>
-                    <span class="text-muted"> or </span>
-                    @include('teams.destroy')
-                @endif
-            </div>
-        </div>
-        <div class="line clearfix"></div>
-        <div class="image-area">
-            <div class="presc-wrapper">
-                @if(!empty($team->getLogo()))
-                    <div class="l-6 m-6 s-6 xs-10"  style="line-height: 1.875rem;
-    padding-top: 0.83333rem;
-    padding-bottom: 0.83333rem;">
-                        <div class="thumbnail" style="border-color: transparent; background: transparent; max-height: 450px;padding: 0; overflow: hidden">
-                            <img  class="img-responsive" src="{!! $team->getLogo() !!}">
+
+            <div class="ui items">
+                @foreach($team->getUsers() as $user)
+
+                        <div class="item" style="background: white; padding-top: 4px;border: 1px solid #ddd;">
+                            <a class="ui tiny image">
+                            <img src="@include('includes.user-image', $user)"
+                                 alt="{{ $user->name }}"/>
+                            </a>
+                            <div class="content">
+                                <a class="header" href="{{asset(App::getLocale().'/user/'.$user->id)}}">{{ $user->name }}</a>
+                                <div class="description">
+                                    <p>@if($user->bio){{str_limit($user->bio, 240)}}@else <small class="text-grey">no bio</small> @endif</p>
+                                    <p>@if($user->position){{str_limit($user->position, 60)}}@else <small class="text-grey">no position</small> @endif</p>
+                                </div>
                             </div>
                         </div>
-                @else
-                @endif
+
+                @endforeach
+            </div>
+            <div class="time text-center" style="padding-top: 10px">
+                            <span class="team-time">team created <i
+                                        class="icon-access_time text-warning"></i> {{$team->created_at->diffForHumans()}}</span>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="counters l-2 m-2 s-3 xs-3">
-            <span class="text-left text-primary" style="">
-                <i style="text-align: left; margin: 5px;" class="icon-remove_red_eye text-grey"></i>
-                <span>{{$team->views_count()}}</span>
-            </span>
-        </div>
-     </div>
-    <div class="line"></div>
 
+    </div>
 @endsection
 @section('styles-add')
+    <style>
+        .ui.cards .card.fluid {
+            width: 100% !important;
+            padding-bottom: 3px;
+            padding-top: 0;
+            margin: 0;
+            margin-bottom: 15px;
+        }
+        .ui.items {
+             margin: 0em 0;
+        }
+        .ui.info.message {
+            margin: 0em 0;
+        }
+        .ui.items>.item>.content p {
+            margin: 0 0em;
+        }
+        .ui.items>.item>.content>.description {
+            margin-top: 0em;
+        }
+    </style>
 @endsection
 @section('scripts-add')
-    @endsection
+@endsection
