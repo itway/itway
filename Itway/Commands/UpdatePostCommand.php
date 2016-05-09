@@ -9,33 +9,33 @@ use itway\Events\PostWasUpdatedEvent;
 class UpdatePostCommand extends Command implements SelfHandling
 {
 
-      public $post;
-      public $data;
+    public $post;
+    public $data;
 
 
-      /**constructor**/
-      public function __construct(
-              $post,
-  			      $data)
-  	           {
-              $this->post = $post;
-  			      $this->data = $data;
-              	}
+    /**constructor**/
+    public function __construct(
+        $post,
+        $data)
+    {
+        $this->post = $post;
+        $this->data = $data;
+    }
 
-      /**
-       * @return \Illuminate\Database\Eloquent\Model
-       */
-      public function handle()
+    /**
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function handle()
 
-      {
+    {
 
-          $this->post->update(
+        $post = $this->post->update(
             $this->data
-          );
+        );
 
-          event(new PostWasUpdatedEvent($post, Auth::user()));
+        event(new PostWasUpdatedEvent($post, \Auth::user()));
 
-          return $post;
-      }
+        return $post;
+    }
 
 }

@@ -1,14 +1,14 @@
 #### * Itway web-app for iy guys, web-devs, managers, teams
 **	expected fuctionality:**
-> - ######Teams
-> - ######Users account && profile
-> - ######Events && meet-up app
-> - ######Team's *chat* app
-> - ######OpenSource Idea app
-> - ######Job-Hunt app
-> - ######Blog app
-> - ######Admin pannel
-> - ######In Consideration TaskBoard
+ - ######Teams
+ - ######Users account && profile
+ - ######Events && meet-up app
+ - ######Team's *chat* app
+ - ######OpenSource Idea app
+ - ######Job-Hunt app
+ - ######Blog app
+ - ######Admin pannel
+ - ######In Consideration TaskBoard
 
 ___
 App is made with a help of Laravel PHP Framework

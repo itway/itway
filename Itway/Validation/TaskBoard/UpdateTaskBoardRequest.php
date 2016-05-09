@@ -1,6 +1,6 @@
 <?php
 
-namespace itway\Http\Requests\\..\..\..\Itway\Validation\TaskBoard;
+namespace Itway\Validation\TaskBoard;
 
 use itway\Http\Requests\Request;
 

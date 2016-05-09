@@ -166,7 +166,12 @@ trait ImageTrait
      */
     public function getImage() {
         $pictures = $this->getMedia('images');
-        $picture = $pictures[0]->getUrl();
+        if (count($pictures) > 0){
+            $picture = $pictures[0]->getUrl();
+        }
+        else {
+            return null;
+        }
         return $picture;
     }
 
@@ -176,7 +181,12 @@ trait ImageTrait
      */
     public function getLogo() {
         $pictures = $this->getMedia('logo');
-        $picture = $pictures[0]->getUrl();
+        if (count($pictures) > 0){
+            $picture = $pictures[0]->getUrl();
+        }
+        else {
+            return null;
+        }
         return $picture;
     }
     public function registerMediaConversions()

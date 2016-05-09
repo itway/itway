@@ -2,7 +2,7 @@
 
 
 use App;
-use Conner\Tagging\Model\Tag;
+use TagsCloud\Tagging\Model\PostTag as Tag;
 use Illuminate\Contracts\Cookie;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 use App;
 use Auth;
-use Conner\Tagging\Model\Tag;
+use TagsCloud\Tagging\Model\TeamTag as Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Itway\components\Country\CountryBuilder;

@@ -15,13 +15,14 @@ use Itway\Contracts\Likeable\Likeable;
 use Itway\Traits\Likeable as LikeableTrait;
 use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
+use TagsCloud\Tagging\Taggable;
 
 class TeamworkTeam extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TeamworkTeamTrait;
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
 

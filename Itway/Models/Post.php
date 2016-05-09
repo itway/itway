@@ -4,7 +4,7 @@ namespace Itway\Models;
 
 use Auth;
 use Carbon\Carbon;
-use Conner\Tagging\Model\Tagged;
+use TagsCloud\Tagging\Model\PostTagged as Tagged;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Cookie;
@@ -19,6 +19,7 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use TagsCloud\Tagging\Taggable;
 
 /**
  * Class Post
@@ -28,7 +29,7 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
     use HasMediaTrait;
@@ -60,6 +61,7 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
         'youtube_link',
         'github_link'
     ];
+    protected $tagsPrefix = 'post';
 
     /**
      * @var array
@@ -76,6 +78,10 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
 
     }
 
+    public function getTaggedRelation(){
+
+        return 'TagsCloud\Tagging\Model\PostTagged';
+    }
     /**
      * @param $date
      */
@@ -213,17 +219,4 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
         return $body;
     }
 
-    /**
-     * rewrite the taggable trait function
-     * @return mixed
-     */
-    public static function existingTags()
-    {
-        return Tagged::distinct()
-            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
-            ->where('taggable_type', '=', (new static)->getMorphClass())
-            ->orderBy('count', 'desc')
-            ->take(8)
-            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
-    }
 }

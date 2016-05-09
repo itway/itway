@@ -18,13 +18,9 @@
                                 <div class="slot">
                                     <div class="slot-author l-6  m-6  s-6 xs-6">
                                         <div class="slot-title-event">
+                                            <span class="text-info">format: </span>
                                             {{$event->event_format}}
-                                            <i class="icon-event"></i></div>
-                                        <img class="avatar" src="@include('includes.user-image', $user = $event->user)"
-                                             alt="{{"Publisher: ".$event->user->name}}"/>
-
-                                        <div class="name">
-                                            <a href="{{asset(App::getLocale().'/user/'.$event->user->id)}}">{{ $event->user->name }}</a>
+                                            <i class="icon-event"></i>
                                         </div>
                                     </div>
                                     <div class="tag-block  l-6  m-6  s-6 xs-6">
@@ -39,7 +35,8 @@
                                     <div class="clearfix"></div>
                                     <div class="slot-title">
                                         <div class="slot-title-name">name:</div>
-                                        {{str_limit($event->name, 120)}}</div>
+                                        <h3>{{$event->name}}</h3>
+                                    </div>
                                     <div class="clearfix"></div>
                                     @if(!empty($event->getMedia('images')->first()))
                                         <div class="l-12 m-12 s-12 xs-12">

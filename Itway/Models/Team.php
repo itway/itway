@@ -4,7 +4,7 @@ namespace Itway\Models;
 
 use Auth;
 use Carbon\Carbon;
-use Conner\Tagging\Model\Tagged;
+use TagsCloud\Tagging\Model\TeamTagged;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Itway\Components\Messenger\Models\Thread;
@@ -39,6 +39,8 @@ class Team extends TeamworkTeam implements HasMedia
         'save_to' => 'slug'
     );
 
+    protected $tagsPrefix = 'team';
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -47,6 +49,10 @@ class Team extends TeamworkTeam implements HasMedia
         return $this->belongsToMany(config('teamwork.team_model'), config('teamwork.team_user_table'), 'user_id', 'team_id');
     }
 
+    public function getTaggedRelation(){
+
+        return 'TagsCloud\Tagging\Model\TeamTagged';
+    }
     /**
      * @param $date
      */
@@ -215,17 +221,4 @@ class Team extends TeamworkTeam implements HasMedia
         return $usersArr;
     }
 
-    /**
-     * rewrite the taggable trait function
-     * @return mixed
-     */
-    public static function existingTags()
-    {
-        return Tagged::distinct()
-            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
-            ->where('taggable_type', '=', (new static)->getMorphClass())
-            ->orderBy('count', 'desc')
-            ->take(8)
-            ->get(array('tag_slug as slug', 'tagging_tags.count as count'));
-    }
 }

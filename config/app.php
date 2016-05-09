@@ -145,7 +145,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-        Conner\Tagging\Providers\TaggingServiceProvider::class,
         Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
         nilsenj\Toastr\ToastrServiceProvider::class,
         Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
@@ -180,6 +179,7 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Itway\Components\Flash\FlashServiceProvider::class,
         A6digital\Image\DefaultProfileImageServiceProvider::class,
+        TagsCloud\Tagging\Providers\TaggingServiceProvider::class,
     ],
 
     /*

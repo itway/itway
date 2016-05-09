@@ -3,7 +3,7 @@
 namespace Itway\Models;
 
 use Carbon\Carbon;
-use Conner\Tagging\Model\Tagged;
+use TagsCloud\Tagging\Model\EventTagged as Tagged;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Cookie;
@@ -18,6 +18,7 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use TagsCloud\Tagging\Taggable;
 
 /**
  * Class Event
@@ -27,7 +28,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
     use HasMediaTrait;
@@ -67,6 +68,8 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
      * @var array
      */
     protected $dates = ['created_at', 'today'];
+    
+    protected $tagsPrefix = 'event';
 
     /**
      *
@@ -74,6 +77,11 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     public function eventSpeakers()
     {
         $this->hasMany(\Itway\Models\EventSpeakers::class, 'events_id');
+    }
+
+    public function getTaggedRelation(){
+
+        return 'TagsCloud\Tagging\Model\EventTagged';
     }
 
     /**
@@ -210,7 +218,7 @@ class Event extends Model implements Transformable, SluggableInterface, Likeable
     {
         return Tagged::distinct()
             ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
-            ->where('taggable_type', '=', (new static)->getMorphClass())
+            ->where('taggable_type', '=', 'Itway\Models\Event')
             ->orderBy('count', 'desc')
             ->take(8)
             ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));

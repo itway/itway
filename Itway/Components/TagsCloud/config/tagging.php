@@ -7,7 +7,7 @@ return array(
 	'primary_keys_type' => 'integer', // 'string' or 'integer'
 		
 	// Value of are passed through this before save of tags
-	'normalizer' => '\Conner\Tagging\Util::slug',
+	'normalizer' => '\TagsCloud\Tagging\Util::slug',
 	
 	// Display value of tags are passed through (for front end display)
 	'displayer' => '\Illuminate\Support\Str::title',
@@ -22,5 +22,5 @@ return array(
 	'delete_unused_tags'=>true,
 
 	// Model to use to store the tags in the database
-	'tag_model'=>'\Conner\Tagging\Model\Tag',
+	'tag_model'=>'\TagsCloud\Tagging\Model\Tag',
 );

@@ -20,9 +20,10 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use TagsCloud\Tagging\Taggable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Carbon\Carbon;
-use Conner\Tagging\Model\Tagged;
+use TagsCloud\Tagging\Model\UserTagged as Tagged;
 
 class User extends Model implements Transformable, AuthenticatableContract, CanResetPasswordContract, SluggableInterface, HasMedia
 {
@@ -30,7 +31,7 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     use Authenticatable, CanResetPassword, SoftDeletes;
     use SluggableTrait;
     use UserHasTeams;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use EntrustUserTrait;
     use Messagable;
     use HasMediaTrait;
@@ -47,6 +48,8 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
      *
      * @var string
      */
+    protected $tagsPrefix = 'user';
+
     protected $table = 'users';
 
     protected $guarded = ['id'];
@@ -102,7 +105,10 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     {
         return $this->timestamps;
     }
+    public function getTaggedRelation(){
 
+        return 'TagsCloud\Tagging\Model\UserTagged';
+    }
     /**
      * @param string $state
      * @return string
@@ -261,19 +267,5 @@ class User extends Model implements Transformable, AuthenticatableContract, CanR
     public function isAdmin()
     {
         return $this->hasRole('Admin');
-    }
-
-    /**
-     * rewrite the taggable trait function
-     * @return mixed
-     */
-    public static function existingTags()
-    {
-        return Tagged::distinct()
-            ->join('tagging_tags', 'tag_slug', '=', 'tagging_tags.slug')
-            ->where('taggable_type', '=', (new static)->getMorphClass())
-            ->orderBy('count', 'desc')
-            ->take(8)
-            ->get(array('tag_slug as slug', 'tag_name as name', 'tagging_tags.count as count'));
     }
 }

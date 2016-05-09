@@ -28,7 +28,6 @@
                                         <div class="clearfix"></div>
                                         <div class="trend-block">
                                             <span class="title">{{trans('teams.trends')}} </span>
-
                                               @foreach($team->trendNames() as $trend)
                                                 <a class="trend-name"
                                                        href="{{url(App::getLocale().'/trend/'.$trend)}}">
@@ -42,7 +41,6 @@
                                      <div class="clearfix"></div>
                                         <div class="slot-country">
                                             <span class="title">{{trans('teams.country')}} </span>
-
                                             <div class="country-block">
                                                 <i class="{{strtolower($team->country)}} flag"></i>{{$team->country_name}}
                                             </div>
@@ -71,7 +69,7 @@
                                             class="icon-remove_red_eye"></i></span>
                                 <span class="button">
                                     <a class="text-left text-primary"
-                                       href="{{ url(App::getLocale().'teams/team/'.$team->id.'#disqus_thread') }}"
+                                       href="{{ url(App::getLocale().'/teams/team/'.$team->id.'#disqus_thread') }}"
                                        data-disqus-identifier="{{$team->id}}">0</a>
                                     <i class="icon-comment"></i>
                                 </span>

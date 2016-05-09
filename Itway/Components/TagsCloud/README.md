@@ -25,11 +25,11 @@ The service provider does not load on every page load, so it should not slow dow
 
 ```php
 'providers' => array(
-	\Conner\Tagging\Providers\TaggingServiceProvider::class,
+	\TagsCloud\Tagging\Providers\TaggingServiceProvider::class,
 );
 ```
 ```bash
-php artisan vendor:publish --provider="Conner\Tagging\Providers\TaggingServiceProvider"
+php artisan vendor:publish --provider="TagsCloud\Tagging\Providers\TaggingServiceProvider"
 php artisan migrate
 ```
 
@@ -38,7 +38,7 @@ After these two steps are done, you can edit config/tagging.php with your prefer
 #### Setup your models
 ```php
 class Article extends \Illuminate\Database\Eloquent\Model {
-	use \Conner\Tagging\Taggable;
+	use \TagsCloud\Tagging\Taggable;
 }
 ```
 
@@ -64,7 +64,7 @@ Article::withAnyTag(['Gardening','Cooking'])->get(); // fetch articles with any 
 
 Article::withAllTags(['Gardening', 'Cooking'])->get(); // only fetch articles with all the tags
 
-Conner\Tagging\Model\Tag::where('count', '>', 2)->get(); // return all tags used more than twice
+TagsCloud\Tagging\Model\Tag::where('count', '>', 2)->get(); // return all tags used more than twice
 
 Article::existingTags(); // return collection of all existing tags on any articles
 ```

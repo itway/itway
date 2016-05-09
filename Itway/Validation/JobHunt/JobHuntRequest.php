@@ -1,6 +1,6 @@
 <?php
 
-namespace itway\Http\Requests\\..\..\..\Itway\Validation\JobHunt;
+namespace Itway\Validation\JobHunt;
 
 use itway\Http\Requests\Request;
 
