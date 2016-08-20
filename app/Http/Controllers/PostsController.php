@@ -79,6 +79,7 @@ class PostsController extends Controller
 
         $tags = $this->repository->getModel()->existingTags();
 
+        return response()->json($posts);
         return view('pages.blog', compact('posts', 'countUserPosts', 'tags'));
 
     }

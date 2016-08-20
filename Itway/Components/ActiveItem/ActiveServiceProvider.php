@@ -21,7 +21,7 @@ class ActiveServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bindShared('active', function ($app)
+        $this->app->singleton('active', function ($app)
         {
             return new Active($app['router']);
         });

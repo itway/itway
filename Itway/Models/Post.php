@@ -67,7 +67,6 @@ class Post extends Model implements Transformable, SluggableInterface, Likeable,
      * @var array
      */
     protected $dates = ['published_at', 'date'];
-
     /**
      * @param $date
      */

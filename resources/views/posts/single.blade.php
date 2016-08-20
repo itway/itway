@@ -2,7 +2,7 @@
 @section('title')
     - {{$post->title}}
 @endsection
-@section('meta-image') @if(!empty($post->getMedia('images')->first())) {{$picture}} @else http://www.itway.io/itway-landing.png @endif @endsection
+@section('meta-image') @if(!empty($post->getMedia('images')->first())) {{$picture}} @else {{asset(config('site_url'))}} itway-landing.png @endif @endsection
 @section('meta-description'){{$post->preamble}}@endsection
 @section('sitelocation')
     <?php  $name = "Bl"; ?>
@@ -146,13 +146,13 @@
 @overwrite
 @section('scripts-add')
 
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/marked.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/prettify.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/raphael.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/underscore.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/sequence-diagram.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/flowchart.min.js"></script>
-    <script src="http://www.itway.io/dist/vendor/editor.md/lib/jquery.flowchart.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/marked.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/prettify.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/raphael.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/underscore.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/sequence-diagram.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/flowchart.min.js"></script>
+    <script src="{{asset(config('site_url'))}}dist/vendor/editor.md/lib/jquery.flowchart.min.js"></script>
     <script src="{{asset('dist/vendor/editor.md/editormd.min.js')}}"></script>
     @if(App::getLocale() == "en")
         <script src="{{asset('dist/vendor/editor.md/languages/en.js')}}"></script>

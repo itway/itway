@@ -22,16 +22,16 @@
     .slot-title {
       color: darken($primary-color, 10%);
       font-size: $font-size-base*1;
-      padding: 5px 5px;
+      padding: 10px 5px;
       font-weight: bold;
       background-color: #f8f8f8;
       word-wrap: break-word;
       margin-right: 0px;
       z-index: 1;
-      text-align: center;
+      text-align: left;
     }
     .slot-title-name {
-      color: $brown-color;
+      //color: $brown-color;
       font-size: $font-size-base*0.9;
       border-bottom: 1px solid $brown-color;
       font-weight: bold;
@@ -45,9 +45,9 @@
     .slot-title-event {
       i{
         font-size: $font-size-base*1;
-        color: $lime-color;
+        color: $grey-color;
       }
-      border-bottom: 1px solid $lime-color;
+      border-bottom: 1px solid $grey-color;
       font-weight: bold;
       background-color: #f8f8f8;
       word-wrap: break-word;

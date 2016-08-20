@@ -17,15 +17,15 @@ trait ViewCounterTrait {
 //    {
 //        return $query->hasMany(Counter::class)->whereObjectId($this->id)->whereClassName(snake_case(get_class($this)))->view_counter;
 //    }
+
     public function counter()
     {
-        if(!isset($this->counter))
-        {
-            $class_name = snake_case(get_class($this));
-            $this->counter = Counter::firstOrCreate(array('class_name' => $class_name, 'object_id' => $this->id));
-        }
+        $class_name = snake_case(get_class($this));
+
+        $this->counter = Counter::firstOrCreate(array('class_name' => $class_name, 'object_id' => $this->id));
         return $this->counter;
     }
+
     public function user_counters()
     {
         return $this->hasMany(UserCounter::class, 'object_id')->where('class_name', snake_case(get_class($this)));
@@ -68,7 +68,9 @@ trait ViewCounterTrait {
      */
     public function views_count()
     {
-        return $this->counter()->view_counter;
+        $counter = $this->counter();
+
+        return ($counter->view_counter != null) ? $counter->view_counter : 0;
     }
     /**
      * Is object already viewed by user?

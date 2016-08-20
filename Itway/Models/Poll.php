@@ -17,12 +17,13 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use TagsCloud\Tagging\Taggable;
 
 class Poll extends Model implements Transformable, SluggableInterface, Likeable, HasMedia
 {
     use TransformableTrait;
     use SluggableTrait, SoftDeletes;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use \Itway\Traits\ViewCounterTrait, LikeableTrait;
     use HasMediaTrait;
     use ImageTrait;

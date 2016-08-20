@@ -1,4 +1,8 @@
 <?php
+if(env('APP_ENV') == 'local') {
+    //added just for fun to have cors without api
+    header("Access-Control-Allow-Origin: *");
+}
 
 
 // ===============================================

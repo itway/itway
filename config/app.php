@@ -28,6 +28,8 @@ return [
 
     'url' => 'http://localhost',
 
+    'site_url' => env('local') ? env('SITE_URL_DEV') : env('SITE_URL_PROD'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -149,7 +151,7 @@ return [
         nilsenj\Toastr\ToastrServiceProvider::class,
         Itway\Components\teamwork\Teamwork\TeamworkServiceProvider::class,
         RepositoryLab\Repository\RepositoryServiceProvider::class,
-        Itway\components\ActiveItem\ActiveServiceProvider::class,
+        Itway\Components\ActiveItem\ActiveServiceProvider::class,
 
 
         /*

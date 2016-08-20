@@ -153,9 +153,9 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     /**
      * Gets the Surrogate instance.
      *
-     * @throws \LogicException
-     *
      * @return SurrogateInterface A Surrogate instance
+     *
+     * @throws \LogicException
      */
     public function getSurrogate()
     {
@@ -169,9 +169,9 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     /**
      * Gets the Esi instance.
      *
-     * @throws \LogicException
-     *
      * @return Esi An Esi instance
+     *
+     * @throws \LogicException
      *
      * @deprecated since version 2.6, to be removed in 3.0. Use getSurrogate() instead
      */
@@ -600,6 +600,9 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
      */
     protected function store(Request $request, Response $response)
     {
+        if (!$response->headers->has('Date')) {
+            $response->setDate(\DateTime::createFromFormat('U', time()));
+        }
         try {
             $this->store->write($request, $response);
 

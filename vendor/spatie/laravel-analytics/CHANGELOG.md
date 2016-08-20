@@ -2,6 +2,16 @@
 
 All Notable changes to Laravel-Analytics will be documented in this file
 
+## 1.4.1 - 2015-05-12
+
+- fixes a bug introduced in 1.4.0 where the check whether a p12 certificate is present was broken 
+
+## 1.4.0 - 2015-05-11
+
+**This version does not work, please upgrade to 1.4.0**
+
+- removing the use of facades
+
 ## 1.3.1
 - make `calculateNumberOfDays`-function protected
 

@@ -61,7 +61,7 @@
             "Itway\\Components\\Timezone\\":"Itway/Components/Timezone/TimezoneBuilder.php",
             "Itway\\Components\\Country\\":"Itway/Components/Country/CountryBuilder.php",
             "Itway\\Components\\Tags\\":"Itway/Components/Tags/TagsBuilder.php",
-            "Itway\\Components\\ActiveItem\\":"Itway/Components/ActiveItem/",
+            "Itway\\components\\ActiveItem\\":"Itway/Components/ActiveItem/",
             "Itway\\Components\\Flash\\":"Itway/Components/Flash/",
             "RepositoryLab\\Repository\\": "Itway/RepositoryLab/",
             "TagsCloud\\Tagging\\" : "Itway/Components/TagsCloud/src/"

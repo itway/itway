@@ -71,7 +71,7 @@ _init = (o) ->
       searchResult = @selectors.searchResult
       timer = setTimeout((->
         $.ajax
-          url: 'http://www.itway.io/search'
+          url: APP_URL+'/search'
           data: 'keywords': $('#search .search-input').val()
           method: 'post'
           success: (markup) ->
@@ -90,7 +90,7 @@ _init = (o) ->
       searchResult = @selectors.searchResult
       timer = setTimeout((->
         $.ajax
-          url: 'http://www.itway.io/getAllExistingTags'
+          url: APP_URL+'/getAllExistingTags'
           method: 'post'
           success: (markup) ->
             searchResult.html markup
@@ -631,7 +631,7 @@ $.ItwayIO = {}
 
 $.ItwayIO.options =
   host: 'http://' + window.location.hostname
-  socket: io('http://www.itway.io:6378')
+  socket: io(APP_URL+':6378')
   navbarMenuSlimscroll: true
   navbarMenuSlimscrollWidth: '3px'
   navbarMenuHeight: '200px'

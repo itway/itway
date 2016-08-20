@@ -205,7 +205,6 @@ $thumbnail-caption-color:     $body-text-color !default;
 $thumbnail-caption-padding:   9px !default;
 
 
-
 //_____________buttons_______________
 
 $button-pudding: 0.18571em 0.7em 0.18571em;
@@ -218,6 +217,6 @@ $button-link-color: $link-color;
 $link-hover-color: darken($button-link-color, 15%);
 
 
-$input-font: normal 18px/normal "PT Sans", Helvetica, sans-serif;
+$input-font: normal 18px "PT Sans", Helvetica, sans-serif;
 $input-border: 2px solid $primary-color;
 $input-border-radius: 2px;

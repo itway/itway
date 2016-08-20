@@ -92,7 +92,7 @@
         searchResult = this.selectors.searchResult;
         timer = setTimeout((function() {
           $.ajax({
-            url: 'http://www.itway.io/search',
+            url: APP_URL + '/search',
             data: {
               'keywords': $('#search .search-input').val()
             },
@@ -114,7 +114,7 @@
         searchResult = this.selectors.searchResult;
         timer = setTimeout((function() {
           $.ajax({
-            url: 'http://www.itway.io/getAllExistingTags',
+            url: APP_URL + '/getAllExistingTags',
             method: 'post',
             success: function(markup) {
               searchResult.html(markup);
@@ -697,7 +697,7 @@
 
   $.ItwayIO.options = {
     host: 'http://' + window.location.hostname,
-    socket: io('http://www.itway.io:6378'),
+    socket: io(APP_URL + ':6378'),
     navbarMenuSlimscroll: true,
     navbarMenuSlimscrollWidth: '3px',
     navbarMenuHeight: '200px',

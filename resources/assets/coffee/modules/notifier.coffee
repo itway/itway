@@ -11,7 +11,7 @@
 $.ItwayIO.notifier =
   o:
     host: 'http://' + window.location.hostname
-    socket: io('http://www.itway.io:6378')
+    socket: io(APP_URL+':6378')
     notifyBlock: $('.notify')
     notifyArea: $('.notify .panel')
     notifyBtn: $('#alertlink')
