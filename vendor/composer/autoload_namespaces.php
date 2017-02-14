@@ -10,7 +10,6 @@ return array(
     'nilsenj\\Toastr\\' => array($vendorDir . '/nilsenj/toastr-5.1-laravel/src'),
     'Webpatser\\Countries' => array($vendorDir . '/webpatser/laravel-countries/src'),
     'Spatie\\Glide' => array($vendorDir . '/spatie/laravel-glide/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Potsky\\LaravelLocalizationHelpers\\' => array($vendorDir . '/potsky/laravel-localization-helpers/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),
@@ -26,10 +25,8 @@ return array(
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
-    'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
     'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
-    'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
     'Camroncade\\Timezone\\' => array($vendorDir . '/camroncade/timezone/src'),
     'A6digital\\Image' => array($vendorDir . '/a6digital/laravel-default-profile-image/src'),
 );

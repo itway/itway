@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.41 (LTS) on 2016-08-14.
+ * Generated for Laravel 5.1.45 (LTS) on 2017-02-14.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1271,7 +1271,7 @@ namespace {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \Itway\Models\User|null 
          * @static 
          */
         public static function user(){
@@ -1373,7 +1373,7 @@ namespace {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User 
+         * @return \Itway\Models\User 
          * @static 
          */
         public static function loginUsingId($id, $remember = false){
@@ -1478,7 +1478,7 @@ namespace {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \Itway\Models\User|null 
          * @static 
          */
         public static function getUser(){
@@ -1520,7 +1520,7 @@ namespace {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \Itway\Models\User 
          * @static 
          */
         public static function getLastAttempted(){
@@ -4543,7 +4543,7 @@ namespace {
          * Retrieve the minimum value of a given column.
          *
          * @param string $column
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function min($column){
@@ -4554,7 +4554,7 @@ namespace {
          * Retrieve the maximum value of a given column.
          *
          * @param string $column
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function max($column){
@@ -4565,7 +4565,7 @@ namespace {
          * Retrieve the sum of the values of a given column.
          *
          * @param string $column
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function sum($column){
@@ -4576,7 +4576,7 @@ namespace {
          * Retrieve the average of the values of a given column.
          *
          * @param string $column
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function avg($column){
@@ -4587,7 +4587,7 @@ namespace {
          * Alias for the "avg" method.
          *
          * @param string $column
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function average($column){
@@ -4599,11 +4599,23 @@ namespace {
          *
          * @param string $function
          * @param array $columns
-         * @return float|int 
+         * @return mixed 
          * @static 
          */
         public static function aggregate($function, $columns = array()){
             return \Illuminate\Database\Query\Builder::aggregate($function, $columns);
+        }
+        
+        /**
+         * Execute a numeric aggregate function on the database.
+         *
+         * @param string $function
+         * @param array $columns
+         * @return float|int 
+         * @static 
+         */
+        public static function numericAggregate($function, $columns = array()){
+            return \Illuminate\Database\Query\Builder::numericAggregate($function, $columns);
         }
         
         /**
@@ -5843,7 +5855,7 @@ namespace {
          * @param array $cookies The COOKIE parameters
          * @param array $files The FILES parameters
          * @param array $server The SERVER parameters
-         * @return \Symfony\Component\HttpFoundation\Request The duplicated request
+         * @return static 
          * @static 
          */
         public static function duplicate($query = null, $request = null, $attributes = null, $cookies = null, $files = null, $server = null){
@@ -5991,7 +6003,7 @@ namespace {
         /**
          * Creates a new request with values from PHP's super globals.
          *
-         * @return \Symfony\Component\HttpFoundation\Request A new request
+         * @return static 
          * @static 
          */
         public static function createFromGlobals(){
@@ -6012,7 +6024,7 @@ namespace {
          * @param array $files The request files ($_FILES)
          * @param array $server The server parameters ($_SERVER)
          * @param string $content The raw body data
-         * @return \Symfony\Component\HttpFoundation\Request A Request instance
+         * @return static 
          * @static 
          */
         public static function create($uri, $method = 'GET', $parameters = array(), $cookies = array(), $files = array(), $server = array(), $content = null){
@@ -6105,6 +6117,7 @@ namespace {
          *  * Request::HEADER_CLIENT_HOST:  defaults to X-Forwarded-Host  (see getHost())
          *  * Request::HEADER_CLIENT_PORT:  defaults to X-Forwarded-Port  (see getPort())
          *  * Request::HEADER_CLIENT_PROTO: defaults to X-Forwarded-Proto (see getScheme() and isSecure())
+         *  * Request::HEADER_FORWARDED:    defaults to Forwarded         (see RFC 7239)
          * 
          * Setting an empty value allows to disable the trusted header for the given key.
          *
@@ -6737,12 +6750,26 @@ namespace {
         /**
          * Checks whether the method is safe or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
          * @return bool 
          * @static 
          */
         public static function isMethodSafe(){
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::isMethodSafe();
+        }
+        
+        /**
+         * Checks whether the method is cacheable or not.
+         *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
+         * @return bool 
+         * @static 
+         */
+        public static function isMethodCacheable(){
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::isMethodCacheable();
         }
         
         /**
@@ -6842,7 +6869,7 @@ namespace {
          * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
          *
-         * @link http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
+         * @see http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
          * @return bool true if the request is an XMLHttpRequest, false otherwise
          * @static 
          */
@@ -8609,7 +8636,7 @@ namespace {
          * @param array $cookies The COOKIE parameters
          * @param array $files The FILES parameters
          * @param array $server The SERVER parameters
-         * @return \Symfony\Component\HttpFoundation\Request The duplicated request
+         * @return static 
          * @static 
          */
         public static function duplicate($query = null, $request = null, $attributes = null, $cookies = null, $files = null, $server = null){
@@ -8757,7 +8784,7 @@ namespace {
         /**
          * Creates a new request with values from PHP's super globals.
          *
-         * @return \Symfony\Component\HttpFoundation\Request A new request
+         * @return static 
          * @static 
          */
         public static function createFromGlobals(){
@@ -8778,7 +8805,7 @@ namespace {
          * @param array $files The request files ($_FILES)
          * @param array $server The server parameters ($_SERVER)
          * @param string $content The raw body data
-         * @return \Symfony\Component\HttpFoundation\Request A Request instance
+         * @return static 
          * @static 
          */
         public static function create($uri, $method = 'GET', $parameters = array(), $cookies = array(), $files = array(), $server = array(), $content = null){
@@ -8871,6 +8898,7 @@ namespace {
          *  * Request::HEADER_CLIENT_HOST:  defaults to X-Forwarded-Host  (see getHost())
          *  * Request::HEADER_CLIENT_PORT:  defaults to X-Forwarded-Port  (see getPort())
          *  * Request::HEADER_CLIENT_PROTO: defaults to X-Forwarded-Proto (see getScheme() and isSecure())
+         *  * Request::HEADER_FORWARDED:    defaults to Forwarded         (see RFC 7239)
          * 
          * Setting an empty value allows to disable the trusted header for the given key.
          *
@@ -9503,12 +9531,26 @@ namespace {
         /**
          * Checks whether the method is safe or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
          * @return bool 
          * @static 
          */
         public static function isMethodSafe(){
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::isMethodSafe();
+        }
+        
+        /**
+         * Checks whether the method is cacheable or not.
+         *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
+         * @return bool 
+         * @static 
+         */
+        public static function isMethodCacheable(){
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::isMethodCacheable();
         }
         
         /**
@@ -9608,7 +9650,7 @@ namespace {
          * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
          *
-         * @link http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
+         * @see http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
          * @return bool true if the request is an XMLHttpRequest, false otherwise
          * @static 
          */
@@ -13044,290 +13086,6 @@ namespace {
     }
 
 
-    class Youtube extends \Itway\Services\Youtube\Facades\Youtube{
-        
-        /**
-         * 
-         *
-         * @param $vId
-         * @param array $part
-         * @return \StdClass 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getVideoInfo($vId, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getVideoInfo($vId, $part);
-        }
-        
-        /**
-         * * Gets popular videos for a specific region (ISO 3166-1 alpha-2)
-         *
-         * @param $regionCode
-         * @param int $maxResults
-         * @param array $part
-         * @return array 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getPopularVideos($regionCode, $maxResults = 10, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getPopularVideos($regionCode, $maxResults, $part);
-        }
-        
-        /**
-         * Simple search interface, this search all stuffs
-         * and order by relevance
-         *
-         * @param $q
-         * @param int $maxResults
-         * @return array 
-         * @static 
-         */
-        public static function search($q, $maxResults = 10, $part = array()){
-            return \Itway\Services\Youtube\Youtube::search($q, $maxResults, $part);
-        }
-        
-        /**
-         * Search only videos
-         *
-         * @param $q
-         * @param int $maxResults
-         * @param string $regionCode
-         * @param null $order
-         * @param array $part
-         * @return array 
-         * @static 
-         */
-        public static function searchVideos($q, $maxResults, $regionCode, $order = null, $part = array()){
-            return \Itway\Services\Youtube\Youtube::searchVideos($q, $maxResults, $regionCode, $order, $part);
-        }
-        
-        /**
-         * Search only videos in the channel
-         *
-         * @param string $q
-         * @param string $channelId
-         * @param integer $maxResults
-         * @param string $order
-         * @return object 
-         * @static 
-         */
-        public static function searchChannelVideos($q, $channelId, $maxResults = 10, $order = null, $part = array()){
-            return \Itway\Services\Youtube\Youtube::searchChannelVideos($q, $channelId, $maxResults, $order, $part);
-        }
-        
-        /**
-         * Generic Search interface, use any parameters specified in
-         * the API reference
-         *
-         * @param $params
-         * @param $pageInfo
-         * @return array 
-         * @throws \Exception
-         * @static 
-         */
-        public static function searchAdvanced($params, $pageInfo = false){
-            return \Itway\Services\Youtube\Youtube::searchAdvanced($params, $pageInfo);
-        }
-        
-        /**
-         * Generic Search Paginator, use any parameters specified in
-         * the API reference and pass through nextPageToken as $token if set.
-         *
-         * @param $params
-         * @param $token
-         * @return array 
-         * @static 
-         */
-        public static function paginateResults($params, $token = null){
-            return \Itway\Services\Youtube\Youtube::paginateResults($params, $token);
-        }
-        
-        /**
-         * 
-         *
-         * @param $username
-         * @return \StdClass 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getChannelByName($username, $optionalParams = false, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getChannelByName($username, $optionalParams, $part);
-        }
-        
-        /**
-         * 
-         *
-         * @param $id
-         * @return \StdClass 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getChannelById($id, $optionalParams = false, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getChannelById($id, $optionalParams, $part);
-        }
-        
-        /**
-         * 
-         *
-         * @param $channelId
-         * @param array $optionalParams
-         * @return array 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getPlaylistsByChannelId($channelId, $optionalParams = array(), $part = array()){
-            return \Itway\Services\Youtube\Youtube::getPlaylistsByChannelId($channelId, $optionalParams, $part);
-        }
-        
-        /**
-         * 
-         *
-         * @param $id
-         * @return \StdClass 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getPlaylistById($id, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getPlaylistById($id, $part);
-        }
-        
-        /**
-         * 
-         *
-         * @param $playlistId
-         * @return array 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getPlaylistItemsByPlaylistId($playlistId, $pageToken = false, $maxResults = 50, $part = array()){
-            return \Itway\Services\Youtube\Youtube::getPlaylistItemsByPlaylistId($playlistId, $pageToken, $maxResults, $part);
-        }
-        
-        /**
-         * 
-         *
-         * @param $channelId
-         * @return array 
-         * @throws \Exception
-         * @static 
-         */
-        public static function getActivitiesByChannelId($channelId, $part = array(), $maxResults = 5){
-            return \Itway\Services\Youtube\Youtube::getActivitiesByChannelId($channelId, $part, $maxResults);
-        }
-        
-        /**
-         * Parse a youtube URL to get the youtube Vid.
-         * 
-         * Support both full URL (www.youtube.com) and short URL (youtu.be)
-         *
-         * @param string $youtube_url
-         * @throws \Exception
-         * @return string Video Id
-         * @static 
-         */
-        public static function parseVIdFromURL($youtube_url){
-            return \Itway\Services\Youtube\Youtube::parseVIdFromURL($youtube_url);
-        }
-        
-        /**
-         * Get the channel object by supplying the URL of the channel page
-         *
-         * @param string $youtube_url
-         * @throws \Exception
-         * @return object Channel object
-         * @static 
-         */
-        public static function getChannelFromURL($youtube_url){
-            return \Itway\Services\Youtube\Youtube::getChannelFromURL($youtube_url);
-        }
-        
-        /**
-         * 
-         *
-         * @param $name
-         * @return mixed 
-         * @static 
-         */
-        public static function getApi($name){
-            return \Itway\Services\Youtube\Youtube::getApi($name);
-        }
-        
-        /**
-         * Decode the response from youtube, extract the single resource object.
-         * 
-         * (Don't use this to decode the response containing list of objects)
-         *
-         * @param string $apiData the api response from youtube
-         * @throws \Exception
-         * @return \StdClass an Youtube resource object
-         * @static 
-         */
-        public static function decodeSingle($apiData){
-            return \Itway\Services\Youtube\Youtube::decodeSingle($apiData);
-        }
-        
-        /**
-         * Decode the response from youtube, extract the multiple resource object.
-         *
-         * @param string $apiData the api response from youtube
-         * @throws \Exception
-         * @return \StdClass an Youtube resource object
-         * @static 
-         */
-        public static function decodeMultiple($apiData){
-            return \Itway\Services\Youtube\Youtube::decodeMultiple($apiData);
-        }
-        
-        /**
-         * Decode the response from youtube, extract the list of resource objects
-         *
-         * @param string $apiData response string from youtube
-         * @throws \Exception
-         * @return array Array of StdClass objects
-         * @static 
-         */
-        public static function decodeList($apiData){
-            return \Itway\Services\Youtube\Youtube::decodeList($apiData);
-        }
-        
-        /**
-         * Using CURL to issue a GET request
-         *
-         * @param $url
-         * @param $params
-         * @return mixed 
-         * @throws \Exception
-         * @static 
-         */
-        public static function api_get($url, $params){
-            return \Itway\Services\Youtube\Youtube::api_get($url, $params);
-        }
-        
-        /**
-         * Parse the input url string and return just the path part
-         *
-         * @param string $url the URL
-         * @return string the path string
-         * @static 
-         */
-        public static function _parse_url_path($url){
-            return \Itway\Services\Youtube\Youtube::_parse_url_path($url);
-        }
-        
-        /**
-         * Parse the input url string and return an array of query params
-         *
-         * @param string $url the URL
-         * @return array array of query params
-         * @static 
-         */
-        public static function _parse_url_query($url){
-            return \Itway\Services\Youtube\Youtube::_parse_url_query($url);
-        }
-        
-    }
-
-
     class Visitor extends \SourceQuartet\VisitorLog\VisitorLogFacade{
         
         /**
@@ -13550,6 +13308,18 @@ namespace {
          */
         public static function getList($sort = null){
             return \Webpatser\Countries\Countries::getList($sort);
+        }
+        
+        /**
+         * Returns a list of countries suitable to use with a select element in Laravelcollective\html
+         * Will show the value and sort by the column specified in the display attribute
+         *
+         * @param string  display
+         * @return array 
+         * @static 
+         */
+        public static function getListForSelect($display = 'name'){
+            return \Webpatser\Countries\Countries::getListForSelect($display);
         }
         
         /**
@@ -15955,6 +15725,9 @@ namespace {
          *
          * @param string $name
          * @param int $size
+         * @param string $background_color
+         * @param string $text_color
+         * @param string $font_file
          * @return \A6digital\Image\ImageManagerStatic 
          * @throws Exception
          * @static 

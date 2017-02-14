@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-08-14.
+    * Generated on 2017-02-14.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -51,7 +51,6 @@ namespace PHPSTORM_META {
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
-            'youtube' instanceof \Itway\Services\Youtube\Youtube,
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
@@ -59,6 +58,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -68,6 +68,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Permission' instanceof \Itway\Models\Permission,
             'Itway\Models\Role' instanceof \Itway\Models\Role,
             'Itway\Models\PollOptions' instanceof \Itway\Models\PollOptions,
+            'Itway\Models\SideBarCreator' instanceof \Itway\Models\SidebarCreator,
             'Itway\Models\UserCounter' instanceof \Itway\Models\UserCounter,
             'Itway\Repositories\UserRepository' instanceof \Itway\Repositories\UserRepositoryEloquent,
             'Itway\Repositories\PostRepository' instanceof \Itway\Repositories\PostRepositoryEloquent,
@@ -260,7 +261,6 @@ namespace PHPSTORM_META {
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
-            'youtube' instanceof \Itway\Services\Youtube\Youtube,
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
@@ -268,6 +268,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -277,6 +278,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Permission' instanceof \Itway\Models\Permission,
             'Itway\Models\Role' instanceof \Itway\Models\Role,
             'Itway\Models\PollOptions' instanceof \Itway\Models\PollOptions,
+            'Itway\Models\SideBarCreator' instanceof \Itway\Models\SidebarCreator,
             'Itway\Models\UserCounter' instanceof \Itway\Models\UserCounter,
             'Itway\Repositories\UserRepository' instanceof \Itway\Repositories\UserRepositoryEloquent,
             'Itway\Repositories\PostRepository' instanceof \Itway\Repositories\PostRepositoryEloquent,
@@ -469,7 +471,6 @@ namespace PHPSTORM_META {
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
-            'youtube' instanceof \Itway\Services\Youtube\Youtube,
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
@@ -477,6 +478,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -486,6 +488,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Permission' instanceof \Itway\Models\Permission,
             'Itway\Models\Role' instanceof \Itway\Models\Role,
             'Itway\Models\PollOptions' instanceof \Itway\Models\PollOptions,
+            'Itway\Models\SideBarCreator' instanceof \Itway\Models\SidebarCreator,
             'Itway\Models\UserCounter' instanceof \Itway\Models\UserCounter,
             'Itway\Repositories\UserRepository' instanceof \Itway\Repositories\UserRepositoryEloquent,
             'Itway\Repositories\PostRepository' instanceof \Itway\Repositories\PostRepositoryEloquent,
@@ -678,7 +681,6 @@ namespace PHPSTORM_META {
             'teamwork' instanceof \Itway\Components\teamwork\Teamwork\Teamwork,
             'active' instanceof \Itway\components\ActiveItem\Active,
             'Itway\Repositories\Auth\UserContract' instanceof \Itway\Repositories\Auth\EloquentUserRepository,
-            'youtube' instanceof \Itway\Services\Youtube\Youtube,
             'CodeZero\Mailer\Mailer' instanceof \CodeZero\Mailer\LaravelMailer,
             'visitor.repository' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorRepository,
             'visitor' instanceof \SourceQuartet\VisitorLog\Visitor\VisitorManager,
@@ -686,6 +688,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Post' instanceof \Itway\Models\Post,
             'Itway\Models\Team' instanceof \Itway\Models\Team,
             'Itway\Models\Event' instanceof \Itway\Models\Event,
+            'Itway\Models\Poll' instanceof \Itway\Models\Poll,
             'Itway\Models\OpenSourceIdea' instanceof \Itway\Models\OpenSourceIdea,
             'Itway\Models\Chat' instanceof \Itway\Models\Chat,
             'Itway\Models\TaskBoard' instanceof \Itway\Models\TaskBoard,
@@ -695,6 +698,7 @@ namespace PHPSTORM_META {
             'Itway\Models\Permission' instanceof \Itway\Models\Permission,
             'Itway\Models\Role' instanceof \Itway\Models\Role,
             'Itway\Models\PollOptions' instanceof \Itway\Models\PollOptions,
+            'Itway\Models\SideBarCreator' instanceof \Itway\Models\SidebarCreator,
             'Itway\Models\UserCounter' instanceof \Itway\Models\UserCounter,
             'Itway\Repositories\UserRepository' instanceof \Itway\Repositories\UserRepositoryEloquent,
             'Itway\Repositories\PostRepository' instanceof \Itway\Repositories\PostRepositoryEloquent,

@@ -12,7 +12,7 @@
         "intervention/imagecache": "~2.3.3",
         "barryvdh/laravel-ide-helper": "~2.0.6",
         "zizaco/entrust": "dev-laravel-5",
-        "predis/predis": "^1.0.3",
+        "predis/predis": "^1.1.8",
         "cviebrock/image-validator": "2.0.0",
         "codezero/mailer": "^1.0",
         "sourcequartet/visitor-log": "^0.1.2",
@@ -95,5 +95,7 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

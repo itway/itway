@@ -6,12 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
-    $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
-    $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     $vendorDir . '/symfony/polyfill-apcu/bootstrap.php',
+    $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
+    $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
     $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     $vendorDir . '/react/promise/src/functions_include.php',
+    $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     $vendorDir . '/symfony/polyfill-php56/bootstrap.php',
     $vendorDir . '/danielstjules/stringy/src/Create.php',
     $vendorDir . '/psy/psysh/src/Psy/functions.php',
@@ -19,10 +19,10 @@ return array(
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
-    $vendorDir . '/spatie/string/src/string_functions.php',
     $vendorDir . '/google/apiclient/src/Google/autoload.php',
     $vendorDir . '/arcanedev/support/constants.php',
     $vendorDir . '/arcanedev/support/helpers.php',
+    $vendorDir . '/spatie/string/src/string_functions.php',
     $vendorDir . '/illuminate/html/helpers.php',
     $vendorDir . '/arcanedev/log-viewer/constants.php',
     $vendorDir . '/arcanedev/log-viewer/helpers.php',

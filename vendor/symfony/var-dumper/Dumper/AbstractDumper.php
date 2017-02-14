@@ -82,13 +82,15 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
     public function setCharset($charset)
     {
         $prev = $this->charset;
-        $this->charsetConverter = 'fallback';
-
         $charset = strtoupper($charset);
         $charset = null === $charset || 'UTF-8' === $charset || 'UTF8' === $charset ? 'CP1252' : $charset;
 
+        if ($prev === $charset) {
+            return $prev;
+        }
+        $this->charsetConverter = 'fallback';
         $supported = true;
-        set_error_handler(function () use (&$supported) {$supported = false;});
+        set_error_handler(function () use (&$supported) { $supported = false; });
 
         if (function_exists('mb_encoding_aliases') && mb_encoding_aliases($charset)) {
             $this->charset = $charset;
@@ -166,8 +168,9 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
     /**
      * Generic line dumper callback.
      *
-     * @param string $line  The line to write
-     * @param int    $depth The recursive depth in the dumped structure
+     * @param string $line      The line to write
+     * @param int    $depth     The recursive depth in the dumped structure
+     * @param string $indentPad The line indent pad
      */
     protected function echoLine($line, $depth, $indentPad)
     {
@@ -190,7 +193,7 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
         }
         if ('iconv' === $this->charsetConverter) {
             $valid = true;
-            set_error_handler(function () use (&$valid) {$valid = false;});
+            set_error_handler(function () use (&$valid) { $valid = false; });
             $c = iconv($this->charset, 'UTF-8', $s);
             restore_error_handler();
             if ($valid) {
