@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65594d2627b54e3e3fbe92728f7ea669",
+    "content-hash": "062aeb45883765c376e1aff9571953c3",
     "packages": [
         {
             "name": "a6digital/laravel-default-profile-image",
@@ -5376,27 +5376,32 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v2.2.2",
+            "version": "v4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "f4e45f895d8707042c2d0698627d33c484e7c6ba"
+                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/f4e45f895d8707042c2d0698627d33c484e7c6ba",
-                "reference": "f4e45f895d8707042c2d0698627d33c484e7c6ba",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
+                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4",
-                "symfony/console": "~2.0 || ~3.0",
-                "symfony/process": "~2.0 || ~3.0"
+                "php": ">=5.5.9",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/process": "~2.3|~3.0"
             },
             "bin": [
                 "homestead"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Laravel\\Homestead\\": "src/"
@@ -5413,7 +5418,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2016-09-17T04:42:33+00:00"
+            "time": "2017-02-07T19:06:26+00:00"
         },
         {
             "name": "mockery/mockery",
