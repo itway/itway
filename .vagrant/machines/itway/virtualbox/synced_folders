@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/itway":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/itway","hostpath":"C:/Users/nilse/Desktop/itway","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/nilse/Desktop/itway","disabled":false,"__vagrantfile":true}}}

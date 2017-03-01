@@ -59,7 +59,7 @@
                     // Using "||" set icons align right.
                     return ["undo", "redo", "|", "bold", "hr", "|", "code-block", "code", "watch", "datetime", "link", "list-ol", "list-ul","del","italic", "quote", "||",  "fullscreen", "preview", "search"]
                 },
-                path : "http://www.itway.io/dist/vendor/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+                path : APP_URL+"/dist/vendor/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
             });
         });
     </script>

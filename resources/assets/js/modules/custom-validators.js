@@ -16,7 +16,7 @@
       }
     },
     githubLNK: function(url, opts) {
-      var _this, err, error, host, m, path;
+      var _this, err, host, m, path;
       _this = this;
       try {
         m = _this.githubLNKre(opts).exec(url.replace(/\.git(#.*)?$/, ''));

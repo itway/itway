@@ -30,12 +30,12 @@
         "laravel/socialite": "^2.0",
         "intervention/image": "^2.3",
         "spatie/laravel-analytics": "^1.2",
-        "nilsenj/toastr-5.1-laravel": "dev-master",
         "camroncade/timezone": "dev-master",
         "spatie/laravel-medialibrary": "^3.11",
         "arcanedev/log-viewer": "^3.7",
         "a6digital/laravel-default-profile-image": "^1.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "nilsenj/toastr-laravel": "dev-master"
 
     },
     "require-dev": {

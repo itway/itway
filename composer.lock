@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "062aeb45883765c376e1aff9571953c3",
+    "content-hash": "c0c94378359bb9b0817b4cb33b8aff05",
     "packages": [
         {
             "name": "a6digital/laravel-default-profile-image",
@@ -2689,17 +2689,17 @@
             "time": "2016-09-16T12:04:44+00:00"
         },
         {
-            "name": "nilsenj/toastr-5.1-laravel",
+            "name": "nilsenj/toastr-laravel",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nilsenj/toastr-5.1-laravel.git",
-                "reference": "fd6681000b55fb6b482a3ef21f22836d663cdbca"
+                "url": "https://github.com/nilsenj/toastr-laravel.git",
+                "reference": "796356bc856179edd43320edbc574f77b7e5d5bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nilsenj/toastr-5.1-laravel/zipball/fd6681000b55fb6b482a3ef21f22836d663cdbca",
-                "reference": "fd6681000b55fb6b482a3ef21f22836d663cdbca",
+                "url": "https://api.github.com/repos/nilsenj/toastr-laravel/zipball/796356bc856179edd43320edbc574f77b7e5d5bd",
+                "reference": "796356bc856179edd43320edbc574f77b7e5d5bd",
                 "shasum": ""
             },
             "require": {
@@ -2708,8 +2708,13 @@
                 "php": ">=5.4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "master": "1.1.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "nilsenj\\Toastr\\": "src/"
                 }
             },
@@ -2727,15 +2732,15 @@
                     "email": "nikoleivan@gmail.com"
                 }
             ],
-            "description": "toastr.js for Laravel 5.1/5.2 easy notification like growl for example",
-            "homepage": "https://github.com/nilsenj/toastr-5.1-laravel",
+            "description": "toastr.js for Laravel 5.* easy notification like growl for example",
+            "homepage": "https://github.com/nilsenj/toastr-laravel",
             "keywords": [
                 "laravel",
                 "notification",
                 "php",
                 "toastr"
             ],
-            "time": "2016-03-13T02:03:53+00:00"
+            "time": "2017-01-15 08:16:01"
         },
         {
             "name": "paragonie/random_compat",
@@ -6616,8 +6621,8 @@
         "landish/pagination": 20,
         "zizaco/entrust": 20,
         "webpatser/laravel-countries": 20,
-        "nilsenj/toastr-5.1-laravel": 20,
-        "camroncade/timezone": 20
+        "camroncade/timezone": 20,
+        "nilsenj/toastr-laravel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -10,7 +10,6 @@ namespace Itway\Traits;
 
 use Itway\Models\LikeCounter;
 use Itway\Models\Like;
-use Illuminate\Database\Eloquent\Model;
 
 trait Likeable {
 
@@ -75,7 +74,7 @@ trait Likeable {
      *
      * @return bool
      */
-    public function shouldLike(Model $likedBy)
+    public function shouldLike($likedBy)
     {
         if ($this->getLikedRecord($likedBy)) {
             return false;
@@ -95,7 +94,7 @@ trait Likeable {
      *
      * @return bool
      */
-    public function dislike(Model $likedBy)
+    public function dislike($likedBy)
     {
         if (!$like = $this->getLikedRecord($likedBy)) {
             return false;
@@ -114,7 +113,7 @@ trait Likeable {
      *
      * @return mixed
      */
-    public function scopeWhereLiked($query, Model $model)
+    public function scopeWhereLiked($query, $model)
     {
         return $query->whereHas('likes', function ($query) use ($model) {
             $query->where('liked_by_id', $model->id);
@@ -158,7 +157,7 @@ trait Likeable {
      *
      * @return mixed
      */
-    public function getLikedRecord(Model $model)
+    public function getLikedRecord($model)
     {
         return $this->likes()
             ->where('liked_by_id', $model->id)
@@ -185,7 +184,7 @@ trait Likeable {
      * @param Model $model
      * @return bool
      */
-    public function isLiked(Model $model)
+    public function isLiked($model)
     {
         if($model !== null) {
             return (bool)$this->likes()
