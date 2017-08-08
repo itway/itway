@@ -11,11 +11,12 @@ use RepositoryLab\Repository\Contracts\Transformable;
 use RepositoryLab\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use TagsCloud\Tagging\Taggable;
 
 class EventSpeakers extends Model implements Transformable, Likeable, HasMedia
 {
     use TransformableTrait;
-    use \Conner\Tagging\Taggable;
+    use Taggable;
     use \Itway\Traits\ViewCounterTrait;
     use LikeableTrait;
     use ImageTrait;
