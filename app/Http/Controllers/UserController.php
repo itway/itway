@@ -16,15 +16,39 @@ use Itway\Validation\User\UserPhotoRequest;
 use Itway\Validation\User\UserUpdateRequest;
 use nilsenj\Toastr\Facades\Toastr;
 
+/**
+ * Class UserController
+ * @package itway\Http\Controllers
+ */
 class UserController extends Controller
 {
 
+    /**
+     * @var UserRepository
+     */
     private $repository;
+    /**
+     * @var PostRepository
+     */
     private $postrepo;
+    /**
+     * @var CountryBuilder
+     */
     private $country;
+    /**
+     * @var EventRepository
+     */
     private $eventrepo;
 
-    public function __construct(UserRepository $repository, PostRepository $postrepo, CountryBuilder $country, EventRepository $eventrepo)
+    /**
+     * UserController constructor.
+     * @param UserRepository $repository
+     * @param PostRepository $postrepo
+     * @param CountryBuilder $country
+     * @param EventRepository $eventrepo
+     */
+    public function __construct(UserRepository $repository, PostRepository $postrepo,
+                                CountryBuilder $country, EventRepository $eventrepo)
     {
         $this->repository = $repository;
         $this->postrepo = $postrepo;
@@ -38,7 +62,8 @@ class UserController extends Controller
      */
     protected function redirectNotFound()
     {
-        return redirect()->to(App::getLocale() . '/user')->with(Toastr::error('User Not Found!', $title = 'the user might be deleted or banned', $options = []));
+        return redirect()->to(App::getLocale() . '/user')
+            ->with(Toastr::error('User Not Found!', $title = 'the user might be deleted or banned', $options = []));
     }
 
     /**
@@ -47,7 +72,8 @@ class UserController extends Controller
      */
     protected function redirectError()
     {
-        return redirect()->to(App::getLocale() . '/user/' . Auth::id())->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
+        return redirect()->to(App::getLocale() . '/user/' . Auth::id())
+            ->with(Toastr::error("Error appeared!", $title = Auth::user()->name, $options = []));
     }
 
     /**
@@ -113,6 +139,11 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function settings(Request $request, $id)
     {
         try {
@@ -126,12 +157,14 @@ class UserController extends Controller
             }
 
             $tags = $user->tagNames();
-            $countryBuilder = $this->country->buildCountrySelect('choose your country', isset($user->country) ? $user->country : null);
+            $countryBuilder = $this->country->buildCountrySelect('choose your country',
+                isset($user->country) ? $user->country : null);
             $countUserPosts = $this->postrepo->countUserPosts();
             $currentTeam = $user->currentTeam;
             $countUserEvents = $this->eventrepo->countUserEvents();
 
-            return view('user.user-settings', compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'countUserEvents', 'currentTeam'));
+            return view('user.user-settings',
+                compact('user', 'tags', 'owner', 'countUserPosts', 'countryBuilder', 'countUserEvents', 'currentTeam'));
 
         } catch (ModelNotFoundException $e) {
 
@@ -139,10 +172,15 @@ class UserController extends Controller
         }
     }
 
-    public function queryUser($query) {
-
-           return $this->repository->queryUserWithLogo($query);
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function queryUser($query)
+    {
+        return $this->repository->queryUserWithLogo($query);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -163,28 +201,22 @@ class UserController extends Controller
     {
         try {
             $user = User::findBySlugOrId($id);
-
             $taglist = $request->input('tags_list');
-
-            if (!empty($taglist)) {
-
+            if (!empty($taglist))
+            {
                 $user->retag($taglist);
             }
             $country = $request->input('country');
-
-            if (isset($country)) {
-
+            if (isset($country))
+            {
                 $this->repository->updateSettingsCountry($user, $country);
-
             }
             $user->update($request->all());
 
             return redirect()->back();
-
         } catch (ModelNotFoundException $e) {
 
             return $this->redirectNotFound();
-
         }
 
     }
@@ -200,6 +232,10 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * @param UserPhotoRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function userPhoto(UserPhotoRequest $request)
     {
 
@@ -208,26 +244,32 @@ class UserController extends Controller
         if (\Input::hasFile('photo')) {
             // upload image
             $image = \Input::file('photo');
-
             $user->bindLogoImage($image, $user);
-
             Toastr::info(trans('messages.yourPhotoUpdated'), $title = $user->name, $options = []);
 
             return redirect()->back();
+        } else {
 
-        } else return $this->redirectError();
-
+            return $this->redirectError();
+        }
     }
 
+    /**
+     * @param $username
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function banned($username)
     {
-
         return view('user.banned', compact('username'));
     }
 
+    /**
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function tags($slug)
     {
-        if(!Auth::guest()) {
+        if (!Auth::guest()) {
             $user = Auth::user();
             $users = User::withAnyTag([$slug])->paginate(8);
             $countUserPosts = $this->postrepo->countUserPosts();
@@ -235,8 +277,7 @@ class UserController extends Controller
             $countUserEvents = $this->eventrepo->countUserEvents();
 
             return view('pages.users', compact('users', 'countUserPosts', 'currentTeam', 'countUserEvents'));
-        }
-        else {
+        } else {
             Toastr::warning('You are not logged in', $title = 'please try login first');
             return redirect()->to('auth/login');
         }
