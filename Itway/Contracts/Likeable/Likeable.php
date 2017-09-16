@@ -45,14 +45,14 @@ interface Likeable {
      *
      * @return mixed
      */
-    public function shouldLike(Model $likedBy);
+    public function shouldLike($likedBy);
 
     /**
      * @param Model $likedBy
      *
      * @return mixed
      */
-    public function dislike(Model $likedBy);
+    public function dislike($likedBy);
 
     /**
      * @param $query
@@ -60,6 +60,6 @@ interface Likeable {
      *
      * @return mixed
      */
-    public function scopeWhereLiked($query, Model $model);
+    public function scopeWhereLiked($query, $model);
 
 }
